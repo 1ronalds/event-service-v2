@@ -30,10 +30,10 @@ FOREIGN KEY (organiser_id) REFERENCES user(user_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE attendance (
-id bigint(20) NOT NULL AUTO_INCREMENT,
+attendance_id bigint(20) NOT NULL AUTO_INCREMENT,
 event_id bigint(20) NOT NULL,
 user_id bigint NOT NULL,
-PRIMARY KEY (id),
+PRIMARY KEY (attendance_id),
 FOREIGN KEY (event_id) REFERENCES event(event_id),
 FOREIGN KEY (user_id) REFERENCES user(user_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
