@@ -8,10 +8,10 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring", uses = RoleMapStructImpl.class)
 public interface UserMapStruct {
 
-    @Mapping(source="roleDto", target="roleEntity")
+    @Mapping(source="role", target="roleEntity")
     UserEntity dtoToEntity(UserDto userDto);
 
-    @Mapping(source="roleEntity", target="roleDto")
+    @Mapping(source="roleEntity", target="role")
     UserDto entityToDto(UserEntity userEntity);
 
 

@@ -42,7 +42,7 @@ public class UserEntity {
     private String surname;
 
     @ManyToOne
-    @JoinColumn(name = "role_id")
+    @JoinColumn(name = "role")
     private RoleEntity roleEntity;
 
 }

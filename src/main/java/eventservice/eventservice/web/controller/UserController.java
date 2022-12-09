@@ -20,7 +20,7 @@ public class UserController {
 
     private final UserService service;
 
-    @GetMapping("/users/{user_name}")
+    @GetMapping("/users/{username}")
     public ResponseEntity<UserDto> findUserDetails(@PathVariable String username){
         return ResponseEntity.ok(service.findUserDetails(username));
     }
