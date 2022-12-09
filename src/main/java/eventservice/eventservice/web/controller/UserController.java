@@ -1,6 +1,7 @@
 package eventservice.eventservice.web.controller;
 
 import eventservice.eventservice.business.service.UserService;
+import eventservice.eventservice.model.RoleDto;
 import eventservice.eventservice.model.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -26,19 +27,20 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<Void> saveUser(@RequestBody UserDto user){
-
-        service.saveUser(user);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<UserDto> saveUser(@RequestBody UserDto user){
+        user.setRole(new RoleDto(2L, "user"));
+        return ResponseEntity.ok(service.saveUser(user));
     }
 
     @PutMapping("/users/{user_name}")
-    public ResponseEntity<Void> editUser(@RequestBody UserDto user, @PathVariable String username){
-        return null;
+    public ResponseEntity<Object> editUser(@RequestBody UserDto user, @PathVariable String username){
+        user.setRole(new RoleDto(2L, "user"));
+
+        return ResponseEntity.ok(service.editUser(user));
     }
 
     @DeleteMapping("/users/{user_name}")
-    public ResponseEntity<Void> deleteUser(@PathVariable String username){
+    public ResponseEntity<Object> deleteUser(@PathVariable String username){
         return null;
     }
 

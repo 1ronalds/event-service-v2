@@ -9,4 +9,5 @@ public interface RoleMapStruct {
 
     RoleDto entityToDto(RoleEntity roleEntity);
 
+    RoleEntity dtoToEntity(RoleDto roleDto);
 }

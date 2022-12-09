@@ -5,6 +5,8 @@ import eventservice.eventservice.model.UserDto;
 public interface UserService {
 
     UserDto findUserDetails(String username);
-    void saveUser(UserDto user);
+    UserDto saveUser(UserDto user);
+
+    UserDto editUser(UserDto user);
 
 }

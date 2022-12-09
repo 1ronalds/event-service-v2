@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class ErrorModel {
 
     private LocalDate timestamp;
-    private HttpStatus status;
+    private Integer status;
     private String errorMessage;
     private String message;
     private String path;
