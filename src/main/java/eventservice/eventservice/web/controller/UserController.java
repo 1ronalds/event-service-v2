@@ -26,8 +26,10 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<Void> createUser(@RequestBody UserDto user){
-        return null;
+    public ResponseEntity<Void> saveUser(@RequestBody UserDto user){
+
+        service.saveUser(user);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/users/{user_name}")
