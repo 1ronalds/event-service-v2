@@ -1,4 +1,4 @@
-use event_db;
+use eventdb;
 
 INSERT INTO type (type_id, type)
 VALUE ('1', 'public');
