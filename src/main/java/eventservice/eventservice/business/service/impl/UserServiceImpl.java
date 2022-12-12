@@ -1,6 +1,6 @@
 package eventservice.eventservice.business.service.impl;
 
-import eventservice.eventservice.business.handlers.UserNotFoundException;
+import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.mapper.UserMapStruct;
 import eventservice.eventservice.business.repository.UserRepository;
 import eventservice.eventservice.business.repository.model.UserEntity;
