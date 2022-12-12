@@ -28,31 +28,21 @@ public class EventEntity {
     @Column(name = "event_id")
     private Long id;
 
-    @NotNull
     @Column(name = "event_title")
-    @Size(max = 50)
     private String title;
 
-    @NotNull
     @Column(name = "event_description")
-    @Size(min = 50, max = 500)
     private String description;
 
-    @NotNull
     @Column(name = "event_location_country")
-    @Size(max = 25)
     private String country;
 
-    @NotNull
     @Column(name = "event_location_city")
-    @Size(max = 25)
     private String city;
 
-    @NotNull
     @Column(name = "max_attendance")
     private int maxAttendance;
 
-    @NotNull
     @Column(name = "event_datetime")
     private Date dateTime;
 
