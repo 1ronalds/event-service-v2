@@ -5,6 +5,8 @@ import eventservice.eventservice.model.RoleDto;
 import eventservice.eventservice.model.UserDto;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
@@ -29,19 +31,37 @@ public class UserController {
     private final UserService service;
 
 
-    @ApiOperation(value = "finds all details of specific user")
+    @ApiOperation(value = "Finds all details of specific user")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Request is successful"),
+            @ApiResponse(code = 500, message = "Internal Server error"),
+            @ApiResponse(code = 404, message = "User not found")
+    })
     @GetMapping("/users/{username}")
     public ResponseEntity<UserDto> findUserDetails(@ApiParam(value = "username") @PathVariable String username){
         log.info("findUserDetails controller method called with parameter username: {}", username);
         return ResponseEntity.ok(service.findUserDetails(username));
     }
 
+    @ApiOperation(value = "Create new user")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Request is successful"),
+            @ApiResponse(code = 500, message = "Internal Server error"),
+            @ApiResponse(code = 400, message = "Invalid request body")
+    })
     @PostMapping("/users")
     public ResponseEntity<UserDto> saveUser(@Valid @ApiParam(value = "UserDto") @RequestBody UserDto user){
         log.info("saveUser controller method called with request body: {}", user);
         return ResponseEntity.ok(service.saveUser(user));
     }
 
+    @ApiOperation(value = "Edit user details")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Request is successful"),
+            @ApiResponse(code = 500, message = "Internal Server error"),
+            @ApiResponse(code = 404, message = "User not found"),
+            @ApiResponse(code = 400, message = "Invalid request body")
+    })
     @PutMapping("/users/{username}")
     public ResponseEntity<UserDto> editUser(@Valid @ApiParam(value = "username") @PathVariable String username,
                                             @ApiParam(value="userDto") @RequestBody UserDto user){
@@ -49,6 +69,12 @@ public class UserController {
         return ResponseEntity.ok(service.editUser(user, username));
     }
 
+    @ApiOperation(value = "Delete user")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Request is successful"),
+            @ApiResponse(code = 500, message = "Internal Server error"),
+            @ApiResponse(code = 404, message = "User not found"),
+    })
     @DeleteMapping("/users/{username}")
     public ResponseEntity<Void> deleteUser(@ApiParam(value="username") @PathVariable String username){
         log.info("deleteUser controller method called with parameter username: {}", username);

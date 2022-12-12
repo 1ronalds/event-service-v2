@@ -28,7 +28,7 @@ public class UserDto {
 
     @NotNull
     @Size(min = 8, max = 20, message="Password has to be 8-20 characters long")
-    //@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @NotNull
