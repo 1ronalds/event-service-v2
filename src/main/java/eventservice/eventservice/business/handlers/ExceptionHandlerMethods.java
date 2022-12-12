@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class ExceptionHandlerMethods {
     @ExceptionHandler(DateIntervalNotSpecifiedException.class)
     protected ResponseEntity<ErrorModel> handleDateIntervalNotSpecified(Exception ex, HttpServletRequest request) {
-        ErrorModel errorModel = new ErrorModel(LocalDate.now(), HttpStatus.BAD_REQUEST,
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
                 "Bad request", "Date interval not specified (date_from or date_to is null)", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
