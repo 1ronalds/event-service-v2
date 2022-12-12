@@ -1,6 +1,8 @@
 package eventservice.eventservice.business.service.impl;
 
+import eventservice.eventservice.business.handlers.exceptions.EmailExistsException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
+import eventservice.eventservice.business.handlers.exceptions.UsernameExistsException;
 import eventservice.eventservice.business.mapper.UserMapStruct;
 import eventservice.eventservice.business.repository.UserRepository;
 import eventservice.eventservice.business.repository.model.UserEntity;
@@ -25,7 +27,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void saveUser(UserDto user) {
-        repository.save(mapper.dtoToEntity(user));
+    public UserDto saveUser(UserDto user){
+        if(repository.findByUsername(user.getUsername()).isPresent()){
+            throw new UsernameExistsException();
+        } else if (repository.findByEmail(user.getEmail()).isPresent()) {
+            throw new EmailExistsException();
+        } else {
+            return mapper.entityToDto(repository.save(mapper.dtoToEntity(user)));
+        }
     }
+
+    @Override
+    public UserDto editUser(UserDto user){
+        if(repository.findByUsername(user.getUsername()).isPresent()){
+            user.setId(repository.findByUsername(user.getUsername()).get().getId());
+            return mapper.entityToDto(repository.save(mapper.dtoToEntity(user)));
+        } else {
+            throw new UserNotFoundException();
+        }
+
+    }
+
 }
