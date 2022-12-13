@@ -6,12 +6,14 @@ import eventservice.eventservice.business.repository.EventRepository;
 import eventservice.eventservice.business.service.EventService;
 import eventservice.eventservice.model.EventDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Log4j2
 @Service
 @RequiredArgsConstructor
 public class EventServiceImpl implements EventService {
@@ -21,8 +23,12 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<EventDto> findAllPublicEvents(String country, String city, Date dateFrom, Date dateTo) {
+        log.info("findAllPublicEvents service method called");
         if (city == null) {
+            log.info("findAllPublicEvents service method parameter city is null");
             if (dateFrom != null && dateTo != null) {
+                log.info("findAllPublicEvents service method parameters dateFrom, dateTo are not null, " +
+                        "dateFrom: {}, dateTo: {}", dateFrom, dateTo);
                 //search by country and date
                 return eventRepository.findAllByCountryAndTypeTypeAndDateTimeBetween(country, "public", dateFrom, dateTo)
                         .stream()
@@ -30,6 +36,7 @@ public class EventServiceImpl implements EventService {
                         .collect(Collectors.toList());
             }
             if (dateFrom == null && dateTo == null) {
+                log.info("findAllPublicEvents service method parameters dateFrom, dateTo are null");
                 // search by country
                 return eventRepository.findAllByCountryAndTypeType(country, "public")
                         .stream()
@@ -37,7 +44,10 @@ public class EventServiceImpl implements EventService {
                         .collect(Collectors.toList());
             }
         } else {
+            log.info("findAllPublicEvents service method parameter city is not null");
             if (dateFrom != null && dateTo != null) {
+                log.info("findAllPublicEvents service method parameters dateFrom, dateTo are not null, " +
+                        "dateFrom: {}, dateTo: {}", dateFrom, dateTo);
                 //search by country and city and date
                 return eventRepository.findAllByCountryAndTypeTypeAndCityAndDateTimeBetween(country, "public", city, dateFrom, dateTo)
                         .stream()
@@ -45,6 +55,7 @@ public class EventServiceImpl implements EventService {
                         .collect(Collectors.toList());
             }
             if (dateFrom == null && dateTo == null) {
+                log.info("findAllPublicEvents service method parameters dateFrom, dateTo are null");
                 // search by country and city
                 return eventRepository.findAllByCountryAndTypeTypeAndCity(country, "public", city)
                         .stream()
@@ -52,12 +63,9 @@ public class EventServiceImpl implements EventService {
                         .collect(Collectors.toList());
             }
         }
+        log.info("findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, " +
+                "dateFrom: {}, dateTo: {}", dateFrom, dateTo);
         // either dateFrom or dateTo is null
         throw new DateIntervalNotSpecifiedException();
-    }
-
-    @Override
-    public List<EventDto> findAll() {
-        return eventRepository.findAll().stream().map(mapper::entityToDto).collect(Collectors.toList());
     }
 }

@@ -8,6 +8,4 @@ import java.util.List;
 
 public interface EventService {
     List<EventDto> findAllPublicEvents(String country, String city, Date dateFrom, Date dateTo);
-
-    List<EventDto> findAll();
 }

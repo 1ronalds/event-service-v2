@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 import java.util.List;
-
+@Log4j2
 @Controller
 @RequiredArgsConstructor
 @RequestMapping(value = "/v1")
@@ -37,6 +38,8 @@ public class EventController {
                                                                   @RequestParam(name = "date_from", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateFrom,
                                                               @ApiParam(value = "The date to which events will take place")
                                                                   @RequestParam(name = "date_to", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateTo){
+        log.info("findAllPublicEvents controller method called with parameters " +
+                "country: {}, city: {}, date_from: {}, date_to: {} ", country, city, dateFrom, dateTo);
         return ResponseEntity.ok(eventService.findAllPublicEvents(country, city, dateFrom, dateTo));
     }
 }
