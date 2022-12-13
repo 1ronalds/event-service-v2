@@ -129,6 +129,8 @@ public class UserServiceUnitTest {
         assertThrows(UserNotFoundException.class, () -> service.editUser(userDto, username));
     }
 
+    // deleteUser() tests
+
     @Test
     void deleteUser() throws Exception {
         Mockito.doReturn(userDto).when(service).findUserDetails(username);
