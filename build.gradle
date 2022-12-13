@@ -41,6 +41,7 @@ dependencies {
 	testImplementation 'org.mockito:mockito-inline:4.8.0:'
 	testImplementation 'org.mockito:mockito-junit-jupiter:4.8.0'
 	testImplementation 'junit:junit:4.13.2'
+	testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
 }
 
 configurations {
