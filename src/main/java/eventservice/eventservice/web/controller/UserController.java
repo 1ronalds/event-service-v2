@@ -63,8 +63,8 @@ public class UserController {
             @ApiResponse(code = 400, message = "Invalid request body")
     })
     @PutMapping("/users/{username}")
-    public ResponseEntity<UserDto> editUser(@Valid @ApiParam(value = "username") @PathVariable String username,
-                                            @ApiParam(value="userDto") @RequestBody UserDto user){
+    public ResponseEntity<UserDto> editUser(@ApiParam(value = "username") @PathVariable String username,
+                                            @Valid @ApiParam(value="userDto") @RequestBody UserDto user){
         log.info("editUser controller method called with parameter username: {} and request body: {}", username, user);
         return ResponseEntity.ok(service.editUser(user, username));
     }
