@@ -30,7 +30,6 @@ public class UserController {
 
     private final UserService service;
 
-
     @ApiOperation(value = "Finds all details of specific user")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Request is successful"),

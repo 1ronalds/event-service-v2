@@ -50,5 +50,4 @@ public class ExceptionHandlerMethods {
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
-
 }

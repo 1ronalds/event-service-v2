@@ -205,4 +205,5 @@ public class UserIntegrationTest {
 
         mockMvc.perform(delete("/v1/users/nonexistent")).andExpect(status().isNotFound());
     }
+
 }
