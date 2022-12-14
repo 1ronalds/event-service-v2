@@ -22,6 +22,11 @@ public class UserServiceImpl implements UserService {
     private final UserRepository repository;
     private final UserMapStruct mapper;
 
+    /**
+     * requests from database and returns user details by username
+     * @param username
+     * @return UserDto
+     */
     @Override
     public UserDto findUserDetails(String username){
         log.info("findUserDetails service method called");
@@ -30,6 +35,11 @@ public class UserServiceImpl implements UserService {
         return userDetailsEntity.map(mapper::entityToDto).orElseThrow(UserNotFoundException::new);
     }
 
+    /**
+     * saves in database new user
+     * @param user
+     * @return UserDto
+     */
     @Override
     public UserDto saveUser(UserDto user){
         log.info("saveUser service method called");
@@ -45,6 +55,12 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     * saves edits of user information to database
+     * @param user
+     * @param username
+     * @return UserDto
+     */
     @Override
     public UserDto editUser(UserDto user, String username){
         log.info("editUser service method called");
@@ -59,6 +75,10 @@ public class UserServiceImpl implements UserService {
         return mapper.entityToDto(repository.save(mapper.dtoToEntity(user)));
     }
 
+    /**
+     * deletes user from database by username
+     * @param username
+     */
     @Override
     public void deleteUser(String username){
         log.info("deleteUser service method called");
