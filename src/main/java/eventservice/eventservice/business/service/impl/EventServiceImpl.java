@@ -4,7 +4,7 @@ import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpe
 import eventservice.eventservice.business.mapper.EventMapStruct;
 import eventservice.eventservice.business.repository.EventRepository;
 import eventservice.eventservice.business.service.EventService;
-import eventservice.eventservice.model.EventDto;
+import eventservice.eventservice.model.EventMinimalDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class EventServiceImpl implements EventService {
     private final EventMapStruct mapper;
 
     @Override
-    public List<EventDto> findAllPublicEvents(String country, String city, Date dateFrom, Date dateTo) {
+    public List<EventMinimalDto> findAllPublicEvents(String country, String city, Date dateFrom, Date dateTo) {
         log.info("findAllPublicEvents service method called");
         if (city == null) {
             log.info("findAllPublicEvents service method parameter city is null");
@@ -32,7 +32,7 @@ public class EventServiceImpl implements EventService {
                 //search by country and date
                 return eventRepository.findAllByCountryAndTypeTypeAndDateTimeBetween(country, "public", dateFrom, dateTo)
                         .stream()
-                        .map(mapper::entityToDto)
+                        .map(mapper::entityToMinimalDto)
                         .collect(Collectors.toList());
             }
             if (dateFrom == null && dateTo == null) {
@@ -40,7 +40,7 @@ public class EventServiceImpl implements EventService {
                 // search by country
                 return eventRepository.findAllByCountryAndTypeType(country, "public")
                         .stream()
-                        .map(mapper::entityToDto)
+                        .map(mapper::entityToMinimalDto)
                         .collect(Collectors.toList());
             }
         } else {
@@ -51,7 +51,7 @@ public class EventServiceImpl implements EventService {
                 //search by country and city and date
                 return eventRepository.findAllByCountryAndTypeTypeAndCityAndDateTimeBetween(country, "public", city, dateFrom, dateTo)
                         .stream()
-                        .map(mapper::entityToDto)
+                        .map(mapper::entityToMinimalDto)
                         .collect(Collectors.toList());
             }
             if (dateFrom == null && dateTo == null) {
@@ -59,7 +59,7 @@ public class EventServiceImpl implements EventService {
                 // search by country and city
                 return eventRepository.findAllByCountryAndTypeTypeAndCity(country, "public", city)
                         .stream()
-                        .map(mapper::entityToDto)
+                        .map(mapper::entityToMinimalDto)
                         .collect(Collectors.toList());
             }
         }

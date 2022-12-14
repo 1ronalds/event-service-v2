@@ -9,6 +9,7 @@ import eventservice.eventservice.business.repository.model.RoleEntity;
 import eventservice.eventservice.business.repository.model.UserEntity;
 import eventservice.eventservice.business.service.impl.EventServiceImpl;
 import eventservice.eventservice.model.EventDto;
+import eventservice.eventservice.model.EventMinimalDto;
 import eventservice.eventservice.model.EventTypeDto;
 import eventservice.eventservice.model.RoleDto;
 import eventservice.eventservice.model.UserDto;
@@ -38,11 +39,11 @@ public class EventServiceTest {
     @InjectMocks
     EventServiceImpl service;
 
-    EventDto eventDto1;
-    EventDto eventDto2;
-    EventDto eventDto3;
-    EventDto eventDto4;
-    EventDto eventDto5;
+    EventMinimalDto eventDto1;
+    EventMinimalDto eventDto2;
+    EventMinimalDto eventDto3;
+    EventMinimalDto eventDto4;
+    EventMinimalDto eventDto5;
 
     EventEntity eventEntity1;
     EventEntity eventEntity2;
@@ -54,25 +55,16 @@ public class EventServiceTest {
     void init(){
         MockitoAnnotations.openMocks(this);
 
-        RoleDto roleDto = new RoleDto(2L, "user");
-        UserDto userDto = new UserDto(1L, "User", "user@gmail.com", "password", "John", "Doe", roleDto);
-        EventTypeDto publicTypeDto = new EventTypeDto(1L, "public");
-        EventTypeDto privateTypeDto = new EventTypeDto(2L, "private");
-        eventDto1 = new EventDto(1L, "Bicycling contest", "A contest of bicycling free to watch and participate", "Latvia",
-                "Riga", 300, Date.valueOf("2021-12-13"), 1, userDto, publicTypeDto);
+        eventDto1 = new EventMinimalDto(1L, "Bicycling contest");
 
-        eventDto2 = new EventDto(2L, "Theatre", "Everyone will be amazed watching this theatre","Latvia",
-                "Venstspils", 300, Date.valueOf("2023-12-13"), 1, userDto, privateTypeDto);
+        eventDto2 = new EventMinimalDto(2L, "Theatre");
 
-        eventDto3 = new EventDto(3L, "Marathon",
-                "Running is good for your health, so join us in this 7km marathon", "Lithuania",
-                "Vilnius", 300, Date.valueOf("2022-12-13"), 1, userDto, publicTypeDto);
+        eventDto3 = new EventMinimalDto(3L, "Marathon");
 
-        eventDto4 = new EventDto(4L, "TestEvent", "TestEvent","Latvia",
-                "Riga", 300, Date.valueOf("2023-12-13"), 1, userDto, publicTypeDto);
+        eventDto4 = new EventMinimalDto(4L, "TestEvent");
 
-        eventDto5 = new EventDto(5L, "TestEvent", "TestEvent","Latvia",
-                "Ventspils", 300, Date.valueOf("2023-12-13"), 1, userDto, publicTypeDto);
+        eventDto5 = new EventMinimalDto(5L, "TestEvent");
+
         RoleEntity roleEntity = new RoleEntity(2L, "user");
 
         UserEntity userEntity = new UserEntity(1L, "User", "user@gmail.com", "password", "John", "Doe", roleEntity);
@@ -100,14 +92,11 @@ public class EventServiceTest {
      void findAllPublicEvents_OnlyCountrySpecified_Found(){
         String country = "Latvia";
         Mockito.when(repository.findAllByCountryAndTypeType(country, "public")).thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
-        Mockito.when(mapper.entityToDto(eventEntity1)).thenReturn(eventDto1);
-        Mockito.when((mapper.dtoToEntity(eventDto1))).thenReturn(eventEntity1);
-        Mockito.when(mapper.entityToDto(eventEntity4)).thenReturn(eventDto4);
-        Mockito.when((mapper.dtoToEntity(eventDto4))).thenReturn(eventEntity4);
-        Mockito.when(mapper.entityToDto(eventEntity5)).thenReturn(eventDto5);
-        Mockito.when((mapper.dtoToEntity(eventDto5))).thenReturn(eventEntity5);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
 
-        List<EventDto> results = service.findAllPublicEvents(country, null, null, null);
+        List<EventMinimalDto> results = service.findAllPublicEvents(country, null, null, null);
         assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
 
     }
@@ -116,10 +105,9 @@ public class EventServiceTest {
     void findAllPublicEvents_OnlyCountrySpecified_NotFound(){
         String country = "Sweden";
         Mockito.when(repository.findAllByCountryAndTypeType(country, "public")).thenReturn(Collections.emptyList());
-        Mockito.when(mapper.entityToDto(eventEntity1)).thenReturn(eventDto1);
-        Mockito.when((mapper.dtoToEntity(eventDto1))).thenReturn(eventEntity1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
 
-        List<EventDto> results = service.findAllPublicEvents(country, null, null, null);
+        List<EventMinimalDto> results = service.findAllPublicEvents(country, null, null, null);
         assertEquals(Collections.emptyList(), results);
     }
 
@@ -128,12 +116,10 @@ public class EventServiceTest {
         String country = "Latvia";
         String city = "Riga";
         Mockito.when(repository.findAllByCountryAndTypeTypeAndCity(country, "public", city)).thenReturn(List.of(eventEntity1, eventEntity4));
-        Mockito.when(mapper.entityToDto(eventEntity1)).thenReturn(eventDto1);
-        Mockito.when((mapper.dtoToEntity(eventDto1))).thenReturn(eventEntity1);
-        Mockito.when(mapper.entityToDto(eventEntity4)).thenReturn(eventDto4);
-        Mockito.when((mapper.dtoToEntity(eventDto4))).thenReturn(eventEntity4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
 
-        List<EventDto> results = service.findAllPublicEvents(country, city, null, null);
+        List<EventMinimalDto> results = service.findAllPublicEvents(country, city, null, null);
         assertEquals(List.of(eventDto1, eventDto4), results);
 
 
@@ -146,7 +132,7 @@ public class EventServiceTest {
         Mockito.when(repository.findAllByCountryAndTypeTypeAndCity(country, "public", city))
                 .thenReturn(Collections.emptyList());
 
-        List<EventDto> results = service.findAllPublicEvents(country, city, null, null);
+        List<EventMinimalDto> results = service.findAllPublicEvents(country, city, null, null);
         assertEquals(Collections.emptyList(), results);
     }
 
@@ -157,14 +143,11 @@ public class EventServiceTest {
         Date dateTo = Date.valueOf("2024-11-12");
         Mockito.when(repository.findAllByCountryAndTypeTypeAndDateTimeBetween(country, "public", dateFrom, dateTo))
                 .thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
-        Mockito.when(mapper.entityToDto(eventEntity1)).thenReturn(eventDto1);
-        Mockito.when((mapper.dtoToEntity(eventDto1))).thenReturn(eventEntity1);
-        Mockito.when(mapper.entityToDto(eventEntity4)).thenReturn(eventDto4);
-        Mockito.when((mapper.dtoToEntity(eventDto4))).thenReturn(eventEntity4);
-        Mockito.when(mapper.entityToDto(eventEntity5)).thenReturn(eventDto5);
-        Mockito.when((mapper.dtoToEntity(eventDto5))).thenReturn(eventEntity5);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
 
-        List<EventDto> results = service.findAllPublicEvents(country, null, dateFrom, dateTo);
+        List<EventMinimalDto> results = service.findAllPublicEvents(country, null, dateFrom, dateTo);
         assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
     }
 
@@ -176,7 +159,7 @@ public class EventServiceTest {
         Mockito.when(repository.findAllByCountryAndTypeTypeAndDateTimeBetween(country, "public", dateFrom, dateTo))
                 .thenReturn(Collections.emptyList());
 
-        List<EventDto> results = service.findAllPublicEvents(country, null, dateFrom, dateTo);
+        List<EventMinimalDto> results = service.findAllPublicEvents(country, null, dateFrom, dateTo);
         assertEquals(Collections.emptyList(), results);
     }
 
@@ -189,12 +172,10 @@ public class EventServiceTest {
 
         Mockito.when(repository.findAllByCountryAndTypeTypeAndCityAndDateTimeBetween(country, "public", city, dateFrom, dateTo))
                 .thenReturn(List.of(eventEntity1, eventEntity4));
-        Mockito.when(mapper.entityToDto(eventEntity1)).thenReturn(eventDto1);
-        Mockito.when((mapper.dtoToEntity(eventDto1))).thenReturn(eventEntity1);
-        Mockito.when(mapper.entityToDto(eventEntity4)).thenReturn(eventDto4);
-        Mockito.when((mapper.dtoToEntity(eventDto4))).thenReturn(eventEntity4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
 
-        List<EventDto> results = service.findAllPublicEvents(country, city, dateFrom, dateTo);
+        List<EventMinimalDto> results = service.findAllPublicEvents(country, city, dateFrom, dateTo);
         assertEquals(List.of(eventDto1, eventDto4), results);
     }
 
@@ -208,7 +189,7 @@ public class EventServiceTest {
         Mockito.when(repository.findAllByCountryAndTypeTypeAndCityAndDateTimeBetween(country, "public", city, dateFrom, dateTo))
                 .thenReturn(Collections.emptyList());
 
-        List<EventDto> results = service.findAllPublicEvents(country, city, dateFrom, dateTo);
+        List<EventMinimalDto> results = service.findAllPublicEvents(country, city, dateFrom, dateTo);
         assertEquals(Collections.emptyList(), results);
     }
 

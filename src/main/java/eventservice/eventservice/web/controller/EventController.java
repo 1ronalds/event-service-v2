@@ -1,7 +1,7 @@
 package eventservice.eventservice.web.controller;
 
 import eventservice.eventservice.business.service.EventService;
-import eventservice.eventservice.model.EventDto;
+import eventservice.eventservice.model.EventMinimalDto;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
@@ -30,13 +30,13 @@ public class EventController {
             @ApiResponse(code = 400, message = "Missed required parameters, parameters not valid")
     })
     @GetMapping(value = "/events")
-    public ResponseEntity<List<EventDto>> findAllPublicEvents(@ApiParam(value = "country, where the event will take place", required = true)
+    public ResponseEntity<List<EventMinimalDto>> findAllPublicEvents(@ApiParam(value = "country, where the event will take place", required = true)
                                                                   @RequestParam(name = "country") String country,
-                                                              @ApiParam(value = "city, where the event will take place")
+                                                                     @ApiParam(value = "city, where the event will take place")
                                                                   @RequestParam(name = "city", required = false) String city,
-                                                              @ApiParam(value = "The date from which events will take place")
+                                                                     @ApiParam(value = "The date from which events will take place")
                                                                   @RequestParam(name = "date_from", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateFrom,
-                                                              @ApiParam(value = "The date to which events will take place")
+                                                                     @ApiParam(value = "The date to which events will take place")
                                                                   @RequestParam(name = "date_to", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateTo){
         log.info("findAllPublicEvents controller method called with parameters " +
                 "country: {}, city: {}, date_from: {}, date_to: {} ", country, city, dateFrom, dateTo);
