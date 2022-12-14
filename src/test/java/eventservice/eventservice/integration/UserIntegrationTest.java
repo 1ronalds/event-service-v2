@@ -30,7 +30,9 @@ public class UserIntegrationTest {
     String username;
 
     @BeforeEach
-    void init() {
+    void init() throws Exception {
+        mockMvc.perform(delete("/v1/users/User111"));
+
         RoleDto roleDto = new RoleDto(2L, "user");
         userDto = new UserDto(1L, "User111", "user@user.com", "password123", "Adam", "Leo", roleDto);
         username = "User111";

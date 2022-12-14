@@ -34,14 +34,13 @@ public class UserServiceImpl implements UserService {
     public UserDto saveUser(UserDto user){
         log.info("saveUser service method called");
 
-        user.setRole(new RoleDto(2L, "user"));
-
         //Invalid input exceptions are thrown in ExceptionHandlerMethods
         if(repository.findByUsername(user.getUsername()).isPresent()){
             throw new UsernameExistsException();
         } else if (repository.findByEmail(user.getEmail()).isPresent()) {
             throw new EmailExistsException();
         } else {
+            user.setRole(new RoleDto(2L, "user"));
             return mapper.entityToDto(repository.save(mapper.dtoToEntity(user)));
         }
     }
