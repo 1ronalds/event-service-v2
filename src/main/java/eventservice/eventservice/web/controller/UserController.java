@@ -3,6 +3,7 @@ package eventservice.eventservice.web.controller;
 import eventservice.eventservice.business.service.UserService;
 import eventservice.eventservice.model.RoleDto;
 import eventservice.eventservice.model.UserDto;
+import eventservice.eventservice.swagger.HTTPResponseMessages;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
@@ -32,9 +33,9 @@ public class UserController {
 
     @ApiOperation(value = "Finds all details of specific user")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Request is successful"),
-            @ApiResponse(code = 500, message = "Internal Server error"),
-            @ApiResponse(code = 404, message = "User not found")
+            @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
+            @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500),
+            @ApiResponse(code = 404, message = HTTPResponseMessages.HTTP_404)
     })
     @GetMapping("/users/{username}")
     public ResponseEntity<UserDto> findUserDetails(@ApiParam(value = "username") @PathVariable String username){
@@ -44,9 +45,9 @@ public class UserController {
 
     @ApiOperation(value = "Create new user")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Request is successful"),
-            @ApiResponse(code = 500, message = "Internal Server error"),
-            @ApiResponse(code = 400, message = "Invalid request body")
+            @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
+            @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500),
+            @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400)
     })
     @PostMapping("/users")
     public ResponseEntity<UserDto> saveUser(@Valid @ApiParam(value = "UserDto") @RequestBody UserDto user){
@@ -56,10 +57,10 @@ public class UserController {
 
     @ApiOperation(value = "Edit user details")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Request is successful"),
-            @ApiResponse(code = 500, message = "Internal Server error"),
-            @ApiResponse(code = 404, message = "User not found"),
-            @ApiResponse(code = 400, message = "Invalid request body")
+            @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
+            @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500),
+            @ApiResponse(code = 404, message = HTTPResponseMessages.HTTP_404),
+            @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400)
     })
     @PutMapping("/users/{username}")
     public ResponseEntity<UserDto> editUser(@ApiParam(value = "username") @PathVariable String username,
@@ -70,9 +71,9 @@ public class UserController {
 
     @ApiOperation(value = "Delete user")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Request is successful"),
-            @ApiResponse(code = 500, message = "Internal Server error"),
-            @ApiResponse(code = 404, message = "User not found"),
+            @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
+            @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500),
+            @ApiResponse(code = 404, message = HTTPResponseMessages.HTTP_404)
     })
     @DeleteMapping("/users/{username}")
     public ResponseEntity<Void> deleteUser(@ApiParam(value="username") @PathVariable String username){

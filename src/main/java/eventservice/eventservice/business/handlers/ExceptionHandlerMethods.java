@@ -4,6 +4,7 @@ import eventservice.eventservice.business.handlers.exceptions.EmailExistsExcepti
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.UsernameExistsException;
 import org.apache.tomcat.util.buf.StringUtils;
+import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -47,6 +48,13 @@ public class ExceptionHandlerMethods {
 
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
                 "Bad request", errors, request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ConversionFailedException.class)
+    protected ResponseEntity<ErrorModel> handleEnumConflict(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
+                "Bad request", "Invalid date", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 

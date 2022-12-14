@@ -41,6 +41,9 @@ public class UserServiceUnitTest {
     String username;
     String email;
     UserEntity userEntity;
+    RoleDto roleDto;
+    RoleEntity roleEntity;
+    UserDto response;
 
     @BeforeEach
     void init(){
@@ -62,7 +65,7 @@ public class UserServiceUnitTest {
         Mockito.when(mapper.entityToDto(userEntity)).thenReturn(userDto);
         Mockito.when(mapper.dtoToEntity(userDto)).thenReturn(userEntity);
 
-        UserDto response = service.findUserDetails(username);
+        response = service.findUserDetails(username);
         assertEquals(userDto, response);
     }
 
@@ -83,7 +86,7 @@ public class UserServiceUnitTest {
         Mockito.when(mapper.entityToDto(userEntity)).thenReturn(userDto);
         Mockito.when(mapper.dtoToEntity(userDto)).thenReturn(userEntity);
 
-        UserDto response = service.saveUser(userDto);
+        response = service.saveUser(userDto);
         Mockito.verify(repository, times(1)).save(userEntity);
         assertEquals(userDto, response);
     }
@@ -107,9 +110,7 @@ public class UserServiceUnitTest {
 
     @Test
     void editUser() throws Exception {
-        RoleDto roleDto = new RoleDto(1L, "admin");
         UserDto editDto = new UserDto(1L, "AdminUserEdit", "admin@admin.com", "password123", "Adam", "Leo", roleDto);
-        RoleEntity roleEntity = new RoleEntity(1L, "admin");
         UserEntity editEntity = new UserEntity(1L, "AdminUserEdit", "admin@admin.com", "password123", "Adam", "Leo", roleEntity);
 
         Mockito.doReturn(userDto).when(service).findUserDetails(username);
