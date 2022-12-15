@@ -23,7 +23,15 @@ import java.util.List;
 @RequestMapping(value = "/v1")
 public class EventController {
     private final EventService eventService;
-
+    /**
+     * Finds all public events based on certain criteria through parameter input
+     * @param country - the country, where the event is taking place
+     * @param city  - the city, where the event is taking place
+     * @param dateFrom - the start of the date interval, which is used to find events
+     *                   that are taking place during a certain time period
+     * @param dateTo  - the end of the date interval, which is used to find events that
+     *                  are taking place during a certain time period
+     * */
     @ApiOperation(value = "Finds all public events by country and city, date interval if specified")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "The request is successful"),

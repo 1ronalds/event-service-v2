@@ -20,7 +20,15 @@ public class EventServiceImpl implements EventService {
 
     private final EventRepository eventRepository;
     private final EventMapStruct mapper;
-
+    /**
+     * Finds all public events based on certain criteria through parameter input
+     * @param country - the country, where the event is taking place
+     * @param city  - the city, where the event is taking place
+     * @param dateFrom - the start of the date interval, which is used to find events
+     *                   that are taking place during a certain time period
+     * @param dateTo  - the end of the date interval, which is used to find events that
+     *                  are taking place during a certain time period
+     * */
     @Override
     public List<EventMinimalDto> findAllPublicEvents(String country, String city, Date dateFrom, Date dateTo) {
         log.info("findAllPublicEvents service method called");
