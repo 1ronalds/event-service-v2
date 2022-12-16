@@ -5,7 +5,8 @@ import eventservice.eventservice.model.UserDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring", uses = RoleMapStructImpl.class)
+//@Mapper(componentModel = "spring", uses = RoleMapStructImpl.class)
+@Mapper(componentModel = "spring")
 public interface UserMapStruct {
 
     @Mapping(source="role", target="roleEntity")

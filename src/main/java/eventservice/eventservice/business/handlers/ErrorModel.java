@@ -2,7 +2,6 @@ package eventservice.eventservice.business.handlers;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.http.HttpStatus;
 
 import java.time.LocalDate;
 
