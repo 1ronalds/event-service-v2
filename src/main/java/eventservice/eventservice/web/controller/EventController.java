@@ -1,6 +1,7 @@
 package eventservice.eventservice.web.controller;
 
 import eventservice.eventservice.business.service.EventService;
+import eventservice.eventservice.model.EventDto;
 import eventservice.eventservice.model.EventMinimalDto;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -12,6 +13,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -49,5 +53,15 @@ public class EventController {
         log.info("findAllPublicEvents controller method called with parameters " +
                 "country: {}, city: {}, date_from: {}, date_to: {} ", country, city, dateFrom, dateTo);
         return ResponseEntity.ok(eventService.findAllPublicEvents(country, city, dateFrom, dateTo));
+    }
+
+    @GetMapping("/events/event/{event-id}")
+    public ResponseEntity<EventDto> findEventInfo(@PathVariable("event-id") Long eventId) {
+        return ResponseEntity.ok(eventService.findEventInfo(eventId));
+    }
+
+    @PostMapping("/events/user/{user-name}")
+    public ResponseEntity<EventDto> saveEvent(@PathVariable("user-name") String userName, @RequestBody EventDto event) {
+        return ResponseEntity.ok(eventService.saveEvent(userName, event));
     }
 }

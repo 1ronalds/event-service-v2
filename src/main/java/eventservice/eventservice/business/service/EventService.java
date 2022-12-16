@@ -9,4 +9,7 @@ import java.util.List;
 
 public interface EventService {
     List<EventMinimalDto> findAllPublicEvents(String country, String city, Date dateFrom, Date dateTo);
+    EventDto findEventInfo(Long eventId);
+    EventDto saveEvent(String username, EventDto event);
+
 }

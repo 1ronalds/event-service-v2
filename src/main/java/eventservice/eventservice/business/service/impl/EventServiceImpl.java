@@ -1,9 +1,14 @@
 package eventservice.eventservice.business.service.impl;
 
+import eventservice.eventservice.business.connection.CountryCityServiceConnection;
+import eventservice.eventservice.business.connection.model.CityDto;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
+import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
 import eventservice.eventservice.business.mapper.EventMapStruct;
 import eventservice.eventservice.business.repository.EventRepository;
 import eventservice.eventservice.business.service.EventService;
+import eventservice.eventservice.business.service.UserService;
+import eventservice.eventservice.model.EventDto;
 import eventservice.eventservice.model.EventMinimalDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -19,6 +24,8 @@ import java.util.stream.Collectors;
 public class EventServiceImpl implements EventService {
 
     private final EventRepository eventRepository;
+    private final CountryCityServiceConnection countryCityServiceConnection;
+    private final UserService userService;
     private final EventMapStruct mapper;
     /**
      * Finds all public events based on certain criteria through parameter input
@@ -75,5 +82,42 @@ public class EventServiceImpl implements EventService {
                 "dateFrom: {}, dateTo: {}", dateFrom, dateTo);
         // either dateFrom or dateTo is null
         throw new DateIntervalNotSpecifiedException();
+    }
+
+    @Override
+    public EventDto findEventInfo(Long eventId) {
+        return mapper.entityToDto(eventRepository.findById(eventId).orElseThrow(EventNotFoundException::new));
+    }
+
+    @Override
+    public EventDto saveEvent(String username, EventDto event) {
+        event.setOrganiser(userService.findUserDetails(username));
+        event.setAttendeeCount(0);
+        //invalid event information exception is thrown in ExceptionHandlerMethods class
+
+        String country = event.getCountry();
+        String city = event.getCity();
+
+        if(!countryDoesExist(country)){
+            throw new RuntimeException();
+        }
+
+        if(!cityDoesExist(country, city)){
+            throw new RuntimeException();
+        }
+
+        return mapper.entityToDto(eventRepository.save(mapper.dtoToEntity(event)));
+    }
+
+    public Boolean countryDoesExist(String country) {
+        return countryCityServiceConnection.getCountries().stream().anyMatch(c -> c.getCountry().equals(country));
+
+    }
+
+    public Boolean cityDoesExist(String country, String city) {
+        Long countryId = countryCityServiceConnection.getCountries().stream()
+                .filter(c -> c.getCountry().equals(country)).findAny().orElseThrow().getCountryId();
+
+        return countryCityServiceConnection.getCities(countryId).contains(new CityDto(city));
     }
 }
