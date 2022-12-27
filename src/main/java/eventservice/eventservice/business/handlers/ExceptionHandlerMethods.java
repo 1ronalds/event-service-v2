@@ -1,5 +1,8 @@
 package eventservice.eventservice.business.handlers;
 
+
+import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
+
 import eventservice.eventservice.business.handlers.exceptions.EmailExistsException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.UsernameExistsException;
@@ -19,6 +22,13 @@ import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class ExceptionHandlerMethods {
+
+    @ExceptionHandler(DateIntervalNotSpecifiedException.class)
+    protected ResponseEntity<ErrorModel> handleDateIntervalNotSpecified(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
+                "Bad request", "Date interval not specified (date_from or date_to is null)", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
+    }
 
     @ExceptionHandler(UserNotFoundException.class)
     protected ResponseEntity<ErrorModel> handleUserNotFound(Exception ex, HttpServletRequest request) {
@@ -57,5 +67,4 @@ public class ExceptionHandlerMethods {
                 "Bad request", "Invalid date", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
-
 }
