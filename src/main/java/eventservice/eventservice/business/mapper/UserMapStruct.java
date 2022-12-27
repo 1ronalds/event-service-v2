@@ -11,9 +11,7 @@ public interface UserMapStruct {
 
     @Mapping(source="role", target="roleEntity")
     UserEntity dtoToEntity(UserDto userDto);
-
     @Mapping(source="roleEntity", target="role")
     UserDto entityToDto(UserEntity userEntity);
-
 
 }

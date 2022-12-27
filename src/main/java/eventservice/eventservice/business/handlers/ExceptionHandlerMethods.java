@@ -1,6 +1,8 @@
 package eventservice.eventservice.business.handlers;
 
+
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
+
 import eventservice.eventservice.business.handlers.exceptions.EmailExistsException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.UsernameExistsException;
@@ -12,12 +14,15 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class ExceptionHandlerMethods {
+
     @ExceptionHandler(DateIntervalNotSpecifiedException.class)
     protected ResponseEntity<ErrorModel> handleDateIntervalNotSpecified(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
