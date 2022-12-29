@@ -9,4 +9,6 @@ import java.util.List;
 
 public interface EventService {
     List<EventMinimalDto> findAllPublicEvents(String country, String city, Date dateFrom, Date dateTo);
+
+    List<EventMinimalDto> findAllUserCreatedAndOrAttendingEvents(String username, String displayValue, String country, String city, Date dateFrom, Date dateTo);
 }

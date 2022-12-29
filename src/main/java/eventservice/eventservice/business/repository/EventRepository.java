@@ -20,4 +20,103 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
     List<EventEntity> findAllByCountryAndTypeTypeAndCityAndDateTimeBetween(String country, String type, String city, Date dateFrom, Date dateTo);
 
     List<EventEntity> findAllByCountryAndTypeTypeAndDateTimeBetween(String country, String type, Date dateFrom, Date dateTo);
+
+
+    List<EventEntity> findAllByOrganiserUsernameAndCountry(String username, String country);
+
+    List<EventEntity> findAllByOrganiserUsernameAndCountryAndCity(String username, String country, String city);
+
+    List<EventEntity> findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween(String username, String country, String city, Date dateFrom, Date dateTo);
+
+    List<EventEntity> findAllByOrganiserUsernameAndCountryAndDateTimeBetween(String username, String country, Date dateFrom, Date dateTo);
+
+    List<EventEntity> findAllByOrganiserUsernameAndCity(String username, String city);
+
+    List<EventEntity> findAllByOrganiserUsernameAndCityAndDateTimeBetween(String username, String city, Date dateFrom, Date dateTo);
+
+    List<EventEntity> findAllByOrganiserUsernameAndDateTimeBetween(String username, Date dateFrom, Date dateTo);
+
+    @Query(value = "SELECT * FROM event" +
+            "   LEFT OUTER JOIN attendance" +
+            "       ON event.event_id = attendance.event_id" +
+            "   LEFT OUTER JOIN user" +
+            "       ON attendance.user_id = user.user_id" +
+            "   WHERE user.username = :username" +
+            "       AND event.event_location_country = :country" +
+            "       AND event.event_location_city = :city" +
+            "       AND event.event_datetime BETWEEN :dateFrom AND :dateTo", nativeQuery = true)
+    List<EventEntity> findAllAttendingByCountryAndCityAndDateTimeBetween(@Param(value = "username") String username,
+                                                                         @Param(value = "country") String country,
+                                                                         @Param(value = "city") String city,
+                                                                         @Param(value = "dateFrom") Date dateFrom,
+                                                                         @Param(value = "dateTo") Date dateTo);
+
+    @Query(value = "SELECT * FROM event" +
+            "   LEFT OUTER JOIN attendance" +
+            "       ON event.event_id = attendance.event_id" +
+            "   LEFT OUTER JOIN user" +
+            "       ON attendance.user_id = user.user_id" +
+            "   WHERE user.username = :username" +
+            "       AND event.event_location_country = :country" +
+            "       AND event.event_location_city = :city", nativeQuery = true)
+    List<EventEntity> findAllAttendingByCountryAndCity(@Param(value = "username") String username,
+                                                            @Param(value = "country") String country,
+                                                            @Param(value = "city") String city);
+
+    @Query(value = "SELECT * FROM event" +
+            "   LEFT OUTER JOIN attendance" +
+            "       ON event.event_id = attendance.event_id" +
+            "   LEFT OUTER JOIN user" +
+            "       ON attendance.user_id = user.user_id" +
+            "   WHERE user.username = :username" +
+            "       AND event.event_location_country = :country" +
+            "       AND event.event_datetime BETWEEN :dateFrom AND :dateTo", nativeQuery = true)
+    List<EventEntity> findAllAttendingByCountryAndDateTimeBetween(@Param(value = "username") String username,
+                                                                         @Param(value = "country") String country,
+                                                                         @Param(value = "dateFrom") Date dateFrom,
+                                                                         @Param(value = "dateTo") Date dateTo);
+
+    @Query(value = "SELECT * FROM event" +
+            "   LEFT OUTER JOIN attendance" +
+            "       ON event.event_id = attendance.event_id" +
+            "   LEFT OUTER JOIN user" +
+            "       ON attendance.user_id = user.user_id" +
+            "   WHERE user.username = :username" +
+            "       AND event.event_location_country = :country", nativeQuery = true)
+    List<EventEntity> findAllAttendingByCountry(@Param(value = "username") String username,
+                                                        @Param(value = "country") String country);
+
+    @Query(value = "SELECT * FROM event" +
+            "   LEFT OUTER JOIN attendance" +
+            "       ON event.event_id = attendance.event_id" +
+            "   LEFT OUTER JOIN user" +
+            "       ON attendance.user_id = user.user_id" +
+            "   WHERE user.username = :username" +
+            "       AND event.event_location_city = :city" +
+            "       AND event.event_datetime BETWEEN :dateFrom AND :dateTo", nativeQuery = true)
+    List<EventEntity> findAllAttendingByCityAndDateTimeBetween(@Param(value = "username") String username,
+                                                                         @Param(value = "city") String city,
+                                                                         @Param(value = "dateFrom") Date dateFrom,
+                                                                         @Param(value = "dateTo") Date dateTo);
+
+    @Query(value = "SELECT * FROM event" +
+            "   LEFT OUTER JOIN attendance" +
+            "       ON event.event_id = attendance.event_id" +
+            "   LEFT OUTER JOIN user" +
+            "       ON attendance.user_id = user.user_id" +
+            "   WHERE user.username = :username" +
+            "       AND event.event_location_city = :city", nativeQuery = true)
+    List<EventEntity> findAllAttendingByCity(@Param(value = "username") String username,
+                                                    @Param(value = "city") String city);
+
+    @Query(value = "SELECT * FROM event" +
+            "   LEFT OUTER JOIN attendance" +
+            "       ON event.event_id = attendance.event_id" +
+            "   LEFT OUTER JOIN user" +
+            "       ON attendance.user_id = user.user_id" +
+            "   WHERE user.username = :username" +
+            "       AND event.event_datetime BETWEEN :dateFrom AND :dateTo", nativeQuery = true)
+    List<EventEntity> findAllAttendingByDateTimeBetween(@Param(value = "username") String username,
+                                                                @Param(value = "dateFrom") Date dateFrom,
+                                                                @Param(value = "dateTo") Date dateTo);
 }

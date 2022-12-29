@@ -1,0 +1,271 @@
+[INFO ] 2022-12-27 12:24:49.219 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2022-12-27 12:24:49.294 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 10512 (C:\Users\martynas.slavinskas\Desktop\event-service\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\event-service)
+[INFO ] 2022-12-27 12:24:49.301 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2022-12-27 12:24:49.361 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2022-12-27 12:24:49.362 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2022-12-27 12:24:51.046 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2022-12-27 12:24:51.161 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 99 ms. Found 3 JPA repository interfaces.
+[INFO ] 2022-12-27 12:24:52.267 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2022-12-27 12:24:52.464 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3101 ms
+[INFO ] 2022-12-27 12:24:52.669 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2022-12-27 12:24:52.670 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2022-12-27 12:24:52.670 [restartedMain] VersionPrinter - 
+[WARN ] 2022-12-27 12:24:54.239 [restartedMain] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'root'@'localhost' (using password: NO)
+---------------------------------------------------------------------------------------------------------
+SQL State  : 28000
+Error Code : 1045
+Message    : Access denied for user 'root'@'localhost' (using password: NO)
+
+[INFO ] 2022-12-27 12:24:54.253 [restartedMain] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2022-12-27 12:24:54.277 [restartedMain] SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'root'@'localhost' (using password: NO)
+---------------------------------------------------------------------------------------------------------
+SQL State  : 28000
+Error Code : 1045
+Message    : Access denied for user 'root'@'localhost' (using password: NO)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.6.jar:2.7.6]
+	at eventservice.eventservice.EventServiceApplication.main(EventServiceApplication.java:11) ~[main/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.6.jar:2.7.6]
+Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'root'@'localhost' (using password: NO)
+---------------------------------------------------------------------------------------------------------
+SQL State  : 28000
+Error Code : 1045
+Message    : Access denied for user 'root'@'localhost' (using password: NO)
+
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:147) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:124) ~[flyway-core-8.5.13.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 23 more
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: NO)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:147) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:124) ~[flyway-core-8.5.13.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 23 more
+[INFO ] 2022-12-27 12:25:30.503 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2022-12-27 12:25:30.540 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 8196 (C:\Users\martynas.slavinskas\Desktop\event-service\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\event-service)
+[INFO ] 2022-12-27 12:25:30.543 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2022-12-27 12:25:30.580 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2022-12-27 12:25:30.581 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2022-12-27 12:25:31.462 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2022-12-27 12:25:31.531 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 60 ms. Found 3 JPA repository interfaces.
+[INFO ] 2022-12-27 12:25:32.221 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2022-12-27 12:25:32.349 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1768 ms
+[INFO ] 2022-12-27 12:25:32.482 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2022-12-27 12:25:32.482 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2022-12-27 12:25:32.482 [restartedMain] VersionPrinter - 
+[INFO ] 2022-12-27 12:25:32.812 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2022-12-27 12:25:32.907 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.045s)
+[INFO ] 2022-12-27 12:25:32.920 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2022-12-27 12:25:32.921 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2022-12-27 12:25:33.032 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2022-12-27 12:25:33.118 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2022-12-27 12:25:33.316 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2022-12-27 12:25:33.491 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2022-12-27 12:25:34.221 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2022-12-27 12:25:34.229 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2022-12-27 12:25:34.828 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2022-12-27 12:25:35.177 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2022-12-27 12:25:35.499 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2022-12-27 12:25:35.832 [restartedMain] EventServiceApplication - Started EventServiceApplication in 5.612 seconds (JVM running for 6.388)
+[INFO ] 2022-12-27 12:27:48.065 [http-nio-8080-exec-2] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2022-12-27 12:27:48.066 [http-nio-8080-exec-2] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2022-12-27 12:27:48.098 [http-nio-8080-exec-2] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: null, city: null, date_from: null, date_to: null 
+[INFO ] 2022-12-27 12:28:13.947 [http-nio-8080-exec-3] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Lithuania, city: null, date_from: null, date_to: null 
+[INFO ] 2022-12-27 12:28:27.149 [http-nio-8080-exec-4] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2022-12-27 13:58:35.449 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2022-12-27 13:58:35.487 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 20496 (C:\Users\martynas.slavinskas\Desktop\event-service\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\event-service)
+[INFO ] 2022-12-27 13:58:35.491 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2022-12-27 13:58:35.528 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2022-12-27 13:58:35.529 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2022-12-27 13:58:36.436 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2022-12-27 13:58:36.496 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 3 JPA repository interfaces.
+[INFO ] 2022-12-27 13:58:37.261 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2022-12-27 13:58:37.378 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1849 ms
+[INFO ] 2022-12-27 13:58:37.526 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2022-12-27 13:58:37.526 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2022-12-27 13:58:37.526 [restartedMain] VersionPrinter - 
+[INFO ] 2022-12-27 13:58:37.838 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2022-12-27 13:58:37.885 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.024s)
+[INFO ] 2022-12-27 13:58:37.895 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2022-12-27 13:58:37.897 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2022-12-27 13:58:37.985 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2022-12-27 13:58:38.045 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2022-12-27 13:58:38.219 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2022-12-27 13:58:38.370 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2022-12-27 13:58:38.950 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2022-12-27 13:58:38.957 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2022-12-27 13:58:39.503 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2022-12-27 13:58:39.777 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2022-12-27 13:58:39.980 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2022-12-27 13:58:40.201 [restartedMain] EventServiceApplication - Started EventServiceApplication in 5.025 seconds (JVM running for 5.799)
+[INFO ] 2022-12-27 14:00:09.608 [http-nio-8080-exec-2] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2022-12-27 14:00:09.612 [http-nio-8080-exec-2] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2022-12-27 14:00:09.716 [http-nio-8080-exec-2] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: attending, country: Latvia, city: Riga, date_from: 2021-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 
+[WARN ] 2022-12-27 14:00:09.781 [http-nio-8080-exec-2] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.InvalidDisplayValueException]
+[INFO ] 2022-12-27 14:01:24.322 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2022-12-27 14:01:24.362 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 9004 (C:\Users\martynas.slavinskas\Desktop\event-service\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\event-service)
+[INFO ] 2022-12-27 14:01:24.366 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2022-12-27 14:01:24.406 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2022-12-27 14:01:24.407 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2022-12-27 14:01:25.274 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2022-12-27 14:01:25.342 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 58 ms. Found 3 JPA repository interfaces.
+[INFO ] 2022-12-27 14:01:26.052 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2022-12-27 14:01:26.173 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1765 ms
+[INFO ] 2022-12-27 14:01:26.303 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2022-12-27 14:01:26.303 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2022-12-27 14:01:26.303 [restartedMain] VersionPrinter - 
+[INFO ] 2022-12-27 14:01:26.607 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2022-12-27 14:01:26.659 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.026s)
+[INFO ] 2022-12-27 14:01:26.671 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2022-12-27 14:01:26.672 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2022-12-27 14:01:26.759 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2022-12-27 14:01:26.825 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2022-12-27 14:01:26.992 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2022-12-27 14:01:27.133 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2022-12-27 14:01:27.710 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2022-12-27 14:01:27.718 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2022-12-27 14:01:28.316 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2022-12-27 14:01:28.689 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2022-12-27 14:01:28.969 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2022-12-27 14:01:29.373 [restartedMain] EventServiceApplication - Started EventServiceApplication in 5.342 seconds (JVM running for 6.113)
+[INFO ] 2022-12-27 14:01:38.864 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2022-12-27 14:01:38.867 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2022-12-27 14:01:38.920 [http-nio-8080-exec-1] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: attending, country: Latvia, city: Riga, date_from: 2021-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 
+[INFO ] 2022-12-27 14:02:28.812 [http-nio-8080-exec-3] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: BestClientEver, display: attending, country: Latvia, city: Riga, date_from: 2021-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 
+[INFO ] 2022-12-27 14:03:03.972 [http-nio-8080-exec-4] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: BestClientEver, display: attending, country: Latvia, city: Riga, date_from: 2023-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 
+[INFO ] 2022-12-27 14:03:08.345 [http-nio-8080-exec-5] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: BestClientEver, display: attending, country: Latvia, city: Riga, date_from: 2021-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 
+[INFO ] 2022-12-27 14:03:15.588 [http-nio-8080-exec-6] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: BestClientEver, display: attending, country: Latvia, city: Ventspils, date_from: 2021-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 
+[INFO ] 2022-12-27 14:03:22.712 [http-nio-8080-exec-7] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: BestClientEver, display: attending, country: Latvia, city: Riga, date_from: 2021-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 
+[INFO ] 2022-12-27 14:39:41.970 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2022-12-27 14:39:42.012 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 22328 (C:\Users\martynas.slavinskas\Desktop\event-service\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\event-service)
+[INFO ] 2022-12-27 14:39:42.015 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2022-12-27 14:39:42.056 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2022-12-27 14:39:42.056 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2022-12-27 14:39:42.945 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2022-12-27 14:39:43.027 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 3 JPA repository interfaces.
+[INFO ] 2022-12-27 14:39:43.754 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2022-12-27 14:39:43.891 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1834 ms
+[INFO ] 2022-12-27 14:39:44.036 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2022-12-27 14:39:44.037 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2022-12-27 14:39:44.037 [restartedMain] VersionPrinter - 
+[INFO ] 2022-12-27 14:39:44.339 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2022-12-27 14:39:44.391 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.026s)
+[INFO ] 2022-12-27 14:39:44.402 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2022-12-27 14:39:44.403 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2022-12-27 14:39:44.492 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2022-12-27 14:39:44.558 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2022-12-27 14:39:44.716 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2022-12-27 14:39:44.845 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2022-12-27 14:39:45.414 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2022-12-27 14:39:45.421 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2022-12-27 14:39:46.012 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2022-12-27 14:39:46.340 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2022-12-27 14:39:46.613 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2022-12-27 14:39:46.960 [restartedMain] EventServiceApplication - Started EventServiceApplication in 5.28 seconds (JVM running for 6.047)
+[INFO ] 2022-12-29 14:07:40.218 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2022-12-29 14:07:40.292 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 5528 (C:\Users\martynas.slavinskas\Desktop\event-service\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\event-service)
+[INFO ] 2022-12-29 14:07:40.299 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2022-12-29 14:07:40.366 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2022-12-29 14:07:40.366 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2022-12-29 14:07:41.864 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2022-12-29 14:07:41.966 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 88 ms. Found 3 JPA repository interfaces.
+[INFO ] 2022-12-29 14:07:43.187 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2022-12-29 14:07:43.454 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3087 ms
+[INFO ] 2022-12-29 14:07:43.922 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2022-12-29 14:07:43.922 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2022-12-29 14:07:43.922 [restartedMain] VersionPrinter - 
+[INFO ] 2022-12-29 14:07:44.489 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2022-12-29 14:07:44.633 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.074s)
+[INFO ] 2022-12-29 14:07:44.651 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2022-12-29 14:07:44.653 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2022-12-29 14:07:44.793 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2022-12-29 14:07:44.929 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2022-12-29 14:07:45.233 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2022-12-29 14:07:45.479 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2022-12-29 14:07:46.349 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2022-12-29 14:07:46.357 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2022-12-29 14:07:47.206 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2022-12-29 14:07:47.625 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2022-12-29 14:07:47.972 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2022-12-29 14:07:48.309 [restartedMain] EventServiceApplication - Started EventServiceApplication in 8.545 seconds (JVM running for 9.814)
+[INFO ] 2022-12-29 14:11:08.664 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2022-12-29 14:11:08.666 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2022-12-29 14:11:08.720 [http-nio-8080-exec-1] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: BestClientEver, display: attending, country: Latvia, city: Riga, date_from: 2021-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 
+[INFO ] 2022-12-29 14:11:17.505 [http-nio-8080-exec-3] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: BestClientEver, display: mine, country: Latvia, city: Riga, date_from: 2021-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 
+[INFO ] 2022-12-29 14:11:32.051 [http-nio-8080-exec-4] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: BestClientEver, display: all, country: Latvia, city: Riga, date_from: 2021-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 
+[INFO ] 2022-12-29 14:14:31.712 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2022-12-29 14:14:31.760 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 7120 (C:\Users\martynas.slavinskas\Desktop\event-service\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\event-service)
+[INFO ] 2022-12-29 14:14:31.766 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2022-12-29 14:14:31.827 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2022-12-29 14:14:31.828 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2022-12-29 14:14:33.293 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2022-12-29 14:14:33.425 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 112 ms. Found 3 JPA repository interfaces.
+[INFO ] 2022-12-29 14:14:34.798 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2022-12-29 14:14:34.981 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3152 ms
+[INFO ] 2022-12-29 14:14:35.194 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2022-12-29 14:14:35.195 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2022-12-29 14:14:35.195 [restartedMain] VersionPrinter - 
+[INFO ] 2022-12-29 14:14:35.653 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2022-12-29 14:14:35.717 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.031s)
+[INFO ] 2022-12-29 14:14:35.735 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2022-12-29 14:14:35.736 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2022-12-29 14:14:35.884 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2022-12-29 14:14:35.978 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2022-12-29 14:14:36.217 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2022-12-29 14:14:36.467 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2022-12-29 14:14:37.285 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2022-12-29 14:14:37.294 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2022-12-29 14:14:38.115 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2022-12-29 14:14:38.540 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2022-12-29 14:14:38.826 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2022-12-29 14:14:39.195 [restartedMain] EventServiceApplication - Started EventServiceApplication in 7.973 seconds (JVM running for 8.935)
+[INFO ] 2022-12-29 14:14:43.518 [http-nio-8080-exec-2] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2022-12-29 14:14:43.520 [http-nio-8080-exec-2] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2022-12-29 14:14:43.564 [http-nio-8080-exec-2] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: BestClientEver, display: all, country: Latvia, city: Riga, date_from: 2021-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 
+[INFO ] 2022-12-29 14:14:51.035 [http-nio-8080-exec-3] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: BestClientEver, display: mine, country: Latvia, city: Riga, date_from: 2021-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 
+[INFO ] 2022-12-29 14:14:58.819 [http-nio-8080-exec-4] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: BestClientEver, display: attending, country: Latvia, city: Riga, date_from: 2021-11-12T00:00:00.000+0200, date_to: 2024-11-12T00:00:00.000+0200 

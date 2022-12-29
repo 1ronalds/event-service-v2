@@ -1,9 +1,11 @@
 package eventservice.eventservice.business.handlers;
 
 
+import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
 
 import eventservice.eventservice.business.handlers.exceptions.EmailExistsException;
+import eventservice.eventservice.business.handlers.exceptions.InvalidDisplayValueException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.UsernameExistsException;
 import org.apache.tomcat.util.buf.StringUtils;
@@ -65,6 +67,21 @@ public class ExceptionHandlerMethods {
     protected ResponseEntity<ErrorModel> handleEnumConflict(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
                 "Bad request", "Invalid date", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(InvalidDisplayValueException.class)
+    protected ResponseEntity<ErrorModel> handleInvalidDisplayValue(InvalidDisplayValueException ex, HttpServletRequest request){
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
+                "Bad request", "Invalid display value. Display value should" +
+                " be one of the following: all, mine, attending", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(CountryNotSpecifiedException.class)
+    protected ResponseEntity<ErrorModel> handleCountryNotSpecified(CountryNotSpecifiedException ex, HttpServletRequest request){
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
+                "Bad request", "Country must be specified", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 }
