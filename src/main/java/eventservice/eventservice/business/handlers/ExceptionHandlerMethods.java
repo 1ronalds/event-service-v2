@@ -3,6 +3,7 @@ package eventservice.eventservice.business.handlers;
 
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.EmailExistsException;
+import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.UsernameExistsException;
 import org.apache.tomcat.util.buf.StringUtils;
@@ -53,7 +54,7 @@ public class ExceptionHandlerMethods {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorModel> handleInvalidData(MethodArgumentNotValidException ex, HttpServletRequest request) {
+    public ResponseEntity<ErrorModel> handleInvalidDataValidation(MethodArgumentNotValidException ex, HttpServletRequest request) {
         String errors = StringUtils.join(ex.getBindingResult().getFieldErrors()
                 .stream().map(FieldError::getDefaultMessage).collect(Collectors.toList())); // Collects validation errors
 
@@ -66,6 +67,13 @@ public class ExceptionHandlerMethods {
     protected ResponseEntity<ErrorModel> handleEnumConflict(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
                 "Bad request", "Invalid date", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(InvalidDataException.class)
+    protected ResponseEntity<ErrorModel> handleInvalidDataPost(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
+                "Bad request", "Invalid data format provided", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
