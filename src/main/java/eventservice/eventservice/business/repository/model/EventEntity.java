@@ -3,6 +3,7 @@ package eventservice.eventservice.business.repository.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.joda.time.DateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -44,7 +46,7 @@ public class EventEntity {
     private int maxAttendance;
 
     @Column(name = "event_datetime")
-    private Date dateTime;
+    private LocalDateTime dateTime;
 
     @Column(name = "attendee_count")
     private int attendeeCount;

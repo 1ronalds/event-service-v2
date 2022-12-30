@@ -11,8 +11,7 @@ import eventservice.eventservice.business.service.impl.EventServiceImpl;
 import eventservice.eventservice.model.EventDto;
 import eventservice.eventservice.model.EventMinimalDto;
 import eventservice.eventservice.model.EventTypeDto;
-import eventservice.eventservice.model.RoleDto;
-import eventservice.eventservice.model.UserDto;
+import eventservice.eventservice.model.UserMinimalDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -21,12 +20,17 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 
 public class EventServiceTest {
     @Mock
@@ -39,6 +43,7 @@ public class EventServiceTest {
     @InjectMocks
     EventServiceImpl service;
 
+    EventDto eventDto;
     EventMinimalDto eventDto1;
     EventMinimalDto eventDto2;
     EventMinimalDto eventDto3;
@@ -54,6 +59,12 @@ public class EventServiceTest {
     @BeforeEach
     void init(){
         MockitoAnnotations.openMocks(this);
+
+        UserMinimalDto userMinimalDto = new UserMinimalDto(1L, "User");
+        EventTypeDto publicTypeDto = new EventTypeDto(1L, "public");
+        eventDto = new EventDto(1L, "Bicycling contest", "A contest of bicycling free to watch and participate", "Latvia",
+                "Riga", 300, LocalDateTime.parse("24-11-2022 00:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
+                1, userMinimalDto, publicTypeDto);
 
         eventDto1 = new EventMinimalDto(1L, "Bicycling contest");
 
@@ -72,20 +83,21 @@ public class EventServiceTest {
         EventTypeEntity privateTypeEntity = new EventTypeEntity(2L, "private");
 
         eventEntity1 = new EventEntity(1L, "Bicycling contest", "A contest of bicycling free to watch and participate", "Latvia",
-                "Riga", 300, Date.valueOf("2021-12-13"), 1, userEntity, publicTypeEntity);
+                "Riga", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
+                1, userEntity, publicTypeEntity);
 
         eventEntity2 = new EventEntity(2L, "Theatre", "Everyone will be amazed watching this theatre","Latvia",
-                "Venstspils", 300, Date.valueOf("2023-12-13"), 1, userEntity, privateTypeEntity);
+                "Venstspils", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 1, userEntity, privateTypeEntity);
 
         eventEntity3 = new EventEntity(3L, "Marathon",
                 "Running is good for your health, so join us in this 7km marathon", "Lithuania",
-                "Vilnius", 300, Date.valueOf("2022-12-13"), 1, userEntity, publicTypeEntity);
+                "Vilnius", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 1, userEntity, publicTypeEntity);
 
         eventEntity4 = new EventEntity(4L, "TestEvent", "TestEvent","Latvia",
-                "Riga", 300, Date.valueOf("2023-12-13"), 1, userEntity, publicTypeEntity);
+                "Riga", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 1, userEntity, publicTypeEntity);
 
         eventEntity5 = new EventEntity(5L, "TestEvent", "TestEvent","Latvia",
-                "Ventspils", 300, Date.valueOf("2023-12-13"), 1, userEntity, publicTypeEntity);
+                "Ventspils", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 1, userEntity, publicTypeEntity);
     }
 
     @Test
@@ -139,9 +151,9 @@ public class EventServiceTest {
     @Test
     void findAllPublicEvents_CountryAndDateFromAndDateToSpecified_Found(){
         String country = "Latvia";
-        Date dateFrom = Date.valueOf("2020-11-12");
-        Date dateTo = Date.valueOf("2024-11-12");
-        Mockito.when(repository.findAllByCountryAndTypeTypeAndDateTimeBetween(country, "public", dateFrom, dateTo))
+        LocalDate dateFrom = LocalDate.of(2020, 11, 12);
+        LocalDate dateTo = LocalDate.of(2024, 11, 12);
+        Mockito.when(repository.findAllByCountryAndTypeTypeAndDateTimeBetween(any(), any(), any(), any()))
                 .thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
         Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
         Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
@@ -154,9 +166,9 @@ public class EventServiceTest {
     @Test
     void findAllPublicEvents_CountryAndDateFromAndDateToSpecified_NotFound(){
         String country = "Latvia";
-        Date dateFrom = Date.valueOf("2019-11-12");
-        Date dateTo = Date.valueOf("2020-11-12");
-        Mockito.when(repository.findAllByCountryAndTypeTypeAndDateTimeBetween(country, "public", dateFrom, dateTo))
+        LocalDate dateFrom = LocalDate.of(2019, 11, 12);
+        LocalDate dateTo = LocalDate.of(2020, 11, 12);
+        Mockito.when(repository.findAllByCountryAndTypeTypeAndDateTimeBetween(any(), any(), any(), any()))
                 .thenReturn(Collections.emptyList());
 
         List<EventMinimalDto> results = service.findAllPublicEvents(country, null, dateFrom, dateTo);
@@ -166,11 +178,11 @@ public class EventServiceTest {
     @Test
     void findAllPublicEvents_CountryAndCityAndDateFromAndDateToSpecified_Found(){
         String country = "Latvia";
-        Date dateFrom = Date.valueOf("2019-11-12");
-        Date dateTo = Date.valueOf("2020-11-12");
+        LocalDate dateFrom = LocalDate.of(2019, 11, 12);
+        LocalDate dateTo = LocalDate.of(2020, 11, 12);
         String city = "Riga";
 
-        Mockito.when(repository.findAllByCountryAndTypeTypeAndCityAndDateTimeBetween(country, "public", city, dateFrom, dateTo))
+        Mockito.when(repository.findAllByCountryAndTypeTypeAndCityAndDateTimeBetween(any(), any(), any(), any(), any()))
                 .thenReturn(List.of(eventEntity1, eventEntity4));
         Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
         Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
@@ -182,11 +194,11 @@ public class EventServiceTest {
     @Test
     void findAllPublicEvents_CountryAndCityAndDateFromAndDateToSpecified_NotFound(){
         String country = "Latvia";
-        Date dateFrom = Date.valueOf("2001-11-12");
-        Date dateTo = Date.valueOf("2002-11-12");
+        LocalDate dateFrom = LocalDate.of(2001, 11, 12);
+        LocalDate dateTo = LocalDate.of(2002, 11, 12);
         String city = "Riga";
 
-        Mockito.when(repository.findAllByCountryAndTypeTypeAndCityAndDateTimeBetween(country, "public", city, dateFrom, dateTo))
+        Mockito.when(repository.findAllByCountryAndTypeTypeAndCityAndDateTimeBetween(any(), any(), any(), any(), any()))
                 .thenReturn(Collections.emptyList());
 
         List<EventMinimalDto> results = service.findAllPublicEvents(country, city, dateFrom, dateTo);
@@ -196,7 +208,7 @@ public class EventServiceTest {
     @Test
     void findAllPublicEvents_CountryAndCityAndDateFromSpecified_Exception(){
         String country = "Latvia";
-        Date dateFrom = Date.valueOf("2001-11-12");
+        LocalDate dateFrom = LocalDate.of(2001, 11, 12);
         String city = "Riga";
         assertThrows(DateIntervalNotSpecifiedException.class, () -> service.findAllPublicEvents(country, city, dateFrom, null));
     }
@@ -204,8 +216,22 @@ public class EventServiceTest {
     @Test
     void findAllPublicEvents_CountryAndCityAndDateToSpecified_Exception(){
         String country = "Latvia";
-        Date dateTo = Date.valueOf("2002-11-12");
+        LocalDate dateTo = LocalDate.of(2002, 11, 12);
         String city = "Riga";
         assertThrows(DateIntervalNotSpecifiedException.class, () -> service.findAllPublicEvents(country, city, null, dateTo));
     }
+
+    @Test
+    void findEventInfo(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity1));
+        Mockito.when(mapper.entityToDto(any())).thenReturn(eventDto);
+        assertEquals(eventDto, service.findEventInfo(1L));
+    }
+
+    /*@Test
+    void findEventInfoNonexistentId(){
+        Mockito.when(repository.findById(any())).thenThrow();
+        Mockito.when(mapper.entityToDto(any())).thenReturn(eventDto);
+        assertEquals(eventDto, service.findEventInfo(1L));
+    }*/
 }

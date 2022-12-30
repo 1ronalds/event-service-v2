@@ -1,14 +1,13 @@
 package eventservice.eventservice.business.repository;
 
 import eventservice.eventservice.business.repository.model.EventEntity;
-import eventservice.eventservice.model.EventDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Arrays;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -17,24 +16,22 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
 
     List<EventEntity> findAllByCountryAndTypeTypeAndCity(String country, String type, String city);
 
-    List<EventEntity> findAllByCountryAndTypeTypeAndCityAndDateTimeBetween(String country, String type, String city, Date dateFrom, Date dateTo);
-
-    List<EventEntity> findAllByCountryAndTypeTypeAndDateTimeBetween(String country, String type, Date dateFrom, Date dateTo);
+    List<EventEntity> findAllByCountryAndTypeTypeAndCityAndDateTimeBetween(String country, String type, String city, LocalDateTime dateFrom, LocalDateTime dateTo);
 
 
     List<EventEntity> findAllByOrganiserUsernameAndCountry(String username, String country);
 
     List<EventEntity> findAllByOrganiserUsernameAndCountryAndCity(String username, String country, String city);
 
-    List<EventEntity> findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween(String username, String country, String city, Date dateFrom, Date dateTo);
+    List<EventEntity> findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween(String username, String country, String city, LocalDateTime dateFrom, LocalDateTime dateTo);
 
-    List<EventEntity> findAllByOrganiserUsernameAndCountryAndDateTimeBetween(String username, String country, Date dateFrom, Date dateTo);
+    List<EventEntity> findAllByOrganiserUsernameAndCountryAndDateTimeBetween(String username, String country, LocalDateTime dateFrom, LocalDateTime dateTo);
 
     List<EventEntity> findAllByOrganiserUsernameAndCity(String username, String city);
 
-    List<EventEntity> findAllByOrganiserUsernameAndCityAndDateTimeBetween(String username, String city, Date dateFrom, Date dateTo);
+    List<EventEntity> findAllByOrganiserUsernameAndCityAndDateTimeBetween(String username, String city, LocalDateTime dateFrom, LocalDateTime dateTo);
 
-    List<EventEntity> findAllByOrganiserUsernameAndDateTimeBetween(String username, Date dateFrom, Date dateTo);
+    List<EventEntity> findAllByOrganiserUsernameAndDateTimeBetween(String username, LocalDateTime dateFrom, LocalDateTime dateTo);
 
     @Query(value = "SELECT * FROM event" +
             "   LEFT OUTER JOIN attendance" +
@@ -48,8 +45,8 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
     List<EventEntity> findAllAttendingByCountryAndCityAndDateTimeBetween(@Param(value = "username") String username,
                                                                          @Param(value = "country") String country,
                                                                          @Param(value = "city") String city,
-                                                                         @Param(value = "dateFrom") Date dateFrom,
-                                                                         @Param(value = "dateTo") Date dateTo);
+                                                                         @Param(value = "dateFrom") LocalDateTime dateFrom,
+                                                                         @Param(value = "dateTo") LocalDateTime dateTo);
 
     @Query(value = "SELECT * FROM event" +
             "   LEFT OUTER JOIN attendance" +
@@ -73,8 +70,8 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
             "       AND event.event_datetime BETWEEN :dateFrom AND :dateTo", nativeQuery = true)
     List<EventEntity> findAllAttendingByCountryAndDateTimeBetween(@Param(value = "username") String username,
                                                                          @Param(value = "country") String country,
-                                                                         @Param(value = "dateFrom") Date dateFrom,
-                                                                         @Param(value = "dateTo") Date dateTo);
+                                                                         @Param(value = "dateFrom") LocalDateTime dateFrom,
+                                                                         @Param(value = "dateTo") LocalDateTime dateTo);
 
     @Query(value = "SELECT * FROM event" +
             "   LEFT OUTER JOIN attendance" +
@@ -96,8 +93,8 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
             "       AND event.event_datetime BETWEEN :dateFrom AND :dateTo", nativeQuery = true)
     List<EventEntity> findAllAttendingByCityAndDateTimeBetween(@Param(value = "username") String username,
                                                                          @Param(value = "city") String city,
-                                                                         @Param(value = "dateFrom") Date dateFrom,
-                                                                         @Param(value = "dateTo") Date dateTo);
+                                                                         @Param(value = "dateFrom") LocalDateTime dateFrom,
+                                                                         @Param(value = "dateTo") LocalDateTime dateTo);
 
     @Query(value = "SELECT * FROM event" +
             "   LEFT OUTER JOIN attendance" +
@@ -117,6 +114,7 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
             "   WHERE user.username = :username" +
             "       AND event.event_datetime BETWEEN :dateFrom AND :dateTo", nativeQuery = true)
     List<EventEntity> findAllAttendingByDateTimeBetween(@Param(value = "username") String username,
-                                                                @Param(value = "dateFrom") Date dateFrom,
-                                                                @Param(value = "dateTo") Date dateTo);
+                                                                @Param(value = "dateFrom") LocalDateTime dateFrom,
+                                                                @Param(value = "dateTo") LocalDateTime dateTo);
+    List<EventEntity> findAllByCountryAndTypeTypeAndDateTimeBetween(String country, String type, LocalDateTime dateFrom, LocalDateTime dateTo);
 }

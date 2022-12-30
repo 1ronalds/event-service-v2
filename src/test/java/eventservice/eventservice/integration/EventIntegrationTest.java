@@ -50,7 +50,7 @@ public class EventIntegrationTest {
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto1, eventDto4, eventDto5));
 
-        MvcResult result = mockMvc.perform(get("/v1/events")
+        MvcResult result = mockMvc.perform(get("/v1/events/event")
                             .param("country", "Latvia")
                             .contentType(MediaType.APPLICATION_JSON))
                         .andDo(print())
@@ -65,7 +65,7 @@ public class EventIntegrationTest {
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(Collections.emptyList());
 
-        MvcResult result = mockMvc.perform(get("/v1/events")
+        MvcResult result = mockMvc.perform(get("/v1/events/event")
                             .param("country", "Sweden")
                             .contentType(MediaType.APPLICATION_JSON))
                         .andDo(print())
@@ -80,7 +80,7 @@ public class EventIntegrationTest {
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto4));
 
-        MvcResult result = mockMvc.perform(get("/v1/events")
+        MvcResult result = mockMvc.perform(get("/v1/events/event")
                     .param("country", "Latvia")
                     .param("city", "Venstspils")
                     .contentType(MediaType.APPLICATION_JSON))
@@ -96,7 +96,7 @@ public class EventIntegrationTest {
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(Collections.emptyList());
 
-        MvcResult result = mockMvc.perform(get("/v1/events")
+        MvcResult result = mockMvc.perform(get("/v1/events/event")
                         .param("country", "Lithuania")
                         .param("city", "Kaunas")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -112,10 +112,10 @@ public class EventIntegrationTest {
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto1, eventDto4, eventDto5));
 
-        MvcResult result = mockMvc.perform(get("/v1/events")
+        MvcResult result = mockMvc.perform(get("/v1/events/event")
                         .param("country", "Latvia")
-                        .param("date_from", "2020-11-12")
-                        .param("date_to", "2023-11-12")
+                        .param("date_from", "12-11-2020")
+                        .param("date_to", "12-11-2023")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -129,10 +129,10 @@ public class EventIntegrationTest {
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(Collections.emptyList());
 
-        MvcResult result = mockMvc.perform(get("/v1/events")
+        MvcResult result = mockMvc.perform(get("/v1/events/event")
                         .param("country", "Latvia")
-                        .param("date_from", "2023-11-12")
-                        .param("date_to", "2023-12-12")
+                        .param("date_from", "12-11-2029")
+                        .param("date_to", "12-11-2029")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -146,11 +146,11 @@ public class EventIntegrationTest {
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto4));
 
-        MvcResult result = mockMvc.perform(get("/v1/events")
+        MvcResult result = mockMvc.perform(get("/v1/events/event")
                         .param("country", "Latvia")
                         .param("city", "Venstspils")
-                        .param("date_from", "2022-11-12")
-                        .param("date_to", "2023-12-12")
+                        .param("date_from", "12-11-2020")
+                        .param("date_to", "12-11-2023")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -164,11 +164,11 @@ public class EventIntegrationTest {
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(Collections.emptyList());
 
-        MvcResult result = mockMvc.perform(get("/v1/events")
+        MvcResult result = mockMvc.perform(get("/v1/events/event")
                         .param("country", "Latvia")
                         .param("city", "Venstspils")
-                        .param("date_from", "2022-12-02")
-                        .param("date_to", "2023-12-12")
+                        .param("date_from", "12-11-2029")
+                        .param("date_to", "12-11-2029")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -180,10 +180,10 @@ public class EventIntegrationTest {
 
     @Test
     void findAllPublicEvents_CountryAndCityAndDateFromSpecified_Exception() throws Exception{
-        mockMvc.perform(get("/v1/events")
+        mockMvc.perform(get("/v1/events/event")
                         .param("country", "Latvia")
                         .param("city", "Venstspils")
-                        .param("date_from", "2022-12-02")
+                        .param("date_from", "12-11-2020")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isBadRequest());
@@ -191,10 +191,10 @@ public class EventIntegrationTest {
 
     @Test
     void findAllPublicEvents_CountryAndCityAndDateToSpecified_Exception() throws Exception{
-        mockMvc.perform(get("/v1/events")
+        mockMvc.perform(get("/v1/events/event")
                         .param("country", "Latvia")
                         .param("city", "Venstspils")
-                        .param("date_to", "2022-12-02")
+                        .param("date_to", "12-11-2020")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isBadRequest());
