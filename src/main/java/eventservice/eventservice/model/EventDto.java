@@ -31,7 +31,7 @@ public class EventDto {
 
     @ApiModelProperty(value = "Description of the event")
     @NotNull
-    @Size(min = 50, max = 500)
+    @Size(min = 10, max = 500)
     private String description;
 
     @ApiModelProperty(value = "Country, where the event will take place")

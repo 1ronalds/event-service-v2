@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -71,6 +72,7 @@ public class EventController {
     })
     @GetMapping("/events/event/{event-id}")
     public ResponseEntity<EventDto> findEventInfo(@PathVariable("event-id") Long eventId) {
+        log.info("findEventInfo controller method is called with eventId: {}", eventId);
         return ResponseEntity.ok(eventService.findEventInfo(eventId));
     }
 
@@ -86,7 +88,8 @@ public class EventController {
             @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500)
     })
     @PostMapping("/events/user/{user-name}")
-    public ResponseEntity<EventDto> saveEvent(@PathVariable("user-name") String userName, @RequestBody EventDto event) {
+    public ResponseEntity<EventDto> saveEvent(@PathVariable("user-name") String userName, @Valid @RequestBody EventDto event) {
+        log.info("saveEvent controller method is called with user name: {} and event DTO: {}", userName, event.toString());
         return ResponseEntity.ok(eventService.saveEvent(userName, event));
     }
 
@@ -106,7 +109,8 @@ public class EventController {
     @PutMapping("/events/user/{user-name}/event/{event-id}")
     public ResponseEntity<EventDto> editEvent(@PathVariable("user-name") String username,
                                               @PathVariable("event-id") Long eventId,
-                                              @RequestBody EventDto event) {
+                                              @Valid @RequestBody EventDto event) {
+        log.info("editEvent controller method called with username: {}, eventId: {}, eventDTO: {}", username, eventId, event.toString());
         return ResponseEntity.ok(eventService.editEvent(username, eventId, event));
     }
 
@@ -125,6 +129,7 @@ public class EventController {
     public ResponseEntity<Void> deleteEvent(@PathVariable("user-name") String userName,
                                             @PathVariable("event-id") Long eventId){
         eventService.deleteEvent(userName, eventId);
+        log.info("deleteEvent is called with userName: {} and eventId: {}", userName, eventId);
         return ResponseEntity.noContent().build();
     }
 }

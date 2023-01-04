@@ -120,11 +120,19 @@ public class EventServiceImpl implements EventService {
      */
     @Override
     public EventDto findEventInfo(Long eventId) {
+        log.info("findEventInfo service method called");
         return mapper.entityToDto(eventRepository.findById(eventId).orElseThrow(EventNotFoundException::new));
     }
 
+    /**
+     * saves event and returns EventDto
+     * @param username
+     * @param event
+     * @return EventDto
+     */
     @Override
     public EventDto saveEvent(String username, EventDto event) {
+        log.info("saveEvent service method called");
         event.setOrganiser(new UserMinimalDto(userService.findUserDetails(username).getId(),
                 userService.findUserDetails(username).getUsername()));
         event.setAttendeeCount(0);
@@ -143,20 +151,41 @@ public class EventServiceImpl implements EventService {
         //Mapper requires userRepository to convert minimalDto to full entity
     }
 
+    /**
+     * Checks if country does exist in remote service
+     * @param country
+     * @return boolean
+     */
     private Boolean countryDoesExist(String country) {
+        log.info("countryDoesExist service method called");
         return countryCityServiceConnection.getCountries().stream().anyMatch(c -> c.getCountry().equals(country));
 
     }
 
+    /**
+     * Checks if city does exist in remote service
+     * @param country
+     * @param city
+     * @return boolean
+     */
     private Boolean cityDoesExist(String country, String city) {
+        log.info("cityDoesExist service method called");
         Long countryId = countryCityServiceConnection.getCountries().stream()
                 .filter(c -> c.getCountry().equals(country)).findAny().orElseThrow().getCountryId();
 
         return countryCityServiceConnection.getCities(countryId).contains(new CityDto(city));
     }
 
+    /**
+     * Edits event information and returns EventDto
+     * @param username
+     * @param eventId
+     * @param event
+     * @return EventDto
+     */
     @Override
     public EventDto editEvent(String username, Long eventId, EventDto event) {
+        log.info("editEvent service method called");
         Optional<EventEntity> history = eventRepository.findById(eventId);
         if (history.isEmpty()) {
             throw new EventNotFoundException();
@@ -181,8 +210,14 @@ public class EventServiceImpl implements EventService {
         return mapper.entityToDto(eventRepository.save(mapper.dtoToEntity(event, userRepository)));
     }
 
+    /**
+     * Deletes event
+     * @param username
+     * @param eventId
+     */
     @Override
     public void deleteEvent(String username, Long eventId) {
+        log.info("deleteEvent method called");
         Optional<EventEntity> event = eventRepository.findById(eventId);
         if (event.isEmpty()) {
             throw new EventNotFoundException();
