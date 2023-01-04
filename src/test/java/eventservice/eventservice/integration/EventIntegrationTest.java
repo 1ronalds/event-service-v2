@@ -289,7 +289,7 @@ public class EventIntegrationTest {
 
     @Test
     void saveEvent() throws Exception {
-        Mockito.when(eventRepository.findById((anyLong()))).thenReturn(Optional.of(eventEntity));
+        Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
         Mockito.when(eventRepository.save(any())).thenReturn(Optional.of(eventEntity));
         ObjectMapper mapper = new ObjectMapper();
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
