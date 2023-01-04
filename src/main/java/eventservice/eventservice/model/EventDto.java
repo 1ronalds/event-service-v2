@@ -7,12 +7,12 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Data
@@ -50,7 +50,7 @@ public class EventDto {
 
     @ApiModelProperty(value = "Date and time of the event in format d-m-yyyy hh:mm")
     @NotNull
-    @JsonFormat(pattern="d-m-YYYY HH:mm")
+    @JsonFormat(pattern="d-M-yyyy HH:mm")
     private LocalDateTime dateTime;
 
     @ApiModelProperty(value = "The amount of people who are attending the event")

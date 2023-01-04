@@ -1,9 +1,9 @@
 package eventservice.eventservice.business.repository.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,6 +45,7 @@ public class EventEntity {
     @Column(name = "max_attendance")
     private int maxAttendance;
 
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm") //necessary for test to work
     @Column(name = "event_datetime")
     private LocalDateTime dateTime;
 

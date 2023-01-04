@@ -129,9 +129,7 @@ public class EventServiceImpl implements EventService {
                 userService.findUserDetails(username).getUsername()));
         event.setAttendeeCount(0);
 
-        EventTypeDto publicEvent = new EventTypeDto(1L, PUBLIC);
-        EventTypeDto privateEvent = new EventTypeDto(2L, PRIVATE);
-        event.setType(event.getType().getType().equals(PUBLIC) ? publicEvent : privateEvent);
+        event.setType(event.getType().getType().equals(PUBLIC) ? PUBLIC_EVENT : PRIVATE_EVENT);
 
         String country = event.getCountry();
         String city = event.getCity();
@@ -140,16 +138,17 @@ public class EventServiceImpl implements EventService {
             throw new InvalidDataException();
         }
 
+        System.out.println(event.toString());
         return mapper.entityToDto(eventRepository.save(mapper.dtoToEntity(event, userRepository)));
         //Mapper requires userRepository to convert minimalDto to full entity
     }
 
-    public Boolean countryDoesExist(String country) {
+    private Boolean countryDoesExist(String country) {
         return countryCityServiceConnection.getCountries().stream().anyMatch(c -> c.getCountry().equals(country));
 
     }
 
-    public Boolean cityDoesExist(String country, String city) {
+    private Boolean cityDoesExist(String country, String city) {
         Long countryId = countryCityServiceConnection.getCountries().stream()
                 .filter(c -> c.getCountry().equals(country)).findAny().orElseThrow().getCountryId();
 
@@ -160,7 +159,7 @@ public class EventServiceImpl implements EventService {
     public EventDto editEvent(String username, Long eventId, EventDto event) {
         Optional<EventEntity> history = eventRepository.findById(eventId);
         if (history.isEmpty()) {
-            throw new UserNotFoundException();
+            throw new EventNotFoundException();
         }
         event.setAttendeeCount(history.get().getAttendeeCount());
 
