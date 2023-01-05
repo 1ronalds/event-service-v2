@@ -1,20 +1,14 @@
 package eventservice.eventservice.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import eventservice.eventservice.business.repository.model.EventTypeEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -17,6 +17,7 @@ import eventservice.eventservice.business.service.UserService;
 import eventservice.eventservice.model.EventDto;
 import eventservice.eventservice.model.EventMinimalDto;
 import eventservice.eventservice.model.EventTypeDto;
+import eventservice.eventservice.model.UserDto;
 import eventservice.eventservice.model.UserMinimalDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -133,8 +134,8 @@ public class EventServiceImpl implements EventService {
     @Override
     public EventDto saveEvent(String username, EventDto event) {
         log.info("saveEvent service method called");
-        event.setOrganiser(new UserMinimalDto(userService.findUserDetails(username).getId(),
-                userService.findUserDetails(username).getUsername()));
+        UserDto userDto = userService.findUserDetails(username);
+        event.setOrganiser(new UserMinimalDto(userDto.getId(), userDto.getUsername()));
         event.setAttendeeCount(0);
 
         event.setType(event.getType().getType().equals(PUBLIC) ? PUBLIC_EVENT : PRIVATE_EVENT);
@@ -146,7 +147,6 @@ public class EventServiceImpl implements EventService {
             throw new InvalidDataException();
         }
 
-        System.out.println(event.toString());
         return mapper.entityToDto(eventRepository.save(mapper.dtoToEntity(event, userRepository)));
         //Mapper requires userRepository to convert minimalDto to full entity
     }
@@ -159,7 +159,6 @@ public class EventServiceImpl implements EventService {
     private Boolean countryDoesExist(String country) {
         log.info("countryDoesExist service method called");
         return countryCityServiceConnection.getCountries().stream().anyMatch(c -> c.getCountry().equals(country));
-
     }
 
     /**
