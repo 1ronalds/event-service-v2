@@ -4305,3 +4305,1340 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 [INFO ] 2022-12-30 14:15:27.254 [Test worker] UserServiceImpl - saveUser service method called
 [INFO ] 2022-12-30 14:15:27.263 [Test worker] UserServiceImpl - editUser service method called
 [INFO ] 2022-12-30 14:15:27.270 [Test worker] UserServiceImpl - deleteUser service method called
+[INFO ] 2023-01-06 12:00:40.717 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:01:34.036 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:04:32.449 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:05:52.056 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:06:35.331 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:08:00.411 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:10:09.764 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:11:04.419 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:14:36.923 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:14:36.941 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:14:36.946 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:14:36.953 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:14:36.971 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:14:36.975 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:14:36.980 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:14:36.984 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:14:36.991 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:14:36.999 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: 2023-12-14, date_to: null 
+[INFO ] 2023-01-06 12:14:37.003 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:14:37.018 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Lithuania, city: Kaunas, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:14:37.023 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:14:37.026 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: 2020-11-12, date_to: 2023-12-15 
+[INFO ] 2023-01-06 12:14:37.030 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:14:37.033 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:14:37.036 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: 2023-12-14, date_to: 2023-12-15 
+[INFO ] 2023-01-06 12:14:37.044 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: 2023-12-14, date_to: 2023-12-15 
+[INFO ] 2023-01-06 12:14:37.051 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Sweden, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:14:37.055 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:14:37.062 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: null, date_to: 2023-12-14 
+[INFO ] 2023-01-06 12:14:37.072 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: 2020-12-14, date_to: 2023-12-15 
+[INFO ] 2023-01-06 12:14:37.079 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:19:52.344 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: 2023-01-06, date_to: null 
+[INFO ] 2023-01-06 12:24:36.072 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: null, city: null, date_from: 2023-01-06, date_to: null 
+[INFO ] 2023-01-06 12:25:05.456 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.479 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.483 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.498 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:25:05.504 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.510 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.553 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: 2023-01-06, date_to: null 
+[INFO ] 2023-01-06 12:25:05.565 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.571 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.576 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:25:05.581 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.586 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:25:05.593 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: 2023-12-14, date_to: null 
+[INFO ] 2023-01-06 12:25:05.597 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.602 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.611 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Lithuania, city: Kaunas, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.615 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.619 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.639 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: 2020-11-12, date_to: 2023-12-15 
+[INFO ] 2023-01-06 12:25:05.643 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.653 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:25:05.657 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: 2023-12-14, date_to: 2023-12-15 
+[INFO ] 2023-01-06 12:25:05.665 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: 2023-12-14, date_to: 2023-12-15 
+[INFO ] 2023-01-06 12:25:05.672 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Sweden, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.684 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: null, city: null, date_from: 2023-01-06, date_to: null 
+[INFO ] 2023-01-06 12:25:05.688 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:05.695 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:25:05.704 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: null, date_to: 2023-12-14 
+[INFO ] 2023-01-06 12:25:05.711 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:25:05.715 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: 2020-12-14, date_to: 2023-12-15 
+[INFO ] 2023-01-06 12:25:05.743 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.594 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: attending, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.610 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.615 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: attending, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.620 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:25:39.627 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.632 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.662 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: 2023-01-06, date_to: null 
+[INFO ] 2023-01-06 12:25:39.671 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.677 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.687 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:25:39.692 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.697 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:25:39.702 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: 2023-12-14, date_to: null 
+[INFO ] 2023-01-06 12:25:39.707 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.713 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: attending, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.726 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Lithuania, city: Kaunas, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.731 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.737 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: attending, country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.743 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: 2020-11-12, date_to: 2023-12-15 
+[INFO ] 2023-01-06 12:25:39.747 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.751 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: mine, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:25:39.756 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: 2023-12-14, date_to: 2023-12-15 
+[INFO ] 2023-01-06 12:25:39.759 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: 2023-12-14, date_to: 2023-12-15 
+[INFO ] 2023-01-06 12:25:39.763 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Sweden, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.771 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: null, city: null, date_from: 2023-01-06, date_to: null 
+[INFO ] 2023-01-06 12:25:39.775 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: all, country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 12:25:39.787 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: attending, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:25:39.793 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: null, date_to: 2023-12-14 
+[INFO ] 2023-01-06 12:25:39.797 [Test worker] EventController - findAllUserCreatedAndOrAttendingEvents controller method called with parameters username: Damian123, display: attending, country: Latvia, city: Riga, date_from: 2021-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-06 12:25:39.802 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: 2020-12-14, date_to: 2023-12-15 
+[INFO ] 2023-01-06 12:25:39.806 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-06 13:16:51.888 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:16:51.897 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:20:26.043 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:20:26.066 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:22:27.450 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:22:27.460 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:22:27.462 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:22:27.462 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:22:27.463 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:26:17.609 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:26:17.633 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:26:17.636 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:26:17.637 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:26:17.638 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:28:43.852 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:28:43.873 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:28:43.879 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:28:43.880 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:28:43.880 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:29:05.096 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:29:05.121 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:29:05.125 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:29:05.125 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:29:05.125 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:29:41.060 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:29:41.072 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:29:41.075 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:29:41.076 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:29:41.076 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:31:48.970 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:31:48.978 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:31:48.980 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:31:48.980 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:31:48.980 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:31:48.981 [Test worker] EventServiceImpl - blerp
+[INFO ] 2023-01-06 13:33:07.576 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:33:07.584 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:33:07.586 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:33:07.586 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:33:07.587 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:33:07.587 [Test worker] EventServiceImpl - blerp
+[INFO ] 2023-01-06 13:34:16.690 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:34:16.700 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:34:16.702 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:34:16.703 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:34:16.703 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:38:52.072 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:38:52.080 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:38:52.082 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:38:52.082 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 13:38:52.082 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:39:32.877 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:39:32.884 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:39:32.886 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:39:32.887 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 13:39:32.887 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:40:41.846 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:40:41.853 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:40:41.854 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:40:41.855 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:40:41.855 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:43:42.838 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:43:42.847 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:43:42.849 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:43:42.849 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 13:43:42.849 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:46:52.458 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:46:52.466 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:46:52.469 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:46:52.469 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 13:46:52.469 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 13:48:02.356 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:48:02.363 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:48:02.365 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:48:02.366 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 13:48:02.366 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 13:49:33.639 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:49:33.645 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 13:49:33.647 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:49:33.647 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 13:49:33.648 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 13:52:10.045 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:52:10.052 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 13:52:10.054 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:52:10.054 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:52:10.054 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:52:10.057 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:52:10.058 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:52:10.058 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 13:53:00.376 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:53:00.392 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 13:53:00.397 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:53:00.397 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:53:00.398 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:53:00.404 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:53:00.404 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 13:53:00.404 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 13:56:42.328 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:56:42.336 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 13:56:42.338 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:56:42.338 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 13:56:42.338 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:56:42.341 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:56:42.341 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 13:56:42.341 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 13:57:14.678 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:57:14.685 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 13:57:14.687 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:57:14.688 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 13:57:14.688 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:57:14.690 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:57:14.691 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 13:57:14.691 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 13:58:06.370 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 13:58:06.377 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 13:58:06.378 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:58:06.379 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 13:58:06.379 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 13:58:06.381 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 13:58:06.382 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 13:58:06.382 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:03:37.934 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:03:37.943 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:03:37.946 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:03:37.946 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:03:37.946 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:03:37.949 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:03:37.949 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:03:37.949 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:04:45.773 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:04:45.784 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:04:45.787 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:04:45.789 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:04:45.789 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:04:45.793 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:04:45.794 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:04:45.794 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:05:20.277 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:05:20.287 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:05:20.287 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-06 14:05:47.896 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:05:47.907 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:05:47.908 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-06 14:07:45.478 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:07:45.486 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:07:45.489 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:07:45.489 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:07:45.489 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:08:39.300 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:08:39.307 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:08:39.310 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:08:39.311 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:08:39.311 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:09:46.061 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:09:46.069 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:09:46.072 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:09:46.073 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:09:46.073 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:10:21.441 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:10:21.449 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:10:21.451 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:10:21.451 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:10:21.452 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:11:09.413 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:11:09.422 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:11:09.424 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:11:09.424 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:11:09.424 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:13:19.075 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:13:19.084 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:13:19.086 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:13:19.088 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:13:19.088 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:13:35.616 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:13:35.625 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:13:35.627 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:13:35.627 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:13:35.628 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:15:11.896 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:15:11.904 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:15:11.906 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:15:11.906 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:15:11.906 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:16:06.291 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:16:06.298 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:16:06.300 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:16:06.300 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:16:06.301 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:19:08.744 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:08.756 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:19:08.757 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-06 14:19:31.297 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.309 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:19:31.311 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.312 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:19:31.312 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:19:31.347 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.347 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:19:31.348 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.348 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.348 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:19:31.358 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.358 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:19:31.358 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.359 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:19:31.359 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:19:31.368 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.368 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:19:31.368 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.368 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.369 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:19:31.369 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.369 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.370 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:19:31.379 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.379 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:19:31.380 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.380 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:19:31.380 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:19:31.387 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.387 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:19:31.387 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.387 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.387 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:19:31.389 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.389 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.389 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:19:31.400 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.400 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:19:31.400 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-06 14:19:31.422 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:19:31.423 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:19:31.424 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:19:31.434 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.434 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:19:31.434 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.434 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.435 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:19:31.435 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.436 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.436 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:19:31.446 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.446 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:19:31.447 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.447 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.447 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:19:31.448 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.448 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.448 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:19:31.463 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.463 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:19:31.463 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.463 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.464 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:19:31.479 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:19:31.480 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:19:31.480 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2001-11-12, dateTo: null
+[INFO ] 2023-01-06 14:19:31.488 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.488 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:19:31.491 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.492 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.492 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:19:31.498 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.498 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:19:31.499 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.499 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.499 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:19:31.522 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:19:31.522 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:19:31.523 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:19:31.528 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.529 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:19:31.529 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.529 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:19:31.529 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:19:31.534 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.535 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:19:31.535 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.535 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.535 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:19:31.546 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:19:31.546 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:19:31.547 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2024-11-12
+[INFO ] 2023-01-06 14:19:31.554 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.554 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:19:31.555 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.555 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:19:31.555 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:19:31.556 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.557 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:19:31.561 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:19:31.578 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.578 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:19:31.579 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.579 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.579 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:19:31.586 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:19:31.587 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:19:31.587 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:19:31.593 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:19:31.593 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:19:31.593 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2001-11-12, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:19:31.600 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:19:31.601 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:19:31.601 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:19:31.608 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.609 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:19:31.609 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-06 14:19:31.617 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.617 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:19:31.617 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.618 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:19:31.618 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:19:31.618 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.619 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:19:31.619 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:19:31.624 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.624 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:19:31.624 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.625 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.625 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:19:31.631 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:19:31.631 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:19:31.632 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:19:31.639 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:19:31.639 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:19:31.640 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:19:31.640 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:19:31.640 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:19:31.646 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:19:31.646 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:19:31.646 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:19:31.653 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:19:31.653 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:19:31.653 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:20:03.058 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.068 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:20:03.072 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.072 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.072 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:20:03.111 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.112 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:20:03.112 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.112 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.113 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:20:03.126 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.126 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:20:03.126 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.127 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.127 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:20:03.138 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.138 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:20:03.138 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.139 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.139 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:20:03.140 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.140 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.140 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:20:03.157 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.157 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:20:03.157 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.157 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.158 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:20:03.167 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.167 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:20:03.168 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.168 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.168 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:20:03.168 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.169 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.169 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:20:03.179 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.180 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:20:03.180 [Test worker] EventServiceImpl - filterEvents service method parameter country - Riga
+[INFO ] 2023-01-06 14:20:03.180 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.187 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.188 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:20:03.189 [Test worker] EventServiceImpl - filterEvents service method parameter country is null
+[INFO ] 2023-01-06 14:20:03.189 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.201 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:20:03.201 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:20:03.202 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:20:03.212 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.212 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:20:03.212 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.212 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.213 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:20:03.213 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.213 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.213 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:20:03.220 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.221 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:20:03.221 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.221 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.222 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:20:03.222 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.222 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.223 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:20:03.229 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.230 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:20:03.230 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.230 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.230 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:20:03.237 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:20:03.238 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:20:03.238 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2001-11-12, dateTo: null
+[INFO ] 2023-01-06 14:20:03.243 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.243 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:20:03.243 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.243 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.244 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:20:03.249 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.249 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:20:03.249 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.249 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.250 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:20:03.269 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:20:03.269 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:20:03.269 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:20:03.276 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.276 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:20:03.276 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.276 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.277 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:20:03.285 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.285 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:20:03.286 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.286 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.287 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:20:03.294 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:20:03.294 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.295 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2024-11-12
+[INFO ] 2023-01-06 14:20:03.302 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.302 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:20:03.304 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.304 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.304 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:20:03.304 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.305 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.306 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:20:03.312 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.313 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:20:03.313 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.313 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.313 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:20:03.318 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:20:03.319 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.319 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:20:03.324 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:20:03.325 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:20:03.325 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2001-11-12, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:20:03.331 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:20:03.331 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.331 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:20:03.337 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.337 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:20:03.338 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-06 14:20:03.343 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.343 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:20:03.343 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.343 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.343 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:20:03.344 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.344 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.345 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:20:03.350 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.350 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:20:03.351 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.351 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.351 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:20:03.357 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:20:03.358 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:20:03.358 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:20:03.363 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:20:03.363 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:20:03.364 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:20:03.364 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:20:03.364 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:20:03.369 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:20:03.369 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:20:03.369 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:20:03.377 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:20:03.378 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:20:03.378 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:21:09.541 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.554 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:21:09.556 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.556 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.557 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:21:09.593 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.593 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:21:09.593 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.593 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.593 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:21:09.601 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.601 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:21:09.601 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.601 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.602 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:21:09.615 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.615 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:21:09.615 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.615 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.616 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:21:09.616 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.617 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.617 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:21:09.628 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.630 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:21:09.630 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.630 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.630 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:21:09.637 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.638 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:21:09.638 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.638 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.639 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:21:09.640 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.640 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.641 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:21:09.653 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.653 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:21:09.654 [Test worker] EventServiceImpl - filterEvents service method parameter country - Riga
+[INFO ] 2023-01-06 14:21:09.654 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.660 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.660 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:21:09.661 [Test worker] EventServiceImpl - filterEvents service method parameter country is null
+[INFO ] 2023-01-06 14:21:09.662 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.676 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:21:09.677 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:21:09.677 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:21:09.687 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.687 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:21:09.687 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.687 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.687 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:21:09.688 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.688 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.688 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:21:09.695 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.695 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:21:09.696 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.696 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.696 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:21:09.697 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.697 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.697 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:21:09.706 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.707 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:21:09.707 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.707 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.707 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:21:09.715 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:21:09.716 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:21:09.716 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2001-11-12, dateTo: null
+[INFO ] 2023-01-06 14:21:09.723 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.723 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:21:09.723 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.724 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.724 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:21:09.730 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.731 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:21:09.731 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.731 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.731 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:21:09.751 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:21:09.752 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:21:09.752 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:21:09.760 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.760 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:21:09.760 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.761 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.761 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:21:09.766 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.767 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:21:09.767 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.767 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.767 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:21:09.775 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:21:09.775 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.775 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2024-11-12
+[INFO ] 2023-01-06 14:21:09.782 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.783 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:21:09.783 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.783 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.783 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:21:09.784 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.785 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.785 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:21:09.791 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.792 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:21:09.792 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.792 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.792 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:21:09.799 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:21:09.799 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.800 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:21:09.806 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:21:09.807 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:21:09.807 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2001-11-12, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:21:09.813 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:21:09.813 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.813 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:21:09.819 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.819 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:21:09.819 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-06 14:21:09.824 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.825 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:21:09.825 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.825 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.825 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:21:09.825 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.826 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.826 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:21:09.833 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.834 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:21:09.835 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.835 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.835 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:21:09.847 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:21:09.847 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:21:09.848 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:21:09.855 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:21:09.855 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:21:09.855 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:21:09.855 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:21:09.856 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:21:09.862 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:21:09.862 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:21:09.863 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:21:09.868 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:21:09.868 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:21:09.869 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:22:24.363 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.371 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:22:24.373 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.373 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.374 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:22:24.397 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.398 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:22:24.398 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.398 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.398 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:22:24.406 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.407 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:22:24.407 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.407 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.407 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:22:24.413 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.413 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:22:24.414 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.414 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.414 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:22:24.414 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.414 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.415 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:22:24.424 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.424 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:22:24.424 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.424 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.424 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:22:24.431 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.431 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:22:24.431 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.431 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.431 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:22:24.432 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.432 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.432 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:22:24.442 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.443 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:22:24.443 [Test worker] EventServiceImpl - filterEvents service method parameter country - Riga
+[INFO ] 2023-01-06 14:22:24.443 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.447 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.447 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:22:24.448 [Test worker] EventServiceImpl - filterEvents service method parameter country is null
+[INFO ] 2023-01-06 14:22:24.448 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.458 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:22:24.459 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:22:24.459 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:22:24.465 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.465 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:22:24.465 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.465 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.465 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:22:24.466 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.466 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.466 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:22:24.472 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.472 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:22:24.472 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.472 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.472 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:22:24.473 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.473 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.473 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:22:24.478 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.478 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:22:24.479 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.479 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.479 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:22:24.484 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:22:24.485 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:22:24.485 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2001-11-12, dateTo: null
+[INFO ] 2023-01-06 14:22:24.489 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.489 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:22:24.489 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.489 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.489 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:22:24.492 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.493 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:22:24.493 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.493 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.493 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:22:24.504 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:22:24.504 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:22:24.504 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:22:24.509 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.510 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:22:24.510 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.510 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.510 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:22:24.515 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.515 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:22:24.516 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.516 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.516 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:22:24.520 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:22:24.521 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.521 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2024-11-12
+[INFO ] 2023-01-06 14:22:24.524 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.524 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:22:24.524 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.525 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.525 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:22:24.525 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.525 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.525 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:22:24.529 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.529 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:22:24.530 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.530 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.530 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:22:24.533 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:22:24.533 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.533 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:22:24.537 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:22:24.538 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:22:24.538 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2001-11-12, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:22:24.543 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:22:24.543 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.543 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:22:24.548 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.548 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:22:24.548 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-06 14:22:24.553 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.553 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:22:24.553 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.553 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.553 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:22:24.554 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.554 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.554 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:22:24.558 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.558 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:22:24.558 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.559 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.559 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:22:24.562 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:22:24.562 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:22:24.562 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:22:24.566 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:22:24.567 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:22:24.567 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:22:24.567 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:22:24.567 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:22:24.571 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:22:24.572 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:22:24.572 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:22:24.576 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:22:24.576 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:22:24.576 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:23:21.656 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.663 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:23:21.665 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.665 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.665 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:23:21.693 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.693 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:23:21.693 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.693 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.695 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:23:21.703 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.704 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:23:21.704 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.704 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.704 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:23:21.711 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.712 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:23:21.712 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.712 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.712 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:23:21.713 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.713 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.713 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:23:21.722 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.722 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:23:21.722 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.722 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.723 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:23:21.729 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.729 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:23:21.729 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.730 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.730 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:23:21.730 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.730 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.730 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:23:21.738 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.738 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:23:21.738 [Test worker] EventServiceImpl - filterEvents service method parameter country - Riga
+[INFO ] 2023-01-06 14:23:21.738 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.742 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.742 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:23:21.742 [Test worker] EventServiceImpl - filterEvents service method parameter country is null
+[INFO ] 2023-01-06 14:23:21.742 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.751 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:23:21.751 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:23:21.752 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:23:21.758 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.759 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:23:21.759 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.759 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.759 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:23:21.759 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.760 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.760 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:23:21.765 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.765 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:23:21.765 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.765 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.765 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:23:21.765 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.765 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.765 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:23:21.770 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.770 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:23:21.770 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.771 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.771 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:23:21.780 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:23:21.781 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:23:21.781 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2001-11-12, dateTo: null
+[INFO ] 2023-01-06 14:23:21.785 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.786 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:23:21.786 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.786 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.786 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:23:21.790 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.791 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:23:21.791 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.791 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.791 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:23:21.803 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:23:21.805 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:23:21.805 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:23:21.809 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.809 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:23:21.809 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.809 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.809 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:23:21.813 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.813 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:23:21.813 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.813 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.813 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:23:21.819 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:23:21.819 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.819 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2024-11-12
+[INFO ] 2023-01-06 14:23:21.826 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.827 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:23:21.827 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.827 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.827 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:23:21.828 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.828 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.828 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:23:21.832 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.832 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:23:21.833 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.833 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.833 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:23:21.836 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:23:21.836 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.836 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:23:21.840 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:23:21.840 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:23:21.840 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2001-11-12, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:23:21.843 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:23:21.843 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.843 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:23:21.847 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.847 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:23:21.847 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-06 14:23:21.850 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.850 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:23:21.851 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.851 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.851 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:23:21.851 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.851 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.851 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:23:21.854 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.854 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:23:21.854 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.854 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.855 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:23:21.857 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:23:21.857 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:23:21.857 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:23:21.860 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:23:21.860 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:23:21.860 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:23:21.860 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:23:21.860 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:23:21.863 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:23:21.863 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:23:21.863 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:23:21.866 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:23:21.866 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:23:21.866 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:24:55.131 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.140 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:24:55.143 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.143 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.143 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:24:55.169 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.170 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:24:55.170 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.170 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.170 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:24:55.176 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.176 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:24:55.176 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.176 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.176 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:24:55.184 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.184 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:24:55.184 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.184 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.185 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:24:55.185 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.185 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.185 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:24:55.194 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.194 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:24:55.194 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.195 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.195 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:24:55.199 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.200 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:24:55.200 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.200 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.200 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:24:55.200 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.201 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.201 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:24:55.208 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.209 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:24:55.209 [Test worker] EventServiceImpl - filterEvents service method parameter country - Riga
+[INFO ] 2023-01-06 14:24:55.209 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.217 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:24:55.218 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:24:55.218 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:24:55.223 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.224 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:24:55.224 [Test worker] EventServiceImpl - filterEvents service method parameter country is null
+[INFO ] 2023-01-06 14:24:55.224 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.231 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.232 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:24:55.232 [Test worker] EventServiceImpl - filterEvents service method parameter country is null
+[INFO ] 2023-01-06 14:24:55.232 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.237 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.239 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:24:55.239 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.239 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.239 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:24:55.240 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.240 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.240 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:24:55.244 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.244 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:24:55.244 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.244 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.244 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:24:55.245 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.245 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.245 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:24:55.250 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.250 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:24:55.251 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.251 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.251 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:24:55.256 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:24:55.257 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:24:55.257 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2001-11-12, dateTo: null
+[INFO ] 2023-01-06 14:24:55.262 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.263 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:24:55.263 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.263 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.263 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:24:55.266 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.267 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:24:55.267 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.267 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.267 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:24:55.278 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:24:55.278 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:24:55.278 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:24:55.286 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.286 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:24:55.287 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.287 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.288 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:24:55.291 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.292 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:24:55.292 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.292 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.292 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:24:55.296 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:24:55.296 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.297 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2024-11-12
+[INFO ] 2023-01-06 14:24:55.302 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.303 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:24:55.303 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.303 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.303 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:24:55.304 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.304 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.304 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:24:55.309 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.309 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:24:55.309 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.309 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.309 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:24:55.313 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:24:55.314 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.314 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:24:55.317 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:24:55.317 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:24:55.317 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2001-11-12, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:24:55.320 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:24:55.320 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.320 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:24:55.324 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.324 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:24:55.324 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-06 14:24:55.326 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.327 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:24:55.327 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.327 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.327 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:24:55.327 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.327 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.327 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:24:55.331 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.331 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:24:55.331 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.331 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.331 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:24:55.335 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:24:55.335 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:24:55.335 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:24:55.339 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:24:55.339 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:24:55.339 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:24:55.339 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:24:55.340 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:24:55.343 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:24:55.343 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:24:55.343 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:24:55.349 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:24:55.349 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:24:55.349 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:27:57.287 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:27:57.295 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:27:57.295 [Test worker] EventServiceImpl - filterEvents service method parameter country is null
+[INFO ] 2023-01-06 14:27:57.295 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.358 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.366 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:29:04.368 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.368 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.369 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:29:04.394 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.394 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:29:04.394 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.394 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.394 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:29:04.400 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.401 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:29:04.401 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.401 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.401 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:29:04.411 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.411 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:29:04.411 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.411 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.412 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:29:04.412 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.412 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.412 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:29:04.426 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.427 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:29:04.427 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.427 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.427 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:29:04.432 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.433 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:29:04.433 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.433 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.433 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:29:04.434 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.434 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.434 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:29:04.442 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.442 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:29:04.442 [Test worker] EventServiceImpl - filterEvents service method parameter country - Riga
+[INFO ] 2023-01-06 14:29:04.442 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.442 [Test worker] EventServiceImpl - blerp
+[INFO ] 2023-01-06 14:29:04.452 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:29:04.452 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:29:04.452 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:29:04.456 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.456 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:29:04.456 [Test worker] EventServiceImpl - filterEvents service method parameter country is null
+[INFO ] 2023-01-06 14:29:04.456 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.459 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.459 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:29:04.459 [Test worker] EventServiceImpl - filterEvents service method parameter country is null
+[INFO ] 2023-01-06 14:29:04.459 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.464 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.464 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:29:04.464 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.465 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.465 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:29:04.465 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.465 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.465 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:29:04.469 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.469 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:29:04.469 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.469 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.470 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:29:04.470 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.471 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.471 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:29:04.476 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.476 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:29:04.476 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.476 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.476 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:29:04.482 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:29:04.482 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:29:04.482 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2001-11-12, dateTo: null
+[INFO ] 2023-01-06 14:29:04.486 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.487 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:29:04.487 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.487 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.487 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:29:04.493 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.493 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:29:04.493 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.494 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.494 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:29:04.507 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:29:04.507 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:29:04.507 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:29:04.511 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.511 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:29:04.511 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.511 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.511 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:29:04.515 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.515 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:29:04.516 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.516 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.516 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:29:04.520 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:29:04.521 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.521 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2024-11-12
+[INFO ] 2023-01-06 14:29:04.526 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.526 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:29:04.527 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.527 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.527 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:29:04.527 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.527 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.528 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:29:04.531 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.531 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-06 14:29:04.532 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.532 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.532 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - mine
+[INFO ] 2023-01-06 14:29:04.536 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:29:04.537 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.537 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:29:04.543 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:29:04.543 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:29:04.544 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2001-11-12, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:29:04.549 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:29:04.549 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.549 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-06 14:29:04.553 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.553 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:29:04.553 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-06 14:29:04.557 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.557 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-06 14:29:04.557 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.557 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.557 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - mine
+[INFO ] 2023-01-06 14:29:04.558 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.558 [Test worker] EventServiceImpl - filterEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.558 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom, dateTo are null, display value - attending
+[INFO ] 2023-01-06 14:29:04.560 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.560 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:29:04.561 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.561 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.561 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:29:04.564 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:29:04.564 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:29:04.565 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2002-11-12
+[INFO ] 2023-01-06 14:29:04.568 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-06 14:29:04.568 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-06 14:29:04.568 [Test worker] EventServiceImpl - filterEvents service method parameter country - Latvia
+[INFO ] 2023-01-06 14:29:04.568 [Test worker] EventServiceImpl - filterEvents service method parameter city - Riga
+[INFO ] 2023-01-06 14:29:04.568 [Test worker] EventServiceImpl - filterEvents service method parameters dateFrom - 2023-01-06, dateTo - 2023-01-06, display value - attending
+[INFO ] 2023-01-06 14:29:04.573 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:29:04.574 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-06 14:29:04.574 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-06 14:29:04.579 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-06 14:29:04.579 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-06 14:29:04.579 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null

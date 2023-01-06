@@ -1,6 +1,8 @@
 package eventservice.eventservice.controller;
 
+import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
+import eventservice.eventservice.business.handlers.exceptions.InvalidDisplayValueException;
 import eventservice.eventservice.business.service.EventService;
 import eventservice.eventservice.model.EventDto;
 import eventservice.eventservice.model.EventMinimalDto;
@@ -148,6 +150,207 @@ public class EventControllerTest {
         Mockito.when(service.findAllPublicEvents("Latvia", "Riga", null, LocalDate.of(2023, 12, 14)))
                 .thenThrow(DateIntervalNotSpecifiedException.class);
         assertThrows(DateIntervalNotSpecifiedException.class,() -> controller.findAllPublicEvents("Latvia", "Riga",  null, LocalDate.of(2023, 12, 14)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueNotSpecified_Exception(){
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", null, null, null))
+                .thenThrow(InvalidDisplayValueException.class);
+        assertThrows(InvalidDisplayValueException.class, () -> controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", null, null, null));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_dateIntervalNotSpecified_Exception(){
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", null, LocalDate.now(), null))
+                .thenThrow(DateIntervalNotSpecifiedException.class);
+        assertThrows(DateIntervalNotSpecifiedException.class, () -> controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", null, LocalDate.now(), null));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_OnlyCountrySpecified_Found(){
+        List<EventMinimalDto> eventList = List.of(eventDto1, eventDto2);
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", null, null, null))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", null, null, null);
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(2, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_OnlyCountrySpecified_NotFound(){
+        List<EventMinimalDto> eventList =Collections.emptyList();
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", null, null, null))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", null, null, null);
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(0, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCitySpecified_Found(){
+        List<EventMinimalDto> eventList = List.of(eventDto1);
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", "Riga", null, null))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", "Riga", null, null);
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(1, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCitySpecified_NotFound(){
+        List<EventMinimalDto> eventList = Collections.emptyList();
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", "Riga", null, null))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", "Riga", null, null);
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(0, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCityAndDateIntervalSpecified_Found(){
+        List<EventMinimalDto> eventList = List.of(eventDto1, eventDto2, eventDto3);
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", "Riga", LocalDate.of(2021, 11, 12), LocalDate.of(2023, 11, 12)))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", "Riga", LocalDate.of(2021, 11, 12), LocalDate.of(2023, 11, 12));
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(3, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCityAndDateIntervalSpecified_NotFound(){
+        List<EventMinimalDto> eventList = Collections.emptyList();
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", "Riga", LocalDate.of(2021, 11, 12), LocalDate.of(2023, 11, 12)))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", "Latvia", "Riga", LocalDate.of(2021, 11, 12), LocalDate.of(2023, 11, 12));
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(0, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_OnlyCountrySpecified_Found(){
+        List<EventMinimalDto> eventList = List.of(eventDto1, eventDto2);
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Latvia", null, null, null))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Latvia", null, null, null);
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(2, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueALl_OnlyCountrySpecified_NotFound(){
+        List<EventMinimalDto> eventList =Collections.emptyList();
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Latvia", null, null, null))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Latvia", null, null, null);
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(0, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCitySpecified_Found(){
+        List<EventMinimalDto> eventList = List.of(eventDto1);
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Latvia", "Riga", null, null))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Latvia", "Riga", null, null);
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(1, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCitySpecified_NotFound(){
+        List<EventMinimalDto> eventList = Collections.emptyList();
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Latvia", "Riga", null, null))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Latvia", "Riga", null, null);
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(0, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCityAndDateIntervalSpecified_Found(){
+        List<EventMinimalDto> eventList = List.of(eventDto1, eventDto2, eventDto3);
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Latvia", "Riga", LocalDate.of(2021, 11, 12), LocalDate.of(2023, 11, 12)))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Latvia", "Riga", LocalDate.of(2021, 11, 12), LocalDate.of(2023, 11, 12));
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(3, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCityAndDateIntervalSpecified_NotFound(){
+        List<EventMinimalDto> eventList = Collections.emptyList();
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Latvia", "Riga", LocalDate.of(2021, 11, 12), LocalDate.of(2023, 11, 12)))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Latvia", "Riga", LocalDate.of(2021, 11, 12), LocalDate.of(2023, 11, 12));
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(0, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_countryNotSpecified_Exception(){
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", null, null, LocalDate.now(), null))
+                .thenThrow(CountryNotSpecifiedException.class);
+        assertThrows(CountryNotSpecifiedException.class, () -> controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", null, null, LocalDate.now(), null));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_OnlyCountrySpecified_Found(){
+        List<EventMinimalDto> eventList = List.of(eventDto1, eventDto2);
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", "Latvia", null, null, null))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", "Latvia", null, null, null);
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(2, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_OnlyCountrySpecified_NotFound(){
+        List<EventMinimalDto> eventList =Collections.emptyList();
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", "Latvia", null, null, null))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", "Latvia", null, null, null);
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(0, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCitySpecified_Found(){
+        List<EventMinimalDto> eventList = List.of(eventDto1);
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", "Latvia", "Riga", null, null))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", "Latvia", "Riga", null, null);
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(1, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCitySpecified_NotFound(){
+        List<EventMinimalDto> eventList = Collections.emptyList();
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", "Latvia", "Riga", null, null))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", "Latvia", "Riga", null, null);
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(0, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCityAndDateIntervalSpecified_Found(){
+        List<EventMinimalDto> eventList = List.of(eventDto1, eventDto2, eventDto3);
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", "Latvia", "Riga", LocalDate.of(2021, 11, 12), LocalDate.of(2023, 11, 12)))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", "Latvia", "Riga", LocalDate.of(2021, 11, 12), LocalDate.of(2023, 11, 12));
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(3, responseEntity.getBody().size());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCityAndDateIntervalSpecified_NotFound(){
+        List<EventMinimalDto> eventList = Collections.emptyList();
+        Mockito.when(service.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", "Latvia", "Riga", LocalDate.of(2021, 11, 12), LocalDate.of(2023, 11, 12)))
+                .thenReturn(eventList);
+        ResponseEntity<List<EventMinimalDto>> responseEntity = controller.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", "Latvia", "Riga", LocalDate.of(2021, 11, 12), LocalDate.of(2023, 11, 12));
+        assertEquals(ResponseEntity.ok(eventList), responseEntity);
+        assertEquals(0, responseEntity.getBody().size());
     }
 
     //Event create/update/delete/view operations

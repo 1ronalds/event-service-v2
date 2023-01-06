@@ -1,5 +1,6 @@
 package eventservice.eventservice.service;
 
+import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
 import eventservice.eventservice.business.mapper.EventMapStruct;
 import eventservice.eventservice.business.repository.EventRepository;
@@ -12,6 +13,8 @@ import eventservice.eventservice.model.EventDto;
 import eventservice.eventservice.model.EventMinimalDto;
 import eventservice.eventservice.model.EventTypeDto;
 import eventservice.eventservice.model.UserMinimalDto;
+import org.hibernate.validator.internal.util.privilegedactions.LoadClass;
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -19,6 +22,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
+import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -222,10 +226,270 @@ public class EventServiceTest {
     }
 
     @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_OnlyCountrySpecified_Found(){
+        String country = "Latvia";
+        String username = "User";
+        Mockito.when(repository.findAllByOrganiserUsernameAndCountry(username, country)).thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "mine", country, null, null, null);
+        assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_OnlyCountrySpecified_NotFound(){
+        String country = "Latvia";
+        String username = "User";
+        Mockito.when(repository.findAllByOrganiserUsernameAndCountry(username, country)).thenReturn(Collections.emptyList());
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "mine", country, null, null, null);
+        assertEquals(Collections.emptyList(), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCitySpecified_Found(){
+        String country = "Latvia";
+        String city = "Riga";
+        String username = "User";
+        Mockito.when(repository.findAllByOrganiserUsernameAndCountryAndCity(username, country, city)).thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "mine", country, city, null, null);
+        assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCitySpecified_NotFound(){
+        String country = "Latvia";
+        String username = "User";
+        String city = "Riga";
+        Mockito.when(repository.findAllByOrganiserUsernameAndCountryAndCity(username, country, city)).thenReturn(Collections.emptyList());
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "mine", country, city, null, null);
+        assertEquals(Collections.emptyList(), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCityAndDateIntervalSpecified_Found(){
+        String country = "Latvia";
+        String username = "User";
+        String city = "Riga";
+        LocalDate dateStart = LocalDate.now();
+        LocalDate dateEnd = LocalDate.now();
+        Mockito.when(repository.findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween(username, country, city, dateStart.atStartOfDay(), dateEnd.atStartOfDay())).thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "mine", country, city, LocalDate.now(), LocalDate.now());
+        assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCityAndDateIntervalSpecified_NotFound(){
+        String country = "Latvia";
+        String username = "User";
+        String city = "Riga";
+        LocalDate dateStart = LocalDate.now();
+        LocalDate dateEnd = LocalDate.now();
+        Mockito.when(repository.findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween(username, country, city, dateStart.atStartOfDay(), dateEnd.atStartOfDay())).thenReturn(Collections.emptyList());
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "mine", country, city, LocalDate.now(), LocalDate.now());
+        assertEquals(Collections.emptyList(), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_OnlyCountrySpecified_Found(){
+        String country = "Latvia";
+        String username = "User";
+        Mockito.when(repository.findAllByOrganiserUsernameAndCountry(username, country)).thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
+        Mockito.when(repository.findAllAttendingByCountry(username, country)).thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "all", country, null, null, null);
+        assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueALl_OnlyCountrySpecified_NotFound(){
+        String country = "Latvia";
+        String username = "User";
+        Mockito.when(repository.findAllByOrganiserUsernameAndCountry(username, country)).thenReturn(Collections.emptyList());
+        Mockito.when(repository.findAllAttendingByCountry(username, country)).thenReturn(Collections.emptyList());
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "all", country, null, null, null);
+        assertEquals(Collections.emptyList(), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCitySpecified_Found(){
+        String country = "Latvia";
+        String username = "User";
+        String city = "Riga";
+        Mockito.when(repository.findAllByOrganiserUsernameAndCountryAndCity(username, country, city)).thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
+        Mockito.when(repository.findAllAttendingByCountryAndCity(username, country, city)).thenReturn(List.of(eventEntity1,eventEntity5));
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "all", country, city, null, null);
+        assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCitySpecified_NotFound(){
+        String country = "Latvia";
+        String username = "User";
+        String city = "Riga";
+        Mockito.when(repository.findAllByOrganiserUsernameAndCountryAndCity(username, country, city)).thenReturn(Collections.emptyList());
+        Mockito.when(repository.findAllAttendingByCountryAndCity(username, country, city)).thenReturn(Collections.emptyList());
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "all", country, city, null, null);
+        assertEquals(Collections.emptyList(), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCityAndDateIntervalSpecified_Found(){
+        String country = "Latvia";
+        String username = "User";
+        String city = "Riga";
+        LocalDate dateStart = LocalDate.now();
+        LocalDate dateEnd = LocalDate.now();
+        Mockito.when(repository.findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween(username, country, city, dateStart.atStartOfDay(), dateEnd.atStartOfDay())).thenReturn(List.of(eventEntity1, eventEntity5));
+        Mockito.when(repository.findAllAttendingByCountryAndCityAndDateTimeBetween(username, country, city, dateStart.atStartOfDay(), dateEnd.atStartOfDay())).thenReturn(List.of(eventEntity1, eventEntity4));
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "all", country, city, dateStart, dateEnd);
+        assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCityAndDateIntervalSpecified_NotFound(){
+        String country = "Latvia";
+        String username = "User";
+        String city = "Riga";
+        LocalDate dateStart = LocalDate.now();
+        LocalDate dateEnd = LocalDate.now();
+        Mockito.when(repository.findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween(username, country, city, dateStart.atStartOfDay(), dateEnd.atStartOfDay())).thenReturn(Collections.emptyList());
+        Mockito.when(repository.findAllAttendingByCountryAndCityAndDateTimeBetween(username, country, city, dateStart.atStartOfDay(), dateEnd.atStartOfDay())).thenReturn(Collections.emptyList());
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "all", country, city, dateStart, dateEnd);
+        assertEquals(Collections.emptyList(), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_countryNotSpecified_Exception(){
+        Assert.assertThrows(CountryNotSpecifiedException.class, () -> service.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", null, null, null, null));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_dateIntervalNotSpecified_Exception(){
+        Assert.assertThrows(DateIntervalNotSpecifiedException.class, () -> service.findAllUserCreatedAndOrAttendingEvents("Damian123", "all", "Riga", null, LocalDate.now(), null));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_dateIntervalNotSpecified_Exception(){
+        Assert.assertThrows(DateIntervalNotSpecifiedException.class, () -> service.findAllUserCreatedAndOrAttendingEvents("Damian123", "mine", null, null, LocalDate.now(), null));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_dateIntervalNotSpecified_Exception(){
+        Assert.assertThrows(DateIntervalNotSpecifiedException.class, () -> service.findAllUserCreatedAndOrAttendingEvents("Damian123", "attending", null, null, LocalDate.now(), null));
+    }
+
+    @Test
     void findEventInfo(){
         Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity1));
         Mockito.when(mapper.entityToDto(any())).thenReturn(eventDto);
         assertEquals(eventDto, service.findEventInfo(1L));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_OnlyCountrySpecified_Found(){
+        String country = "Latvia";
+        String username = "User";
+        Mockito.when(repository.findAllAttendingByCountry(username, country)).thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "attending", country, null, null, null);
+        assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_OnlyCountrySpecified_NotFound(){
+        String country = "Latvia";
+        String username = "User";
+        Mockito.when(repository.findAllAttendingByCountry(username, country)).thenReturn(Collections.emptyList());
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "attending", country, null, null, null);
+        assertEquals(Collections.emptyList(), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCitySpecified_Found(){
+        String country = "Latvia";
+        String username = "User";
+        String city = "Riga";
+        Mockito.when(repository.findAllAttendingByCountryAndCity(username, country, city)).thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "attending", country, city, null, null);
+        assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCitySpecified_NotFound(){
+        String country = "Latvia";
+        String username = "User";
+        String city = "Riga";
+        Mockito.when(repository.findAllAttendingByCountryAndCity(username, country, city)).thenReturn(Collections.emptyList());
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "attending", country, city, null, null);
+        assertEquals(Collections.emptyList(), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCityAndDateIntervalSpecified_Found(){
+        String country = "Latvia";
+        String username = "User";
+        String city = "Riga";
+        LocalDate dateStart = LocalDate.now();
+        LocalDate dateEnd = LocalDate.now();
+        Mockito.when(repository.findAllAttendingByCountryAndCityAndDateTimeBetween(username, country, city, dateStart.atStartOfDay(), dateEnd.atStartOfDay())).thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "attending", country, city, dateStart, dateEnd);
+        assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCityAndDateIntervalSpecified_NotFound(){
+        String country = "Latvia";
+        String username = "User";
+        String city = "Riga";
+        LocalDate dateStart = LocalDate.now();
+        LocalDate dateEnd = LocalDate.now();
+        Mockito.when(repository.findAllAttendingByCountryAndCityAndDateTimeBetween(username, country, city, dateStart.atStartOfDay(), dateEnd.atStartOfDay())).thenReturn(Collections.emptyList());
+        Mockito.when(mapper.entityToMinimalDto(eventEntity1)).thenReturn(eventDto1);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity4)).thenReturn(eventDto4);
+        Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
+
+        List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "attending", country, city, dateStart, dateEnd);
+        assertEquals(Collections.emptyList(), results);
     }
 
     /*@Test

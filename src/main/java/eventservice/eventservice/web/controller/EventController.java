@@ -59,6 +59,16 @@ public class EventController {
         return ResponseEntity.ok(eventService.findAllPublicEvents(country, city, dateFrom, dateTo));
     }
 
+    /**
+     *
+     * @param username - username of the user, who is looking for the events
+     * @param displayValue - display type of the events (mine, attending, all(includes mine and attending))
+     * @param country - country, where the event is taking place
+     * @param city - city, where the event is taking place
+     * @param dateFrom - date interval, when the event is taking place, start date
+     * @param dateTo - date interval, when the event is taking place, end date
+     * @return
+     */
     @GetMapping(value = "/events/user/{user_name}")
     public ResponseEntity<List<EventMinimalDto>> findAllUserCreatedAndOrAttendingEvents(
                                                             @ApiParam(value = "username of the user, which is used to filter out the user's events")

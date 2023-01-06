@@ -119,14 +119,18 @@ public class EventServiceImpl implements EventService {
     @Override
     public List<EventMinimalDto> findAllUserCreatedAndOrAttendingEvents(String username, String displayValue, String country,
                                                                         String city, LocalDate dateFrom, LocalDate dateTo) {
+        log.info("findAllUserCreatedAndOrAttendingEvents service method called");
         String display = displayValue.toLowerCase();
         if (display.equals(MINE)) {
+            log.info("findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine");
             return filterEvents(display, username, country, city, dateFrom, dateTo)
                     .stream()
                     .map(mapper::entityToMinimalDto)
                     .collect(Collectors.toList());
         } else if (display.equals(ALL)) {
+            log.info("findAllUserCreatedAndOrAttendingEvents service method display value parameter - all");
             if (country == null){
+                log.info("findAllUserCreatedAndOrAttendingEvents service method parameter country is null");
                 throw new CountryNotSpecifiedException();
             }
             List<EventEntity> mineEvents = filterEvents(MINE, username, country, city, dateFrom, dateTo);
@@ -138,21 +142,27 @@ public class EventServiceImpl implements EventService {
 
             return allEvents.stream().map(mapper::entityToMinimalDto).collect(Collectors.toList());
         } else if (display.equals(ATTENDING)) {
+            log.info("findAllUserCreatedAndOrAttendingEvents display value parameter - attending");
             return filterEvents(display, username, country, city, dateFrom, dateTo)
                     .stream()
                     .map(mapper::entityToMinimalDto)
                     .collect(Collectors.toList());
         }
+        log.info("findAllUserCreatedAndOrAttendingEvents service method variable display {} is invalid", display);
         throw new InvalidDisplayValueException();
     }
 
     private List<EventEntity> filterEvents(String display, String username, String country, String city, LocalDate dateFrom, LocalDate dateTo) {
         LocalDateTime dateTimeFrom, dateTimeTo;
-        dateTimeFrom = dateFrom.atStartOfDay();
-        dateTimeTo = dateTo.atStartOfDay();
+
         if (country != null) {
+            log.info("filterEvents service method parameter country - {}", country);
             if (city != null) {
+                log.info("filterEvents service method parameter city - {}", city);
                 if (dateFrom != null && dateTo != null) {
+                    dateTimeFrom = dateFrom.atStartOfDay();
+                    dateTimeTo = dateTo.atStartOfDay();
+                    log.info("filterEvents service method parameters dateFrom - {}, dateTo - {}, display value - {}",dateFrom, dateTo, display);
                     if (display.equals(MINE)) {
                         return eventRepository.findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween(username, country, city, dateTimeFrom, dateTimeTo);
                     } else if (display.equals(ATTENDING)) {
@@ -160,14 +170,20 @@ public class EventServiceImpl implements EventService {
                     }
                 }
                 if (dateFrom == null && dateTo == null) {
+                    log.info("filterEvents service method parameters dateFrom, dateTo are null, display value - {}", display);
                     if (display.equals(MINE)) {
                         return eventRepository.findAllByOrganiserUsernameAndCountryAndCity(username, country, city);
                     } else if (display.equals(ATTENDING)) {
                         return eventRepository.findAllAttendingByCountryAndCity(username, country, city);
                     }
                 }
+                throw new DateIntervalNotSpecifiedException();
             } else {
+                log.info("filterEvents service method parameter city is null");
                 if (dateFrom != null && dateTo != null) {
+                    dateTimeFrom = dateFrom.atStartOfDay();
+                    dateTimeTo = dateTo.atStartOfDay();
+                    log.info("filterEvents service method parameters dateFrom - {}, dateTo - {}, display value - {}",dateFrom, dateTo, display);
                     if (display.equals(MINE)) {
                         return eventRepository.findAllByOrganiserUsernameAndCountryAndDateTimeBetween(username, country, dateTimeFrom, dateTimeTo);
                     } else if (display.equals(ATTENDING)) {
@@ -175,16 +191,24 @@ public class EventServiceImpl implements EventService {
                     }
                 }
                 if (dateFrom == null && dateTo == null) {
+                    log.info("filterEvents service method parameters dateFrom, dateTo are null, display value - {}", display);
                     if (display.equals(MINE)) {
                         return eventRepository.findAllByOrganiserUsernameAndCountry(username, country);
                     } else if (display.equals(ATTENDING)) {
                         return eventRepository.findAllAttendingByCountry(username, country);
                     }
                 }
+                log.info("blerp");
+                throw new DateIntervalNotSpecifiedException();
             }
         } else {
+            log.info("filterEvents service method parameter country is null");
             if (city != null) {
+                log.info("filterEvents service method parameter city - {}", city);
                 if (dateFrom != null && dateTo != null) {
+                    dateTimeFrom = dateFrom.atStartOfDay();
+                    dateTimeTo = dateTo.atStartOfDay();
+                    log.info("filterEvents service method parameters dateFrom - {}, dateTo - {}, display value - {}",dateFrom, dateTo, display);
                     if (display.equals(MINE)) {
                         return eventRepository.findAllByOrganiserUsernameAndCityAndDateTimeBetween(username, city, dateTimeFrom, dateTimeTo);
                     } else if (display.equals(ATTENDING)) {
@@ -192,20 +216,29 @@ public class EventServiceImpl implements EventService {
                     }
                 }
                 if (dateFrom == null && dateTo == null) {
+                    log.info("filterEvents service method parameters dateFrom, dateTo are null, display value - {}", display);
                     if (display.equals(MINE)) {
                         return eventRepository.findAllByOrganiserUsernameAndCity(username, city);
                     } else if (display.equals(ATTENDING)) {
                         return eventRepository.findAllAttendingByCity(username, city);
                     }
                 }
+                throw new DateIntervalNotSpecifiedException();
             } else {
+                log.info("filterEvents service method parameter city is null");
                 if (dateFrom != null && dateTo != null) {
+                    dateTimeFrom = dateFrom.atStartOfDay();
+                    dateTimeTo = dateTo.atStartOfDay();
+                    log.info("filterEvents service method parameters dateFrom - {}, dateTo - {}, display value - {}",dateFrom, dateTo, display);
                     if (display.equals(MINE)) {
                         return eventRepository.findAllByOrganiserUsernameAndDateTimeBetween(username, dateTimeFrom, dateTimeTo);
                     } else if (display.equals(ATTENDING)) {
                         return eventRepository.findAllAttendingByDateTimeBetween(username, dateTimeFrom, dateTimeTo);
                     }
+                } else {
+                    throw new DateIntervalNotSpecifiedException();
                 }
+
             }
         }
         return Collections.emptyList();
