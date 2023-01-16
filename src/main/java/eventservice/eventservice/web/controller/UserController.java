@@ -1,7 +1,6 @@
 package eventservice.eventservice.web.controller;
 
 import eventservice.eventservice.business.service.UserService;
-import eventservice.eventservice.model.RoleDto;
 import eventservice.eventservice.model.UserDto;
 import eventservice.eventservice.swagger.HTTPResponseMessages;
 import io.swagger.annotations.ApiOperation;
@@ -19,8 +18,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.management.relation.Role;
 import javax.validation.Valid;
 
 @Log4j2
