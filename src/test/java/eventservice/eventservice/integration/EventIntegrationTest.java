@@ -1,23 +1,33 @@
 package eventservice.eventservice.integration;
 
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
+import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
+import eventservice.eventservice.business.handlers.exceptions.InvalidDisplayValueException;
 import eventservice.eventservice.model.EventMinimalDto;
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -199,4 +209,271 @@ public class EventIntegrationTest {
                 .andDo(print())
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueNotSpecified_Exception() throws Exception {
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                .param("country", "Lativa")
+                .param("city", "Riga")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_dateIntervalNotSpecified_Exception() throws Exception {
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                .param("display", "mine")
+                .param("country", "Latvia")
+                .param("city", "Riga")
+                .param("date_from", "12/12/2022")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_OnlyCountrySpecified_Found() throws Exception {
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                .param("display", "mine")
+                .param("country", "Latvia")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(4))
+                .andExpect(jsonPath("$[1].id").value(5))
+                .andExpect(jsonPath("$", hasSize(2)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_OnlyCountrySpecified_NotFound() throws Exception {
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                        .param("display", "mine")
+                        .param("country", "Spain")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCitySpecified_Found() throws Exception {
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                        .param("display", "mine")
+                        .param("country", "Latvia")
+                        .param("city", "Riga")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(5))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCitySpecified_NotFound() throws Exception {
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                        .param("display", "mine")
+                        .param("country", "Spain")
+                        .param("city", "Madrid")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCityAndDateIntervalSpecified_Found() throws Exception {
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                        .param("display", "mine")
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .param("date_from", "12-12-2021")
+                        .param("date_to", "11-11-2022")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(4))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCityAndDateIntervalSpecified_NotFound() throws Exception {
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                        .param("display", "mine")
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .param("date_from", "29-12-2022")
+                        .param("date_to", "11-11-2023")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_OnlyCountrySpecified_Found() throws Exception {
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("country", "Latvia")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(2))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueALl_OnlyCountrySpecified_NotFound() throws Exception {
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("country", "Spain")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCitySpecified_Found() throws Exception {
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(2))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCitySpecified_NotFound() throws Exception {
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("country", "Spain")
+                        .param("city", "Madrid")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCityAndDateIntervalSpecified_Found() throws Exception {
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .param("date_from", "03-12-2022")
+                        .param("date_to", "12-12-2023")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(2))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCityAndDateIntervalSpecified_NotFound() throws Exception {
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .param("date_from", "05-12-2022")
+                        .param("date_to", "12-12-2023")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_countryNotSpecified_Exception() throws Exception {
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("city", "Venstspils")
+                        .param("date_from", "05-12-2022")
+                        .param("date_to", "12-12-2023")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_OnlyCountrySpecified_Found() throws Exception {
+        mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .param("display", "attending")
+                        .param("country", "Latvia")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_OnlyCountrySpecified_NotFound() throws Exception {
+        mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .param("display", "attending")
+                        .param("country", "Spain")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCitySpecified_Found() throws Exception {
+        mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .param("display", "attending")
+                        .param("country", "Latvia")
+                        .param("city", "Riga")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCitySpecified_NotFound() throws Exception {
+        mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .param("display", "attending")
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCityAndDateIntervalSpecified_Found() throws Exception {
+        mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .param("display", "attending")
+                        .param("country", "Latvia")
+                        .param("city", "Riga")
+                        .param("date_from", "07-12-2022")
+                        .param("date_to", "09-12-2022")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCityAndDateIntervalSpecified_NotFound() throws Exception {
+        mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .param("display", "attending")
+                        .param("country", "Latvia")
+                        .param("city", "Riga")
+                        .param("date_from", "09-12-2022")
+                        .param("date_to", "10-12-2022")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
 }
