@@ -3,7 +3,6 @@ package eventservice.eventservice.controller;
 import eventservice.eventservice.business.service.AdminService;
 import eventservice.eventservice.model.EventMinimalDto;
 import eventservice.eventservice.web.controller.AdminController;
-import eventservice.eventservice.web.controller.EventController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,11 +11,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.ResponseEntity;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
