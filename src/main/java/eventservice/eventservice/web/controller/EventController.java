@@ -132,4 +132,26 @@ public class EventController {
         log.info("deleteEvent is called with userName: {} and eventId: {}", userName, eventId);
         return ResponseEntity.noContent().build();
     }
+
+    @ApiOperation(value = "Add a record of user attendance to the event")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
+            @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
+    })
+    @PostMapping(value = "/attendance/user/{user_id}/event/{event_id}")
+    public ResponseEntity<Void> addEventAttendance(@PathVariable(name = "user_id") Long userId, @PathVariable(name = "event_id") Long eventId){
+        eventService.addEventAttendance(userId, eventId);
+        return ResponseEntity.ok().build();
+    }
+
+    @ApiOperation(value = "Removes a record of user attendance to the event")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
+            @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
+    })
+    @DeleteMapping(value = "/attendance/user/{user_id}/event/{event_id}")
+    public ResponseEntity<Void> removeEventAttendance(@PathVariable(name = "user_id") Long userId, @PathVariable(name = "event_id") Long eventId){
+        eventService.removeEventAttendance(userId, eventId);
+        return ResponseEntity.ok().build();
+    }
 }

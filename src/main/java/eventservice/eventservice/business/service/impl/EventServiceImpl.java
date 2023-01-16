@@ -12,6 +12,7 @@ import eventservice.eventservice.business.repository.EventRepository;
 import eventservice.eventservice.business.repository.UserRepository;
 import eventservice.eventservice.business.repository.model.EventEntity;
 import eventservice.eventservice.business.repository.model.EventTypeEntity;
+import eventservice.eventservice.business.repository.model.UserEntity;
 import eventservice.eventservice.business.service.EventService;
 import eventservice.eventservice.business.service.UserService;
 import eventservice.eventservice.model.EventDto;
@@ -226,6 +227,42 @@ public class EventServiceImpl implements EventService {
             eventRepository.deleteById(eventId);
         } else {
             throw new InvalidDataException();
+        }
+    }
+
+    @Override
+    public void addEventAttendance(Long userId, Long eventId) {
+        Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
+        if (optionalEventEntity.isPresent()){
+            EventEntity eventEntity = optionalEventEntity.get();
+            Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
+            if (optionalUserEntity.isPresent()){
+                UserEntity userEntity = optionalUserEntity.get();
+                eventEntity.addAttendee(userEntity);
+                eventRepository.save(eventEntity);
+            } else{
+                throw new UserNotFoundException();
+            }
+        } else{
+            throw new EventNotFoundException();
+        }
+    }
+
+    @Override
+    public void removeEventAttendance(Long userId, Long eventId) {
+        Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
+        if (optionalEventEntity.isPresent()){
+            EventEntity eventEntity = optionalEventEntity.get();
+            Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
+            if (optionalUserEntity.isPresent()){
+                UserEntity userEntity = optionalUserEntity.get();
+                eventEntity.removeAttendee(userEntity);
+                eventRepository.save(eventEntity);
+            } else{
+                throw new UserNotFoundException();
+            }
+        } else{
+            throw new EventNotFoundException();
         }
     }
 

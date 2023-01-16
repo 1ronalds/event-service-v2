@@ -14,4 +14,8 @@ public interface EventService {
     EventDto saveEvent(String username, EventDto event);
     EventDto editEvent(String username, Long eventId, EventDto event);
     void deleteEvent(String username, Long eventId);
+
+    void addEventAttendance(Long userId, Long eventId);
+
+    void removeEventAttendance(Long userId, Long eventId);
 }
