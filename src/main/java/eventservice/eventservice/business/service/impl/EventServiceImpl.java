@@ -232,36 +232,44 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public void addEventAttendance(Long userId, Long eventId) {
+        log.info("addEventAttendance service method called");
         Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
         if (optionalEventEntity.isPresent()){
             EventEntity eventEntity = optionalEventEntity.get();
             Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
             if (optionalUserEntity.isPresent()){
+                log.info("Both the event and the user are present in the database");
                 UserEntity userEntity = optionalUserEntity.get();
                 eventEntity.addAttendee(userEntity);
                 eventRepository.save(eventEntity);
             } else{
+                log.info("User with id: {} is not present in the database", userId);
                 throw new UserNotFoundException();
             }
         } else{
+            log.info("Event with id: {} is not present in the database", eventId);
             throw new EventNotFoundException();
         }
     }
 
     @Override
     public void removeEventAttendance(Long userId, Long eventId) {
+        log.info("removeEventAttendance service method called");
         Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
         if (optionalEventEntity.isPresent()){
             EventEntity eventEntity = optionalEventEntity.get();
             Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
             if (optionalUserEntity.isPresent()){
+                log.info("Both the event and the user are present in the database");
                 UserEntity userEntity = optionalUserEntity.get();
                 eventEntity.removeAttendee(userEntity);
                 eventRepository.save(eventEntity);
             } else{
+                log.info("User with id: {} is not present in the database", userId);
                 throw new UserNotFoundException();
             }
         } else{
+            log.info("Event with id: {} is not present in the database", eventId);
             throw new EventNotFoundException();
         }
     }

@@ -23,6 +23,7 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Data
@@ -74,10 +75,21 @@ public class EventEntity {
     private Set<UserEntity> attendees;
 
     public void addAttendee(UserEntity user){
+        attendeeCount++;
         attendees.add(user);
     }
 
     public void removeAttendee(UserEntity userEntity) {
+        attendeeCount--;
         attendees.remove(userEntity);
+    }
+
+    public boolean containsAttendance(Long userId){
+        for (UserEntity user : attendees) {
+            if (Objects.equals(user.getId(), userId)){
+                return true;
+            }
+        }
+        return false;
     }
 }

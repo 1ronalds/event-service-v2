@@ -140,6 +140,7 @@ public class EventController {
     })
     @PostMapping(value = "/attendance/user/{user_id}/event/{event_id}")
     public ResponseEntity<Void> addEventAttendance(@PathVariable(name = "user_id") Long userId, @PathVariable(name = "event_id") Long eventId){
+        log.info("addEventAttendance controller method is called with userId: {} and eventId: {}", userId, eventId);
         eventService.addEventAttendance(userId, eventId);
         return ResponseEntity.ok().build();
     }
@@ -151,6 +152,7 @@ public class EventController {
     })
     @DeleteMapping(value = "/attendance/user/{user_id}/event/{event_id}")
     public ResponseEntity<Void> removeEventAttendance(@PathVariable(name = "user_id") Long userId, @PathVariable(name = "event_id") Long eventId){
+        log.info("removeEventAttendance controller method is called with userId: {} and eventId: {}", userId, eventId);
         eventService.removeEventAttendance(userId, eventId);
         return ResponseEntity.ok().build();
     }
