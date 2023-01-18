@@ -7,7 +7,6 @@ import eventservice.eventservice.business.mapper.UserMapStruct;
 import eventservice.eventservice.business.repository.UserRepository;
 import eventservice.eventservice.business.repository.model.RoleEntity;
 import eventservice.eventservice.business.repository.model.UserEntity;
-import eventservice.eventservice.business.service.UserService;
 import eventservice.eventservice.business.service.impl.UserServiceImpl;
 import eventservice.eventservice.model.RoleDto;
 import eventservice.eventservice.model.UserDto;
@@ -20,10 +19,10 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.when;
 
 public class UserServiceUnitTest {
 

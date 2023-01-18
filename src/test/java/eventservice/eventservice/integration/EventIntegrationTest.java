@@ -56,6 +56,10 @@ public class EventIntegrationTest {
     EventEntity eventEntity5;
     EventEntity eventEntity6;
 
+    EventTypeEntity publicTypeEntity;
+
+    EventTypeEntity privateTypeEntity;
+
     @BeforeEach
     void init(){
         eventDto1 = new EventMinimalDto(1L, "Bicycling contest");
@@ -97,11 +101,15 @@ public class EventIntegrationTest {
                 "Kaunas", 500, LocalDateTime.of(LocalDate.of(2022, 12 ,1), LocalTime.of(10,30)),
                 0, fourthUser, new EventTypeEntity(2L, "private"));
 
+        publicTypeEntity = new EventTypeEntity(1L, "public");
+
+        privateTypeEntity = new EventTypeEntity(2L, "private");
+
     }
 
     @Test
     void findAllPublicEvents_OnlyCountrySpecified_Found() throws Exception {
-        Mockito.when(eventRepository.findAllByCountryAndTypeType("Latvia", "public"))
+        Mockito.when(eventRepository.findAllByCountryAndEventType("Latvia", publicTypeEntity))
                 .thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto1, eventDto4, eventDto5));
@@ -133,7 +141,7 @@ public class EventIntegrationTest {
 
     @Test
     void findAllPublicEvents_CountryAndCitySpecified_Found() throws Exception {
-        Mockito.when(eventRepository.findAllByCountryAndTypeTypeAndCity("Latvia", "public", "Venstspils"))
+        Mockito.when(eventRepository.findAllByCountryAndEventTypeAndCity("Latvia", publicTypeEntity, "Venstspils"))
                 .thenReturn(List.of(eventEntity4));
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto4));
@@ -167,7 +175,7 @@ public class EventIntegrationTest {
 
     @Test
     void findAllPublicEvents_CountryAndDateFromAndDateToSpecified_Found() throws Exception{
-        Mockito.when(eventRepository.findAllByCountryAndTypeTypeAndDateTimeBetween("Latvia", "public",
+        Mockito.when(eventRepository.findAllByCountryAndEventTypeAndDateTimeBetween("Latvia", publicTypeEntity,
                         LocalDateTime.of(2020, 11, 12, 0, 0),
                         LocalDateTime.of(2023, 11, 12, 0, 0)))
                 .thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
@@ -205,7 +213,7 @@ public class EventIntegrationTest {
 
     @Test
     void findAllPublicEvents_CountryAndCityAndDateFromAndDateToSpecified_Found() throws Exception{
-        Mockito.when(eventRepository.findAllByCountryAndTypeTypeAndCityAndDateTimeBetween("Latvia", "public", "Venstspils",
+        Mockito.when(eventRepository.findAllByCountryAndEventTypeAndCityAndDateTimeBetween("Latvia", publicTypeEntity, "Venstspils",
                         LocalDateTime.of(2020, 11, 12, 0, 0),
                         LocalDateTime.of(2023, 11, 12, 0, 0)))
                 .thenReturn(List.of(eventEntity4));
@@ -290,7 +298,7 @@ public class EventIntegrationTest {
 
     @Test
     void findAllUserCreatedAndOrAttendingEvents_displayValueMine_OnlyCountrySpecified_Found() throws Exception {
-        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountry("Damian123", "Latvia"))
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("Damian123", "Latvia", null))
                 .thenReturn(List.of(eventEntity4, eventEntity5));
         mockMvc.perform(get("/v1/events/user/Damian123")
                 .param("display", "mine")
@@ -305,7 +313,7 @@ public class EventIntegrationTest {
 
     @Test
     void findAllUserCreatedAndOrAttendingEvents_displayValueMine_OnlyCountrySpecified_NotFound() throws Exception {
-        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountry("Damian123", "Spain"))
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("Damian123", "Spain", null))
                         .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/Damian123")
                         .param("display", "mine")
@@ -384,9 +392,9 @@ public class EventIntegrationTest {
 
     @Test
     void findAllUserCreatedAndOrAttendingEvents_displayValueAll_OnlyCountrySpecified_Found() throws Exception {
-        Mockito.when(eventRepository.findAllAttendingByCountry("CasualMovieEnjoyer", "Latvia"))
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCity("CasualMovieEnjoyer", "Latvia", null))
                 .thenReturn(Collections.emptyList());
-        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountry("CasualMovieEnjoyer", "Latvia"))
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("CasualMovieEnjoyer", "Latvia", null))
                 .thenReturn(List.of(eventEntity2));
         mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
                         .param("display", "all")
@@ -400,9 +408,9 @@ public class EventIntegrationTest {
 
     @Test
     void findAllUserCreatedAndOrAttendingEvents_displayValueALl_OnlyCountrySpecified_NotFound() throws Exception {
-        Mockito.when(eventRepository.findAllAttendingByCountry("CasualMovieEnjoyer", "Spain"))
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCity("CasualMovieEnjoyer", "Spain", null))
                 .thenReturn(Collections.emptyList());
-        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountry("CasualMovieEnjoyer", "Spain"))
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("CasualMovieEnjoyer", "Spain", null))
                 .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
                         .param("display", "all")
@@ -505,7 +513,7 @@ public class EventIntegrationTest {
 
     @Test
     void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_OnlyCountrySpecified_Found() throws Exception {
-        Mockito.when(eventRepository.findAllAttendingByCountry("BestClientEver", "Latvia"))
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCity("BestClientEver", "Latvia", null))
                         .thenReturn(List.of(eventEntity1));
         mockMvc.perform(get("/v1/events/user/BestClientEver")
                         .param("display", "attending")
@@ -519,7 +527,7 @@ public class EventIntegrationTest {
 
     @Test
     void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_OnlyCountrySpecified_NotFound() throws Exception {
-        Mockito.when(eventRepository.findAllAttendingByCountry("BestClientEver", "Latvia"))
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCity("BestClientEver", "Latvia", null))
                 .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/BestClientEver")
                         .param("display", "attending")

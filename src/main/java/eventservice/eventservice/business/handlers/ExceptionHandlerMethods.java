@@ -2,12 +2,9 @@ package eventservice.eventservice.business.handlers;
 
 import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
-
-import eventservice.eventservice.business.handlers.exceptions.EmailExistsException;
-import eventservice.eventservice.business.handlers.exceptions.InvalidDisplayValueException;
-import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.EmailExistsException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
+import eventservice.eventservice.business.handlers.exceptions.InvalidDisplayValueException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.UsernameExistsException;
 import org.apache.tomcat.util.buf.StringUtils;
@@ -21,39 +18,39 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
-import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDate;
 import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class ExceptionHandlerMethods {
 
+    public static final String BAD_REQUEST = "Bad request";
+    public static final String NOT_FOUND = "Not Found";
+
     @ExceptionHandler(DateIntervalNotSpecifiedException.class)
     protected ResponseEntity<ErrorModel> handleDateIntervalNotSpecified(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Date interval not specified (date_from or date_to is null)", request.getRequestURI());
+                BAD_REQUEST, "Date interval not specified (date_from or date_to is null)", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(UserNotFoundException.class)
     protected ResponseEntity<ErrorModel> handleUserNotFound(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Not Found", "User not found", request.getRequestURI());
+                NOT_FOUND, "User not found", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(UsernameExistsException.class)
     protected ResponseEntity<ErrorModel> handleUsernameExists(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Username already registered", request.getRequestURI());
+                BAD_REQUEST, "Username already registered", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(EmailExistsException.class)
     protected ResponseEntity<ErrorModel> handleEmailExists(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Email already registered", request.getRequestURI());
+                BAD_REQUEST, "Email already registered", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
@@ -63,21 +60,21 @@ public class ExceptionHandlerMethods {
                 .stream().map(FieldError::getDefaultMessage).collect(Collectors.toList())); // Collects validation errors
 
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", errors, request.getRequestURI());
+                BAD_REQUEST, errors, request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ConversionFailedException.class)
     protected ResponseEntity<ErrorModel> handleEnumConflict(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Invalid date", request.getRequestURI());
+                BAD_REQUEST, "Invalid date", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(InvalidDisplayValueException.class)
     protected ResponseEntity<ErrorModel> handleInvalidDisplayValue(InvalidDisplayValueException ex, HttpServletRequest request){
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Invalid display value. Display value should" +
+                BAD_REQUEST, "Invalid display value. Display value should" +
                 " be one of the following: all, mine, attending", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
@@ -85,13 +82,13 @@ public class ExceptionHandlerMethods {
     @ExceptionHandler(CountryNotSpecifiedException.class)
     protected ResponseEntity<ErrorModel> handleCountryNotSpecified(CountryNotSpecifiedException ex, HttpServletRequest request){
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Country must be specified", request.getRequestURI());
+                BAD_REQUEST, "Country must be specified", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
     @ExceptionHandler(InvalidDataException.class)
     protected ResponseEntity<ErrorModel> handleInvalidDataPost(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Invalid data format provided", request.getRequestURI());
+                BAD_REQUEST, "Invalid data format provided", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 }

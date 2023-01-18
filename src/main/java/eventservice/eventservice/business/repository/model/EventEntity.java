@@ -3,7 +3,6 @@ package eventservice.eventservice.business.repository.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,10 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -57,5 +53,5 @@ public class EventEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type")
-    private EventTypeEntity type;
+    private EventTypeEntity eventType;
 }

@@ -56,5 +56,5 @@ public class EventDto {
     private UserMinimalDto organiser;
 
     @ApiModelProperty(value = "Type of event")
-    private EventTypeDto type;
+    private EventTypeDto eventType;
 }
