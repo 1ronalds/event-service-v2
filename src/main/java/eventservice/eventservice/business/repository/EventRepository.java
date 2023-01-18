@@ -24,7 +24,7 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
             "LEFT JOIN user ON event.organiser_id = user.user_id " +
             "WHERE " +
             "user.username = :username AND " +
-            "(:country IS null OR event_location_country = :country) AND " +
+            "(:country IS NULL OR event_location_country = :country) AND " +
             "(:city IS NULL OR event_location_city = :city) AND " +
             "event_datetime BETWEEN :dateFrom AND :dateTo", nativeQuery = true)
     List<EventEntity> findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween(String username,
@@ -37,7 +37,7 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
             "LEFT JOIN user ON event.organiser_id = user.user_id " +
             "WHERE " +
             "user.username = :username AND " +
-            "(:country IS null OR event_location_country = :country) AND " +
+            "(:country IS NULL OR event_location_country = :country) AND " +
             "(:city IS NULL OR event_location_city = :city)", nativeQuery = true)
     List<EventEntity> findAllByOrganiserUsernameAndCountryAndCity(String username,
                                                                   @Param("country") String country,

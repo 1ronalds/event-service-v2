@@ -43,8 +43,6 @@ public class EventServiceImpl implements EventService {
     public static final EventTypeEntity PUBLIC_EVENT_ENTITY = new EventTypeEntity(1L, "public");
 
     public static final EventTypeEntity PRIVATE_EVENT_ENTITY = new EventTypeEntity(2L, "private");
-    public static final String PUBLIC = "public";
-    public static final String PRIVATE = "private";
     private final EventRepository eventRepository;
     private final CountryCityServiceConnection countryCityServiceConnection;
     private final UserService userService;
@@ -192,9 +190,9 @@ public class EventServiceImpl implements EventService {
                 userService.findUserDetails(username).getUsername()));
         event.setAttendeeCount(0);
 
-        EventTypeDto publicEvent = new EventTypeDto(1L, PUBLIC);
-        EventTypeDto privateEvent = new EventTypeDto(2L, PRIVATE);
-        event.setEventType(event.getEventType().getType().equals(PUBLIC) ? publicEvent : privateEvent);
+        EventTypeDto publicEvent = new EventTypeDto(1L, PRIVATE_EVENT_DTO.getType());
+        EventTypeDto privateEvent = new EventTypeDto(2L, PRIVATE_EVENT_DTO.getType());
+        event.setEventType(event.getEventType().getType().equals(PUBLIC_EVENT_DTO.getType()) ? publicEvent : privateEvent);
 
         String country = event.getCountry();
         String city = event.getCity();
@@ -234,7 +232,7 @@ public class EventServiceImpl implements EventService {
             throw new InvalidDataException();
         }
 
-        event.setEventType(event.getEventType().getType().equals(PUBLIC) ? PUBLIC_EVENT_DTO : PRIVATE_EVENT_DTO);
+        event.setEventType(event.getEventType().getType().equals(PUBLIC_EVENT_DTO.getType()) ? PUBLIC_EVENT_DTO : PRIVATE_EVENT_DTO);
 
         if (!Objects.equals(event.getCity(), history.get().getCity())) {
             if (!countryDoesExist(event.getCountry()) || !cityDoesExist(event.getCountry(), event.getCity())) {
