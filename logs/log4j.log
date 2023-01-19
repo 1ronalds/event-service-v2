@@ -1,0 +1,145 @@
+[INFO ] 2023-01-19 11:16:56.110 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-19 11:16:56.153 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 19592 (C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-19 11:16:56.156 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-19 11:16:56.202 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-19 11:16:56.213 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-19 11:16:57.183 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-19 11:16:57.246 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-19 11:16:57.491 [restartedMain] GenericScope - BeanFactory id=e30b0867-8371-350e-a502-895768ec356c
+[INFO ] 2023-01-19 11:16:58.584 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-19 11:16:58.794 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2580 ms
+[INFO ] 2023-01-19 11:16:59.054 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-19 11:16:59.054 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-19 11:16:59.054 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-19 11:16:59.495 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-19 11:16:59.573 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.043s)
+[INFO ] 2023-01-19 11:16:59.592 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-19 11:16:59.593 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-19 11:16:59.739 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-19 11:16:59.856 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-19 11:17:00.138 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-19 11:17:00.368 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-19 11:17:01.198 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-19 11:17:01.209 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-19 11:17:01.842 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-19 11:17:01.896 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-19 11:17:03.142 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-19 11:17:03.869 [restartedMain] EventServiceApplication - Started EventServiceApplication in 8.199 seconds (JVM running for 9.049)
+[INFO ] 2023-01-19 11:18:41.259 [http-nio-8080-exec-3] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-19 11:18:41.261 [http-nio-8080-exec-3] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2023-01-19 11:19:36.185 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-19 11:19:36.249 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 19260 (C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-19 11:19:36.254 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-19 11:19:36.311 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-19 11:19:36.311 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-19 11:19:37.773 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-19 11:19:37.879 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 94 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-19 11:19:38.224 [restartedMain] GenericScope - BeanFactory id=e30b0867-8371-350e-a502-895768ec356c
+[INFO ] 2023-01-19 11:19:39.400 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-19 11:19:39.648 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3336 ms
+[INFO ] 2023-01-19 11:19:39.945 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-19 11:19:39.945 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-19 11:19:39.945 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-19 11:19:40.580 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-19 11:19:40.679 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.051s)
+[INFO ] 2023-01-19 11:19:40.699 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-19 11:19:40.701 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-19 11:19:40.846 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-19 11:19:40.965 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-19 11:19:41.256 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-19 11:19:41.575 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-19 11:19:42.572 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-19 11:19:42.583 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-19 11:19:43.249 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-19 11:19:43.314 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-19 11:19:44.854 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-19 11:19:45.761 [restartedMain] EventServiceApplication - Started EventServiceApplication in 10.212 seconds (JVM running for 11.273)
+[INFO ] 2023-01-19 11:19:49.519 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-19 11:19:49.521 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2023-01-19 11:20:44.969 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-19 11:20:45.019 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 2880 (C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-19 11:20:45.024 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-19 11:20:45.082 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-19 11:20:45.082 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-19 11:20:46.121 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-19 11:20:46.203 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-19 11:20:46.470 [restartedMain] GenericScope - BeanFactory id=e30b0867-8371-350e-a502-895768ec356c
+[INFO ] 2023-01-19 11:20:47.558 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-19 11:20:47.871 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2788 ms
+[INFO ] 2023-01-19 11:20:48.187 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-19 11:20:48.187 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-19 11:20:48.188 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-19 11:20:48.659 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-19 11:20:48.745 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.046s)
+[INFO ] 2023-01-19 11:20:48.767 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-19 11:20:48.770 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-19 11:20:48.950 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-19 11:20:49.049 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-19 11:20:49.389 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-19 11:20:49.646 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-19 11:20:50.526 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-19 11:20:50.535 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-19 11:20:51.141 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-19 11:20:51.195 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-19 11:20:52.526 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-19 11:20:53.178 [restartedMain] EventServiceApplication - Started EventServiceApplication in 8.671 seconds (JVM running for 9.569)
+[INFO ] 2023-01-19 11:20:56.224 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-19 11:20:56.225 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2023-01-19 11:23:42.577 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-19 11:23:42.632 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 6116 (C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-19 11:23:42.637 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-19 11:23:42.696 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-19 11:23:42.697 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-19 11:23:43.745 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-19 11:23:43.827 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 74 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-19 11:23:44.098 [restartedMain] GenericScope - BeanFactory id=e30b0867-8371-350e-a502-895768ec356c
+[INFO ] 2023-01-19 11:23:44.846 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-19 11:23:45.011 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2313 ms
+[INFO ] 2023-01-19 11:23:45.180 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-19 11:23:45.181 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-19 11:23:45.181 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-19 11:23:45.463 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-19 11:23:45.511 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.024s)
+[INFO ] 2023-01-19 11:23:45.523 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-19 11:23:45.524 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-19 11:23:45.635 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-19 11:23:45.738 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-19 11:23:45.948 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-19 11:23:46.077 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-19 11:23:46.712 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-19 11:23:46.720 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-19 11:23:47.217 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-19 11:23:47.257 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-19 11:23:48.660 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-19 11:23:49.455 [restartedMain] EventServiceApplication - Started EventServiceApplication in 7.377 seconds (JVM running for 8.284)
+[INFO ] 2023-01-19 11:24:08.304 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-19 11:24:08.306 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2023-01-19 12:55:31.762 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-19 12:55:31.815 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 2880 (C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-19 12:55:31.820 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-19 12:55:31.866 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-19 12:55:31.866 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-19 12:55:32.881 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-19 12:55:32.954 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 63 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-19 12:55:33.242 [restartedMain] GenericScope - BeanFactory id=5d581a3e-0651-372b-8c37-1940ea18c575
+[INFO ] 2023-01-19 12:55:33.987 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-19 12:55:34.188 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2321 ms
+[INFO ] 2023-01-19 12:55:34.450 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-19 12:55:34.450 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-19 12:55:34.450 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-19 12:55:34.988 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-19 12:55:35.090 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.053s)
+[INFO ] 2023-01-19 12:55:35.112 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-19 12:55:35.114 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-19 12:55:35.272 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-19 12:55:35.375 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-19 12:55:35.670 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-19 12:55:35.936 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-19 12:55:36.883 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-19 12:55:36.892 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-19 12:55:37.570 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-19 12:55:37.630 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-19 12:55:39.223 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-19 12:55:40.074 [restartedMain] EventServiceApplication - Started EventServiceApplication in 8.824 seconds (JVM running for 9.73)
+[INFO ] 2023-01-19 12:55:53.064 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-19 12:55:53.065 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 1 ms
