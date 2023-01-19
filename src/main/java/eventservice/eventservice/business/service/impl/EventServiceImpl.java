@@ -7,11 +7,9 @@ import eventservice.eventservice.business.handlers.exceptions.EventNotFoundExcep
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.mapper.EventMapStruct;
-import eventservice.eventservice.business.mapper.UserMapStruct;
 import eventservice.eventservice.business.repository.EventRepository;
 import eventservice.eventservice.business.repository.UserRepository;
 import eventservice.eventservice.business.repository.model.EventEntity;
-import eventservice.eventservice.business.repository.model.EventTypeEntity;
 import eventservice.eventservice.business.repository.model.UserEntity;
 import eventservice.eventservice.business.service.EventService;
 import eventservice.eventservice.business.service.UserService;
@@ -26,8 +24,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -230,6 +226,11 @@ public class EventServiceImpl implements EventService {
         }
     }
 
+    /**
+     *
+     * @param userId - the id of the user, who is attending the event
+     * @param eventId - the id of the event, which the user is attending
+     */
     @Override
     public void addEventAttendance(Long userId, Long eventId) {
         log.info("addEventAttendance service method called");
@@ -252,6 +253,11 @@ public class EventServiceImpl implements EventService {
         }
     }
 
+    /**
+     *
+     * @param userId - the id of the user, whose attendance is being removed
+     * @param eventId - the id of the event
+     */
     @Override
     public void removeEventAttendance(Long userId, Long eventId) {
         log.info("removeEventAttendance service method called");

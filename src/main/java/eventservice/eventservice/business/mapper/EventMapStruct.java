@@ -11,8 +11,6 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 
-import java.util.Optional;
-
 @Mapper(componentModel = "spring", uses = {UserMapStructImpl.class, EventTypeMapStructImpl.class})
 public interface EventMapStruct {
     EventDto entityToDto(EventEntity eventEntity);

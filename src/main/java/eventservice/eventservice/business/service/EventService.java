@@ -2,10 +2,8 @@ package eventservice.eventservice.business.service;
 
 import eventservice.eventservice.model.EventDto;
 import eventservice.eventservice.model.EventMinimalDto;
-import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 public interface EventService {

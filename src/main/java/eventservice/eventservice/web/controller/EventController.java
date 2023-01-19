@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 @Log4j2
 @Controller
@@ -133,6 +132,12 @@ public class EventController {
         return ResponseEntity.noContent().build();
     }
 
+    /**
+     *
+     * @param userId - the id of the user, who is attending the event
+     * @param eventId - the id of the event
+     * @return
+     */
     @ApiOperation(value = "Add a record of user attendance to the event")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
@@ -145,6 +150,12 @@ public class EventController {
         return ResponseEntity.ok().build();
     }
 
+    /**
+     *
+     * @param userId - the id of the user, whose attendance is being removed
+     * @param eventId - the id of the event
+     * @return
+     */
     @ApiOperation(value = "Removes a record of user attendance to the event")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
