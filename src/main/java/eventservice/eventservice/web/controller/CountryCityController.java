@@ -23,6 +23,10 @@ public class CountryCityController {
     @Autowired
     CountryCityService countryCityService;
 
+    /**
+     * Gets a list of all the countries in the world
+     * @return list of countries
+     */
     @ApiOperation(value = "Returns the list of all of the countries in the world")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "The request is successful"),
@@ -32,6 +36,11 @@ public class CountryCityController {
         return ResponseEntity.ok(countryCityService.getAllCountries());
     }
 
+    /**
+     * Gets a list of cities in a specific country
+     * @param countryId - id of the country
+     * @return list of cities
+     */
     @ApiOperation(value = "Returns the list of all the cities in a specific country")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "The request is successful"),
