@@ -1,7 +1,9 @@
 package eventservice.eventservice.business.handlers;
 
 
+import eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
+import eventservice.eventservice.business.handlers.exceptions.DuplicateAttendanceEntryException;
 import eventservice.eventservice.business.handlers.exceptions.EmailExistsException;
 import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
@@ -24,10 +26,13 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class ExceptionHandlerMethods {
 
+    public static final String BAD_REQUEST = "Bad request";
+    public static final String NOT_FOUND = "Not found";
+
     @ExceptionHandler(DateIntervalNotSpecifiedException.class)
     protected ResponseEntity<ErrorModel> handleDateIntervalNotSpecified(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Date interval not specified (date_from or date_to is null)", request.getRequestURI());
+                BAD_REQUEST, "Date interval not specified (date_from or date_to is null)", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
@@ -41,14 +46,14 @@ public class ExceptionHandlerMethods {
     @ExceptionHandler(UsernameExistsException.class)
     protected ResponseEntity<ErrorModel> handleUsernameExists(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Username already registered", request.getRequestURI());
+                BAD_REQUEST, "Username already registered", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(EmailExistsException.class)
     protected ResponseEntity<ErrorModel> handleEmailExists(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Email already registered", request.getRequestURI());
+                BAD_REQUEST, "Email already registered", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
@@ -58,35 +63,49 @@ public class ExceptionHandlerMethods {
                 .stream().map(FieldError::getDefaultMessage).collect(Collectors.toList())); // Collects validation errors
 
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", errors, request.getRequestURI());
+                BAD_REQUEST, errors, request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ConversionFailedException.class)
     protected ResponseEntity<ErrorModel> handleEnumConflict(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Invalid date", request.getRequestURI());
+                BAD_REQUEST, "Invalid date", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(InvalidDataException.class)
     protected ResponseEntity<ErrorModel> handleInvalidDataPost(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Invalid data format provided", request.getRequestURI());
+                BAD_REQUEST, "Invalid data format provided", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     protected ResponseEntity<ErrorModel> handleCannotDeleteDataConnected(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Bad request", "Events have been created that have to be deleted to delete user", request.getRequestURI());
+                BAD_REQUEST, "Events have been created that have to be deleted to delete user", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(EventNotFoundException.class)
     protected ResponseEntity<ErrorModel> handleEventNotFound(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 404,
-                "Not found", "Requested event isn't found", request.getRequestURI());
+                NOT_FOUND, "Requested event isn't found", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(DuplicateAttendanceEntryException.class)
+    protected ResponseEntity<ErrorModel> handleDuplicateAttendanceEntry(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
+                BAD_REQUEST, "The user is already attending this event", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(AttendanceNotFoundException.class)
+    protected ResponseEntity<ErrorModel> handleAttendanceNotFound(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 404,
+                NOT_FOUND, "There is no attendance entry for the user at this event", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.NOT_FOUND);
     }
 }

@@ -365,7 +365,7 @@ public class EventServiceTest {
 
         service.addEventAttendance(1L, 2L);
 
-        assertTrue(eventEntity.containsAttendance(userEntity2.getId()));
+        assertTrue(eventEntity.getAttendees().contains(userEntity2));
         assertEquals(2, eventEntity.getAttendeeCount());
     }
 
@@ -393,7 +393,7 @@ public class EventServiceTest {
         service.addEventAttendance(1L, 2L);
         service.removeEventAttendance(1L, 2L);
 
-        assertFalse(eventEntity.containsAttendance(userEntity2.getId()));
+        assertFalse(eventEntity.getAttendees().contains(userEntity2));
         assertEquals(1, eventEntity.getAttendeeCount());
     }
 

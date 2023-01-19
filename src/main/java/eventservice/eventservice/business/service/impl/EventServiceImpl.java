@@ -2,7 +2,9 @@ package eventservice.eventservice.business.service.impl;
 
 import eventservice.eventservice.business.connection.CountryCityServiceConnection;
 import eventservice.eventservice.business.connection.model.CityDto;
+import eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
+import eventservice.eventservice.business.handlers.exceptions.DuplicateAttendanceEntryException;
 import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
@@ -27,6 +29,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Log4j2
@@ -235,22 +238,27 @@ public class EventServiceImpl implements EventService {
     public void addEventAttendance(Long userId, Long eventId) {
         log.info("addEventAttendance service method called");
         Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
-        if (optionalEventEntity.isPresent()){
-            EventEntity eventEntity = optionalEventEntity.get();
-            Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
-            if (optionalUserEntity.isPresent()){
-                log.info("Both the event and the user are present in the database");
-                UserEntity userEntity = optionalUserEntity.get();
-                eventEntity.addAttendee(userEntity);
-                eventRepository.save(eventEntity);
-            } else{
-                log.info("User with id: {} is not present in the database", userId);
-                throw new UserNotFoundException();
-            }
-        } else{
-            log.info("Event with id: {} is not present in the database", eventId);
+        Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
+
+        if (!optionalEventEntity.isPresent()){
+            log.info("The event with id {} has not been found", eventId);
             throw new EventNotFoundException();
         }
+
+        if (!optionalUserEntity.isPresent()){
+            log.info("The user with id {} has not been found", userId);
+            throw new UserNotFoundException();
+        }
+        EventEntity event = optionalEventEntity.get();
+
+        if (containsAttendance(event, userId)){
+            log.info("Duplicate attendance entry - userId: {}, eventId: {}", userId, eventId);
+            throw new DuplicateAttendanceEntryException();
+        }
+
+        UserEntity user = optionalUserEntity.get();
+        addAttendance(event, user);
+        eventRepository.save(event);
     }
 
     /**
@@ -260,24 +268,49 @@ public class EventServiceImpl implements EventService {
      */
     @Override
     public void removeEventAttendance(Long userId, Long eventId) {
-        log.info("removeEventAttendance service method called");
+        log.info("addEventAttendance service method called");
         Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
-        if (optionalEventEntity.isPresent()){
-            EventEntity eventEntity = optionalEventEntity.get();
-            Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
-            if (optionalUserEntity.isPresent()){
-                log.info("Both the event and the user are present in the database");
-                UserEntity userEntity = optionalUserEntity.get();
-                eventEntity.removeAttendee(userEntity);
-                eventRepository.save(eventEntity);
-            } else{
-                log.info("User with id: {} is not present in the database", userId);
-                throw new UserNotFoundException();
-            }
-        } else{
-            log.info("Event with id: {} is not present in the database", eventId);
+        Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
+
+        if (!optionalEventEntity.isPresent()){
+            log.info("The event with id {} has not been found", eventId);
             throw new EventNotFoundException();
         }
+
+        if (!optionalUserEntity.isPresent()){
+            log.info("The user with id {} has not been found", userId);
+            throw new UserNotFoundException();
+        }
+        EventEntity event = optionalEventEntity.get();
+
+        if (!containsAttendance(event, userId)){
+            log.info("Attendance entry not found - userId: {}, eventId: {}", userId, eventId);
+            throw new AttendanceNotFoundException();
+        }
+
+        UserEntity user = optionalUserEntity.get();
+        removeAttendance(event, user);
+        eventRepository.save(event);
     }
 
+    private void addAttendance(EventEntity event, UserEntity user){
+        event.getAttendees().add(user);
+        event.setAttendeeCount(event.getAttendeeCount() + 1);
+    }
+
+    private void removeAttendance(EventEntity event, UserEntity user){
+        event.getAttendees().remove(user);
+        event.setAttendeeCount(event.getAttendeeCount() - 1);
+    }
+
+    private boolean containsAttendance(EventEntity event, Long userId){
+        Set<UserEntity> attendees = event.getAttendees();
+
+        for (UserEntity user: attendees) {
+            if (Objects.equals(user.getId(), userId)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

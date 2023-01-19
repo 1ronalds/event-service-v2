@@ -1629,3 +1629,667 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 [INFO ] 2023-01-19 10:02:27.583 [http-nio-8080-exec-5] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 6
 [INFO ] 2023-01-19 10:02:27.583 [http-nio-8080-exec-5] EventServiceImpl - removeEventAttendance service method called
 [INFO ] 2023-01-19 10:02:27.597 [http-nio-8080-exec-5] EventServiceImpl - Both the event and the user are present in the database
+[INFO ] 2023-01-19 10:08:57.995 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-19 10:08:58.062 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 14980 (C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service)
+[INFO ] 2023-01-19 10:08:58.069 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-19 10:08:58.123 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-19 10:08:58.123 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-19 10:08:59.612 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-19 10:08:59.733 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 107 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-19 10:09:00.167 [restartedMain] GenericScope - BeanFactory id=e583d4c2-ec0b-3a1b-9c9a-376e22bb87f1
+[INFO ] 2023-01-19 10:09:01.248 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-19 10:09:01.461 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3337 ms
+[INFO ] 2023-01-19 10:09:01.679 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-19 10:09:01.680 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-19 10:09:01.680 [restartedMain] VersionPrinter - 
+[WARN ] 2023-01-19 10:09:03.098 [restartedMain] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'root'@'localhost' (using password: NO)
+---------------------------------------------------------------------------------------------------------
+SQL State  : 28000
+Error Code : 1045
+Message    : Access denied for user 'root'@'localhost' (using password: NO)
+
+[INFO ] 2023-01-19 10:09:03.120 [restartedMain] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2023-01-19 10:09:03.154 [restartedMain] SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'root'@'localhost' (using password: NO)
+---------------------------------------------------------------------------------------------------------
+SQL State  : 28000
+Error Code : 1045
+Message    : Access denied for user 'root'@'localhost' (using password: NO)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.6.jar:2.7.6]
+	at eventservice.eventservice.EventServiceApplication.main(EventServiceApplication.java:12) ~[main/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.6.jar:2.7.6]
+Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'root'@'localhost' (using password: NO)
+---------------------------------------------------------------------------------------------------------
+SQL State  : 28000
+Error Code : 1045
+Message    : Access denied for user 'root'@'localhost' (using password: NO)
+
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:147) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:124) ~[flyway-core-8.5.13.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 23 more
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: NO)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:147) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:124) ~[flyway-core-8.5.13.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 23 more
+[INFO ] 2023-01-19 11:10:03.929 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-19 11:10:03.989 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 18388 (C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service)
+[INFO ] 2023-01-19 11:10:03.994 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-19 11:10:04.059 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-19 11:10:04.060 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-19 11:10:06.076 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-19 11:10:06.173 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 83 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-19 11:10:06.544 [restartedMain] GenericScope - BeanFactory id=fa16b341-14b9-3bfb-955f-7bf2b4840749
+[INFO ] 2023-01-19 11:10:07.709 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-19 11:10:07.945 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3884 ms
+[INFO ] 2023-01-19 11:10:08.150 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-19 11:10:08.150 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-19 11:10:08.150 [restartedMain] VersionPrinter - 
+[WARN ] 2023-01-19 11:10:09.544 [restartedMain] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'root'@'localhost' (using password: NO)
+---------------------------------------------------------------------------------------------------------
+SQL State  : 28000
+Error Code : 1045
+Message    : Access denied for user 'root'@'localhost' (using password: NO)
+
+[INFO ] 2023-01-19 11:10:09.561 [restartedMain] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2023-01-19 11:10:09.579 [restartedMain] SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'root'@'localhost' (using password: NO)
+---------------------------------------------------------------------------------------------------------
+SQL State  : 28000
+Error Code : 1045
+Message    : Access denied for user 'root'@'localhost' (using password: NO)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.6.jar:2.7.6]
+	at eventservice.eventservice.EventServiceApplication.main(EventServiceApplication.java:12) ~[main/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.6.jar:2.7.6]
+Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'root'@'localhost' (using password: NO)
+---------------------------------------------------------------------------------------------------------
+SQL State  : 28000
+Error Code : 1045
+Message    : Access denied for user 'root'@'localhost' (using password: NO)
+
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:147) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:124) ~[flyway-core-8.5.13.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 23 more
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: NO)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:147) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:124) ~[flyway-core-8.5.13.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 23 more
+[INFO ] 2023-01-19 13:12:13.304 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-19 13:12:13.378 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 3112 (C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service)
+[INFO ] 2023-01-19 13:12:13.383 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-19 13:12:13.444 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-19 13:12:13.445 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-19 13:12:15.105 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-19 13:12:15.226 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 103 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-19 13:12:15.558 [restartedMain] GenericScope - BeanFactory id=e583d4c2-ec0b-3a1b-9c9a-376e22bb87f1
+[INFO ] 2023-01-19 13:12:16.753 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-19 13:12:16.942 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3496 ms
+[INFO ] 2023-01-19 13:12:17.196 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-19 13:12:17.197 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-19 13:12:17.197 [restartedMain] VersionPrinter - 
+[WARN ] 2023-01-19 13:12:18.622 [restartedMain] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'root'@'localhost' (using password: NO)
+---------------------------------------------------------------------------------------------------------
+SQL State  : 28000
+Error Code : 1045
+Message    : Access denied for user 'root'@'localhost' (using password: NO)
+
+[INFO ] 2023-01-19 13:12:18.637 [restartedMain] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2023-01-19 13:12:18.661 [restartedMain] SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'root'@'localhost' (using password: NO)
+---------------------------------------------------------------------------------------------------------
+SQL State  : 28000
+Error Code : 1045
+Message    : Access denied for user 'root'@'localhost' (using password: NO)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.6.jar:2.7.6]
+	at eventservice.eventservice.EventServiceApplication.main(EventServiceApplication.java:12) ~[main/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.6.jar:2.7.6]
+Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'root'@'localhost' (using password: NO)
+---------------------------------------------------------------------------------------------------------
+SQL State  : 28000
+Error Code : 1045
+Message    : Access denied for user 'root'@'localhost' (using password: NO)
+
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:147) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:124) ~[flyway-core-8.5.13.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 23 more
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: NO)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-j-8.0.31.jar:8.0.31]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:75) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:147) ~[flyway-core-8.5.13.jar:?]
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:124) ~[flyway-core-8.5.13.jar:?]
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 23 more
+[INFO ] 2023-01-19 13:14:53.772 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-19 13:14:53.814 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 3532 (C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service)
+[INFO ] 2023-01-19 13:14:53.817 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-19 13:14:53.867 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-19 13:14:53.868 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-19 13:14:54.823 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-19 13:14:54.918 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 80 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-19 13:14:55.150 [restartedMain] GenericScope - BeanFactory id=e583d4c2-ec0b-3a1b-9c9a-376e22bb87f1
+[INFO ] 2023-01-19 13:14:55.814 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-19 13:14:55.940 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2072 ms
+[INFO ] 2023-01-19 13:14:56.080 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-19 13:14:56.080 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-19 13:14:56.080 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-19 13:14:56.335 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-19 13:14:56.391 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.025s)
+[INFO ] 2023-01-19 13:14:56.402 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-19 13:14:56.403 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-19 13:14:56.496 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-19 13:14:56.549 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-19 13:14:56.719 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-19 13:14:56.855 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-19 13:14:57.482 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-19 13:14:57.490 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-19 13:14:57.921 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-19 13:14:57.957 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-19 13:14:58.842 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-19 13:14:59.281 [restartedMain] EventServiceApplication - Started EventServiceApplication in 5.943 seconds (JVM running for 6.772)
+[INFO ] 2023-01-19 13:16:04.929 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-19 13:16:04.929 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 0 ms
+[INFO ] 2023-01-19 13:16:04.960 [http-nio-8080-exec-1] EventController - addEventAttendance controller method is called with userId: 5 and eventId: 2
+[INFO ] 2023-01-19 13:16:04.960 [http-nio-8080-exec-1] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:16:05.023 [http-nio-8080-exec-1] EventServiceImpl - Duplicate attendance entry - userId: 5, eventId: 2
+[WARN ] 2023-01-19 13:16:05.071 [http-nio-8080-exec-1] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.DuplicateAttendanceEntryException]
+[INFO ] 2023-01-19 13:16:32.765 [http-nio-8080-exec-3] EventController - addEventAttendance controller method is called with userId: 5 and eventId: 6
+[INFO ] 2023-01-19 13:16:32.765 [http-nio-8080-exec-3] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:16:44.949 [http-nio-8080-exec-4] EventController - removeEventAttendance controller method is called with userId: 5 and eventId: 6
+[INFO ] 2023-01-19 13:16:44.949 [http-nio-8080-exec-4] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:16:52.442 [http-nio-8080-exec-5] EventController - removeEventAttendance controller method is called with userId: 5 and eventId: 6
+[INFO ] 2023-01-19 13:16:52.443 [http-nio-8080-exec-5] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:16:52.453 [http-nio-8080-exec-5] EventServiceImpl - Attendance entry not found - userId: 5, eventId: 6
+[INFO ] 2023-01-19 13:17:39.009 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-19 13:17:39.072 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 19776 (C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service)
+[INFO ] 2023-01-19 13:17:39.072 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-19 13:17:39.104 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-19 13:17:39.104 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-19 13:17:40.082 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-19 13:17:40.161 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 70 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-19 13:17:40.365 [restartedMain] GenericScope - BeanFactory id=e583d4c2-ec0b-3a1b-9c9a-376e22bb87f1
+[INFO ] 2023-01-19 13:17:41.076 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-19 13:17:41.218 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2114 ms
+[INFO ] 2023-01-19 13:17:41.360 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-19 13:17:41.360 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-19 13:17:41.360 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-19 13:17:41.630 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-19 13:17:41.674 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.024s)
+[INFO ] 2023-01-19 13:17:41.674 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-19 13:17:41.674 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-19 13:17:41.785 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-19 13:17:41.834 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-19 13:17:42.022 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-19 13:17:42.165 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-19 13:17:42.763 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-19 13:17:42.763 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-19 13:17:43.237 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-19 13:17:43.300 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-19 13:17:44.771 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-19 13:17:45.579 [restartedMain] EventServiceApplication - Started EventServiceApplication in 7.042 seconds (JVM running for 7.835)
+[INFO ] 2023-01-19 13:17:52.872 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-19 13:17:52.874 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2023-01-19 13:17:52.904 [http-nio-8080-exec-1] EventController - removeEventAttendance controller method is called with userId: 5 and eventId: 6
+[INFO ] 2023-01-19 13:17:52.904 [http-nio-8080-exec-1] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:17:52.956 [http-nio-8080-exec-1] EventServiceImpl - Attendance entry not found - userId: 5, eventId: 6
+[WARN ] 2023-01-19 13:17:52.984 [http-nio-8080-exec-1] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException]
+[INFO ] 2023-01-19 13:29:03.258 [Test worker] EventController - editEvent controller method called with username: Administrator, eventId: 1, eventDTO: EventDto(id=1, title=5km marathon, description=marathon, country=Latvia, city=Liep?ja, maxAttendance=100, dateTime=2023-12-13T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=Administrator), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:29:03.305 [Test worker] EventController - addEventAttendance controller method is called with userId: 1 and eventId: 2
+[INFO ] 2023-01-19 13:29:03.305 [Test worker] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 2
+[INFO ] 2023-01-19 13:29:03.321 [Test worker] EventController - deleteEvent is called with userName: Administrator and eventId: 1
+[INFO ] 2023-01-19 13:29:03.321 [Test worker] EventController - addEventAttendance controller method is called with userId: 1 and eventId: 2
+[INFO ] 2023-01-19 13:29:03.337 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: null, date_to: null 
+[INFO ] 2023-01-19 13:29:03.337 [Test worker] EventController - addEventAttendance controller method is called with userId: 1 and eventId: 2
+[INFO ] 2023-01-19 13:29:03.337 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: 2023-12-14, date_to: null 
+[INFO ] 2023-01-19 13:29:03.353 [Test worker] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 2
+[INFO ] 2023-01-19 13:29:03.353 [Test worker] EventController - saveEvent controller method is called with user name: Administrator and event DTO: EventDto(id=1, title=5km marathon, description=marathon, country=Latvia, city=Liep?ja, maxAttendance=100, dateTime=2023-12-13T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=Administrator), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:29:03.353 [Test worker] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 2
+[INFO ] 2023-01-19 13:29:03.368 [Test worker] EventController - findEventInfo controller method is called with eventId: 1
+[INFO ] 2023-01-19 13:29:03.368 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Lithuania, city: Kaunas, date_from: null, date_to: null 
+[INFO ] 2023-01-19 13:29:03.368 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: 2020-11-12, date_to: 2023-12-15 
+[INFO ] 2023-01-19 13:29:03.368 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: 2023-12-14, date_to: 2023-12-15 
+[INFO ] 2023-01-19 13:29:03.383 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: 2023-12-14, date_to: 2023-12-15 
+[INFO ] 2023-01-19 13:29:03.390 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Sweden, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-19 13:29:03.390 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: null, date_to: 2023-12-14 
+[INFO ] 2023-01-19 13:29:03.398 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Riga, date_from: 2020-12-14, date_to: 2023-12-15 
+[INFO ] 2023-01-19 13:29:03.402 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-19 13:29:10.373 [Test worker] SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [eventservice.eventservice.integration.EventIntegrationTest], using SpringBootContextLoader
+[INFO ] 2023-01-19 13:29:10.389 [Test worker] AbstractContextLoader - Could not detect default resource locations for test class [eventservice.eventservice.integration.EventIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+[INFO ] 2023-01-19 13:29:10.389 [Test worker] AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [eventservice.eventservice.integration.EventIntegrationTest]: EventIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[INFO ] 2023-01-19 13:29:10.530 [Test worker] SpringBootTestContextBootstrapper - Found @SpringBootConfiguration eventservice.eventservice.EventServiceApplication for test class eventservice.eventservice.integration.EventIntegrationTest
+[INFO ] 2023-01-19 13:29:10.673 [Test worker] SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO ] 2023-01-19 13:29:10.698 [Test worker] SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5ae95707, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@62891fc8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@367b22e5, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@fca387, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@10bd9df0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3ae0b770, org.springframework.test.context.transaction.TransactionalTestExecutionListener@55e3d6c3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@30e6a763, org.springframework.test.context.event.EventPublishingTestExecutionListener@4c48fe92, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@732c9b5c, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@38320e34, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3d6a6bee, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@36ddaebf, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@213c3543, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@9d7ccfe]
+[INFO ] 2023-01-19 13:29:11.196 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-19 13:29:11.241 [Test worker] EventIntegrationTest - Starting EventIntegrationTest using Java 11.0.17 on LTUGPLTP0149 with PID 15676 (started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service)
+[INFO ] 2023-01-19 13:29:11.241 [Test worker] EventIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-19 13:29:12.722 [Test worker] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-19 13:29:12.815 [Test worker] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-19 13:29:13.177 [Test worker] GenericScope - BeanFactory id=0a5d734a-f359-3ba8-9d5e-8016698bbca6
+[INFO ] 2023-01-19 13:29:15.428 [Test worker] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-19 13:29:15.428 [Test worker] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-19 13:29:15.428 [Test worker] VersionPrinter - 
+[INFO ] 2023-01-19 13:29:16.021 [Test worker] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-19 13:29:16.136 [Test worker] DbValidate - Successfully validated 6 migrations (execution time 00:00.056s)
+[INFO ] 2023-01-19 13:29:16.153 [Test worker] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-19 13:29:16.168 [Test worker] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-19 13:29:16.342 [Test worker] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-19 13:29:16.436 [Test worker] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-19 13:29:16.499 [Test worker] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-19 13:29:16.735 [Test worker] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-19 13:29:17.633 [Test worker] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-19 13:29:17.649 [Test worker] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-19 13:29:18.124 [Test worker] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-19 13:29:19.870 [Test worker] SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+[INFO ] 2023-01-19 13:29:19.870 [Test worker] TestDispatcherServlet - Initializing Servlet ''
+[INFO ] 2023-01-19 13:29:19.870 [Test worker] TestDispatcherServlet - Completed initialization in 0 ms
+[INFO ] 2023-01-19 13:29:20.610 [Test worker] EventIntegrationTest - Started EventIntegrationTest in 9.874 seconds (JVM running for 11.759)
+[INFO ] 2023-01-19 13:29:20.957 [Test worker] EventController - editEvent controller method called with username: AdminUser, eventId: 7, eventDTO: EventDto(id=7, title=Random contest, description=No description, country=Latvia, city=Liep?ja, maxAttendance=10, dateTime=2023-01-01T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=AdminUser), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:29:20.957 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-19 13:29:20.957 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:29:20.957 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:29:21.027 [Test worker] EventController - addEventAttendance controller method is called with userId: 1 and eventId: 7
+[INFO ] 2023-01-19 13:29:21.027 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:29:21.027 [Test worker] EventServiceImpl - The event with id 7 has not been found
+[INFO ] 2023-01-19 13:29:21.051 [Test worker] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 7
+[INFO ] 2023-01-19 13:29:21.051 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:29:21.051 [Test worker] EventServiceImpl - The event with id 7 has not been found
+[INFO ] 2023-01-19 13:29:21.083 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-19 13:29:21.083 [Test worker] EventController - deleteEvent is called with userName: AdminUser and eventId: 7
+[INFO ] 2023-01-19 13:29:21.100 [Test worker] EventController - findEventInfo controller method is called with eventId: 7
+[INFO ] 2023-01-19 13:29:21.100 [Test worker] EventServiceImpl - findEventInfo service method called
+[INFO ] 2023-01-19 13:29:21.127 [Test worker] EventController - addEventAttendance controller method is called with userId: 1 and eventId: 7
+[INFO ] 2023-01-19 13:29:21.127 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:29:21.187 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Venstspils, date_from: null, date_to: null 
+[INFO ] 2023-01-19 13:29:21.187 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:29:21.187 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:29:21.187 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-19 13:29:21.227 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-19 13:29:21.277 [Test worker] EventController - addEventAttendance controller method is called with userId: 1 and eventId: 7
+[INFO ] 2023-01-19 13:29:21.277 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:29:21.278 [Test worker] EventServiceImpl - The user with id 1 has not been found
+[INFO ] 2023-01-19 13:29:21.300 [Test worker] EventController - saveEvent controller method is called with user name: AdminUser and event DTO: EventDto(id=7, title=Random contest, description=No description, country=Latvia, city=Liep?ja, maxAttendance=10, dateTime=2023-01-01T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=AdminUser), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:29:21.311 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-19 13:29:21.311 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:29:21.313 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:29:21.313 [Test worker] EventServiceImpl - cityDoesExist service method called
+[INFO ] 2023-01-19 13:29:21.407 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Venstspils, date_from: 2020-11-12, date_to: null 
+[INFO ] 2023-01-19 13:29:21.407 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:29:21.407 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:29:21.407 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2020-11-12, dateTo: null
+[INFO ] 2023-01-19 13:29:21.429 [Test worker] EventController - saveEvent controller method is called with user name: AdminUser and event DTO: EventDto(id=7, title=Random contest, description=No description, country=Latvia, city=Liep?ja, maxAttendance=10, dateTime=2023-01-01T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=AdminUser), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:29:21.439 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-19 13:29:21.439 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:29:21.439 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:29:21.461 [Test worker] EventController - editEvent controller method called with username: AdminUser, eventId: 7, eventDTO: EventDto(id=7, title=No title, description=No description, country=Latvia, city=R?zekne, maxAttendance=10, dateTime=2023-01-01T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=AdminUser), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:29:21.461 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-19 13:29:21.461 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:29:21.461 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:29:21.461 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:29:21.461 [Test worker] EventServiceImpl - cityDoesExist service method called
+[INFO ] 2023-01-19 13:29:21.501 [Test worker] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 7
+[INFO ] 2023-01-19 13:29:21.501 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:29:21.569 [Test worker] EventController - saveEvent controller method is called with user name: AdminUser and event DTO: EventDto(id=7, title=Random contest, description=No description, country=Latvia, city=Liep?ja, maxAttendance=10, dateTime=2023-01-01T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=AdminUser), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:29:21.569 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-19 13:29:21.569 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:29:21.569 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:29:21.569 [Test worker] EventServiceImpl - cityDoesExist service method called
+[INFO ] 2023-01-19 13:29:21.583 [Test worker] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 7
+[INFO ] 2023-01-19 13:29:21.583 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:29:21.598 [Test worker] EventServiceImpl - The user with id 1 has not been found
+[INFO ] 2023-01-19 13:29:21.614 [Test worker] EventController - findEventInfo controller method is called with eventId: 7
+[INFO ] 2023-01-19 13:29:21.614 [Test worker] EventServiceImpl - findEventInfo service method called
+[INFO ] 2023-01-19 13:29:21.772 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Lithuania, city: Kaunas, date_from: null, date_to: null 
+[INFO ] 2023-01-19 13:29:21.772 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:29:21.772 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:29:21.772 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-19 13:29:21.807 [Test worker] EventController - editEvent controller method called with username: AdminUser, eventId: 7, eventDTO: EventDto(id=7, title=No title, description=No description, country=Latvia, city=R?zekne, maxAttendance=10, dateTime=2023-01-01T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=AdminUser), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:29:21.823 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-19 13:29:21.823 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:29:21.823 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:29:21.823 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:29:21.840 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: 2020-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-19 13:29:21.840 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:29:21.840 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-19 13:29:21.840 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2023-11-12
+[INFO ] 2023-01-19 13:29:21.855 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: 2029-11-12, date_to: 2029-11-12 
+[INFO ] 2023-01-19 13:29:21.855 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:29:21.855 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-19 13:29:21.855 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2029-11-12, dateTo: 2029-11-12
+[INFO ] 2023-01-19 13:29:21.876 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Venstspils, date_from: 2029-11-12, date_to: 2029-11-12 
+[INFO ] 2023-01-19 13:29:21.876 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:29:21.876 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:29:21.876 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2029-11-12, dateTo: 2029-11-12
+[INFO ] 2023-01-19 13:29:21.887 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Sweden, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-19 13:29:21.887 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:29:21.887 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-19 13:29:21.887 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-19 13:29:21.973 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Venstspils, date_from: null, date_to: 2020-11-12 
+[INFO ] 2023-01-19 13:29:21.973 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:29:21.973 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:29:21.973 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2020-11-12
+[INFO ] 2023-01-19 13:29:21.981 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Venstspils, date_from: 2020-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-19 13:29:21.981 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:29:21.981 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:29:21.981 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2023-11-12
+[INFO ] 2023-01-19 13:29:21.997 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-19 13:29:22.018 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-19 13:29:22.018 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:29:22.018 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-19 13:29:22.018 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-19 13:29:22.129 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-19 13:30:21.885 [Test worker] SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [eventservice.eventservice.integration.EventIntegrationTest], using SpringBootContextLoader
+[INFO ] 2023-01-19 13:30:21.901 [Test worker] AbstractContextLoader - Could not detect default resource locations for test class [eventservice.eventservice.integration.EventIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+[INFO ] 2023-01-19 13:30:21.901 [Test worker] AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [eventservice.eventservice.integration.EventIntegrationTest]: EventIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[INFO ] 2023-01-19 13:30:21.995 [Test worker] SpringBootTestContextBootstrapper - Found @SpringBootConfiguration eventservice.eventservice.EventServiceApplication for test class eventservice.eventservice.integration.EventIntegrationTest
+[INFO ] 2023-01-19 13:30:22.075 [Test worker] SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO ] 2023-01-19 13:30:22.097 [Test worker] SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5ae95707, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@62891fc8, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@367b22e5, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@fca387, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@10bd9df0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3ae0b770, org.springframework.test.context.transaction.TransactionalTestExecutionListener@55e3d6c3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@30e6a763, org.springframework.test.context.event.EventPublishingTestExecutionListener@4c48fe92, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@732c9b5c, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@38320e34, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3d6a6bee, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@36ddaebf, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@213c3543, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@9d7ccfe]
+[INFO ] 2023-01-19 13:30:22.421 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-19 13:30:22.468 [Test worker] EventIntegrationTest - Starting EventIntegrationTest using Java 11.0.17 on LTUGPLTP0149 with PID 21752 (started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service)
+[INFO ] 2023-01-19 13:30:22.484 [Test worker] EventIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-19 13:30:23.430 [Test worker] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-19 13:30:23.494 [Test worker] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-19 13:30:23.729 [Test worker] GenericScope - BeanFactory id=0a5d734a-f359-3ba8-9d5e-8016698bbca6
+[INFO ] 2023-01-19 13:30:25.356 [Test worker] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-19 13:30:25.356 [Test worker] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-19 13:30:25.356 [Test worker] VersionPrinter - 
+[INFO ] 2023-01-19 13:30:25.729 [Test worker] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-19 13:30:25.777 [Test worker] DbValidate - Successfully validated 6 migrations (execution time 00:00.029s)
+[INFO ] 2023-01-19 13:30:25.792 [Test worker] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-19 13:30:25.792 [Test worker] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-19 13:30:25.965 [Test worker] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-19 13:30:26.028 [Test worker] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-19 13:30:26.107 [Test worker] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-19 13:30:26.312 [Test worker] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-19 13:30:27.224 [Test worker] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-19 13:30:27.240 [Test worker] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-19 13:30:27.759 [Test worker] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-19 13:30:29.575 [Test worker] SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+[INFO ] 2023-01-19 13:30:29.575 [Test worker] TestDispatcherServlet - Initializing Servlet ''
+[INFO ] 2023-01-19 13:30:29.585 [Test worker] TestDispatcherServlet - Completed initialization in 0 ms
+[INFO ] 2023-01-19 13:30:30.310 [Test worker] EventIntegrationTest - Started EventIntegrationTest in 8.19 seconds (JVM running for 9.647)
+[INFO ] 2023-01-19 13:30:30.657 [Test worker] EventController - editEvent controller method called with username: AdminUser, eventId: 7, eventDTO: EventDto(id=7, title=Random contest, description=No description, country=Latvia, city=Liep?ja, maxAttendance=10, dateTime=2023-01-01T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=AdminUser), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:30:30.657 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-19 13:30:30.672 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:30:30.677 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:30:30.720 [Test worker] EventController - addEventAttendance controller method is called with userId: 1 and eventId: 7
+[INFO ] 2023-01-19 13:30:30.720 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:30.736 [Test worker] EventServiceImpl - The event with id 7 has not been found
+[INFO ] 2023-01-19 13:30:30.753 [Test worker] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 7
+[INFO ] 2023-01-19 13:30:30.753 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:30.753 [Test worker] EventServiceImpl - The event with id 7 has not been found
+[INFO ] 2023-01-19 13:30:30.769 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-19 13:30:30.769 [Test worker] EventController - deleteEvent is called with userName: AdminUser and eventId: 7
+[INFO ] 2023-01-19 13:30:30.785 [Test worker] EventController - findEventInfo controller method is called with eventId: 7
+[INFO ] 2023-01-19 13:30:30.785 [Test worker] EventServiceImpl - findEventInfo service method called
+[INFO ] 2023-01-19 13:30:30.800 [Test worker] EventController - addEventAttendance controller method is called with userId: 1 and eventId: 7
+[INFO ] 2023-01-19 13:30:30.800 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:30.832 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Venstspils, date_from: null, date_to: null 
+[INFO ] 2023-01-19 13:30:30.834 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:30.834 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:30:30.835 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-19 13:30:30.843 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-19 13:30:30.864 [Test worker] EventController - addEventAttendance controller method is called with userId: 1 and eventId: 7
+[INFO ] 2023-01-19 13:30:30.864 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:30.874 [Test worker] EventServiceImpl - The user with id 1 has not been found
+[INFO ] 2023-01-19 13:30:30.894 [Test worker] EventController - saveEvent controller method is called with user name: AdminUser and event DTO: EventDto(id=7, title=Random contest, description=No description, country=Latvia, city=Liep?ja, maxAttendance=10, dateTime=2023-01-01T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=AdminUser), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:30:30.897 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-19 13:30:30.897 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:30:30.897 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:30:30.899 [Test worker] EventServiceImpl - cityDoesExist service method called
+[INFO ] 2023-01-19 13:30:30.985 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Venstspils, date_from: 2020-11-12, date_to: null 
+[INFO ] 2023-01-19 13:30:30.985 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:30.985 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:30:30.985 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2020-11-12, dateTo: null
+[INFO ] 2023-01-19 13:30:31.015 [Test worker] EventController - saveEvent controller method is called with user name: AdminUser and event DTO: EventDto(id=7, title=Random contest, description=No description, country=Latvia, city=Liep?ja, maxAttendance=10, dateTime=2023-01-01T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=AdminUser), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:30:31.015 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-19 13:30:31.015 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:30:31.015 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:30:31.039 [Test worker] EventController - editEvent controller method called with username: AdminUser, eventId: 7, eventDTO: EventDto(id=7, title=No title, description=No description, country=Latvia, city=R?zekne, maxAttendance=10, dateTime=2023-01-01T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=AdminUser), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:30:31.039 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-19 13:30:31.041 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:30:31.041 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:30:31.041 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:30:31.042 [Test worker] EventServiceImpl - cityDoesExist service method called
+[INFO ] 2023-01-19 13:30:31.057 [Test worker] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 7
+[INFO ] 2023-01-19 13:30:31.057 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:31.086 [Test worker] EventController - saveEvent controller method is called with user name: AdminUser and event DTO: EventDto(id=7, title=Random contest, description=No description, country=Latvia, city=Liep?ja, maxAttendance=10, dateTime=2023-01-01T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=AdminUser), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:30:31.086 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-19 13:30:31.086 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:30:31.086 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:30:31.086 [Test worker] EventServiceImpl - cityDoesExist service method called
+[INFO ] 2023-01-19 13:30:31.103 [Test worker] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 7
+[INFO ] 2023-01-19 13:30:31.103 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:31.103 [Test worker] EventServiceImpl - The user with id 1 has not been found
+[INFO ] 2023-01-19 13:30:31.113 [Test worker] EventController - findEventInfo controller method is called with eventId: 7
+[INFO ] 2023-01-19 13:30:31.113 [Test worker] EventServiceImpl - findEventInfo service method called
+[INFO ] 2023-01-19 13:30:31.193 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Lithuania, city: Kaunas, date_from: null, date_to: null 
+[INFO ] 2023-01-19 13:30:31.193 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:31.193 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:30:31.193 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-19 13:30:31.212 [Test worker] EventController - editEvent controller method called with username: AdminUser, eventId: 7, eventDTO: EventDto(id=7, title=No title, description=No description, country=Latvia, city=R?zekne, maxAttendance=10, dateTime=2023-01-01T12:00, attendeeCount=0, organiser=UserMinimalDto(id=1, username=AdminUser), type=EventTypeDto(id=1, type=public), attendees=[])
+[INFO ] 2023-01-19 13:30:31.212 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-19 13:30:31.224 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:30:31.224 [Test worker] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-19 13:30:31.225 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:30:31.243 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: 2020-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-19 13:30:31.244 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:31.244 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-19 13:30:31.244 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2023-11-12
+[INFO ] 2023-01-19 13:30:31.250 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: 2029-11-12, date_to: 2029-11-12 
+[INFO ] 2023-01-19 13:30:31.250 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:31.250 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-19 13:30:31.250 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2029-11-12, dateTo: 2029-11-12
+[INFO ] 2023-01-19 13:30:31.268 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Venstspils, date_from: 2029-11-12, date_to: 2029-11-12 
+[INFO ] 2023-01-19 13:30:31.268 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:31.268 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:30:31.277 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2029-11-12, dateTo: 2029-11-12
+[INFO ] 2023-01-19 13:30:31.295 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Sweden, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-19 13:30:31.295 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:31.295 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-19 13:30:31.295 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-19 13:30:31.331 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Venstspils, date_from: null, date_to: 2020-11-12 
+[INFO ] 2023-01-19 13:30:31.331 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:31.331 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:30:31.331 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2020-11-12
+[INFO ] 2023-01-19 13:30:31.356 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: Venstspils, date_from: 2020-11-12, date_to: 2023-11-12 
+[INFO ] 2023-01-19 13:30:31.356 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:31.356 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:30:31.357 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2023-11-12
+[INFO ] 2023-01-19 13:30:31.357 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-19 13:30:31.388 [Test worker] EventController - findAllPublicEvents controller method called with parameters country: Latvia, city: null, date_from: null, date_to: null 
+[INFO ] 2023-01-19 13:30:31.390 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:31.390 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-19 13:30:31.390 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-19 13:30:31.426 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-19 13:30:42.872 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-19 13:30:42.937 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:42.937 [Test worker] EventServiceImpl - The event with id 2 has not been found
+[INFO ] 2023-01-19 13:30:42.951 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:42.951 [Test worker] EventServiceImpl - The event with id 2 has not been found
+[INFO ] 2023-01-19 13:30:42.968 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-19 13:30:42.983 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-19 13:30:43.001 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:43.015 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:43.015 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:30:43.015 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-19 13:30:43.031 [Test worker] EventServiceImpl - findEventInfo service method called
+[INFO ] 2023-01-19 13:30:43.031 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-19 13:30:43.047 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:43.047 [Test worker] EventServiceImpl - The user with id 1 has not been found
+[INFO ] 2023-01-19 13:30:43.047 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-19 13:30:43.047 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:30:43.062 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:43.062 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:30:43.062 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2001-11-12, dateTo: null
+[INFO ] 2023-01-19 13:30:43.079 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-19 13:30:43.079 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:30:43.079 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:43.079 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:43.097 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-19 13:30:43.097 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-19 13:30:43.097 [Test worker] EventServiceImpl - cityDoesExist service method called
+[INFO ] 2023-01-19 13:30:43.097 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-19 13:30:43.110 [Test worker] EventServiceImpl - The user with id 1 has not been found
+[INFO ] 2023-01-19 13:30:43.110 [Test worker] EventServiceImpl - findEventInfo service method called
+[INFO ] 2023-01-19 13:30:43.126 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-19 13:30:43.128 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:43.128 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:30:43.128 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-19 13:30:43.128 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:43.142 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-19 13:30:43.142 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2024-11-12
+[INFO ] 2023-01-19 13:30:43.142 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:43.142 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-19 13:30:43.142 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-19 13:30:43.157 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:43.157 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:30:43.157 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2001-11-12, dateTo: 2002-11-12
+[INFO ] 2023-01-19 13:30:43.157 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:43.157 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-19 13:30:43.157 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-19 13:30:43.174 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:43.174 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:30:43.174 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2002-11-12
+[INFO ] 2023-01-19 13:30:43.189 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:43.189 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-19 13:30:43.189 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-19 13:30:43.196 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-19 13:30:43.205 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-19 13:30:43.205 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-19 13:30:43.205 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null

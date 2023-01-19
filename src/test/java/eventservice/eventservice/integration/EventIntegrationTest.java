@@ -552,7 +552,8 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity));
 
-        eventEntity.addAttendee(userEntity);
+        eventEntity.getAttendees().add(userEntity);
+        eventEntity.setAttendeeCount(eventEntity.getAttendeeCount() + 1);
 
         mockMvc.perform(delete("/v1/attendance/user/1/event/7"))
                 .andDo(print())

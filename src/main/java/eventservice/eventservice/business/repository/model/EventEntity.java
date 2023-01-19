@@ -17,7 +17,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
-import java.util.Objects;
 import java.util.Set;
 
 @Data
@@ -67,23 +66,4 @@ public class EventEntity {
             joinColumns = @JoinColumn(name = "event_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private Set<UserEntity> attendees;
-
-    public void addAttendee(UserEntity user){
-        attendeeCount++;
-        attendees.add(user);
-    }
-
-    public void removeAttendee(UserEntity userEntity) {
-        attendeeCount--;
-        attendees.remove(userEntity);
-    }
-
-    public boolean containsAttendance(Long userId){
-        for (UserEntity user : attendees) {
-            if (Objects.equals(user.getId(), userId)){
-                return true;
-            }
-        }
-        return false;
-    }
 }
