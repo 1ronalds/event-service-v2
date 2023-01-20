@@ -5,6 +5,7 @@ import eventservice.eventservice.business.handlers.exceptions.AttendanceNotFound
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.DuplicateAttendanceEntryException;
 import eventservice.eventservice.business.handlers.exceptions.EmailExistsException;
+import eventservice.eventservice.business.handlers.exceptions.EventMaxAttendanceException;
 import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
@@ -28,6 +29,8 @@ public class ExceptionHandlerMethods {
 
     public static final String BAD_REQUEST = "Bad request";
     public static final String NOT_FOUND = "Not found";
+
+    public static final String FORBIDDEN = "Forbidden";
 
     @ExceptionHandler(DateIntervalNotSpecifiedException.class)
     protected ResponseEntity<ErrorModel> handleDateIntervalNotSpecified(Exception ex, HttpServletRequest request) {
@@ -107,5 +110,12 @@ public class ExceptionHandlerMethods {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 404,
                 NOT_FOUND, "There is no attendance entry for the user at this event", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(EventMaxAttendanceException.class)
+    protected ResponseEntity<ErrorModel> handleEventMaxAttendance(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 403,
+                FORBIDDEN, "The limit of attendees has been reached for this event", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.FORBIDDEN);
     }
 }

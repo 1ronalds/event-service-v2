@@ -2293,3 +2293,179 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 [INFO ] 2023-01-19 13:30:43.205 [Test worker] EventServiceImpl - findAllPublicEvents service method called
 [INFO ] 2023-01-19 13:30:43.205 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
 [INFO ] 2023-01-19 13:30:43.205 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-20 11:16:13.979 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-20 11:16:14.060 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 11972 (C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service)
+[INFO ] 2023-01-20 11:16:14.067 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-20 11:16:14.139 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-20 11:16:14.139 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-20 11:16:15.680 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-20 11:16:15.807 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 111 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-20 11:16:16.153 [restartedMain] GenericScope - BeanFactory id=e583d4c2-ec0b-3a1b-9c9a-376e22bb87f1
+[INFO ] 2023-01-20 11:16:17.280 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-20 11:16:17.504 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3364 ms
+[INFO ] 2023-01-20 11:16:17.748 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-20 11:16:17.748 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-20 11:16:17.749 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-20 11:16:18.195 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-20 11:16:18.299 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.055s)
+[INFO ] 2023-01-20 11:16:18.316 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-20 11:16:18.318 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-20 11:16:18.454 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-20 11:16:18.584 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-20 11:16:18.904 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-20 11:16:19.159 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-20 11:16:20.171 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-20 11:16:20.182 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-20 11:16:20.789 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-20 11:16:20.832 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[WARN ] 2023-01-20 11:16:21.653 [restartedMain] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'handlerExceptionResolver' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerExceptionResolver]: Factory method 'handlerExceptionResolver' threw exception; nested exception is java.lang.IllegalStateException: Ambiguous @ExceptionHandler method mapped for [class eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException]: {protected org.springframework.http.ResponseEntity eventservice.eventservice.business.handlers.ExceptionHandlerMethods.handleEventMaxAttendance(java.lang.Exception,javax.servlet.http.HttpServletRequest), protected org.springframework.http.ResponseEntity eventservice.eventservice.business.handlers.ExceptionHandlerMethods.handleAttendanceNotFound(java.lang.Exception,javax.servlet.http.HttpServletRequest)}
+[INFO ] 2023-01-20 11:16:21.662 [restartedMain] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-20 11:16:21.707 [restartedMain] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2023-01-20 11:16:21.740 [restartedMain] SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'handlerExceptionResolver' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerExceptionResolver]: Factory method 'handlerExceptionResolver' threw exception; nested exception is java.lang.IllegalStateException: Ambiguous @ExceptionHandler method mapped for [class eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException]: {protected org.springframework.http.ResponseEntity eventservice.eventservice.business.handlers.ExceptionHandlerMethods.handleEventMaxAttendance(java.lang.Exception,javax.servlet.http.HttpServletRequest), protected org.springframework.http.ResponseEntity eventservice.eventservice.business.handlers.ExceptionHandlerMethods.handleAttendanceNotFound(java.lang.Exception,javax.servlet.http.HttpServletRequest)}
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.6.jar:2.7.6]
+	at eventservice.eventservice.EventServiceApplication.main(EventServiceApplication.java:12) ~[main/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.6.jar:2.7.6]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerExceptionResolver]: Factory method 'handlerExceptionResolver' threw exception; nested exception is java.lang.IllegalStateException: Ambiguous @ExceptionHandler method mapped for [class eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException]: {protected org.springframework.http.ResponseEntity eventservice.eventservice.business.handlers.ExceptionHandlerMethods.handleEventMaxAttendance(java.lang.Exception,javax.servlet.http.HttpServletRequest), protected org.springframework.http.ResponseEntity eventservice.eventservice.business.handlers.ExceptionHandlerMethods.handleAttendanceNotFound(java.lang.Exception,javax.servlet.http.HttpServletRequest)}
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 24 more
+Caused by: java.lang.IllegalStateException: Ambiguous @ExceptionHandler method mapped for [class eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException]: {protected org.springframework.http.ResponseEntity eventservice.eventservice.business.handlers.ExceptionHandlerMethods.handleEventMaxAttendance(java.lang.Exception,javax.servlet.http.HttpServletRequest), protected org.springframework.http.ResponseEntity eventservice.eventservice.business.handlers.ExceptionHandlerMethods.handleAttendanceNotFound(java.lang.Exception,javax.servlet.http.HttpServletRequest)}
+	at org.springframework.web.method.annotation.ExceptionHandlerMethodResolver.addExceptionMapping(ExceptionHandlerMethodResolver.java:114) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.method.annotation.ExceptionHandlerMethodResolver.<init>(ExceptionHandlerMethodResolver.java:78) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.initExceptionHandlerAdviceCache(ExceptionHandlerExceptionResolver.java:291) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.afterPropertiesSet(ExceptionHandlerExceptionResolver.java:268) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.addDefaultHandlerExceptionResolvers(WebMvcConfigurationSupport.java:1090) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.handlerExceptionResolver(WebMvcConfigurationSupport.java:1032) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 24 more
+[INFO ] 2023-01-20 11:17:02.609 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-20 11:17:02.655 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 4924 (C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task5\event-service)
+[INFO ] 2023-01-20 11:17:02.655 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-20 11:17:02.702 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-20 11:17:02.702 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-20 11:17:03.710 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-20 11:17:03.795 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-20 11:17:04.088 [restartedMain] GenericScope - BeanFactory id=e583d4c2-ec0b-3a1b-9c9a-376e22bb87f1
+[INFO ] 2023-01-20 11:17:05.172 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-20 11:17:05.362 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2660 ms
+[INFO ] 2023-01-20 11:17:05.598 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-20 11:17:05.598 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-20 11:17:05.598 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-20 11:17:06.023 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-20 11:17:06.101 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.043s)
+[INFO ] 2023-01-20 11:17:06.118 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-20 11:17:06.118 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-20 11:17:06.290 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-20 11:17:06.385 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-20 11:17:06.668 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-20 11:17:06.840 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-20 11:17:07.757 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-20 11:17:07.770 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-20 11:17:08.304 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-20 11:17:08.358 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-20 11:17:09.692 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-20 11:17:10.329 [restartedMain] EventServiceApplication - Started EventServiceApplication in 8.141 seconds (JVM running for 8.946)
+[INFO ] 2023-01-20 11:17:37.064 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-20 11:17:37.066 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2023-01-20 11:17:37.092 [http-nio-8080-exec-1] EventController - removeEventAttendance controller method is called with userId: 3 and eventId: 2
+[INFO ] 2023-01-20 11:17:37.092 [http-nio-8080-exec-1] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:18:03.411 [http-nio-8080-exec-3] EventController - addEventAttendance controller method is called with userId: 2 and eventId: 2
+[INFO ] 2023-01-20 11:18:03.411 [http-nio-8080-exec-3] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:18:03.420 [http-nio-8080-exec-3] EventServiceImpl - Duplicate attendance entry - userId: 2, eventId: 2
+[WARN ] 2023-01-20 11:18:03.448 [http-nio-8080-exec-3] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.DuplicateAttendanceEntryException]
+[INFO ] 2023-01-20 11:18:13.180 [http-nio-8080-exec-5] EventController - addEventAttendance controller method is called with userId: 2 and eventId: 123123213
+[INFO ] 2023-01-20 11:18:13.180 [http-nio-8080-exec-5] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:18:13.188 [http-nio-8080-exec-5] EventServiceImpl - The event with id 123123213 has not been found
+[WARN ] 2023-01-20 11:18:13.190 [http-nio-8080-exec-5] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.EventNotFoundException]
+[INFO ] 2023-01-20 11:18:21.229 [http-nio-8080-exec-6] EventController - addEventAttendance controller method is called with userId: 2123123 and eventId: 1
+[INFO ] 2023-01-20 11:18:21.229 [http-nio-8080-exec-6] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:18:21.236 [http-nio-8080-exec-6] EventServiceImpl - The user with id 2123123 has not been found
+[WARN ] 2023-01-20 11:18:21.238 [http-nio-8080-exec-6] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.UserNotFoundException]
+[INFO ] 2023-01-20 11:19:00.967 [http-nio-8080-exec-7] EventController - removeEventAttendance controller method is called with userId: 4 and eventId: 3
+[INFO ] 2023-01-20 11:19:00.967 [http-nio-8080-exec-7] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:19:08.731 [http-nio-8080-exec-8] EventController - removeEventAttendance controller method is called with userId: 5 and eventId: 3
+[INFO ] 2023-01-20 11:19:08.731 [http-nio-8080-exec-8] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:19:12.815 [http-nio-8080-exec-9] EventController - removeEventAttendance controller method is called with userId: 5 and eventId: 3
+[INFO ] 2023-01-20 11:19:12.815 [http-nio-8080-exec-9] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:19:12.824 [http-nio-8080-exec-9] EventServiceImpl - Attendance entry not found - userId: 5, eventId: 3
+[WARN ] 2023-01-20 11:19:12.826 [http-nio-8080-exec-9] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException]
+[INFO ] 2023-01-20 11:19:21.499 [http-nio-8080-exec-10] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 3
+[INFO ] 2023-01-20 11:19:21.499 [http-nio-8080-exec-10] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:19:29.598 [http-nio-8080-exec-2] EventController - removeEventAttendance controller method is called with userId: 2 and eventId: 3
+[INFO ] 2023-01-20 11:19:29.598 [http-nio-8080-exec-2] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:19:37.679 [http-nio-8080-exec-1] EventController - removeEventAttendance controller method is called with userId: 3 and eventId: 3
+[INFO ] 2023-01-20 11:19:37.679 [http-nio-8080-exec-1] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:19:47.737 [http-nio-8080-exec-3] EventController - removeEventAttendance controller method is called with userId: 4 and eventId: 2
+[INFO ] 2023-01-20 11:19:47.737 [http-nio-8080-exec-3] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:19:57.651 [http-nio-8080-exec-4] EventController - removeEventAttendance controller method is called with userId: 5 and eventId: 2
+[INFO ] 2023-01-20 11:19:57.651 [http-nio-8080-exec-4] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:20:02.226 [http-nio-8080-exec-5] EventController - removeEventAttendance controller method is called with userId: 2 and eventId: 2
+[INFO ] 2023-01-20 11:20:02.227 [http-nio-8080-exec-5] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:20:55.525 [http-nio-8080-exec-6] EventController - addEventAttendance controller method is called with userId: 1 and eventId: 1
+[INFO ] 2023-01-20 11:20:55.525 [http-nio-8080-exec-6] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:21:08.269 [http-nio-8080-exec-7] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 1
+[INFO ] 2023-01-20 11:21:08.270 [http-nio-8080-exec-7] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:21:46.790 [http-nio-8080-exec-8] EventController - addEventAttendance controller method is called with userId: 1 and eventId: 4
+[INFO ] 2023-01-20 11:21:46.790 [http-nio-8080-exec-8] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:21:50.999 [http-nio-8080-exec-9] EventController - addEventAttendance controller method is called with userId: 2 and eventId: 4
+[INFO ] 2023-01-20 11:21:50.999 [http-nio-8080-exec-9] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:21:54.555 [http-nio-8080-exec-10] EventController - addEventAttendance controller method is called with userId: 3 and eventId: 4
+[INFO ] 2023-01-20 11:21:54.555 [http-nio-8080-exec-10] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:21:58.395 [http-nio-8080-exec-2] EventController - addEventAttendance controller method is called with userId: 4 and eventId: 4
+[INFO ] 2023-01-20 11:21:58.395 [http-nio-8080-exec-2] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:22:02.199 [http-nio-8080-exec-1] EventController - addEventAttendance controller method is called with userId: 5 and eventId: 4
+[INFO ] 2023-01-20 11:22:02.199 [http-nio-8080-exec-1] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:22:25.791 [http-nio-8080-exec-3] EventController - removeEventAttendance controller method is called with userId: 5 and eventId: 4
+[INFO ] 2023-01-20 11:22:25.791 [http-nio-8080-exec-3] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:22:29.171 [http-nio-8080-exec-4] EventController - removeEventAttendance controller method is called with userId: 4 and eventId: 4
+[INFO ] 2023-01-20 11:22:29.171 [http-nio-8080-exec-4] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:22:33.250 [http-nio-8080-exec-5] EventController - removeEventAttendance controller method is called with userId: 3 and eventId: 4
+[INFO ] 2023-01-20 11:22:33.251 [http-nio-8080-exec-5] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:22:47.076 [http-nio-8080-exec-6] EventController - removeEventAttendance controller method is called with userId: 3 and eventId: 4
+[INFO ] 2023-01-20 11:22:47.077 [http-nio-8080-exec-6] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:22:47.086 [http-nio-8080-exec-6] EventServiceImpl - Attendance entry not found - userId: 3, eventId: 4
+[WARN ] 2023-01-20 11:22:47.088 [http-nio-8080-exec-6] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException]
+[INFO ] 2023-01-20 11:22:58.750 [http-nio-8080-exec-7] EventController - removeEventAttendance controller method is called with userId: 2 and eventId: 4
+[INFO ] 2023-01-20 11:22:58.751 [http-nio-8080-exec-7] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:23:04.133 [http-nio-8080-exec-8] EventController - removeEventAttendance controller method is called with userId: 1 and eventId: 4
+[INFO ] 2023-01-20 11:23:04.134 [http-nio-8080-exec-8] EventServiceImpl - removeEventAttendance service method called
+[INFO ] 2023-01-20 11:23:34.852 [http-nio-8080-exec-9] EventController - addEventAttendance controller method is called with userId: 1 and eventId: 4
+[INFO ] 2023-01-20 11:23:34.853 [http-nio-8080-exec-9] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:23:39.384 [http-nio-8080-exec-10] EventController - addEventAttendance controller method is called with userId: 2 and eventId: 4
+[INFO ] 2023-01-20 11:23:39.384 [http-nio-8080-exec-10] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:23:44.342 [http-nio-8080-exec-2] EventController - addEventAttendance controller method is called with userId: 3 and eventId: 4
+[INFO ] 2023-01-20 11:23:44.342 [http-nio-8080-exec-2] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:23:48.774 [http-nio-8080-exec-1] EventController - addEventAttendance controller method is called with userId: 4 and eventId: 4
+[INFO ] 2023-01-20 11:23:48.774 [http-nio-8080-exec-1] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-20 11:23:48.780 [http-nio-8080-exec-1] EventServiceImpl - The max attendance for event with id: 4 has been reached
+[WARN ] 2023-01-20 11:23:48.781 [http-nio-8080-exec-1] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.EventMaxAttendanceException]

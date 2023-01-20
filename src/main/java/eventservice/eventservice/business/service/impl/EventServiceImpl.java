@@ -5,6 +5,7 @@ import eventservice.eventservice.business.connection.model.CityDto;
 import eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.DuplicateAttendanceEntryException;
+import eventservice.eventservice.business.handlers.exceptions.EventMaxAttendanceException;
 import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
@@ -251,13 +252,20 @@ public class EventServiceImpl implements EventService {
         }
         EventEntity event = optionalEventEntity.get();
 
-        if (containsAttendance(event, userId)){
+        if (event.getAttendeeCount() + 1 > event.getMaxAttendance()){
+            log.info("The max attendance for event with id: {} has been reached", eventId);
+            throw new EventMaxAttendanceException();
+        }
+
+        UserEntity user = optionalUserEntity.get();
+
+        if (event.getAttendees().contains(user)){
             log.info("Duplicate attendance entry - userId: {}, eventId: {}", userId, eventId);
             throw new DuplicateAttendanceEntryException();
         }
 
-        UserEntity user = optionalUserEntity.get();
-        addAttendance(event, user);
+        event.getAttendees().add(user);
+        event.setAttendeeCount(event.getAttendeeCount() + 1);
         eventRepository.save(event);
     }
 
@@ -268,7 +276,7 @@ public class EventServiceImpl implements EventService {
      */
     @Override
     public void removeEventAttendance(Long userId, Long eventId) {
-        log.info("addEventAttendance service method called");
+        log.info("removeEventAttendance service method called");
         Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
         Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
 
@@ -282,35 +290,15 @@ public class EventServiceImpl implements EventService {
             throw new UserNotFoundException();
         }
         EventEntity event = optionalEventEntity.get();
+        UserEntity user = optionalUserEntity.get();
 
-        if (!containsAttendance(event, userId)){
+        if (!event.getAttendees().contains(user)){
             log.info("Attendance entry not found - userId: {}, eventId: {}", userId, eventId);
             throw new AttendanceNotFoundException();
         }
 
-        UserEntity user = optionalUserEntity.get();
-        removeAttendance(event, user);
-        eventRepository.save(event);
-    }
-
-    private void addAttendance(EventEntity event, UserEntity user){
-        event.getAttendees().add(user);
-        event.setAttendeeCount(event.getAttendeeCount() + 1);
-    }
-
-    private void removeAttendance(EventEntity event, UserEntity user){
         event.getAttendees().remove(user);
         event.setAttendeeCount(event.getAttendeeCount() - 1);
-    }
-
-    private boolean containsAttendance(EventEntity event, Long userId){
-        Set<UserEntity> attendees = event.getAttendees();
-
-        for (UserEntity user: attendees) {
-            if (Objects.equals(user.getId(), userId)){
-                return true;
-            }
-        }
-        return false;
+        eventRepository.save(event);
     }
 }
