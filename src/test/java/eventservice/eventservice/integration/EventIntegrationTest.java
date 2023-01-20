@@ -80,6 +80,9 @@ public class EventIntegrationTest {
 
     EventTypeEntity eventTypeEntity;
     RoleEntity roleEntity;
+    private LocalDateTime dateTime1;
+    private LocalDateTime dateTime2;
+    private LocalDateTime dateTime3;
 
     @BeforeEach
     void init(){
@@ -126,6 +129,10 @@ public class EventIntegrationTest {
         eventEntity6 = new EventEntity(6L, "Kebab eating contest", "Prove to everyone once and for all that you are the best kebab eater in Lithuania!", "Lithuania",
                 "Kaunas", 500, LocalDateTime.of(LocalDate.of(2022, 12 ,1), LocalTime.of(10,30)),
                 0, fourthUser, new EventTypeEntity(2L, "private"), new HashSet<>());
+
+        dateTime1 = LocalDateTime.of(2020, 11, 12, 0, 0);
+        dateTime2 = LocalDateTime.of(2023, 11, 12, 0, 0);
+        dateTime3 = LocalDateTime.of(2023, 1, 1, 12, 00);
 
     }
 
@@ -198,8 +205,8 @@ public class EventIntegrationTest {
     @Test
     void findAllPublicEvents_CountryAndDateFromAndDateToSpecified_Found() throws Exception{
         Mockito.when(eventRepository.findAllByCountryAndTypeTypeAndDateTimeBetween("Latvia", "public",
-                        LocalDateTime.of(2020, 11, 12, 0, 0),
-                        LocalDateTime.of(2023, 11, 12, 0, 0)))
+                        dateTime1,
+                        dateTime2))
                 .thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto1, eventDto4, eventDto5));
@@ -236,8 +243,8 @@ public class EventIntegrationTest {
     @Test
     void findAllPublicEvents_CountryAndCityAndDateFromAndDateToSpecified_Found() throws Exception{
         Mockito.when(eventRepository.findAllByCountryAndTypeTypeAndCityAndDateTimeBetween("Latvia", "public", "Venstspils",
-                        LocalDateTime.of(2020, 11, 12, 0, 0),
-                        LocalDateTime.of(2023, 11, 12, 0, 0)))
+                        dateTime1,
+                        dateTime2))
                 .thenReturn(List.of(eventEntity4));
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto4));
@@ -384,7 +391,7 @@ public class EventIntegrationTest {
     void saveEventInvalidData() throws Exception {
         Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
         EventEntity invalidEntity = new EventEntity(7L, null, "No description", "Latvia", "Liepāja", 10,
-                LocalDateTime.of(2023, 1, 1, 12, 00), 0, userEntity, eventTypeEntity, Collections.emptySet());
+                dateTime3, 0, userEntity, eventTypeEntity, Collections.emptySet());
 
         ObjectMapper mapper = new ObjectMapper();
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
@@ -427,7 +434,7 @@ public class EventIntegrationTest {
         Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
         Mockito.when(eventRepository.findById(any())).thenReturn(Optional.of(eventEntity));
         EventEntity differentEntity = new EventEntity(7L, "No title", "No description", "Latvia", "Rēzekne", 10,
-                LocalDateTime.of(2023, 1, 1, 12, 0), 0, userEntity, eventTypeEntity, Collections.emptySet());
+                dateTime3, 0, userEntity, eventTypeEntity, Collections.emptySet());
 
         ObjectMapper mapper = new ObjectMapper();
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
@@ -450,7 +457,7 @@ public class EventIntegrationTest {
         Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
         Mockito.when(eventRepository.findById(any())).thenReturn(Optional.of(eventEntity));
         EventEntity differentEntity = new EventEntity(7L, "No title", "No description", "Latvia", "Rēzekne", 10,
-                LocalDateTime.of(2023, 1, 1, 12, 0), 0, userEntity, eventTypeEntity, Collections.emptySet());
+                dateTime3, 0, userEntity, eventTypeEntity, Collections.emptySet());
 
         ObjectMapper mapper = new ObjectMapper();
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
@@ -473,7 +480,7 @@ public class EventIntegrationTest {
     void editEventInvalidData() throws Exception {
         Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
         EventEntity invalidEntity = new EventEntity(7L, null, "No description", "Latvia", "Liepāja", 10,
-                LocalDateTime.of(2023, 1, 1, 12, 00), 0, userEntity, eventTypeEntity, Collections.emptySet());
+                dateTime3, 0, userEntity, eventTypeEntity, Collections.emptySet());
         Mockito.when(eventRepository.findById(any())).thenReturn(Optional.of(eventEntity));
         ObjectMapper mapper = new ObjectMapper();
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
