@@ -71,6 +71,11 @@ public class UserServiceImpl implements UserService {
         Long id = findUserDetails(username).getId();
         user.setRole(role);
         user.setId(id);
+        
+        if(user.getPassword() == null){
+            user.setPassword(findUserDetails(username).getPassword());
+        }
+        
 
         return mapper.entityToDto(repository.save(mapper.dtoToEntity(user)));
     }
