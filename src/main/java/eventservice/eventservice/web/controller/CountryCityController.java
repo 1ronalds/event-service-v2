@@ -31,7 +31,7 @@ public class CountryCityController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "The request is successful"),
     })
-    @GetMapping(value = "/allCountries")
+    @GetMapping(value = "/countries/all")
     public ResponseEntity<List<CountryDto>> getAllCountries(){
         return ResponseEntity.ok(countryCityService.getAllCountries());
     }

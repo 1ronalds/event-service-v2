@@ -63,7 +63,7 @@ public class CountryCityIntegrationTest {
         Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(List.of(countryDto1, countryDto2, countryDto3, countryDto4));
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(countryDto1, countryDto2, countryDto3, countryDto4));
-        MvcResult result = mockMvc.perform(get("/v1/allCountries").accept(MediaType.APPLICATION_JSON))
+        MvcResult result = mockMvc.perform(get("/v1/countries/all").accept(MediaType.APPLICATION_JSON))
                             .andDo(print())
                             .andExpect(status().isOk())
                             .andReturn();
@@ -75,7 +75,7 @@ public class CountryCityIntegrationTest {
         Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(Collections.emptyList());
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(Collections.emptyList());
-        MvcResult result = mockMvc.perform(get("/v1/allCountries").accept(MediaType.APPLICATION_JSON))
+        MvcResult result = mockMvc.perform(get("/v1/countries/all").accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andReturn();
