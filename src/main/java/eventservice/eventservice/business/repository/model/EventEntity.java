@@ -1,5 +1,6 @@
 package eventservice.eventservice.business.repository.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,9 +12,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -41,6 +45,7 @@ public class EventEntity {
     @Column(name = "max_attendance")
     private int maxAttendance;
 
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm") //necessary for test to work
     @Column(name = "event_datetime")
     private LocalDateTime dateTime;
 
@@ -54,4 +59,11 @@ public class EventEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type")
     private EventTypeEntity eventType;
+
+    @ManyToMany
+    @JoinTable(
+            name = "attendance",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private Set<UserEntity> attendees;
 }

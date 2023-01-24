@@ -3,7 +3,10 @@ package eventservice.eventservice.business.service.impl;
 import eventservice.eventservice.business.connection.CountryCityServiceConnection;
 import eventservice.eventservice.business.connection.model.CityDto;
 import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
+import eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
+import eventservice.eventservice.business.handlers.exceptions.DuplicateAttendanceEntryException;
+import eventservice.eventservice.business.handlers.exceptions.EventMaxAttendanceException;
 import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDisplayValueException;
@@ -14,11 +17,13 @@ import eventservice.eventservice.business.repository.UserRepository;
 import eventservice.eventservice.business.repository.model.DisplayType;
 import eventservice.eventservice.business.repository.model.EventEntity;
 import eventservice.eventservice.business.repository.model.EventTypeEntity;
+import eventservice.eventservice.business.repository.model.UserEntity;
 import eventservice.eventservice.business.service.EventService;
 import eventservice.eventservice.business.service.UserService;
 import eventservice.eventservice.model.EventDto;
 import eventservice.eventservice.model.EventMinimalDto;
 import eventservice.eventservice.model.EventTypeDto;
+import eventservice.eventservice.model.UserDto;
 import eventservice.eventservice.model.UserMinimalDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -32,6 +37,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static eventservice.eventservice.business.utils.StringConstants.PUBLIC;
 
 @Log4j2
 @Service
@@ -181,18 +188,24 @@ public class EventServiceImpl implements EventService {
      */
     @Override
     public EventDto findEventInfo(Long eventId) {
+        log.info("findEventInfo service method called");
         return mapper.entityToDto(eventRepository.findById(eventId).orElseThrow(EventNotFoundException::new));
     }
 
+    /**
+     * saves event and returns EventDto
+     * @param username
+     * @param event
+     * @return EventDto
+     */
     @Override
     public EventDto saveEvent(String username, EventDto event) {
-        event.setOrganiser(new UserMinimalDto(userService.findUserDetails(username).getId(),
-                userService.findUserDetails(username).getUsername()));
+        log.info("saveEvent service method called");
+        UserDto userDto = userService.findUserDetails(username);
+        event.setOrganiser(new UserMinimalDto(userDto.getId(), userDto.getUsername()));
         event.setAttendeeCount(0);
 
-        EventTypeDto publicEvent = new EventTypeDto(1L, PRIVATE_EVENT_DTO.getType());
-        EventTypeDto privateEvent = new EventTypeDto(2L, PRIVATE_EVENT_DTO.getType());
-        event.setEventType(event.getEventType().getType().equals(PUBLIC_EVENT_DTO.getType()) ? publicEvent : privateEvent);
+        event.setType(event.getType().getType().equals(PUBLIC) ? PUBLIC_EVENT : PRIVATE_EVENT);
 
         String country = event.getCountry();
         String city = event.getCity();
@@ -205,23 +218,43 @@ public class EventServiceImpl implements EventService {
         //Mapper requires userRepository to convert minimalDto to full entity
     }
 
-    public Boolean countryDoesExist(String country) {
+    /**
+     * Checks if country does exist in remote service
+     * @param country
+     * @return boolean
+     */
+    private Boolean countryDoesExist(String country) {
+        log.info("countryDoesExist service method called");
         return countryCityServiceConnection.getCountries().stream().anyMatch(c -> c.getCountry().equals(country));
-
     }
 
-    public Boolean cityDoesExist(String country, String city) {
+    /**
+     * Checks if city does exist in remote service
+     * @param country
+     * @param city
+     * @return boolean
+     */
+    private Boolean cityDoesExist(String country, String city) {
+        log.info("cityDoesExist service method called");
         Long countryId = countryCityServiceConnection.getCountries().stream()
                 .filter(c -> c.getCountry().equals(country)).findAny().orElseThrow().getCountryId();
 
         return countryCityServiceConnection.getCities(countryId).contains(new CityDto(city));
     }
 
+    /**
+     * Edits event information and returns EventDto
+     * @param username
+     * @param eventId
+     * @param event
+     * @return EventDto
+     */
     @Override
     public EventDto editEvent(String username, Long eventId, EventDto event) {
+        log.info("editEvent service method called");
         Optional<EventEntity> history = eventRepository.findById(eventId);
         if (history.isEmpty()) {
-            throw new UserNotFoundException();
+            throw new EventNotFoundException();
         }
         event.setAttendeeCount(history.get().getAttendeeCount());
 
@@ -243,8 +276,14 @@ public class EventServiceImpl implements EventService {
         return mapper.entityToDto(eventRepository.save(mapper.dtoToEntity(event, userRepository)));
     }
 
+    /**
+     * Deletes event
+     * @param username
+     * @param eventId
+     */
     @Override
     public void deleteEvent(String username, Long eventId) {
+        log.info("deleteEvent method called");
         Optional<EventEntity> event = eventRepository.findById(eventId);
         if (event.isEmpty()) {
             throw new EventNotFoundException();
@@ -255,5 +294,77 @@ public class EventServiceImpl implements EventService {
         } else {
             throw new InvalidDataException();
         }
+    }
+
+    /**
+     *
+     * @param userId - the id of the user, who is attending the event
+     * @param eventId - the id of the event, which the user is attending
+     */
+    @Override
+    public void addEventAttendance(Long userId, Long eventId) {
+        log.info("addEventAttendance service method called");
+        Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
+        Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
+
+        if (!optionalEventEntity.isPresent()){
+            log.info("The event with id {} has not been found", eventId);
+            throw new EventNotFoundException();
+        }
+
+        if (!optionalUserEntity.isPresent()){
+            log.info("The user with id {} has not been found", userId);
+            throw new UserNotFoundException();
+        }
+        EventEntity event = optionalEventEntity.get();
+
+        if (event.getAttendeeCount() + 1 > event.getMaxAttendance()){
+            log.info("The max attendance for event with id: {} has been reached", eventId);
+            throw new EventMaxAttendanceException();
+        }
+
+        UserEntity user = optionalUserEntity.get();
+
+        if (event.getAttendees().contains(user)){
+            log.info("Duplicate attendance entry - userId: {}, eventId: {}", userId, eventId);
+            throw new DuplicateAttendanceEntryException();
+        }
+
+        event.getAttendees().add(user);
+        event.setAttendeeCount(event.getAttendeeCount() + 1);
+        eventRepository.save(event);
+    }
+
+    /**
+     *
+     * @param userId - the id of the user, whose attendance is being removed
+     * @param eventId - the id of the event
+     */
+    @Override
+    public void removeEventAttendance(Long userId, Long eventId) {
+        log.info("removeEventAttendance service method called");
+        Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
+        Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
+
+        if (!optionalEventEntity.isPresent()){
+            log.info("The event with id {} has not been found", eventId);
+            throw new EventNotFoundException();
+        }
+
+        if (!optionalUserEntity.isPresent()){
+            log.info("The user with id {} has not been found", userId);
+            throw new UserNotFoundException();
+        }
+        EventEntity event = optionalEventEntity.get();
+        UserEntity user = optionalUserEntity.get();
+
+        if (!event.getAttendees().contains(user)){
+            log.info("Attendance entry not found - userId: {}, eventId: {}", userId, eventId);
+            throw new AttendanceNotFoundException();
+        }
+
+        event.getAttendees().remove(user);
+        event.setAttendeeCount(event.getAttendeeCount() - 1);
+        eventRepository.save(event);
     }
 }

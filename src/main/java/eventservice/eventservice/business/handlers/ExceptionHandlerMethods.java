@@ -1,14 +1,20 @@
 package eventservice.eventservice.business.handlers;
 
 import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
+
+import eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
+import eventservice.eventservice.business.handlers.exceptions.DuplicateAttendanceEntryException;
 import eventservice.eventservice.business.handlers.exceptions.EmailExistsException;
+import eventservice.eventservice.business.handlers.exceptions.EventMaxAttendanceException;
+import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDisplayValueException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.UsernameExistsException;
 import org.apache.tomcat.util.buf.StringUtils;
 import org.springframework.core.convert.ConversionFailedException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -22,6 +28,7 @@ import java.util.stream.Collectors;
 
 import static eventservice.eventservice.business.utils.StringConstants.BAD_REQUEST;
 import static eventservice.eventservice.business.utils.StringConstants.NOT_FOUND;
+import static eventservice.eventservice.business.utils.StringConstants.FORBIDDEN;
 
 @ControllerAdvice
 public class ExceptionHandlerMethods {
@@ -90,5 +97,40 @@ public class ExceptionHandlerMethods {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
                 BAD_REQUEST, "Invalid data format provided", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    protected ResponseEntity<ErrorModel> handleCannotDeleteDataConnected(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
+                BAD_REQUEST, "Events have been created that have to be deleted to delete user", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(EventNotFoundException.class)
+    protected ResponseEntity<ErrorModel> handleEventNotFound(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 404,
+                NOT_FOUND, "Requested event isn't found", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(DuplicateAttendanceEntryException.class)
+    protected ResponseEntity<ErrorModel> handleDuplicateAttendanceEntry(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
+                BAD_REQUEST, "The user is already attending this event", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(AttendanceNotFoundException.class)
+    protected ResponseEntity<ErrorModel> handleAttendanceNotFound(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 404,
+                NOT_FOUND, "There is no attendance entry for the user at this event", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(EventMaxAttendanceException.class)
+    protected ResponseEntity<ErrorModel> handleEventMaxAttendance(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 403,
+                FORBIDDEN, "The limit of attendees has been reached for this event", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.FORBIDDEN);
     }
 }

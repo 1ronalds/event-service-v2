@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -70,4 +72,9 @@ public interface EventRepository extends JpaRepository<EventEntity, Long> {
     List<EventEntity> findAllAttendingByCountryAndCity(@Param(value = "username") String username,
                                                                          @Param(value = "country") String country,
                                                                          @Param(value = "city") String city);
+    List<EventEntity> findAllByCountry(String country);
+    List<EventEntity> findAllByCountryAndCity(String country, String city);
+    List<EventEntity> findAllByCountryAndCityAndDateTimeBetween(String country, String city, LocalDateTime dateFrom, LocalDateTime dateTo);
+    List<EventEntity> findAllByCountryAndDateTimeBetween(String country, LocalDateTime dateFrom, LocalDateTime dateTo);
+
 }

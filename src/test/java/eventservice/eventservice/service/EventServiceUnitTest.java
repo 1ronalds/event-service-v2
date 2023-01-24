@@ -1,17 +1,27 @@
 package eventservice.eventservice.service;
 
 import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
+import eventservice.eventservice.business.connection.CountryCityServiceConnection;
+import eventservice.eventservice.business.connection.model.CityDto;
+import eventservice.eventservice.business.connection.model.CountryDto;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
+import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
+import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
+import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.mapper.EventMapStruct;
 import eventservice.eventservice.business.repository.EventRepository;
+import eventservice.eventservice.business.repository.UserRepository;
 import eventservice.eventservice.business.repository.model.EventEntity;
 import eventservice.eventservice.business.repository.model.EventTypeEntity;
 import eventservice.eventservice.business.repository.model.RoleEntity;
 import eventservice.eventservice.business.repository.model.UserEntity;
+import eventservice.eventservice.business.service.UserService;
 import eventservice.eventservice.business.service.impl.EventServiceImpl;
 import eventservice.eventservice.model.EventDto;
 import eventservice.eventservice.model.EventMinimalDto;
 import eventservice.eventservice.model.EventTypeDto;
+import eventservice.eventservice.model.RoleDto;
+import eventservice.eventservice.model.UserDto;
 import eventservice.eventservice.model.UserMinimalDto;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,41 +31,62 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
+import org.w3c.dom.events.Event;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
 
-public class EventServiceTest {
+public class EventServiceUnitTest {
     @Mock
     EventMapStruct mapper;
 
     @Mock
     EventRepository repository;
 
+    @Mock
+    UserService userService;
+
+    @Mock
+    UserRepository userRepository;
+
+    @Mock
+    CountryCityServiceConnection countryCityServiceConnection;
+
     @Spy
     @InjectMocks
     EventServiceImpl service;
 
     EventDto eventDto;
+    UserMinimalDto userMinimalDto;
     EventMinimalDto eventDto1;
     EventMinimalDto eventDto2;
     EventMinimalDto eventDto3;
     EventMinimalDto eventDto4;
     EventMinimalDto eventDto5;
-
     EventEntity eventEntity1;
     EventEntity eventEntity2;
     EventEntity eventEntity3;
     EventEntity eventEntity4;
     EventEntity eventEntity5;
+    LinkedList<CountryDto> countryList = new LinkedList<>();
+    LinkedList<CityDto> cityList = new LinkedList<>();
+    UserDto userDto;
+    UserEntity userEntity2;
+    EventDto eventDtoEdited;
+    EventEntity eventEntity;
+    EventEntity eventEntityEdited;
 
     EventTypeEntity publicTypeEntity;
 
@@ -65,11 +96,25 @@ public class EventServiceTest {
     void init(){
         MockitoAnnotations.openMocks(this);
 
-        UserMinimalDto userMinimalDto = new UserMinimalDto(1L, "User");
+        RoleDto roleDto = new RoleDto(1L, "admin");
+        userDto = new UserDto(1L, "AdminUser", "admin@admin.com", "password123", "Adam", "Leo", roleDto);
+        userMinimalDto = new UserMinimalDto(1L, "User");
+        RoleEntity roleEntity2 = new RoleEntity(1L, "admin");
+
+        userEntity2 = new UserEntity(1L, "AdminUser", "admin@admin.com", "password123", "Adam", "Leo", roleEntity2);
+        EventTypeEntity publicTypeEntity = new EventTypeEntity(1L, "public");
+        EventTypeEntity privateTypeEntity = new EventTypeEntity(2L, "private");
         EventTypeDto publicTypeDto = new EventTypeDto(1L, "public");
+
         eventDto = new EventDto(1L, "Bicycling contest", "A contest of bicycling free to watch and participate", "Latvia",
                 "Riga", 300, LocalDateTime.parse("24-11-2022 00:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
-                1, userMinimalDto, publicTypeDto);
+                1, userMinimalDto, publicTypeDto, new HashSet<>());
+        eventDtoEdited = new EventDto(1L, "A Bicycling contest", "A contest of bicycling free to watch and participate", "Latvia",
+                "Riga", 300, LocalDateTime.parse("24-11-2022 00:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
+                1, userMinimalDto, publicTypeDto, new HashSet<>());
+        eventEntity = new EventEntity(1L, "Bicycling contest", "A contest of bicycling free to watch and participate", "Latvia",
+                "Riga", 300, LocalDateTime.parse("24-11-2022 00:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
+                1, userEntity2, publicTypeEntity, new HashSet<>());
 
         eventDto1 = new EventMinimalDto(1L, "Bicycling contest");
 
@@ -89,20 +134,25 @@ public class EventServiceTest {
 
         eventEntity1 = new EventEntity(1L, "Bicycling contest", "A contest of bicycling free to watch and participate", "Latvia",
                 "Riga", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
-                1, userEntity, publicTypeEntity);
+                1, userEntity, publicTypeEntity, Collections.emptySet());
 
         eventEntity2 = new EventEntity(2L, "Theatre", "Everyone will be amazed watching this theatre","Latvia",
-                "Venstspils", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 1, userEntity, privateTypeEntity);
+                "Venstspils", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 1, userEntity, privateTypeEntity, Collections.emptySet());
 
         eventEntity3 = new EventEntity(3L, "Marathon",
                 "Running is good for your health, so join us in this 7km marathon", "Lithuania",
-                "Vilnius", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 1, userEntity, publicTypeEntity);
+                "Vilnius", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 1, userEntity, publicTypeEntity, Collections.emptySet());
 
         eventEntity4 = new EventEntity(4L, "TestEvent", "TestEvent","Latvia",
-                "Riga", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 1, userEntity, publicTypeEntity);
+                "Riga", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 1, userEntity, publicTypeEntity, Collections.emptySet());
 
         eventEntity5 = new EventEntity(5L, "TestEvent", "TestEvent","Latvia",
-                "Ventspils", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 1, userEntity, publicTypeEntity);
+                "Ventspils", 300, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 1, userEntity, publicTypeEntity, Collections.emptySet());
+
+        CountryDto country = new CountryDto(1L, "Latvia");
+        CityDto city = new CityDto("Riga");
+        countryList.add(country);
+        cityList.add(city);
     }
 
     @Test
@@ -478,10 +528,143 @@ public class EventServiceTest {
         assertEquals(Collections.emptyList(), results);
     }
 
-    /*@Test
+
+    @Test
     void findEventInfoNonexistentId(){
-        Mockito.when(repository.findById(any())).thenThrow();
+        Mockito.when(repository.findById(any())).thenThrow(EventNotFoundException.class);
         Mockito.when(mapper.entityToDto(any())).thenReturn(eventDto);
-        assertEquals(eventDto, service.findEventInfo(1L));
-    }*/
+        assertThrows(EventNotFoundException.class, () -> service.findEventInfo(1L));
+    }
+
+    @Test
+    void saveEvent() {
+        Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
+        Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(countryList);
+        Mockito.when(countryCityServiceConnection.getCities(any())).thenReturn(cityList);
+        Mockito.when(mapper.dtoToEntity(any(), any())).thenReturn(eventEntity1);
+        Mockito.when(mapper.entityToDto(any())).thenReturn(eventDto);
+        assertEquals(eventDto, service.saveEvent("AdminUser", eventDto));
+    }
+
+    @Test
+    void saveEventInvalidCountry() {
+        Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
+        Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(Collections.emptyList());
+        //passes empty list which is the same as filtering country list and finding no matches
+        assertThrows(InvalidDataException.class, () -> service.saveEvent("AdminUser", eventDto));
+    }
+
+    @Test
+    void saveEventInvalidCity(){
+        Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
+        Mockito.when(countryCityServiceConnection.getCities(any())).thenReturn(Collections.emptyList());
+        //passes empty list which is the same as filtering city list and finding no matches
+        assertThrows(InvalidDataException.class, () -> service.saveEvent("AdminUser", eventDto));
+    }
+
+    @Test
+    void editEvent(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+        Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
+        Mockito.when(mapper.entityToDto(any())).thenReturn(eventDtoEdited);
+        Mockito.when(mapper.dtoToEntity(any(), any())).thenReturn(eventEntityEdited);
+        Mockito.when(repository.save(any())).thenReturn(eventEntityEdited);
+
+        assertEquals(eventDtoEdited, service.editEvent("AdminUser", 1L, eventDtoEdited));
+    }
+
+    @Test
+    void editEventNonexistent(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.empty());
+
+        assertThrows(EventNotFoundException.class, () -> service.editEvent("Nonexistent", 1L, eventDtoEdited));
+    }
+
+    @Test
+    void editEventIncorrectUsername(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+        Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
+        Mockito.when(mapper.entityToDto(any())).thenReturn(eventDtoEdited);
+        Mockito.when(mapper.dtoToEntity(any(), any())).thenReturn(eventEntityEdited);
+        Mockito.when(repository.save(any())).thenReturn(eventEntityEdited);
+
+        assertThrows(InvalidDataException.class, () -> service.editEvent("IncorrectUsername", 1L, eventDtoEdited));
+    }
+
+    @Test
+    void deleteEvent(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+
+        service.deleteEvent("AdminUser", 1L);
+        Mockito.verify(repository, times(1)).deleteById(1L);
+    }
+
+    @Test
+    void deleteEventNonexistent(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.empty());
+
+        assertThrows(EventNotFoundException.class, () -> service.deleteEvent("AdminUser", 1L));
+    }
+
+    @Test
+    void deleteEventInvalidUsername(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+
+        assertThrows(InvalidDataException.class, () -> service.deleteEvent("IncorrectUser", 1L));
+    }
+
+    @Test
+    void addEventAttendance_success(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+        Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity2));
+
+        service.addEventAttendance(1L, 2L);
+
+        assertTrue(eventEntity.getAttendees().contains(userEntity2));
+        assertEquals(2, eventEntity.getAttendeeCount());
+    }
+
+    @Test
+    void addEventAttendance_EventNotFoundException(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.empty());
+        Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity2));
+
+        assertThrows(EventNotFoundException.class, () -> service.addEventAttendance(1L, 2L));
+    }
+
+    @Test
+    void addEventAttendance_UserNotFoundException(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+        Mockito.when(userRepository.findById(any())).thenReturn(Optional.empty());
+
+        assertThrows(UserNotFoundException.class, () -> service.addEventAttendance(1L, 2L));
+    }
+
+    @Test
+    void removeEventAttendance_success(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+        Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity2));
+
+        service.addEventAttendance(1L, 2L);
+        service.removeEventAttendance(1L, 2L);
+
+        assertFalse(eventEntity.getAttendees().contains(userEntity2));
+        assertEquals(1, eventEntity.getAttendeeCount());
+    }
+
+    @Test
+    void removeEventAttendance_EventNotFoundException(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.empty());
+        Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity2));
+
+        assertThrows(EventNotFoundException.class, () -> service.removeEventAttendance(1L, 2L));
+    }
+
+    @Test
+    void removeEventAttendance_UserNotFoundException(){
+        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+        Mockito.when(userRepository.findById(any())).thenReturn(Optional.empty());
+
+        assertThrows(UserNotFoundException.class, () -> service.removeEventAttendance(1L, 2L));
+    }
 }

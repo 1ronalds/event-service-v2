@@ -1,7 +1,20 @@
 package eventservice.eventservice.integration;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import eventservice.eventservice.business.repository.EventRepository;
+import eventservice.eventservice.business.repository.model.EventEntity;
+import eventservice.eventservice.business.repository.model.EventTypeEntity;
+import eventservice.eventservice.business.repository.model.RoleEntity;
+import eventservice.eventservice.business.repository.model.UserEntity;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import eventservice.eventservice.business.connection.CountryCityServiceConnection;
+import eventservice.eventservice.business.connection.model.CityDto;
+import eventservice.eventservice.business.connection.model.CountryDto;
+import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
+import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
+import eventservice.eventservice.business.repository.EventRepository;
+import eventservice.eventservice.business.repository.UserRepository;
 import eventservice.eventservice.business.repository.model.EventEntity;
 import eventservice.eventservice.business.repository.model.EventTypeEntity;
 import eventservice.eventservice.business.repository.model.RoleEntity;
@@ -10,27 +23,39 @@ import eventservice.eventservice.model.EventMinimalDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-
-import javax.transaction.Transactional;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+
+import javax.transaction.Transactional;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.times;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -42,6 +67,12 @@ public class EventIntegrationTest {
 
     @MockBean
     private EventRepository eventRepository;
+
+    @MockBean
+    private UserRepository userRepository;
+
+    @MockBean
+    private CountryCityServiceConnection countryCityServiceConnection;
     EventMinimalDto eventDto1;
     EventMinimalDto eventDto2;
     EventMinimalDto eventDto3;
@@ -60,8 +91,21 @@ public class EventIntegrationTest {
 
     EventTypeEntity privateTypeEntity;
 
+    UserEntity userEntity;
+
+    EventTypeEntity eventTypeEntity;
+    RoleEntity roleEntity;
+    private LocalDateTime dateTime1;
+    private LocalDateTime dateTime2;
+    private LocalDateTime dateTime3;
+
     @BeforeEach
     void init(){
+        eventTypeEntity = new EventTypeEntity(1L, "public");
+        roleEntity = new RoleEntity(1L, "admin");
+        userEntity = new UserEntity(1L, "AdminUser", "admin@admin.com", "password123", "Adam", "Leo", roleEntity);
+        eventEntity = new EventEntity(7L, "Random contest", "No description", "Latvia", "Liepāja", 10,
+                LocalDateTime.of(2023, 1, 1, 12, 00), 0, userEntity, eventTypeEntity, new HashSet<>());
         eventDto1 = new EventMinimalDto(1L, "Bicycling contest");
         eventDto2 = new EventMinimalDto(2L, "Theatre");
         eventDto3 = new EventMinimalDto(3L, "Marathon");
@@ -79,47 +123,50 @@ public class EventIntegrationTest {
         eventEntity1 = new EventEntity(1L, "Bicycling contest",
                 "A contest of bicycling free to watch and participate", "Latvia",
                 "Riga", 300, LocalDateTime.of(LocalDate.of(2022, 12 ,8),
-                LocalTime.of(12,0)), 2, secondUser, new EventTypeEntity(1L, "public"));
+                LocalTime.of(12,0)), 2, secondUser, new EventTypeEntity(1L, "public"), new HashSet<>());
 
         eventEntity2 = new EventEntity(2L, "Theater", "Everyone will be amazed watching this theatre", "Latvia",
                 "Venstspils", 50, LocalDateTime.of(LocalDate.of(2022, 12 ,4), LocalTime.of(15,30)),
-                3, thirdUser, new EventTypeEntity(2L, "private"));
+                3, thirdUser, new EventTypeEntity(2L, "private"), new HashSet<>());
 
         eventEntity3 = new EventEntity(3L, "Marathon", "Running is good for your health, so join our 7km marathon", "Lithuania",
                 "Vilnius", 1000, LocalDateTime.of(LocalDate.of(2022, 12 ,1), LocalTime.of(10,30)),
-                2, fourthUser, new EventTypeEntity(2L, "private"));
+                2, fourthUser, new EventTypeEntity(2L, "private"), new HashSet<>());
 
         eventEntity4 = new EventEntity(4L, "Yoga", "Come, join us in a group yoga session.", "Latvia",
                 "Venstspils", 200, LocalDateTime.of(LocalDate.of(2022, 11 ,1), LocalTime.of(10,30)),
-                20, fourthUser, new EventTypeEntity(1L, "public"));
+                20, fourthUser, new EventTypeEntity(1L, "public"), new HashSet<>());
 
         eventEntity5 = new EventEntity(5L, "Movie night", "Join us in watching a christmas movie", "Latvia",
                 "Riga", 500, LocalDateTime.of(LocalDate.of(2022, 12 ,1), LocalTime.of(10,30)),
-                0, fourthUser, new EventTypeEntity(1L, "public"));
+                0, fourthUser, new EventTypeEntity(1L, "public"), new HashSet<>());
 
         eventEntity6 = new EventEntity(6L, "Kebab eating contest", "Prove to everyone once and for all that you are the best kebab eater in Lithuania!", "Lithuania",
                 "Kaunas", 500, LocalDateTime.of(LocalDate.of(2022, 12 ,1), LocalTime.of(10,30)),
-                0, fourthUser, new EventTypeEntity(2L, "private"));
+                0, fourthUser, new EventTypeEntity(2L, "private"), new HashSet<>());
+
+        dateTime1 = LocalDateTime.of(2020, 11, 12, 0, 0);
+        dateTime2 = LocalDateTime.of(2023, 11, 12, 0, 0);
+        dateTime3 = LocalDateTime.of(2023, 1, 1, 12, 00);
 
         publicTypeEntity = new EventTypeEntity(1L, "public");
 
         privateTypeEntity = new EventTypeEntity(2L, "private");
-
     }
 
     @Test
     void findAllPublicEvents_OnlyCountrySpecified_Found() throws Exception {
-        Mockito.when(eventRepository.findAllByCountryAndEventType("Latvia", publicTypeEntity))
+        Mockito.when(eventRepository.findAllByCountryAndTypeType("Latvia", "public"))
                 .thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto1, eventDto4, eventDto5));
 
         MvcResult result = mockMvc.perform(get("/v1/events/event")
-                            .param("country", "Latvia")
-                            .contentType(MediaType.APPLICATION_JSON))
-                        .andDo(print())
-                        .andExpect(status().isOk())
-                        .andReturn();
+                        .param("country", "Latvia")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn();
 
         assertEquals(eventJsonExpectedResult, result.getResponse().getContentAsString());
     }
@@ -130,11 +177,11 @@ public class EventIntegrationTest {
         String eventJsonExpectedResult = jm.writeValueAsString(Collections.emptyList());
 
         MvcResult result = mockMvc.perform(get("/v1/events/event")
-                            .param("country", "Sweden")
-                            .contentType(MediaType.APPLICATION_JSON))
-                        .andDo(print())
-                        .andExpect(status().isOk())
-                        .andReturn();
+                        .param("country", "Sweden")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn();
 
         assertEquals(eventJsonExpectedResult, result.getResponse().getContentAsString());
     }
@@ -147,9 +194,9 @@ public class EventIntegrationTest {
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto4));
 
         MvcResult result = mockMvc.perform(get("/v1/events/event")
-                    .param("country", "Latvia")
-                    .param("city", "Venstspils")
-                    .contentType(MediaType.APPLICATION_JSON))
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andReturn();
@@ -604,4 +651,290 @@ public class EventIntegrationTest {
                 .andExpect(jsonPath("$", hasSize(0)));
     }
 
+
+    @Test
+    void findEventInfo() throws Exception {
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.of(eventEntity));
+
+        mockMvc.perform(get("/v1/events/event/7"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.title").value("Random contest"));
+    }
+
+    @Test
+    void findEventInfoNonexistent() throws Exception {
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.empty());
+        mockMvc.perform(get("/v1/events/event/7"))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+
+    }
+
+    @Test
+    void saveEvent() throws Exception {
+        Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
+        Mockito.when(eventRepository.save(any())).thenReturn(eventEntity);
+        ObjectMapper mapper = new ObjectMapper();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        mapper.registerModule(new JavaTimeModule());
+        mapper.setDateFormat(df);
+        String eventJson = mapper.writeValueAsString(eventEntity);
+        // Unnecessary data gets replaced with system generated data
+        Mockito.when(userRepository.findByUsername(any())).thenReturn(Optional.of(userEntity));
+        Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(List.of(new CountryDto(1L, "Latvia")));
+        Mockito.when(countryCityServiceConnection.getCities(any())).thenReturn(List.of(new CityDto("Liepāja")));
+
+
+        mockMvc.perform(post("/v1/events/user/AdminUser")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(eventJson))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void saveEventInvalidCountry() throws Exception {
+        Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
+        Mockito.when(eventRepository.save(any())).thenReturn(eventEntity);
+        ObjectMapper mapper = new ObjectMapper();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        mapper.registerModule(new JavaTimeModule());
+        mapper.setDateFormat(df);
+        String eventJson = mapper.writeValueAsString(eventEntity);
+        // Unnecessary data gets replaced with system generated data
+        Mockito.when(userRepository.findByUsername(any())).thenReturn(Optional.of(userEntity));
+        Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(Collections.emptyList());
+
+
+        mockMvc.perform(post("/v1/events/user/AdminUser")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(eventJson))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void saveEventInvalidCity() throws Exception {
+        Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
+        Mockito.when(eventRepository.save(any())).thenReturn(eventEntity);
+        ObjectMapper mapper = new ObjectMapper();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        mapper.registerModule(new JavaTimeModule());
+        mapper.setDateFormat(df);
+        String eventJson = mapper.writeValueAsString(eventEntity);
+        // Unnecessary data gets replaced with system generated data
+        Mockito.when(userRepository.findByUsername(any())).thenReturn(Optional.of(userEntity));
+        Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(List.of(new CountryDto(1L, "Latvia")));
+        Mockito.when(countryCityServiceConnection.getCities(any())).thenReturn(Collections.emptyList());
+
+
+        mockMvc.perform(post("/v1/events/user/AdminUser")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(eventJson))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void saveEventInvalidData() throws Exception {
+        Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
+        EventEntity invalidEntity = new EventEntity(7L, null, "No description", "Latvia", "Liepāja", 10,
+                dateTime3, 0, userEntity, eventTypeEntity, Collections.emptySet());
+
+        ObjectMapper mapper = new ObjectMapper();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        mapper.registerModule(new JavaTimeModule());
+        mapper.setDateFormat(df);
+        String eventJson = mapper.writeValueAsString(invalidEntity);
+
+        mockMvc.perform(post("/v1/events/user/AdminUser")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(eventJson))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void editEvent() throws Exception {
+        Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
+        Mockito.when(eventRepository.save(any())).thenReturn(eventEntity);
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.of(eventEntity));
+        ObjectMapper mapper = new ObjectMapper();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        mapper.registerModule(new JavaTimeModule());
+        mapper.setDateFormat(df);
+        String eventJson = mapper.writeValueAsString(eventEntity);
+        // Unnecessary data gets replaced with system generated data
+        Mockito.when(userRepository.findByUsername(any())).thenReturn(Optional.of(userEntity));
+        Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(List.of(new CountryDto(1L, "Latvia")));
+        Mockito.when(countryCityServiceConnection.getCities(any())).thenReturn(List.of(new CityDto("Liepāja")));
+
+
+        mockMvc.perform(put("/v1/events/user/AdminUser/event/7")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(eventJson))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void editEventIncorrectCountry() throws Exception {
+        Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.of(eventEntity));
+        EventEntity differentEntity = new EventEntity(7L, "No title", "No description", "Latvia", "Rēzekne", 10,
+                dateTime3, 0, userEntity, eventTypeEntity, Collections.emptySet());
+
+        ObjectMapper mapper = new ObjectMapper();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        mapper.registerModule(new JavaTimeModule());
+        mapper.setDateFormat(df);
+        String eventJson = mapper.writeValueAsString(differentEntity);
+        // Unnecessary data gets replaced with system generated data
+        Mockito.when(userRepository.findByUsername(any())).thenReturn(Optional.of(userEntity));
+        Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(Collections.emptyList());
+
+        mockMvc.perform(put("/v1/events/user/AdminUser/event/7")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(eventJson))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void editEventIncorrectCity() throws Exception {
+        Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.of(eventEntity));
+        EventEntity differentEntity = new EventEntity(7L, "No title", "No description", "Latvia", "Rēzekne", 10,
+                dateTime3, 0, userEntity, eventTypeEntity, Collections.emptySet());
+
+        ObjectMapper mapper = new ObjectMapper();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        mapper.registerModule(new JavaTimeModule());
+        mapper.setDateFormat(df);
+        String eventJson = mapper.writeValueAsString(differentEntity);
+        // Unnecessary data gets replaced with system generated data
+        Mockito.when(userRepository.findByUsername(any())).thenReturn(Optional.of(userEntity));
+        Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(List.of(new CountryDto(1L, "Latvia")));
+        Mockito.when(countryCityServiceConnection.getCities(any())).thenReturn(Collections.emptyList());
+
+        mockMvc.perform(put("/v1/events/user/AdminUser/event/7")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(eventJson))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void editEventInvalidData() throws Exception {
+        Mockito.when(userRepository.findById((anyLong()))).thenReturn(Optional.of(userEntity));
+        EventEntity invalidEntity = new EventEntity(7L, null, "No description", "Latvia", "Liepāja", 10,
+                dateTime3, 0, userEntity, eventTypeEntity, Collections.emptySet());
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.of(eventEntity));
+        ObjectMapper mapper = new ObjectMapper();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
+        mapper.registerModule(new JavaTimeModule());
+        mapper.setDateFormat(df);
+        String eventJson = mapper.writeValueAsString(invalidEntity);
+
+        mockMvc.perform(put("/v1/events/user/AdminUser/event/7")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(eventJson))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void deleteEvent() throws Exception {
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+
+        mockMvc.perform(delete("/v1/events/user/AdminUser/event/7"))
+                .andDo(print())
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    void deleteEventNotFound() throws Exception {
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.empty());
+
+        mockMvc.perform(delete("/v1/events/user/AdminUser/event/7"))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void deleteEventInvalidUsername() throws Exception {
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+
+        mockMvc.perform(delete("/v1/events/user/randomUser/event/7"))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void addEventAttendance_success() throws Exception {
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+        Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity));
+
+        mockMvc.perform(post("/v1/attendance/user/1/event/7"))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+        assertEquals(1, eventEntity.getAttendeeCount());
+    }
+
+    @Test
+    void addEventAttendance_EventNotFoundException() throws Exception {
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.empty());
+        Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity));
+
+        mockMvc.perform(post("/v1/attendance/user/1/event/7"))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void addEventAttendance_UserNotFoundException() throws Exception {
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+        Mockito.when(userRepository.findById(any())).thenReturn(Optional.empty());
+
+        mockMvc.perform(post("/v1/attendance/user/1/event/7"))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void removeEventAttendance_success() throws Exception {
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+        Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity));
+
+        eventEntity.getAttendees().add(userEntity);
+        eventEntity.setAttendeeCount(eventEntity.getAttendeeCount() + 1);
+
+        mockMvc.perform(delete("/v1/attendance/user/1/event/7"))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+        assertEquals(0, eventEntity.getAttendeeCount());
+    }
+
+    @Test
+    void removeEventAttendance_EventNotFoundException() throws Exception {
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.empty());
+        Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity));
+
+        mockMvc.perform(delete("/v1/attendance/user/1/event/7"))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void removeEventAttendance_UserNotFoundException() throws Exception {
+        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
+        Mockito.when(userRepository.findById(any())).thenReturn(Optional.empty());
+
+        mockMvc.perform(delete("/v1/attendance/user/1/event/7"))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+    }
 }

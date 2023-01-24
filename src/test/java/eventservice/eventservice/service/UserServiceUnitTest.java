@@ -17,7 +17,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
-
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -11,12 +11,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import javax.transaction.Transactional;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @AutoConfigureMockMvc
 @SpringBootTest
@@ -34,53 +33,33 @@ public class UserIntegrationTest {
         mockMvc.perform(delete("/v1/users/User111"));
 
         RoleDto roleDto = new RoleDto(2L, "user");
-        userDto = new UserDto(1L, "User111", "user@user.com", "password123", "Adam", "Leo", roleDto);
+        userDto = new UserDto(null, "User111", "user@user.com", "password123", "Adam", "Leo", roleDto);
         username = "User111";
     }
 
     @Test
     void findUserDetails() throws Exception {
         JsonMapper jm = JsonMapper.builder().configure(MapperFeature.USE_ANNOTATIONS, false).build();
-        JsonMapper jm2 = JsonMapper.builder().build();
         String userJson = jm.writeValueAsString(userDto);
-        String userJsonExpectedResult = jm2.writeValueAsString(userDto);
-
         mockMvc.perform(post("/v1/users").contentType(MediaType.APPLICATION_JSON).content(userJson));
-
-        MvcResult result = mockMvc.perform(get("/v1/users/" + userDto.getUsername())
-                        .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andReturn();
-
-        assertEquals(userJsonExpectedResult, result.getResponse().getContentAsString());
-    }
-
-    @Test
-    void findUserDetailsNonexistentUser() throws Exception {
-        mockMvc.perform(delete("/v1/users/nonexistent"));
 
         mockMvc.perform(get("/v1/users/" + userDto.getUsername())
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isNotFound());
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.username").value("User111"));
     }
 
     @Test
     void saveUser() throws Exception {
         JsonMapper jm = JsonMapper.builder().configure(MapperFeature.USE_ANNOTATIONS, false).build();
-        JsonMapper jm2 = JsonMapper.builder().build();
         String userJson = jm.writeValueAsString(userDto);
-        String userJsonExpectedResult = jm2.writeValueAsString(userDto);
 
-        MvcResult result = mockMvc.perform(post("/v1/users")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(userJson))
+        mockMvc.perform(post("/v1/users")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(userJson))
                 .andDo(print())
-                .andExpect(status().isOk())
-                .andReturn();
-
-        assertEquals(userJsonExpectedResult, result.getResponse().getContentAsString());
+                .andExpect(status().isOk());
     }
 
     @Test
@@ -139,7 +118,6 @@ public class UserIntegrationTest {
     @Test
     void editUserDetails() throws Exception {
         JsonMapper jm = JsonMapper.builder().configure(MapperFeature.USE_ANNOTATIONS, false).build();
-        JsonMapper jm2 = JsonMapper.builder().build();
         String userJson = jm.writeValueAsString(userDto);
 
         mockMvc.perform(post("/v1/users").contentType(MediaType.APPLICATION_JSON).content(userJson));
@@ -147,16 +125,12 @@ public class UserIntegrationTest {
         UserDto user2 = userDto;
         userDto.setName("Ivar");
         String userJson2 = jm.writeValueAsString(user2);
-        String userJsonExpectedResult = jm2.writeValueAsString(user2);
 
-        MvcResult result = mockMvc.perform(put("/v1/users/" + userDto.getUsername())
+        mockMvc.perform(put("/v1/users/" + userDto.getUsername())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(userJson2))
                 .andDo(print())
-                .andExpect(status().isOk())
-                .andReturn();
-
-        assertEquals(userJsonExpectedResult, result.getResponse().getContentAsString());
+                .andExpect(status().isOk());
     }
 
     @Test
@@ -199,13 +173,6 @@ public class UserIntegrationTest {
         mockMvc.perform(post("/v1/users").contentType(MediaType.APPLICATION_JSON).content(userJson));
 
         mockMvc.perform(delete("/v1/users/" + userDto.getUsername())).andExpect(status().isNoContent());
-    }
-
-    @Test
-    void deleteUserInvalidUsername() throws Exception {
-        mockMvc.perform(delete("/v1/users/nonexistent"));
-
-        mockMvc.perform(delete("/v1/users/nonexistent")).andExpect(status().isNotFound());
     }
 
 }

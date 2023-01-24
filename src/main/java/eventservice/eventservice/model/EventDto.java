@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 import static eventservice.eventservice.business.utils.DateUtils.DAY_MONTH_YEAR_TIME_DASH;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -29,7 +30,7 @@ public class EventDto {
 
     @ApiModelProperty(value = "Description of the event")
     @NotNull
-    @Size(min = 50, max = 500)
+    @Size(min = 10, max = 500)
     private String description;
 
     @ApiModelProperty(value = "Country, where the event will take place")
@@ -59,4 +60,7 @@ public class EventDto {
 
     @ApiModelProperty(value = "Type of event")
     private EventTypeDto eventType;
+
+    @ApiModelProperty(value = "List of users who are attending the event")
+    private Set<UserDto> attendees;
 }
