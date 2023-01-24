@@ -20,11 +20,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.util.stream.Collectors;
 
+import static eventservice.eventservice.business.utils.StringConstants.BAD_REQUEST;
+import static eventservice.eventservice.business.utils.StringConstants.NOT_FOUND;
+
 @ControllerAdvice
 public class ExceptionHandlerMethods {
-
-    public static final String BAD_REQUEST = "Bad request";
-    public static final String NOT_FOUND = "Not Found";
 
     @ExceptionHandler(DateIntervalNotSpecifiedException.class)
     protected ResponseEntity<ErrorModel> handleDateIntervalNotSpecified(Exception ex, HttpServletRequest request) {
