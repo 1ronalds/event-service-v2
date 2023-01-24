@@ -30,8 +30,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
+
+import static eventservice.eventservice.utils.StringConstants.PUBLIC;
 
 @Log4j2
 @Service
@@ -40,8 +41,6 @@ public class EventServiceImpl implements EventService {
 
     public static final EventTypeDto PUBLIC_EVENT = new EventTypeDto(1L, "public");
     public static final EventTypeDto PRIVATE_EVENT = new EventTypeDto(2L, "private");
-    public static final String PUBLIC = "public";
-    public static final String PRIVATE = "private";
     private final EventRepository eventRepository;
     private final CountryCityServiceConnection countryCityServiceConnection;
     private final UserService userService;

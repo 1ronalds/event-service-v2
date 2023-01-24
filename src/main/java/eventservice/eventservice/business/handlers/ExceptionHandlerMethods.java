@@ -24,13 +24,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.util.stream.Collectors;
 
+import static eventservice.eventservice.utils.StringConstants.BAD_REQUEST;
+import static eventservice.eventservice.utils.StringConstants.NOT_FOUND;
+import static eventservice.eventservice.utils.StringConstants.FORBIDDEN;
+
 @ControllerAdvice
 public class ExceptionHandlerMethods {
-
-    public static final String BAD_REQUEST = "Bad request";
-    public static final String NOT_FOUND = "Not found";
-
-    public static final String FORBIDDEN = "Forbidden";
 
     @ExceptionHandler(DateIntervalNotSpecifiedException.class)
     protected ResponseEntity<ErrorModel> handleDateIntervalNotSpecified(Exception ex, HttpServletRequest request) {
