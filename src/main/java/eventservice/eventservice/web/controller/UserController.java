@@ -1,7 +1,6 @@
 package eventservice.eventservice.web.controller;
 
 import eventservice.eventservice.business.service.UserService;
-import eventservice.eventservice.model.RoleDto;
 import eventservice.eventservice.model.UserDto;
 import eventservice.eventservice.swagger.HTTPResponseMessages;
 import io.swagger.annotations.ApiOperation;

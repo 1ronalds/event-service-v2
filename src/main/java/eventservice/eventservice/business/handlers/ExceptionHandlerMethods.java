@@ -1,5 +1,6 @@
 package eventservice.eventservice.business.handlers;
 
+import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
 
 import eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
@@ -8,6 +9,7 @@ import eventservice.eventservice.business.handlers.exceptions.EmailExistsExcepti
 import eventservice.eventservice.business.handlers.exceptions.EventMaxAttendanceException;
 import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
+import eventservice.eventservice.business.handlers.exceptions.InvalidDisplayValueException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.UsernameExistsException;
 import org.apache.tomcat.util.buf.StringUtils;
@@ -41,7 +43,7 @@ public class ExceptionHandlerMethods {
     @ExceptionHandler(UserNotFoundException.class)
     protected ResponseEntity<ErrorModel> handleUserNotFound(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                "Not Found", "User not found", request.getRequestURI());
+                NOT_FOUND, "User not found", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.NOT_FOUND);
     }
 
@@ -76,6 +78,20 @@ public class ExceptionHandlerMethods {
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(InvalidDisplayValueException.class)
+    protected ResponseEntity<ErrorModel> handleInvalidDisplayValue(InvalidDisplayValueException ex, HttpServletRequest request){
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
+                BAD_REQUEST, "Invalid display value. Display value should" +
+                " be one of the following: all, mine, attending", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(CountryNotSpecifiedException.class)
+    protected ResponseEntity<ErrorModel> handleCountryNotSpecified(CountryNotSpecifiedException ex, HttpServletRequest request){
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
+                BAD_REQUEST, "Country must be specified", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
+    }
     @ExceptionHandler(InvalidDataException.class)
     protected ResponseEntity<ErrorModel> handleInvalidDataPost(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,

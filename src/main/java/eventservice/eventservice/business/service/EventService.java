@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface EventService {
+    List<EventMinimalDto> findAllUserCreatedAndOrAttendingEvents(String username, String displayValue, String country, String city, LocalDate dateFrom, LocalDate dateTo);
     List<EventMinimalDto> findAllPublicEvents(String country, String city, LocalDate dateFrom, LocalDate dateTo);
     EventDto findEventInfo(Long eventId);
     EventDto saveEvent(String username, EventDto event);

@@ -58,7 +58,7 @@ public class EventEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type")
-    private EventTypeEntity type;
+    private EventTypeEntity eventType;
 
     @ManyToMany
     @JoinTable(

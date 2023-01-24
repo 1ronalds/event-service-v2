@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+
+import static eventservice.eventservice.business.utils.DateUtils.DAY_MONTH_YEAR_TIME_DASH;
 import java.util.Set;
 
 @Data
@@ -47,7 +49,7 @@ public class EventDto {
 
     @ApiModelProperty(value = "Date and time of the event in format d-m-yyyy hh:mm")
     @NotNull
-    @JsonFormat(pattern="d-M-yyyy HH:mm")
+    @JsonFormat(pattern=DAY_MONTH_YEAR_TIME_DASH)
     private LocalDateTime dateTime;
 
     @ApiModelProperty(value = "The amount of people who are attending the event")
@@ -57,7 +59,7 @@ public class EventDto {
     private UserMinimalDto organiser;
 
     @ApiModelProperty(value = "Type of event")
-    private EventTypeDto type;
+    private EventTypeDto eventType;
 
     @ApiModelProperty(value = "List of users who are attending the event")
     private Set<UserDto> attendees;

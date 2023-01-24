@@ -14,6 +14,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 @Import(BeanValidatorPluginsConfiguration.class)
 public class Config {
+
     @Bean
     public Docket configuration(){
         Docket docket =  new Docket(DocumentationType.SWAGGER_2)

@@ -39,6 +39,10 @@ dependencies {
 	implementation group: 'io.springfox', name: 'springfox-bean-validators', version: '3.0.0'
 	testImplementation 'org.mockito:mockito-inline:4.10.0'
 	testImplementation 'org.mockito:mockito-junit-jupiter:4.10.0'
+
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda'
+	testImplementation 'org.mockito:mockito-inline:4.8.0:'
+	testImplementation 'org.mockito:mockito-junit-jupiter:4.8.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'junit:junit:4.13.2'
 	testImplementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.0'

@@ -6,8 +6,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import eventservice.eventservice.business.connection.CountryCityServiceConnection;
 import eventservice.eventservice.business.connection.model.CityDto;
 import eventservice.eventservice.business.connection.model.CountryDto;
-import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
-import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.repository.EventRepository;
 import eventservice.eventservice.business.repository.UserRepository;
 import eventservice.eventservice.business.repository.model.EventEntity;
@@ -17,17 +15,16 @@ import eventservice.eventservice.business.repository.model.UserEntity;
 import eventservice.eventservice.model.EventMinimalDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+
+import javax.transaction.Transactional;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -36,19 +33,19 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.times;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@RunWith(SpringRunner.class)
+@Transactional
 public class EventIntegrationTest {
 
     @Autowired
@@ -69,7 +66,6 @@ public class EventIntegrationTest {
     EventMinimalDto eventDto5;
     EventMinimalDto eventDto6;
 
-    UserEntity userEntity;
     EventEntity eventEntity;
     EventEntity eventEntity1;
     EventEntity eventEntity2;
@@ -77,6 +73,12 @@ public class EventIntegrationTest {
     EventEntity eventEntity4;
     EventEntity eventEntity5;
     EventEntity eventEntity6;
+
+    EventTypeEntity publicTypeEntity;
+
+    EventTypeEntity privateTypeEntity;
+
+    UserEntity userEntity;
 
     EventTypeEntity eventTypeEntity;
     RoleEntity roleEntity;
@@ -134,11 +136,14 @@ public class EventIntegrationTest {
         dateTime2 = LocalDateTime.of(2023, 11, 12, 0, 0);
         dateTime3 = LocalDateTime.of(2023, 1, 1, 12, 00);
 
+        publicTypeEntity = new EventTypeEntity(1L, "public");
+
+        privateTypeEntity = new EventTypeEntity(2L, "private");
     }
 
     @Test
     void findAllPublicEvents_OnlyCountrySpecified_Found() throws Exception {
-        Mockito.when(eventRepository.findAllByCountryAndTypeType("Latvia", "public"))
+        Mockito.when(eventRepository.findAllByCountryAndEventType("Latvia", publicTypeEntity))
                 .thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto1, eventDto4, eventDto5));
@@ -170,7 +175,7 @@ public class EventIntegrationTest {
 
     @Test
     void findAllPublicEvents_CountryAndCitySpecified_Found() throws Exception {
-        Mockito.when(eventRepository.findAllByCountryAndTypeTypeAndCity("Latvia", "public", "Venstspils"))
+        Mockito.when(eventRepository.findAllByCountryAndEventTypeAndCity("Latvia", publicTypeEntity, "Venstspils"))
                 .thenReturn(List.of(eventEntity4));
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto4));
@@ -204,9 +209,9 @@ public class EventIntegrationTest {
 
     @Test
     void findAllPublicEvents_CountryAndDateFromAndDateToSpecified_Found() throws Exception{
-        Mockito.when(eventRepository.findAllByCountryAndTypeTypeAndDateTimeBetween("Latvia", "public",
-                        dateTime1,
-                        dateTime2))
+        Mockito.when(eventRepository.findAllByCountryAndEventTypeAndDateTimeBetween("Latvia", publicTypeEntity,
+                        LocalDateTime.of(2020, 11, 12, 0, 0),
+                        LocalDateTime.of(2023, 11, 12, 0, 0)))
                 .thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto1, eventDto4, eventDto5));
@@ -242,9 +247,9 @@ public class EventIntegrationTest {
 
     @Test
     void findAllPublicEvents_CountryAndCityAndDateFromAndDateToSpecified_Found() throws Exception{
-        Mockito.when(eventRepository.findAllByCountryAndTypeTypeAndCityAndDateTimeBetween("Latvia", "public", "Venstspils",
-                        dateTime1,
-                        dateTime2))
+        Mockito.when(eventRepository.findAllByCountryAndEventTypeAndCityAndDateTimeBetween("Latvia", publicTypeEntity, "Venstspils",
+                        LocalDateTime.of(2020, 11, 12, 0, 0),
+                        LocalDateTime.of(2023, 11, 12, 0, 0)))
                 .thenReturn(List.of(eventEntity4));
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto4));
@@ -302,6 +307,337 @@ public class EventIntegrationTest {
                 .andDo(print())
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueNotSpecified_Exception() throws Exception {
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                .param("country", "Lativa")
+                .param("city", "Riga")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_dateIntervalNotSpecified_Exception() throws Exception {
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                .param("display", "mine")
+                .param("country", "Latvia")
+                .param("city", "Riga")
+                .param("date_from", "12/12/2022")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_OnlyCountrySpecified_Found() throws Exception {
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("Damian123", "Latvia", null))
+                .thenReturn(List.of(eventEntity4, eventEntity5));
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                .param("display", "mine")
+                .param("country", "Latvia")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(4))
+                .andExpect(jsonPath("$[1].id").value(5))
+                .andExpect(jsonPath("$", hasSize(2)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_OnlyCountrySpecified_NotFound() throws Exception {
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("Damian123", "Spain", null))
+                        .thenReturn(Collections.emptyList());
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                        .param("display", "mine")
+                        .param("country", "Spain")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCitySpecified_Found() throws Exception {
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("Damian123", "Latvia", "Riga"))
+                        .thenReturn(List.of(eventEntity5));
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                        .param("display", "mine")
+                        .param("country", "Latvia")
+                        .param("city", "Riga")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(5))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCitySpecified_NotFound() throws Exception {
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("Damian123", "Latvia", "Riga"))
+                .thenReturn(Collections.emptyList());
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                        .param("display", "mine")
+                        .param("country", "Spain")
+                        .param("city", "Madrid")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCityAndDateIntervalSpecified_Found() throws Exception {
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween("Damian123", "Latvia", "Venstspils",
+                LocalDateTime.of(2021, 12, 12, 0, 0),
+                LocalDateTime.of(2022, 11, 11, 0, 0)))
+                .thenReturn(List.of(eventEntity4));
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                        .param("display", "mine")
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .param("date_from", "12-12-2021")
+                        .param("date_to", "11-11-2022")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(4))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueMine_CountryAndCityAndDateIntervalSpecified_NotFound() throws Exception {
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween("Damian123", "Latvia", "Venstspils",
+                        LocalDateTime.of(2021, 12, 29, 0, 0),
+                        LocalDateTime.of(2023, 11, 11, 0, 0)))
+                .thenReturn(Collections.emptyList());
+        mockMvc.perform(get("/v1/events/user/Damian123")
+                        .param("display", "mine")
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .param("date_from", "29-12-2022")
+                        .param("date_to", "11-11-2023")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_OnlyCountrySpecified_Found() throws Exception {
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCity("CasualMovieEnjoyer", "Latvia", null))
+                .thenReturn(Collections.emptyList());
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("CasualMovieEnjoyer", "Latvia", null))
+                .thenReturn(List.of(eventEntity2));
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("country", "Latvia")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(2))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueALl_OnlyCountrySpecified_NotFound() throws Exception {
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCity("CasualMovieEnjoyer", "Spain", null))
+                .thenReturn(Collections.emptyList());
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("CasualMovieEnjoyer", "Spain", null))
+                .thenReturn(Collections.emptyList());
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("country", "Spain")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCitySpecified_Found() throws Exception {
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCity("CasualMovieEnjoyer", "Latvia", "Venstspils"))
+                .thenReturn(List.of(eventEntity2));
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("CasualMovieEnjoyer", "Latvia", "Venstspils"))
+                .thenReturn(Collections.emptyList());
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(2))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCitySpecified_NotFound() throws Exception {
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCity("CasualMovieEnjoyer", "Spain", "Madrid"))
+                .thenReturn(Collections.emptyList());
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("CasualMovieEnjoyer", "Spain", "Madrid"))
+                .thenReturn(Collections.emptyList());
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("country", "Spain")
+                        .param("city", "Madrid")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCityAndDateIntervalSpecified_Found() throws Exception {
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCityAndDateTimeBetween("CasualMovieEnjoyer", "Latvia", "Venstspils",
+                        LocalDateTime.of(2022, 12, 3, 0, 0),
+                        LocalDateTime.of(2023, 12, 12, 0, 0)))
+                .thenReturn(Collections.emptyList());
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween("CasualMovieEnjoyer", "Latvia", "Venstspils",
+                        LocalDateTime.of(2022, 12, 3, 0, 0),
+                        LocalDateTime.of(2023, 12, 12, 0, 0)))
+                .thenReturn(List.of(eventEntity2));
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .param("date_from", "03-12-2022")
+                        .param("date_to", "12-12-2023")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(2))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_CountryAndCityAndDateIntervalSpecified_NotFound() throws Exception {
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCityAndDateTimeBetween("CasualMovieEnjoyer", "Latvia", "Venstspils",
+                        LocalDateTime.of(2022, 12, 5, 0, 0),
+                        LocalDateTime.of(2023, 12, 12, 0, 0)))
+                .thenReturn(Collections.emptyList());
+        Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCityAndDateTimeBetween("CasualMovieEnjoyer", "Latvia", "Venstspils",
+                        LocalDateTime.of(2022, 12, 5, 0, 0),
+                        LocalDateTime.of(2023, 12, 12, 0, 0)))
+                .thenReturn(Collections.emptyList());
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .param("date_from", "05-12-2022")
+                        .param("date_to", "12-12-2023")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAll_countryNotSpecified_Exception() throws Exception {
+        mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .param("display", "all")
+                        .param("city", "Venstspils")
+                        .param("date_from", "05-12-2022")
+                        .param("date_to", "12-12-2023")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_OnlyCountrySpecified_Found() throws Exception {
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCity("BestClientEver", "Latvia", null))
+                        .thenReturn(List.of(eventEntity1));
+        mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .param("display", "attending")
+                        .param("country", "Latvia")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_OnlyCountrySpecified_NotFound() throws Exception {
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCity("BestClientEver", "Latvia", null))
+                .thenReturn(Collections.emptyList());
+        mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .param("display", "attending")
+                        .param("country", "Spain")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCitySpecified_Found() throws Exception {
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCity("BestClientEver", "Latvia", "Riga"))
+                .thenReturn(List.of(eventEntity1));
+        mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .param("display", "attending")
+                        .param("country", "Latvia")
+                        .param("city", "Riga")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCitySpecified_NotFound() throws Exception {
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCity("BestClientEver", "Latvia", "Riga"))
+                .thenReturn(Collections.emptyList());
+        mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .param("display", "attending")
+                        .param("country", "Latvia")
+                        .param("city", "Venstspils")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCityAndDateIntervalSpecified_Found() throws Exception {
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCityAndDateTimeBetween("BestClientEver", "Latvia", "Riga",
+                        LocalDateTime.of(2022, 12, 7, 0, 0),
+                        LocalDateTime.of(2022, 12, 9, 0, 0)))
+                .thenReturn(List.of(eventEntity1));
+        mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .param("display", "attending")
+                        .param("country", "Latvia")
+                        .param("city", "Riga")
+                        .param("date_from", "07-12-2022")
+                        .param("date_to", "09-12-2022")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    void findAllUserCreatedAndOrAttendingEvents_displayValueAttending_CountryAndCityAndDateIntervalSpecified_NotFound() throws Exception {
+        Mockito.when(eventRepository.findAllAttendingByCountryAndCityAndDateTimeBetween("CasualMovieEnjoyer", "Latvia", "Venstspils",
+                        LocalDateTime.of(2022, 12, 9, 0, 0),
+                        LocalDateTime.of(2022, 12, 10, 0, 0)))
+                .thenReturn(Collections.emptyList());
+        mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .param("display", "attending")
+                        .param("country", "Latvia")
+                        .param("city", "Riga")
+                        .param("date_from", "09-12-2022")
+                        .param("date_to", "10-12-2022")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(0)));
+    }
+
 
     @Test
     void findEventInfo() throws Exception {

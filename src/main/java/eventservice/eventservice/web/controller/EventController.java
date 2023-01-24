@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,9 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
+
+import static eventservice.eventservice.business.utils.DateUtils.DAY_MONTH_YEAR_DASH;
+
 @Log4j2
 @RestController
 @RequiredArgsConstructor
@@ -50,14 +54,43 @@ public class EventController {
                                                                      @ApiParam(value = "city, where the event will take place")
                                                                   @RequestParam(name = "city", required = false) String city,
                                                                      @ApiParam(value = "The date from which events will take place")
-                                                                  @RequestParam(name = "date_from", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dateFrom,
+                                                                  @RequestParam(name = "date_from", required = false) @DateTimeFormat(pattern = DAY_MONTH_YEAR_DASH) LocalDate dateFrom,
                                                                      @ApiParam(value = "The date to which events will take place")
-                                                                  @RequestParam(name = "date_to", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dateTo){
+                                                                  @RequestParam(name = "date_to", required = false) @DateTimeFormat(pattern = DAY_MONTH_YEAR_DASH) LocalDate dateTo){
         log.info("findAllPublicEvents controller method called with parameters " +
                 "country: {}, city: {}, date_from: {}, date_to: {} ", country, city, dateFrom, dateTo);
         return ResponseEntity.ok(eventService.findAllPublicEvents(country, city, dateFrom, dateTo));
     }
 
+    /**
+     *
+     * @param username - username of the user, who is looking for the events
+     * @param displayValue - display type of the events (mine, attending, all(includes mine and attending))
+     * @param country - country, where the event is taking place
+     * @param city - city, where the event is taking place
+     * @param dateFrom - date interval, when the event is taking place, start date
+     * @param dateTo - date interval, when the event is taking place, end date
+     * @return
+     */
+    @GetMapping(value = "/events/user/{user_name}")
+    public ResponseEntity<List<EventMinimalDto>> findAllUserCreatedAndOrAttendingEvents(
+                                                            @ApiParam(value = "username of the user, which is used to filter out the user's events")
+                                                                @PathVariable(name = "user_name") String username,
+                                                            @ApiParam(value = "display value, which determines which events are returned")
+                                                                @RequestParam(value = "display", required = true) String displayValue,
+                                                            @ApiParam(value = "country, where the event will take place")
+                                                                @RequestParam(name = "country", required = false) String country,
+                                                            @ApiParam(value = "city, where the event will take place")
+                                                                @RequestParam(name = "city", required = false) String city,
+                                                            @ApiParam(value = "The date from which events will take place")
+                                                                @RequestParam(name = "date_from", required = false) @DateTimeFormat(pattern = DAY_MONTH_YEAR_DASH) LocalDate dateFrom,
+                                                            @ApiParam(value = "The date to which events will take place")
+                                                                @RequestParam(name = "date_to", required = false) @DateTimeFormat(pattern = DAY_MONTH_YEAR_DASH) LocalDate dateTo) {
+        log.info("findAllUserCreatedAndOrAttendingEvents controller method called with parameters " +
+                        "username: {}, display: {}, country: {}, city: {}, date_from: {}, date_to: {} ", username, displayValue, country, city,
+                dateFrom, dateTo);
+        return ResponseEntity.ok(eventService.findAllUserCreatedAndOrAttendingEvents(username, displayValue, country, city, dateFrom, dateTo));
+    }
     /**
      * Returns full information of event by id
      * @param eventId
