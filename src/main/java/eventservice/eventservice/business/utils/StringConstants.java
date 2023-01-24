@@ -1,4 +1,4 @@
-package eventservice.eventservice.utils;
+package eventservice.eventservice.business.utils;
 
 public class StringConstants {
     public static final String BAD_REQUEST = "Bad request";

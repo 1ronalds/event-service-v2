@@ -32,7 +32,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static eventservice.eventservice.utils.StringConstants.PUBLIC;
+import static eventservice.eventservice.business.utils.StringConstants.PUBLIC;
 
 @Log4j2
 @Service
