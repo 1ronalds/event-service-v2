@@ -130,4 +130,40 @@ public class EventController {
         log.info("deleteEvent is called with userName: {} and eventId: {}", userName, eventId);
         return ResponseEntity.noContent().build();
     }
+
+    /**
+     *
+     * @param userId - the id of the user, who is attending the event
+     * @param eventId - the id of the event
+     * @return
+     */
+    @ApiOperation(value = "Add a record of user attendance to the event")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
+            @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
+    })
+    @PostMapping(value = "/attendance/user/{user_id}/event/{event_id}")
+    public ResponseEntity<Void> addEventAttendance(@PathVariable(name = "user_id") Long userId, @PathVariable(name = "event_id") Long eventId){
+        log.info("addEventAttendance controller method is called with userId: {} and eventId: {}", userId, eventId);
+        eventService.addEventAttendance(userId, eventId);
+        return ResponseEntity.ok().build();
+    }
+
+    /**
+     *
+     * @param userId - the id of the user, whose attendance is being removed
+     * @param eventId - the id of the event
+     * @return
+     */
+    @ApiOperation(value = "Removes a record of user attendance to the event")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
+            @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
+    })
+    @DeleteMapping(value = "/attendance/user/{user_id}/event/{event_id}")
+    public ResponseEntity<Void> removeEventAttendance(@PathVariable(name = "user_id") Long userId, @PathVariable(name = "event_id") Long eventId){
+        log.info("removeEventAttendance controller method is called with userId: {} and eventId: {}", userId, eventId);
+        eventService.removeEventAttendance(userId, eventId);
+        return ResponseEntity.ok().build();
+    }
 }

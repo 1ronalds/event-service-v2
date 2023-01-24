@@ -1,12 +1,15 @@
 package eventservice.eventservice.controller;
 
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
+import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
+import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.service.EventService;
 import eventservice.eventservice.model.EventDto;
 import eventservice.eventservice.model.EventMinimalDto;
 import eventservice.eventservice.model.EventTypeDto;
 import eventservice.eventservice.model.UserMinimalDto;
 import eventservice.eventservice.web.controller.EventController;
+import org.joda.time.DateTime;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -18,8 +21,15 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
+
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 
@@ -48,7 +58,7 @@ public class EventControllerTest {
         EventTypeDto type = new EventTypeDto(1L, "public");
         UserMinimalDto organiser = new UserMinimalDto(1L, "Administrator");
 
-        fullEventDto = new EventDto(1L, "5km marathon", "marathon", "Latvia", "Liepāja", 100, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 0, organiser, type);
+        fullEventDto = new EventDto(1L, "5km marathon", "marathon", "Latvia", "Liepāja", 100, LocalDateTime.parse("13-12-2023 12:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")), 0, organiser, type, new HashSet<>());
 
     }
 
@@ -168,4 +178,41 @@ public class EventControllerTest {
         Mockito.verify(service, times(1)).deleteEvent("Administrator", 1L);
     }
 
+    @Test
+    void addEventAttendance_success(){
+        ResponseEntity<Void> response = controller.addEventAttendance(1L, 2L);
+        assertEquals(ResponseEntity.ok().build(), response);
+        Mockito.verify(service, times(1)).addEventAttendance(1L, 2L);
+    }
+
+    @Test
+    void addEventAttendance_EventNotFoundException(){
+        Mockito.doThrow(EventNotFoundException.class).when(service).addEventAttendance(any(), any());
+        assertThrows(EventNotFoundException.class, () -> controller.addEventAttendance(1L, 2L));
+    }
+
+    @Test
+    void addEventAttendance_UserNotFoundException(){
+        Mockito.doThrow(UserNotFoundException.class).when(service).addEventAttendance(any(), any());
+        assertThrows(UserNotFoundException.class, () -> controller.addEventAttendance(1L, 2L));
+    }
+
+    @Test
+    void removeEventAttendance_success(){
+        ResponseEntity<Void> response = controller.removeEventAttendance(1L, 2L);
+        assertEquals(ResponseEntity.ok().build(), response);
+        Mockito.verify(service, times(1)).removeEventAttendance(1L, 2L);
+    }
+
+    @Test
+    void removeEventAttendance_EventNotFoundException(){
+        Mockito.doThrow(EventNotFoundException.class).when(service).removeEventAttendance(any(), any());
+        assertThrows(EventNotFoundException.class, () -> controller.removeEventAttendance(1L, 2L));
+    }
+
+    @Test
+    void removeEventAttendance_UserNotFoundException(){
+        Mockito.doThrow(UserNotFoundException.class).when(service).removeEventAttendance(any(), any());
+        assertThrows(UserNotFoundException.class, () -> controller.removeEventAttendance(1L, 2L));
+    }
 }

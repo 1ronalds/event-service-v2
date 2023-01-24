@@ -2,13 +2,18 @@ package eventservice.eventservice.business.service.impl;
 
 import eventservice.eventservice.business.connection.CountryCityServiceConnection;
 import eventservice.eventservice.business.connection.model.CityDto;
+import eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
+import eventservice.eventservice.business.handlers.exceptions.DuplicateAttendanceEntryException;
+import eventservice.eventservice.business.handlers.exceptions.EventMaxAttendanceException;
 import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
+import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.mapper.EventMapStruct;
 import eventservice.eventservice.business.repository.EventRepository;
 import eventservice.eventservice.business.repository.UserRepository;
 import eventservice.eventservice.business.repository.model.EventEntity;
+import eventservice.eventservice.business.repository.model.UserEntity;
 import eventservice.eventservice.business.service.EventService;
 import eventservice.eventservice.business.service.UserService;
 import eventservice.eventservice.model.EventDto;
@@ -19,12 +24,15 @@ import eventservice.eventservice.model.UserMinimalDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static eventservice.eventservice.utils.StringConstants.PUBLIC;
 
 @Log4j2
 @Service
@@ -33,8 +41,6 @@ public class EventServiceImpl implements EventService {
 
     public static final EventTypeDto PUBLIC_EVENT = new EventTypeDto(1L, "public");
     public static final EventTypeDto PRIVATE_EVENT = new EventTypeDto(2L, "private");
-    public static final String PUBLIC = "public";
-    public static final String PRIVATE = "private";
     private final EventRepository eventRepository;
     private final CountryCityServiceConnection countryCityServiceConnection;
     private final UserService userService;
@@ -223,4 +229,75 @@ public class EventServiceImpl implements EventService {
         }
     }
 
+    /**
+     *
+     * @param userId - the id of the user, who is attending the event
+     * @param eventId - the id of the event, which the user is attending
+     */
+    @Override
+    public void addEventAttendance(Long userId, Long eventId) {
+        log.info("addEventAttendance service method called");
+        Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
+        Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
+
+        if (!optionalEventEntity.isPresent()){
+            log.info("The event with id {} has not been found", eventId);
+            throw new EventNotFoundException();
+        }
+
+        if (!optionalUserEntity.isPresent()){
+            log.info("The user with id {} has not been found", userId);
+            throw new UserNotFoundException();
+        }
+        EventEntity event = optionalEventEntity.get();
+
+        if (event.getAttendeeCount() + 1 > event.getMaxAttendance()){
+            log.info("The max attendance for event with id: {} has been reached", eventId);
+            throw new EventMaxAttendanceException();
+        }
+
+        UserEntity user = optionalUserEntity.get();
+
+        if (event.getAttendees().contains(user)){
+            log.info("Duplicate attendance entry - userId: {}, eventId: {}", userId, eventId);
+            throw new DuplicateAttendanceEntryException();
+        }
+
+        event.getAttendees().add(user);
+        event.setAttendeeCount(event.getAttendeeCount() + 1);
+        eventRepository.save(event);
+    }
+
+    /**
+     *
+     * @param userId - the id of the user, whose attendance is being removed
+     * @param eventId - the id of the event
+     */
+    @Override
+    public void removeEventAttendance(Long userId, Long eventId) {
+        log.info("removeEventAttendance service method called");
+        Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
+        Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
+
+        if (!optionalEventEntity.isPresent()){
+            log.info("The event with id {} has not been found", eventId);
+            throw new EventNotFoundException();
+        }
+
+        if (!optionalUserEntity.isPresent()){
+            log.info("The user with id {} has not been found", userId);
+            throw new UserNotFoundException();
+        }
+        EventEntity event = optionalEventEntity.get();
+        UserEntity user = optionalUserEntity.get();
+
+        if (!event.getAttendees().contains(user)){
+            log.info("Attendance entry not found - userId: {}, eventId: {}", userId, eventId);
+            throw new AttendanceNotFoundException();
+        }
+
+        event.getAttendees().remove(user);
+        event.setAttendeeCount(event.getAttendeeCount() - 1);
+        eventRepository.save(event);
+    }
 }

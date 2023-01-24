@@ -2,6 +2,7 @@ package eventservice.eventservice.business.service;
 
 import eventservice.eventservice.model.EventDto;
 import eventservice.eventservice.model.EventMinimalDto;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -11,4 +12,8 @@ public interface EventService {
     EventDto saveEvent(String username, EventDto event);
     EventDto editEvent(String username, Long eventId, EventDto event);
     void deleteEvent(String username, Long eventId);
+
+    void addEventAttendance(Long userId, Long eventId);
+
+    void removeEventAttendance(Long userId, Long eventId);
 }

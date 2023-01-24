@@ -6,9 +6,12 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.Set;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -55,4 +58,7 @@ public class EventDto {
 
     @ApiModelProperty(value = "Type of event")
     private EventTypeDto type;
+
+    @ApiModelProperty(value = "List of users who are attending the event")
+    private Set<UserDto> attendees;
 }
