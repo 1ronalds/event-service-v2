@@ -19,6 +19,7 @@ import org.mockito.MockitoAnnotations;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -55,7 +56,7 @@ public class AdminServiceUnitTest {
         EventTypeEntity publicTypeEntity = new EventTypeEntity(2L, "private");
         eventEntityList.add(new EventEntity(1L, "Bicycling contest", "A contest of bicycling free to watch and participate", "Latvia",
                 "Riga", 300, LocalDateTime.parse("24-11-2022 00:00:00", DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
-                1, userEntity, publicTypeEntity));
+                1, userEntity, publicTypeEntity, new HashSet<>()));
         eventMinimalDto = new EventMinimalDto(1L, "Bicycling contest");
     }
 
