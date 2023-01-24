@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "countrycityservice", url = "${feignclient.url}")
+@FeignClient(name = "${feignclient.name}", url = "${feignclient.url}")
 public interface CountryCityServiceConnection {
 
     @GetMapping("/v1/countries")
