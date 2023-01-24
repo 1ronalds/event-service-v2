@@ -25,6 +25,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import static eventservice.eventservice.business.utils.DateUtils.DAY_MONTH_YEAR_DASH;
+
 @Log4j2
 @Controller
 @RequiredArgsConstructor
@@ -51,9 +54,9 @@ public class EventController {
                                                                      @ApiParam(value = "city, where the event will take place")
                                                                   @RequestParam(name = "city", required = false) String city,
                                                                      @ApiParam(value = "The date from which events will take place")
-                                                                  @RequestParam(name = "date_from", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dateFrom,
+                                                                  @RequestParam(name = "date_from", required = false) @DateTimeFormat(pattern = DAY_MONTH_YEAR_DASH) LocalDate dateFrom,
                                                                      @ApiParam(value = "The date to which events will take place")
-                                                                  @RequestParam(name = "date_to", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dateTo){
+                                                                  @RequestParam(name = "date_to", required = false) @DateTimeFormat(pattern = DAY_MONTH_YEAR_DASH) LocalDate dateTo){
         log.info("findAllPublicEvents controller method called with parameters " +
                 "country: {}, city: {}, date_from: {}, date_to: {} ", country, city, dateFrom, dateTo);
         return ResponseEntity.ok(eventService.findAllPublicEvents(country, city, dateFrom, dateTo));
@@ -80,9 +83,9 @@ public class EventController {
                                                             @ApiParam(value = "city, where the event will take place")
                                                                 @RequestParam(name = "city", required = false) String city,
                                                             @ApiParam(value = "The date from which events will take place")
-                                                                @RequestParam(name = "date_from", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dateFrom,
+                                                                @RequestParam(name = "date_from", required = false) @DateTimeFormat(pattern = DAY_MONTH_YEAR_DASH) LocalDate dateFrom,
                                                             @ApiParam(value = "The date to which events will take place")
-                                                                @RequestParam(name = "date_to", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dateTo) {
+                                                                @RequestParam(name = "date_to", required = false) @DateTimeFormat(pattern = DAY_MONTH_YEAR_DASH) LocalDate dateTo) {
         log.info("findAllUserCreatedAndOrAttendingEvents controller method called with parameters " +
                         "username: {}, display: {}, country: {}, city: {}, date_from: {}, date_to: {} ", username, displayValue, country, city,
                 dateFrom, dateTo);

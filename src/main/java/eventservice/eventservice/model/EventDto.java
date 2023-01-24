@@ -11,6 +11,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
+import static eventservice.eventservice.business.utils.DateUtils.DAY_MONTH_YEAR_TIME_DASH;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -46,7 +48,7 @@ public class EventDto {
 
     @ApiModelProperty(value = "Date and time of the event in format d-m-yyyy hh:mm")
     @NotNull
-    @JsonFormat(pattern="d-m-YYYY HH:mm")
+    @JsonFormat(pattern=DAY_MONTH_YEAR_TIME_DASH)
     private LocalDateTime dateTime;
 
     @ApiModelProperty(value = "The amount of people who are attending the event")
