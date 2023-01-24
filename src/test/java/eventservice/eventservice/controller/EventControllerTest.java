@@ -3,8 +3,8 @@ package eventservice.eventservice.controller;
 import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
-import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDisplayValueException;
+import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.service.EventService;
 import eventservice.eventservice.model.EventDto;
 import eventservice.eventservice.model.EventMinimalDto;
@@ -18,19 +18,16 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.ResponseEntity;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 
-import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 

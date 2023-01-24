@@ -2,17 +2,10 @@ package eventservice.eventservice.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
-import eventservice.eventservice.business.repository.EventRepository;
-import eventservice.eventservice.business.repository.model.EventEntity;
-import eventservice.eventservice.business.repository.model.EventTypeEntity;
-import eventservice.eventservice.business.repository.model.RoleEntity;
-import eventservice.eventservice.business.repository.model.UserEntity;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import eventservice.eventservice.business.connection.CountryCityServiceConnection;
 import eventservice.eventservice.business.connection.model.CityDto;
 import eventservice.eventservice.business.connection.model.CountryDto;
-import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
-import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.repository.EventRepository;
 import eventservice.eventservice.business.repository.UserRepository;
 import eventservice.eventservice.business.repository.model.EventEntity;
@@ -23,23 +16,19 @@ import eventservice.eventservice.model.EventMinimalDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+
+import javax.transaction.Transactional;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-
-import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -47,15 +36,12 @@ import java.util.Optional;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.times;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -80,6 +66,7 @@ public class EventIntegrationTest {
     EventMinimalDto eventDto5;
     EventMinimalDto eventDto6;
 
+    EventEntity eventEntity;
     EventEntity eventEntity1;
     EventEntity eventEntity2;
     EventEntity eventEntity3;
@@ -156,7 +143,7 @@ public class EventIntegrationTest {
 
     @Test
     void findAllPublicEvents_OnlyCountrySpecified_Found() throws Exception {
-        Mockito.when(eventRepository.findAllByCountryAndTypeType("Latvia", "public"))
+        Mockito.when(eventRepository.findAllByCountryAndEventType("Latvia", publicTypeEntity))
                 .thenReturn(List.of(eventEntity1, eventEntity4, eventEntity5));
         JsonMapper jm = JsonMapper.builder().build();
         String eventJsonExpectedResult = jm.writeValueAsString(List.of(eventDto1, eventDto4, eventDto5));

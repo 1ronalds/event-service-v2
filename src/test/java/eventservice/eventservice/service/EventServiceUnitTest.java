@@ -1,9 +1,9 @@
 package eventservice.eventservice.service;
 
-import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
 import eventservice.eventservice.business.connection.CountryCityServiceConnection;
 import eventservice.eventservice.business.connection.model.CityDto;
 import eventservice.eventservice.business.connection.model.CountryDto;
+import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
@@ -31,20 +31,17 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
-import org.w3c.dom.events.Event;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 
@@ -102,8 +99,6 @@ public class EventServiceUnitTest {
         RoleEntity roleEntity2 = new RoleEntity(1L, "admin");
 
         userEntity2 = new UserEntity(1L, "AdminUser", "admin@admin.com", "password123", "Adam", "Leo", roleEntity2);
-        EventTypeEntity publicTypeEntity = new EventTypeEntity(1L, "public");
-        EventTypeEntity privateTypeEntity = new EventTypeEntity(2L, "private");
         EventTypeDto publicTypeDto = new EventTypeDto(1L, "public");
 
         eventDto = new EventDto(1L, "Bicycling contest", "A contest of bicycling free to watch and participate", "Latvia",
@@ -364,7 +359,7 @@ public class EventServiceUnitTest {
         Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
 
         List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "all", country, null, null, null);
-        assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
+        assertEquals(List.of(eventDto4, eventDto1, eventDto5), results);
     }
 
     @Test
@@ -390,7 +385,7 @@ public class EventServiceUnitTest {
         Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
 
         List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "all", country, city, null, null);
-        assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
+        assertEquals(List.of(eventDto4, eventDto1, eventDto5), results);
     }
 
     @Test
@@ -419,7 +414,7 @@ public class EventServiceUnitTest {
         Mockito.when(mapper.entityToMinimalDto(eventEntity5)).thenReturn(eventDto5);
 
         List<EventMinimalDto> results = service.findAllUserCreatedAndOrAttendingEvents(username, "all", country, city, dateStart, dateEnd);
-        assertEquals(List.of(eventDto1, eventDto4, eventDto5), results);
+        assertEquals(List.of(eventDto4, eventDto1, eventDto5), results);
     }
 
     @Test

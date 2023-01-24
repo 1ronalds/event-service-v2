@@ -205,7 +205,7 @@ public class EventServiceImpl implements EventService {
         event.setOrganiser(new UserMinimalDto(userDto.getId(), userDto.getUsername()));
         event.setAttendeeCount(0);
 
-        event.setType(event.getType().getType().equals(PUBLIC) ? PUBLIC_EVENT : PRIVATE_EVENT);
+        event.setEventType(event.getEventType().getType().equals(PUBLIC) ? PUBLIC_EVENT_DTO : PRIVATE_EVENT_DTO);
 
         String country = event.getCountry();
         String city = event.getCity();
