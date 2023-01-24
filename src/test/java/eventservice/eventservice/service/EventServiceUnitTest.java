@@ -45,7 +45,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 
-public class EventServiceTest {
+public class EventServiceUnitTest {
     @Mock
     EventMapStruct mapper;
 

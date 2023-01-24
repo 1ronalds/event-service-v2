@@ -8,12 +8,11 @@ import eventservice.eventservice.business.handlers.exceptions.DuplicateAttendanc
 import eventservice.eventservice.business.handlers.exceptions.EventMaxAttendanceException;
 import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
-import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.mapper.EventMapStruct;
 import eventservice.eventservice.business.repository.EventRepository;
 import eventservice.eventservice.business.repository.UserRepository;
 import eventservice.eventservice.business.repository.model.EventEntity;
-import eventservice.eventservice.business.repository.model.UserEntity;
+import eventservice.eventservice.business.repository.model.EventTypeEntity;
 import eventservice.eventservice.business.service.EventService;
 import eventservice.eventservice.business.service.UserService;
 import eventservice.eventservice.model.EventDto;
@@ -24,7 +23,6 @@ import eventservice.eventservice.model.UserMinimalDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;

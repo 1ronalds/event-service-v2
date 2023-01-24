@@ -1,3 +1,4 @@
+
 use eventdb;
 
 INSERT INTO role (role_id, role)
