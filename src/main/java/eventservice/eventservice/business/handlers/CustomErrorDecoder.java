@@ -3,7 +3,6 @@ package eventservice.eventservice.business.handlers;
 import eventservice.eventservice.business.handlers.exceptions.CountryNotFoundException;
 import feign.Response;
 import feign.codec.ErrorDecoder;
-import lombok.SneakyThrows;
 
 public class CustomErrorDecoder implements ErrorDecoder {
 
@@ -17,3 +16,4 @@ public class CustomErrorDecoder implements ErrorDecoder {
         }
     }
 }
+

@@ -2338,3 +2338,336 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 [INFO ] 2023-01-23 15:25:10.639 [http-nio-8080-exec-2] DispatcherServlet - Completed initialization in 2 ms
 [WARN ] 2023-01-23 15:25:10.741 [http-nio-8080-exec-2] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.CountryNotFoundException]
 [WARN ] 2023-01-23 15:25:19.939 [http-nio-8080-exec-4] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.CountryNotFoundException]
+[INFO ] 2023-01-24 12:44:07.241 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-24 12:44:07.290 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 19360 (C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-24 12:44:07.295 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-24 12:44:07.333 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-24 12:44:07.333 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-24 12:44:08.259 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-24 12:44:08.333 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-24 12:44:08.570 [restartedMain] GenericScope - BeanFactory id=5d581a3e-0651-372b-8c37-1940ea18c575
+[INFO ] 2023-01-24 12:44:09.541 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-24 12:44:09.791 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2458 ms
+[INFO ] 2023-01-24 12:44:10.120 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-24 12:44:10.121 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-24 12:44:10.121 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-24 12:44:10.578 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-24 12:44:10.655 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.044s)
+[INFO ] 2023-01-24 12:44:10.677 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-24 12:44:10.678 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-24 12:44:10.838 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-24 12:44:10.917 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-24 12:44:11.171 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-24 12:44:11.393 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-24 12:44:12.203 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-24 12:44:12.212 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-24 12:44:12.829 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-24 12:44:12.878 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-24 12:44:14.260 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-24 12:44:14.942 [restartedMain] EventServiceApplication - Started EventServiceApplication in 8.15 seconds (JVM running for 9.045)
+[INFO ] 2023-01-24 12:44:45.209 [http-nio-8080-exec-2] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-24 12:44:45.210 [http-nio-8080-exec-2] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2023-01-24 12:45:32.810 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-24 12:45:32.863 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 7752 (C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-24 12:45:32.868 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-24 12:45:32.930 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-24 12:45:32.930 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-24 12:45:33.932 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-24 12:45:34.002 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 63 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-24 12:45:34.229 [restartedMain] GenericScope - BeanFactory id=5d581a3e-0651-372b-8c37-1940ea18c575
+[INFO ] 2023-01-24 12:45:34.890 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-24 12:45:35.014 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2083 ms
+[INFO ] 2023-01-24 12:45:35.193 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-24 12:45:35.193 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-24 12:45:35.193 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-24 12:45:35.499 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-24 12:45:35.545 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.022s)
+[INFO ] 2023-01-24 12:45:35.554 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-24 12:45:35.555 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-24 12:45:35.635 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-24 12:45:35.696 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-24 12:45:35.866 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-24 12:45:35.999 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-24 12:45:36.567 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-24 12:45:36.574 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-24 12:45:37.065 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-24 12:45:37.105 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-24 12:45:38.599 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-24 12:45:39.473 [restartedMain] EventServiceApplication - Started EventServiceApplication in 7.179 seconds (JVM running for 8.166)
+[INFO ] 2023-01-24 12:46:18.220 [http-nio-8080-exec-2] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-24 12:46:18.221 [http-nio-8080-exec-2] DispatcherServlet - Completed initialization in 0 ms
+[WARN ] 2023-01-24 12:46:22.266 [http-nio-8080-exec-3] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.CountryNotFoundException]
+[INFO ] 2023-01-24 13:13:13.231 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-24 13:13:13.295 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 16900 (C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-24 13:13:13.301 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-24 13:13:13.371 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-24 13:13:13.372 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-24 13:13:15.014 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-24 13:13:15.130 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 103 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-24 13:13:15.519 [restartedMain] GenericScope - BeanFactory id=b07e6b10-a494-36da-935c-531adbe73476
+[INFO ] 2023-01-24 13:13:16.744 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-24 13:13:16.972 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3600 ms
+[INFO ] 2023-01-24 13:13:17.247 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-24 13:13:17.247 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-24 13:13:17.247 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-24 13:13:17.668 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-24 13:13:17.737 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.034s)
+[INFO ] 2023-01-24 13:13:17.756 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-24 13:13:17.758 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-24 13:13:17.911 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-24 13:13:17.998 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-24 13:13:18.267 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-24 13:13:18.504 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-24 13:13:19.424 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-24 13:13:19.435 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-24 13:13:20.131 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-24 13:13:20.189 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-24 13:13:21.705 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-24 13:13:22.407 [restartedMain] EventServiceApplication - Started EventServiceApplication in 9.88 seconds (JVM running for 11.477)
+[INFO ] 2023-01-24 13:13:34.252 [http-nio-8080-exec-2] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-24 13:13:34.254 [http-nio-8080-exec-2] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2023-01-25 10:50:24.105 [Test worker] SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [eventservice.eventservice.integration.CountryCityIntegrationTest], using SpringBootContextLoader
+[INFO ] 2023-01-25 10:50:24.120 [Test worker] AbstractContextLoader - Could not detect default resource locations for test class [eventservice.eventservice.integration.CountryCityIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+[INFO ] 2023-01-25 10:50:24.121 [Test worker] AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [eventservice.eventservice.integration.CountryCityIntegrationTest]: CountryCityIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[INFO ] 2023-01-25 10:50:24.252 [Test worker] SpringBootTestContextBootstrapper - Found @SpringBootConfiguration eventservice.eventservice.EventServiceApplication for test class eventservice.eventservice.integration.CountryCityIntegrationTest
+[INFO ] 2023-01-25 10:50:24.356 [Test worker] SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO ] 2023-01-25 10:50:24.371 [Test worker] SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6107165, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@164a62bf, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@11ebb1b6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@aaee2a2, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@f3021cb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4aaae508, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6009bea, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7bc6d27a, org.springframework.test.context.event.EventPublishingTestExecutionListener@75769ab0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6869a3b3, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6ab4ba9f, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@27ace0b1, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@664e5dee, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@431f1eaf, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@cb03411]
+[INFO ] 2023-01-25 10:50:24.759 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-25 10:50:24.802 [Test worker] CountryCityIntegrationTest - Starting CountryCityIntegrationTest using Java 11.0.17 on LTUGPLTP0149 with PID 21492 (started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-25 10:50:24.805 [Test worker] CountryCityIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-25 10:50:25.933 [Test worker] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-25 10:50:26.017 [Test worker] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 73 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-25 10:50:26.254 [Test worker] GenericScope - BeanFactory id=70f2008a-9b95-356e-8ec4-377f477e2215
+[INFO ] 2023-01-25 10:50:27.699 [Test worker] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-25 10:50:27.699 [Test worker] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-25 10:50:27.700 [Test worker] VersionPrinter - 
+[INFO ] 2023-01-25 10:50:28.152 [Test worker] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-25 10:50:28.257 [Test worker] DbValidate - Successfully validated 6 migrations (execution time 00:00.056s)
+[INFO ] 2023-01-25 10:50:28.279 [Test worker] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-25 10:50:28.281 [Test worker] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-25 10:50:28.499 [Test worker] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-25 10:50:28.588 [Test worker] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-25 10:50:28.653 [Test worker] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-25 10:50:28.870 [Test worker] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-25 10:50:29.841 [Test worker] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-25 10:50:29.853 [Test worker] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-25 10:50:30.873 [Test worker] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-25 10:50:32.193 [Test worker] SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+[INFO ] 2023-01-25 10:50:32.194 [Test worker] TestDispatcherServlet - Initializing Servlet ''
+[INFO ] 2023-01-25 10:50:32.197 [Test worker] TestDispatcherServlet - Completed initialization in 3 ms
+[INFO ] 2023-01-25 10:50:32.946 [Test worker] CountryCityIntegrationTest - Started CountryCityIntegrationTest in 8.537 seconds (JVM running for 10.136)
+[INFO ] 2023-01-25 10:50:33.255 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-25 10:51:53.741 [Test worker] SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [eventservice.eventservice.integration.CountryCityIntegrationTest], using SpringBootContextLoader
+[INFO ] 2023-01-25 10:51:53.750 [Test worker] AbstractContextLoader - Could not detect default resource locations for test class [eventservice.eventservice.integration.CountryCityIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+[INFO ] 2023-01-25 10:51:53.751 [Test worker] AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [eventservice.eventservice.integration.CountryCityIntegrationTest]: CountryCityIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[INFO ] 2023-01-25 10:51:53.854 [Test worker] SpringBootTestContextBootstrapper - Found @SpringBootConfiguration eventservice.eventservice.EventServiceApplication for test class eventservice.eventservice.integration.CountryCityIntegrationTest
+[INFO ] 2023-01-25 10:51:53.942 [Test worker] SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO ] 2023-01-25 10:51:53.955 [Test worker] SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6107165, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@164a62bf, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@11ebb1b6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@aaee2a2, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@f3021cb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4aaae508, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6009bea, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7bc6d27a, org.springframework.test.context.event.EventPublishingTestExecutionListener@75769ab0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6869a3b3, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6ab4ba9f, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@27ace0b1, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@664e5dee, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@431f1eaf, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@cb03411]
+[INFO ] 2023-01-25 10:51:54.309 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-25 10:51:54.354 [Test worker] CountryCityIntegrationTest - Starting CountryCityIntegrationTest using Java 11.0.17 on LTUGPLTP0149 with PID 11128 (started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-25 10:51:54.356 [Test worker] CountryCityIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-25 10:51:55.430 [Test worker] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-25 10:51:55.503 [Test worker] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 63 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-25 10:51:55.746 [Test worker] GenericScope - BeanFactory id=70f2008a-9b95-356e-8ec4-377f477e2215
+[INFO ] 2023-01-25 10:51:57.074 [Test worker] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-25 10:51:57.075 [Test worker] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-25 10:51:57.075 [Test worker] VersionPrinter - 
+[INFO ] 2023-01-25 10:51:57.444 [Test worker] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-25 10:51:57.502 [Test worker] DbValidate - Successfully validated 6 migrations (execution time 00:00.029s)
+[INFO ] 2023-01-25 10:51:57.514 [Test worker] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-25 10:51:57.515 [Test worker] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-25 10:51:57.648 [Test worker] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-25 10:51:57.710 [Test worker] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-25 10:51:57.758 [Test worker] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-25 10:51:57.897 [Test worker] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-25 10:51:58.482 [Test worker] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-25 10:51:58.492 [Test worker] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-25 10:51:59.438 [Test worker] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-25 10:52:00.848 [Test worker] SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+[INFO ] 2023-01-25 10:52:00.848 [Test worker] TestDispatcherServlet - Initializing Servlet ''
+[INFO ] 2023-01-25 10:52:00.851 [Test worker] TestDispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2023-01-25 10:52:01.629 [Test worker] CountryCityIntegrationTest - Started CountryCityIntegrationTest in 7.633 seconds (JVM running for 9.084)
+[INFO ] 2023-01-25 10:52:01.860 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-25 10:53:32.339 [Test worker] SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [eventservice.eventservice.integration.CountryCityIntegrationTest], using SpringBootContextLoader
+[INFO ] 2023-01-25 10:53:32.352 [Test worker] AbstractContextLoader - Could not detect default resource locations for test class [eventservice.eventservice.integration.CountryCityIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+[INFO ] 2023-01-25 10:53:32.354 [Test worker] AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [eventservice.eventservice.integration.CountryCityIntegrationTest]: CountryCityIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[INFO ] 2023-01-25 10:53:32.533 [Test worker] SpringBootTestContextBootstrapper - Found @SpringBootConfiguration eventservice.eventservice.EventServiceApplication for test class eventservice.eventservice.integration.CountryCityIntegrationTest
+[INFO ] 2023-01-25 10:53:32.663 [Test worker] SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO ] 2023-01-25 10:53:32.684 [Test worker] SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6107165, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@164a62bf, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@11ebb1b6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@aaee2a2, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@f3021cb, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4aaae508, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6009bea, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7bc6d27a, org.springframework.test.context.event.EventPublishingTestExecutionListener@75769ab0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@6869a3b3, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6ab4ba9f, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@27ace0b1, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@664e5dee, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@431f1eaf, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@cb03411]
+[INFO ] 2023-01-25 10:53:33.125 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-25 10:53:33.179 [Test worker] CountryCityIntegrationTest - Starting CountryCityIntegrationTest using Java 11.0.17 on LTUGPLTP0149 with PID 5176 (started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-25 10:53:33.182 [Test worker] CountryCityIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-25 10:53:35.052 [Test worker] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-25 10:53:35.203 [Test worker] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 135 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-25 10:53:35.782 [Test worker] GenericScope - BeanFactory id=70f2008a-9b95-356e-8ec4-377f477e2215
+[INFO ] 2023-01-25 10:53:37.856 [Test worker] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-25 10:53:37.856 [Test worker] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-25 10:53:37.857 [Test worker] VersionPrinter - 
+[INFO ] 2023-01-25 10:53:38.413 [Test worker] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-25 10:53:38.484 [Test worker] DbValidate - Successfully validated 6 migrations (execution time 00:00.037s)
+[INFO ] 2023-01-25 10:53:38.505 [Test worker] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-25 10:53:38.508 [Test worker] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-25 10:53:38.696 [Test worker] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-25 10:53:38.798 [Test worker] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-25 10:53:38.871 [Test worker] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-25 10:53:39.122 [Test worker] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-25 10:53:40.230 [Test worker] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-25 10:53:40.243 [Test worker] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-25 10:53:41.313 [Test worker] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-25 10:53:42.525 [Test worker] SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+[INFO ] 2023-01-25 10:53:42.525 [Test worker] TestDispatcherServlet - Initializing Servlet ''
+[INFO ] 2023-01-25 10:53:42.527 [Test worker] TestDispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2023-01-25 10:53:43.256 [Test worker] CountryCityIntegrationTest - Started CountryCityIntegrationTest in 10.522 seconds (JVM running for 12.618)
+[INFO ] 2023-01-25 10:53:43.495 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-25 10:54:15.186 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-25 10:54:15.234 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 18284 (C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-25 10:54:15.238 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-25 10:54:15.288 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-25 10:54:15.288 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-25 10:54:16.200 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-25 10:54:16.269 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-25 10:54:16.510 [restartedMain] GenericScope - BeanFactory id=b07e6b10-a494-36da-935c-531adbe73476
+[INFO ] 2023-01-25 10:54:17.174 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-25 10:54:17.302 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2013 ms
+[INFO ] 2023-01-25 10:54:17.449 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-25 10:54:17.449 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-25 10:54:17.450 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-25 10:54:17.784 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-25 10:54:17.830 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.024s)
+[INFO ] 2023-01-25 10:54:17.839 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-25 10:54:17.841 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-25 10:54:17.930 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-25 10:54:17.988 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-25 10:54:18.153 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-25 10:54:18.297 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-25 10:54:19.063 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-25 10:54:19.073 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-25 10:54:19.703 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-25 10:54:19.754 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-25 10:54:20.987 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-25 10:54:21.631 [restartedMain] EventServiceApplication - Started EventServiceApplication in 6.869 seconds (JVM running for 7.673)
+[INFO ] 2023-01-25 10:54:26.074 [http-nio-8080-exec-2] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-25 10:54:26.075 [http-nio-8080-exec-2] DispatcherServlet - Completed initialization in 1 ms
+[WARN ] 2023-01-25 10:54:32.494 [http-nio-8080-exec-3] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.CountryNotFoundException]
+[INFO ] 2023-01-25 10:55:34.507 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-25 10:55:34.575 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 11.0.17 on LTUGPLTP0149 with PID 15176 (C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service\build\classes\java\main started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-25 10:55:34.581 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-25 10:55:34.648 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-25 10:55:34.648 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-25 10:55:36.107 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-25 10:55:36.200 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 83 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-25 10:55:36.512 [restartedMain] GenericScope - BeanFactory id=b07e6b10-a494-36da-935c-531adbe73476
+[INFO ] 2023-01-25 10:55:37.591 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-25 10:55:37.817 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3168 ms
+[INFO ] 2023-01-25 10:55:38.041 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-25 10:55:38.041 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-25 10:55:38.041 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-25 10:55:38.388 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-25 10:55:38.451 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.034s)
+[INFO ] 2023-01-25 10:55:38.465 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-25 10:55:38.466 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-25 10:55:38.618 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-25 10:55:38.741 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-25 10:55:39.008 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-25 10:55:39.208 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-25 10:55:39.978 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-25 10:55:39.987 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-25 10:55:40.593 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-25 10:55:40.648 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2023-01-25 10:55:41.893 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/api/event-service'
+[INFO ] 2023-01-25 10:55:42.534 [restartedMain] EventServiceApplication - Started EventServiceApplication in 8.644 seconds (JVM running for 9.644)
+[INFO ] 2023-01-25 10:55:49.975 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-25 10:55:49.976 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2023-01-25 11:00:57.331 [Test worker] SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [eventservice.eventservice.integration.CountryCityIntegrationTest], using SpringBootContextLoader
+[INFO ] 2023-01-25 11:00:57.350 [Test worker] AbstractContextLoader - Could not detect default resource locations for test class [eventservice.eventservice.integration.CountryCityIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+[INFO ] 2023-01-25 11:00:57.353 [Test worker] AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [eventservice.eventservice.integration.CountryCityIntegrationTest]: CountryCityIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[INFO ] 2023-01-25 11:00:57.547 [Test worker] SpringBootTestContextBootstrapper - Found @SpringBootConfiguration eventservice.eventservice.EventServiceApplication for test class eventservice.eventservice.integration.CountryCityIntegrationTest
+[INFO ] 2023-01-25 11:00:57.719 [Test worker] SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO ] 2023-01-25 11:00:57.750 [Test worker] SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@11ebb1b6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@aaee2a2, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@f3021cb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4aaae508, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6009bea, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7bc6d27a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@75769ab0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6869a3b3, org.springframework.test.context.event.EventPublishingTestExecutionListener@6ab4ba9f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@27ace0b1, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@664e5dee, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@431f1eaf, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@cb03411, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4c59e45e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@58ec7116]
+[INFO ] 2023-01-25 11:00:58.252 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-25 11:00:58.316 [Test worker] CountryCityIntegrationTest - Starting CountryCityIntegrationTest using Java 11.0.17 on LTUGPLTP0149 with PID 15252 (started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-25 11:00:58.321 [Test worker] CountryCityIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-25 11:00:59.946 [Test worker] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-25 11:01:00.083 [Test worker] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 123 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-25 11:01:00.481 [Test worker] GenericScope - BeanFactory id=70f2008a-9b95-356e-8ec4-377f477e2215
+[INFO ] 2023-01-25 11:01:02.601 [Test worker] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-25 11:01:02.601 [Test worker] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-25 11:01:02.602 [Test worker] VersionPrinter - 
+[INFO ] 2023-01-25 11:01:03.257 [Test worker] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-25 11:01:03.359 [Test worker] DbValidate - Successfully validated 6 migrations (execution time 00:00.060s)
+[INFO ] 2023-01-25 11:01:03.388 [Test worker] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-25 11:01:03.391 [Test worker] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-25 11:01:03.612 [Test worker] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-25 11:01:03.709 [Test worker] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-25 11:01:03.779 [Test worker] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-25 11:01:03.994 [Test worker] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-25 11:01:04.818 [Test worker] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-25 11:01:04.829 [Test worker] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-25 11:01:05.821 [Test worker] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-25 11:01:07.172 [Test worker] SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+[INFO ] 2023-01-25 11:01:07.173 [Test worker] TestDispatcherServlet - Initializing Servlet ''
+[INFO ] 2023-01-25 11:01:07.178 [Test worker] TestDispatcherServlet - Completed initialization in 5 ms
+[INFO ] 2023-01-25 11:01:07.915 [Test worker] CountryCityIntegrationTest - Started CountryCityIntegrationTest in 10.109 seconds (JVM running for 12.486)
+[INFO ] 2023-01-25 11:01:08.180 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-25 11:01:29.352 [Test worker] SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [eventservice.eventservice.integration.CountryCityIntegrationTest], using SpringBootContextLoader
+[INFO ] 2023-01-25 11:01:29.362 [Test worker] AbstractContextLoader - Could not detect default resource locations for test class [eventservice.eventservice.integration.CountryCityIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+[INFO ] 2023-01-25 11:01:29.362 [Test worker] AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [eventservice.eventservice.integration.CountryCityIntegrationTest]: CountryCityIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[INFO ] 2023-01-25 11:01:29.464 [Test worker] SpringBootTestContextBootstrapper - Found @SpringBootConfiguration eventservice.eventservice.EventServiceApplication for test class eventservice.eventservice.integration.CountryCityIntegrationTest
+[INFO ] 2023-01-25 11:01:29.552 [Test worker] SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO ] 2023-01-25 11:01:29.566 [Test worker] SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@11ebb1b6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@aaee2a2, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@f3021cb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4aaae508, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6009bea, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7bc6d27a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@75769ab0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6869a3b3, org.springframework.test.context.event.EventPublishingTestExecutionListener@6ab4ba9f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@27ace0b1, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@664e5dee, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@431f1eaf, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@cb03411, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4c59e45e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@58ec7116]
+[INFO ] 2023-01-25 11:01:29.911 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-25 11:01:29.948 [Test worker] CountryCityIntegrationTest - Starting CountryCityIntegrationTest using Java 11.0.17 on LTUGPLTP0149 with PID 20840 (started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-25 11:01:29.950 [Test worker] CountryCityIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-25 11:01:31.426 [Test worker] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-25 11:01:31.586 [Test worker] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 141 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-25 11:01:32.016 [Test worker] GenericScope - BeanFactory id=70f2008a-9b95-356e-8ec4-377f477e2215
+[INFO ] 2023-01-25 11:01:34.439 [Test worker] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-25 11:01:34.440 [Test worker] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-25 11:01:34.440 [Test worker] VersionPrinter - 
+[INFO ] 2023-01-25 11:01:35.014 [Test worker] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-25 11:01:35.100 [Test worker] DbValidate - Successfully validated 6 migrations (execution time 00:00.047s)
+[INFO ] 2023-01-25 11:01:35.123 [Test worker] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-25 11:01:35.125 [Test worker] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-25 11:01:35.381 [Test worker] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-25 11:01:35.481 [Test worker] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-25 11:01:35.554 [Test worker] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-25 11:01:35.799 [Test worker] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-25 11:01:37.063 [Test worker] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-25 11:01:37.079 [Test worker] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-25 11:01:38.140 [Test worker] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-25 11:01:39.653 [Test worker] SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+[INFO ] 2023-01-25 11:01:39.653 [Test worker] TestDispatcherServlet - Initializing Servlet ''
+[INFO ] 2023-01-25 11:01:39.656 [Test worker] TestDispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2023-01-25 11:01:40.470 [Test worker] CountryCityIntegrationTest - Started CountryCityIntegrationTest in 10.872 seconds (JVM running for 12.349)
+[INFO ] 2023-01-25 11:01:40.722 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-25 11:02:46.423 [Test worker] SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [eventservice.eventservice.integration.CountryCityIntegrationTest], using SpringBootContextLoader
+[INFO ] 2023-01-25 11:02:46.434 [Test worker] AbstractContextLoader - Could not detect default resource locations for test class [eventservice.eventservice.integration.CountryCityIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+[INFO ] 2023-01-25 11:02:46.434 [Test worker] AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [eventservice.eventservice.integration.CountryCityIntegrationTest]: CountryCityIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[INFO ] 2023-01-25 11:02:46.555 [Test worker] SpringBootTestContextBootstrapper - Found @SpringBootConfiguration eventservice.eventservice.EventServiceApplication for test class eventservice.eventservice.integration.CountryCityIntegrationTest
+[INFO ] 2023-01-25 11:02:46.650 [Test worker] SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO ] 2023-01-25 11:02:46.665 [Test worker] SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@11ebb1b6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@aaee2a2, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@f3021cb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4aaae508, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6009bea, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7bc6d27a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@75769ab0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6869a3b3, org.springframework.test.context.event.EventPublishingTestExecutionListener@6ab4ba9f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@27ace0b1, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@664e5dee, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@431f1eaf, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@cb03411, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4c59e45e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@58ec7116]
+[INFO ] 2023-01-25 11:02:47.016 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-25 11:02:47.052 [Test worker] CountryCityIntegrationTest - Starting CountryCityIntegrationTest using Java 11.0.17 on LTUGPLTP0149 with PID 15112 (started by martynas.slavinskas in C:\Users\martynas.slavinskas\Desktop\event-service\task6\event-service)
+[INFO ] 2023-01-25 11:02:47.055 [Test worker] CountryCityIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-25 11:02:48.085 [Test worker] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-25 11:02:48.172 [Test worker] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 79 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-25 11:02:48.412 [Test worker] GenericScope - BeanFactory id=70f2008a-9b95-356e-8ec4-377f477e2215
+[INFO ] 2023-01-25 11:02:49.765 [Test worker] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-25 11:02:49.765 [Test worker] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-25 11:02:49.766 [Test worker] VersionPrinter - 
+[INFO ] 2023-01-25 11:02:50.238 [Test worker] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-25 11:02:50.299 [Test worker] DbValidate - Successfully validated 6 migrations (execution time 00:00.031s)
+[INFO ] 2023-01-25 11:02:50.315 [Test worker] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-25 11:02:50.317 [Test worker] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-25 11:02:50.473 [Test worker] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-25 11:02:50.552 [Test worker] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-25 11:02:50.609 [Test worker] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-25 11:02:50.829 [Test worker] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-25 11:02:51.667 [Test worker] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-25 11:02:51.678 [Test worker] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-25 11:02:52.744 [Test worker] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-01-25 11:02:54.181 [Test worker] SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+[INFO ] 2023-01-25 11:02:54.182 [Test worker] TestDispatcherServlet - Initializing Servlet ''
+[INFO ] 2023-01-25 11:02:54.184 [Test worker] TestDispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2023-01-25 11:02:54.988 [Test worker] CountryCityIntegrationTest - Started CountryCityIntegrationTest in 8.288 seconds (JVM running for 9.823)
+[INFO ] 2023-01-25 11:02:55.268 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 import eventservice.eventservice.business.connection.CountryCityServiceConnection;
 import eventservice.eventservice.business.connection.model.CityDto;
 import eventservice.eventservice.business.connection.model.CountryDto;
+import eventservice.eventservice.business.handlers.exceptions.CountryNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -104,5 +106,14 @@ public class CountryCityIntegrationTest {
                 .andExpect(status().isOk())
                 .andReturn();
         assertEquals(eventJsonExpectedResult, result.getResponse().getContentAsString());
+    }
+
+    @Test
+    void getAllCitiesFromSpecificCountry_nonExistingCountry() throws Exception {
+        Mockito.when(countryCityServiceConnection.getCities(any())).thenThrow(CountryNotFoundException.class);
+        mockMvc.perform(get("/v1/cities/1").accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(result -> assertTrue(result.getResolvedException() instanceof CountryNotFoundException))
+                .andExpect(status().isNotFound());
     }
 }

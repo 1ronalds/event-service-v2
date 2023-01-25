@@ -3,6 +3,7 @@ package eventservice.eventservice.service;
 import eventservice.eventservice.business.connection.CountryCityServiceConnection;
 import eventservice.eventservice.business.connection.model.CityDto;
 import eventservice.eventservice.business.connection.model.CountryDto;
+import eventservice.eventservice.business.handlers.exceptions.CountryNotFoundException;
 import eventservice.eventservice.business.service.impl.CountryCityServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 
 class CountryCityServiceTest {
@@ -68,5 +70,12 @@ class CountryCityServiceTest {
     void getAllCitiesFromSpecificCountry_emptyList() {
         Mockito.when(countryCityServiceConnection.getCities(any())).thenReturn(Collections.emptyList());
         assertEquals(Collections.emptyList(), countryCityService.getAllCitiesFromSpecificCountry(1L));
+    }
+
+    @Test
+    void getCountryCities_nonExistingCountry(){
+        Mockito.when(countryCityServiceConnection.getCities(any()))
+                .thenThrow(CountryNotFoundException.class);
+        assertThrows(CountryNotFoundException.class, () -> countryCityService.getAllCitiesFromSpecificCountry(1L));
     }
 }

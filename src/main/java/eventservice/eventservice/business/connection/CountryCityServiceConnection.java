@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "countrycityservice", url = "localhost:8081/api/country-city-service", configuration = CustomErrorDecoder.class)
+@FeignClient(name = "${feignclient.name}", url = "${feignclient.url}", configuration = CustomErrorDecoder.class)
 public interface CountryCityServiceConnection {
 
     @GetMapping("/v1/countries")

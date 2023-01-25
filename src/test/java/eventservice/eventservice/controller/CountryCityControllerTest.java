@@ -2,6 +2,7 @@ package eventservice.eventservice.controller;
 
 import eventservice.eventservice.business.connection.model.CityDto;
 import eventservice.eventservice.business.connection.model.CountryDto;
+import eventservice.eventservice.business.handlers.exceptions.CountryNotFoundException;
 import eventservice.eventservice.business.service.CountryCityService;
 import eventservice.eventservice.web.controller.CountryCityController;
 import org.junit.jupiter.api.BeforeEach;
@@ -74,5 +75,12 @@ class CountryCityControllerTest {
         Mockito.when(countryCityService.getAllCitiesFromSpecificCountry(any()))
                 .thenReturn(Collections.emptyList());
         assertEquals(ResponseEntity.ok(Collections.emptyList()), countryCityController.getCountryCities(1L));
+    }
+
+    @Test
+    void getCountryCities_nonExistingCountry(){
+        Mockito.when(countryCityService.getAllCitiesFromSpecificCountry(any()))
+                .thenThrow(CountryNotFoundException.class);
+        assertThrows(CountryNotFoundException.class, () -> countryCityController.getCountryCities(1L));
     }
 }
