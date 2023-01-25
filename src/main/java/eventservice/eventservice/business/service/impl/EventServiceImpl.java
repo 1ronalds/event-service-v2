@@ -14,7 +14,7 @@ import eventservice.eventservice.business.handlers.exceptions.UserNotFoundExcept
 import eventservice.eventservice.business.mapper.EventMapStruct;
 import eventservice.eventservice.business.repository.EventRepository;
 import eventservice.eventservice.business.repository.UserRepository;
-import eventservice.eventservice.business.repository.model.DisplayType;
+import eventservice.eventservice.business.enums.DisplayType;
 import eventservice.eventservice.business.repository.model.EventEntity;
 import eventservice.eventservice.business.repository.model.EventTypeEntity;
 import eventservice.eventservice.business.repository.model.UserEntity;
