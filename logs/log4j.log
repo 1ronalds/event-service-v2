@@ -4914,3 +4914,953 @@ Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (usi
 [INFO ] 2023-01-31 10:50:55.849 [Test worker] UserServiceImpl - findUserDetails service method called
 [INFO ] 2023-01-31 10:50:55.874 [Test worker] TransactionContext - Rolled back transaction for test: [DefaultTestContext@43baf0b9 testClass = UserIntegrationTest, testInstance = eventservice.eventservice.integration.UserIntegrationTest@5c65001c, testMethod = deleteUser@UserIntegrationTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@ebd4486 testClass = UserIntegrationTest, locations = '{}', classes = '{class eventservice.eventservice.EventServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@4a8b5227, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@6e0d4a8, [ImportsContextCustomizer@69c413f7 key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@3e681bc, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@7a9c84a5, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@36c54a56, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@4efac082], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
 [INFO ] 2023-01-31 10:50:55.926 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-31 11:54:29.199 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-31 11:54:29.328 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 10120 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 11:54:29.339 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 11:54:29.582 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-31 11:54:29.583 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-31 11:54:33.938 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 11:54:34.239 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 242 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 11:54:35.218 [restartedMain] GenericScope - BeanFactory id=7940a216-a796-398e-ad9a-6245af90fbe3
+[INFO ] 2023-01-31 11:54:37.873 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-31 11:54:38.424 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8839 ms
+[INFO ] 2023-01-31 11:54:39.042 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 11:54:39.043 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 11:54:39.043 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 11:54:40.283 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 11:54:40.574 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.153s)
+[INFO ] 2023-01-31 11:54:40.622 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 11:54:40.627 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 11:54:41.044 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 11:54:41.372 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-31 11:54:42.150 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-31 11:54:42.593 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 11:54:45.126 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 11:54:45.150 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 11:54:46.744 [restartedMain] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authenticationServiceImpl' defined in file [C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main\eventservice\eventservice\business\service\impl\AuthenticationServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'java.lang.String' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+[INFO ] 2023-01-31 11:54:46.746 [restartedMain] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-31 11:54:46.838 [restartedMain] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2023-01-31 11:54:46.921 [restartedMain] LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in eventservice.eventservice.business.service.impl.AuthenticationServiceImpl required a bean of type 'java.lang.String' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'java.lang.String' in your configuration.
+
+[INFO ] 2023-01-31 12:10:44.614 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-31 12:10:44.768 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 14408 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 12:10:44.781 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 12:10:44.992 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-31 12:10:44.992 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-31 12:10:48.270 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 12:10:48.612 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 266 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 12:10:49.628 [restartedMain] GenericScope - BeanFactory id=7940a216-a796-398e-ad9a-6245af90fbe3
+[INFO ] 2023-01-31 12:10:51.954 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-31 12:10:52.410 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7416 ms
+[INFO ] 2023-01-31 12:10:52.953 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 12:10:52.954 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 12:10:52.954 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 12:10:53.783 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 12:10:53.963 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.079s)
+[INFO ] 2023-01-31 12:10:53.992 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 12:10:53.994 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 12:10:54.356 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 12:10:54.630 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-31 12:10:55.252 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-31 12:10:55.700 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 12:10:57.300 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 12:10:57.315 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 12:10:58.421 [restartedMain] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authenticationServiceImpl' defined in file [C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main\eventservice\eventservice\business\service\impl\AuthenticationServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'java.lang.String' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+[INFO ] 2023-01-31 12:10:58.422 [restartedMain] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-31 12:10:58.536 [restartedMain] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2023-01-31 12:10:58.603 [restartedMain] LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in eventservice.eventservice.business.service.impl.AuthenticationServiceImpl required a bean of type 'java.lang.String' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'java.lang.String' in your configuration.
+
+[INFO ] 2023-01-31 12:11:46.360 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-31 12:11:46.462 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 564 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 12:11:46.470 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 12:11:46.683 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-31 12:11:46.684 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-31 12:11:50.060 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 12:11:50.252 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 176 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 12:11:50.943 [restartedMain] GenericScope - BeanFactory id=7940a216-a796-398e-ad9a-6245af90fbe3
+[INFO ] 2023-01-31 12:11:52.809 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-31 12:11:53.239 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6552 ms
+[INFO ] 2023-01-31 12:11:53.840 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 12:11:53.841 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 12:11:53.842 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 12:11:54.802 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 12:11:54.947 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.079s)
+[INFO ] 2023-01-31 12:11:54.982 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 12:11:54.985 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 12:11:55.383 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 12:11:55.547 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-31 12:11:56.475 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-31 12:11:56.973 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 12:11:59.703 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 12:11:59.723 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 12:12:01.838 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[WARN ] 2023-01-31 12:12:01.971 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[WARN ] 2023-01-31 12:12:03.245 [restartedMain] UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 04d4deed-2a70-4d3b-9d0b-398cb53dab42
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[INFO ] 2023-01-31 12:12:03.572 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@54df6b25, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59a5fbf9, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d8b16e7, org.springframework.security.web.header.HeaderWriterFilter@6708559d, org.springframework.web.filter.CorsFilter@51790757, org.springframework.security.web.authentication.logout.LogoutFilter@2d0c2a97, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@17faca0c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16ff6f7a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@440a733, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2585730e, org.springframework.security.web.session.SessionManagementFilter@18ac127d, org.springframework.security.web.access.ExceptionTranslationFilter@463a4d98, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@249cc56d]
+[WARN ] 2023-01-31 12:12:05.085 [restartedMain] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+[INFO ] 2023-01-31 12:12:05.098 [restartedMain] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-31 12:12:05.149 [restartedMain] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2023-01-31 12:12:05.199 [restartedMain] LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+[INFO ] 2023-01-31 12:12:49.109 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-31 12:12:49.272 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 25392 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 12:12:49.293 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 12:12:49.455 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-31 12:12:49.455 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-31 12:12:53.363 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 12:12:53.596 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 213 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 12:12:54.421 [restartedMain] GenericScope - BeanFactory id=7940a216-a796-398e-ad9a-6245af90fbe3
+[INFO ] 2023-01-31 12:12:56.578 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2023-01-31 12:12:57.006 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7549 ms
+[INFO ] 2023-01-31 12:12:57.623 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 12:12:57.624 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 12:12:57.624 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 12:12:58.422 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 12:12:58.601 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.125s)
+[INFO ] 2023-01-31 12:12:58.632 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 12:12:58.634 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 12:12:58.958 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 12:12:59.190 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-31 12:12:59.667 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-31 12:12:59.994 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 12:13:01.772 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 12:13:01.786 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 12:13:03.960 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[WARN ] 2023-01-31 12:13:04.136 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[WARN ] 2023-01-31 12:13:05.812 [restartedMain] UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 98cb273d-23d9-4865-b9c3-2c0b773a0947
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[INFO ] 2023-01-31 12:13:06.164 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7792e29f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ca52f97, org.springframework.security.web.context.SecurityContextPersistenceFilter@2ea9a231, org.springframework.security.web.header.HeaderWriterFilter@48a42189, org.springframework.web.filter.CorsFilter@1f374892, org.springframework.security.web.authentication.logout.LogoutFilter@71db5eeb, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@759063b2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3499c1fd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4bf31f0c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c695173, org.springframework.security.web.session.SessionManagementFilter@1ee8a620, org.springframework.security.web.access.ExceptionTranslationFilter@3746c48a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@52785ed5]
+[WARN ] 2023-01-31 12:13:07.606 [restartedMain] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+[INFO ] 2023-01-31 12:13:07.630 [restartedMain] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-31 12:13:07.727 [restartedMain] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2023-01-31 12:13:07.813 [restartedMain] LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+[INFO ] 2023-01-31 12:14:54.078 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-31 12:14:54.176 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 13288 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 12:14:54.183 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 12:14:54.311 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-31 12:14:54.311 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-31 12:14:57.504 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 12:14:57.733 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 207 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 12:14:58.608 [restartedMain] GenericScope - BeanFactory id=7940a216-a796-398e-ad9a-6245af90fbe3
+[INFO ] 2023-01-31 12:15:00.712 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+[INFO ] 2023-01-31 12:15:01.101 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6788 ms
+[INFO ] 2023-01-31 12:15:01.625 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 12:15:01.625 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 12:15:01.626 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 12:15:02.441 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 12:15:02.585 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.081s)
+[INFO ] 2023-01-31 12:15:02.617 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 12:15:02.620 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 12:15:02.883 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 12:15:03.064 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-31 12:15:03.558 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-31 12:15:03.945 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 12:15:05.598 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 12:15:05.614 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 12:15:06.975 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[WARN ] 2023-01-31 12:15:07.076 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[WARN ] 2023-01-31 12:15:08.158 [restartedMain] UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 3c2b11f2-a47f-4c8b-8bef-5cbdc98f6803
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[INFO ] 2023-01-31 12:15:08.472 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@54df6b25, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59a5fbf9, org.springframework.security.web.context.SecurityContextPersistenceFilter@16ff6f7a, org.springframework.security.web.header.HeaderWriterFilter@75a11e64, org.springframework.web.filter.CorsFilter@51790757, org.springframework.security.web.authentication.logout.LogoutFilter@34930826, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@17faca0c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2159b572, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42104fdc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2585730e, org.springframework.security.web.session.SessionManagementFilter@5d2eff1, org.springframework.security.web.access.ExceptionTranslationFilter@6708559d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@249cc56d]
+[INFO ] 2023-01-31 12:15:09.757 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path '/api/event-service'
+[INFO ] 2023-01-31 12:15:11.208 [restartedMain] EventServiceApplication - Started EventServiceApplication in 18.074 seconds (JVM running for 20.318)
+[INFO ] 2023-01-31 12:17:27.974 [http-nio-8081-exec-3] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-31 12:17:27.977 [http-nio-8081-exec-3] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2023-01-31 12:36:40.768 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-31 12:36:40.941 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 13984 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 12:36:40.952 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 12:36:41.193 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-31 12:36:41.194 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-31 12:36:45.834 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 12:36:46.145 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 256 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 12:36:47.359 [restartedMain] GenericScope - BeanFactory id=7940a216-a796-398e-ad9a-6245af90fbe3
+[INFO ] 2023-01-31 12:36:49.795 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+[INFO ] 2023-01-31 12:36:50.383 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 9187 ms
+[INFO ] 2023-01-31 12:36:51.087 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 12:36:51.087 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 12:36:51.088 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 12:36:52.066 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 12:36:52.306 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.186s)
+[INFO ] 2023-01-31 12:36:52.357 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 12:36:52.361 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 12:36:52.878 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 12:36:53.118 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-31 12:36:53.873 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-31 12:36:54.360 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 12:36:56.608 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 12:36:56.631 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 12:36:58.602 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[WARN ] 2023-01-31 12:36:58.818 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[WARN ] 2023-01-31 12:37:00.413 [restartedMain] UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 787a3349-3b6a-4937-9432-752e9b546e62
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[INFO ] 2023-01-31 12:37:00.773 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47423cc2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@524f682d, org.springframework.security.web.context.SecurityContextPersistenceFilter@57318392, org.springframework.security.web.header.HeaderWriterFilter@2eeb5a74, org.springframework.web.filter.CorsFilter@3250f984, org.springframework.security.web.authentication.logout.LogoutFilter@5f7761e2, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1e93c14e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@192422e9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@63464dd2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@67e184c1, org.springframework.security.web.session.SessionManagementFilter@18f38aa4, org.springframework.security.web.access.ExceptionTranslationFilter@11f9281b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1bc561a3]
+[INFO ] 2023-01-31 12:37:02.308 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path '/api/event-service'
+[INFO ] 2023-01-31 12:37:03.385 [restartedMain] EventServiceApplication - Started EventServiceApplication in 24.011 seconds (JVM running for 26.789)
+[INFO ] 2023-01-31 12:37:04.940 [http-nio-8081-exec-2] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-31 12:37:04.942 [http-nio-8081-exec-2] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2023-01-31 12:47:51.258 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-31 12:47:51.369 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 5688 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 12:47:51.379 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 12:47:51.501 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-31 12:47:51.501 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-31 12:47:54.394 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 12:47:54.632 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 216 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 12:47:55.271 [restartedMain] GenericScope - BeanFactory id=7940a216-a796-398e-ad9a-6245af90fbe3
+[INFO ] 2023-01-31 12:47:56.871 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+[INFO ] 2023-01-31 12:47:57.220 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5717 ms
+[INFO ] 2023-01-31 12:47:57.679 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 12:47:57.679 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 12:47:57.680 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 12:47:58.540 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 12:47:58.683 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.085s)
+[INFO ] 2023-01-31 12:47:58.717 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 12:47:58.719 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 12:47:58.981 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 12:47:59.173 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-31 12:47:59.607 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-31 12:47:59.873 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 12:48:01.561 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 12:48:01.578 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 12:48:02.947 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[WARN ] 2023-01-31 12:48:03.043 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[WARN ] 2023-01-31 12:48:03.221 [restartedMain] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'securityConfiguration' defined in file [C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main\eventservice\eventservice\security\SecurityConfiguration.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'eventservice.eventservice.security.JwtTokenFilter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+[INFO ] 2023-01-31 12:48:03.227 [restartedMain] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-31 12:48:03.363 [restartedMain] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2023-01-31 12:48:03.429 [restartedMain] LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in eventservice.eventservice.security.SecurityConfiguration required a bean of type 'eventservice.eventservice.security.JwtTokenFilter' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'eventservice.eventservice.security.JwtTokenFilter' in your configuration.
+
+[INFO ] 2023-01-31 12:48:40.223 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-31 12:48:40.327 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 24480 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 12:48:40.336 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 12:48:40.449 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-31 12:48:40.449 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-31 12:48:42.904 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 12:48:43.090 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 166 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 12:48:43.719 [restartedMain] GenericScope - BeanFactory id=7396afd9-33ed-374c-a89c-b0d8a94a0e10
+[INFO ] 2023-01-31 12:48:45.387 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+[INFO ] 2023-01-31 12:48:45.710 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5259 ms
+[INFO ] 2023-01-31 12:48:46.120 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 12:48:46.121 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 12:48:46.121 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 12:48:46.819 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 12:48:46.954 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.072s)
+[INFO ] 2023-01-31 12:48:46.983 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 12:48:46.985 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 12:48:47.310 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 12:48:47.421 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-31 12:48:47.814 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-31 12:48:48.166 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 12:48:49.550 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 12:48:49.563 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 12:48:50.804 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[WARN ] 2023-01-31 12:48:50.882 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[WARN ] 2023-01-31 12:48:51.776 [restartedMain] UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 4fcd8113-72f3-4449-82a1-b67a4ecefec9
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[INFO ] 2023-01-31 12:48:52.034 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7cb0e093, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2ffb8263, org.springframework.security.web.context.SecurityContextPersistenceFilter@2907aa80, org.springframework.security.web.header.HeaderWriterFilter@21c4ab1c, org.springframework.web.filter.CorsFilter@6d9c30f8, org.springframework.security.web.authentication.logout.LogoutFilter@2b6ecaae, eventservice.eventservice.security.JwtTokenFilter@68e74e54, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4aa1f295, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e6fed18, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@126af4e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e89fd63, org.springframework.security.web.session.SessionManagementFilter@6f3ee3c1, org.springframework.security.web.access.ExceptionTranslationFilter@58aea15c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2c6da496]
+[INFO ] 2023-01-31 12:48:53.264 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path '/api/event-service'
+[INFO ] 2023-01-31 12:48:54.204 [restartedMain] EventServiceApplication - Started EventServiceApplication in 14.768 seconds (JVM running for 16.448)
+[INFO ] 2023-01-31 12:50:49.750 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-31 12:50:49.853 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 23908 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 12:50:49.861 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 12:50:49.979 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-31 12:50:49.980 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-31 12:50:52.949 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 12:50:53.167 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 197 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 12:50:53.849 [restartedMain] GenericScope - BeanFactory id=7396afd9-33ed-374c-a89c-b0d8a94a0e10
+[INFO ] 2023-01-31 12:50:55.747 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+[INFO ] 2023-01-31 12:50:56.092 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6109 ms
+[INFO ] 2023-01-31 12:50:56.537 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 12:50:56.537 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 12:50:56.539 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 12:50:57.352 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 12:50:57.511 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.092s)
+[INFO ] 2023-01-31 12:50:57.538 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 12:50:57.540 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 12:50:57.875 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 12:50:58.042 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-31 12:50:58.532 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-31 12:50:59.132 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 12:51:00.714 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 12:51:00.737 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 12:51:01.973 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[WARN ] 2023-01-31 12:51:02.061 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[WARN ] 2023-01-31 12:51:03.098 [restartedMain] UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 9713b900-443e-443b-a1ac-505f855905a4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[INFO ] 2023-01-31 12:51:03.380 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@18df2133, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@45509864, org.springframework.security.web.context.SecurityContextPersistenceFilter@6a1d22d, org.springframework.security.web.header.HeaderWriterFilter@ad45d20, org.springframework.web.filter.CorsFilter@36f945de, org.springframework.security.web.authentication.logout.LogoutFilter@5a80c6ac, eventservice.eventservice.security.JwtTokenFilter@407d6a53, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@b18ee82, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1861b95e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@bf962e8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5185ae5d, org.springframework.security.web.session.SessionManagementFilter@5ff6caec, org.springframework.security.web.access.ExceptionTranslationFilter@7ff51052, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6f82c68b]
+[INFO ] 2023-01-31 12:51:04.548 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path '/api/event-service'
+[INFO ] 2023-01-31 12:51:05.570 [restartedMain] EventServiceApplication - Started EventServiceApplication in 16.787 seconds (JVM running for 18.396)
+[INFO ] 2023-01-31 12:52:49.780 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-31 12:52:49.878 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 26880 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 12:52:49.885 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 12:52:49.982 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-31 12:52:49.983 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-31 12:52:52.504 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 12:52:52.686 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 166 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 12:52:53.336 [restartedMain] GenericScope - BeanFactory id=42c88f07-1159-3430-b679-22deadd5517e
+[INFO ] 2023-01-31 12:52:54.819 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+[INFO ] 2023-01-31 12:52:55.105 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5120 ms
+[INFO ] 2023-01-31 12:52:55.512 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 12:52:55.512 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 12:52:55.512 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 12:52:56.192 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 12:52:56.330 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.084s)
+[INFO ] 2023-01-31 12:52:56.358 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 12:52:56.360 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 12:52:56.616 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 12:52:56.751 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-31 12:52:57.193 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-31 12:52:57.539 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 12:52:59.004 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 12:52:59.016 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 12:53:00.121 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[WARN ] 2023-01-31 12:53:00.197 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[WARN ] 2023-01-31 12:53:01.091 [restartedMain] UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: f84403dd-89d3-4d8e-a73f-5ec56d635820
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[INFO ] 2023-01-31 12:53:01.374 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7cb0e093, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2ffb8263, org.springframework.security.web.context.SecurityContextPersistenceFilter@2907aa80, org.springframework.security.web.header.HeaderWriterFilter@21c4ab1c, org.springframework.web.filter.CorsFilter@6d9c30f8, org.springframework.security.web.authentication.logout.LogoutFilter@2b6ecaae, eventservice.eventservice.security.JwtTokenFilter@68e74e54, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4aa1f295, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e6fed18, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@126af4e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e89fd63, org.springframework.security.web.session.SessionManagementFilter@6f3ee3c1, org.springframework.security.web.access.ExceptionTranslationFilter@58aea15c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2c6da496]
+[WARN ] 2023-01-31 12:53:01.378 [restartedMain] AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'configure' defined in class path resource [eventservice/eventservice/security/SecurityConfiguration.class]: Invalid factory method 'configure' on class [eventservice.eventservice.security.SecurityConfiguration]: needs to have a non-void return type!
+[INFO ] 2023-01-31 12:53:01.389 [restartedMain] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-31 12:53:01.444 [restartedMain] ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2023-01-31 12:53:01.497 [restartedMain] SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'configure' defined in class path resource [eventservice/eventservice/security/SecurityConfiguration.class]: Invalid factory method 'configure' on class [eventservice.eventservice.security.SecurityConfiguration]: needs to have a non-void return type!
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:623) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.6.jar:2.7.6]
+	at eventservice.eventservice.EventServiceApplication.main(EventServiceApplication.java:12) ~[main/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.7.6.jar:2.7.6]
+[INFO ] 2023-01-31 13:05:19.692 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-01-31 13:05:19.800 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 1428 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 13:05:19.809 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 13:05:19.924 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2023-01-31 13:05:19.925 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2023-01-31 13:05:22.459 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 13:05:22.655 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 176 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 13:05:23.253 [restartedMain] GenericScope - BeanFactory id=13bcf1de-4485-38c2-b5c1-b00e97d322a2
+[INFO ] 2023-01-31 13:05:24.759 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+[INFO ] 2023-01-31 13:05:25.102 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5175 ms
+[INFO ] 2023-01-31 13:05:25.567 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 13:05:25.568 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 13:05:25.569 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 13:05:26.503 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 13:05:26.682 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.095s)
+[INFO ] 2023-01-31 13:05:26.710 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 13:05:26.712 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 13:05:26.942 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 13:05:27.097 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-01-31 13:05:27.603 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-01-31 13:05:28.009 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 13:05:29.595 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 13:05:29.608 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 13:05:30.934 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[WARN ] 2023-01-31 13:05:31.020 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[INFO ] 2023-01-31 13:05:32.244 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@c4210bb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1475d923, org.springframework.security.web.context.SecurityContextPersistenceFilter@3591c731, org.springframework.security.web.header.HeaderWriterFilter@3ce79a21, org.springframework.web.filter.CorsFilter@2bb848e8, org.springframework.security.web.authentication.logout.LogoutFilter@37c2fd85, eventservice.eventservice.security.JwtTokenFilter@6d8ef515, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@296f546b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a0cab7e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12d1eb7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e592a72, org.springframework.security.web.session.SessionManagementFilter@70681ede, org.springframework.security.web.access.ExceptionTranslationFilter@4088168a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5437e16d]
+[INFO ] 2023-01-31 13:05:33.400 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path '/api/event-service'
+[INFO ] 2023-01-31 13:05:34.489 [restartedMain] EventServiceApplication - Started EventServiceApplication in 15.679 seconds (JVM running for 17.538)
+[INFO ] 2023-01-31 13:06:34.039 [http-nio-8081-exec-3] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-01-31 13:06:34.042 [http-nio-8081-exec-3] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2023-01-31 13:07:05.408 [http-nio-8081-exec-2] UserController - findUserDetails controller method called with parameter username: wefwfe
+[INFO ] 2023-01-31 13:07:05.408 [http-nio-8081-exec-2] UserServiceImpl - findUserDetails service method called
+[WARN ] 2023-01-31 13:07:05.701 [http-nio-8081-exec-2] ExceptionHandlerExceptionResolver - Resolved [eventservice.eventservice.business.handlers.exceptions.UserNotFoundException]
+[INFO ] 2023-01-31 13:07:35.852 [http-nio-8081-exec-6] UserController - findUserDetails controller method called with parameter username: CasualMovieEnjoyer
+[INFO ] 2023-01-31 13:07:35.852 [http-nio-8081-exec-6] UserServiceImpl - findUserDetails service method called
+[INFO ] 2023-01-31 13:23:33.918 [File Watcher] LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 7 class path changes (0 additions, 7 deletions, 0 modifications)
+[INFO ] 2023-01-31 13:23:33.981 [Thread-1] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-31 13:23:34.604 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 1428 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 13:23:34.607 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 13:23:36.027 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 13:23:36.241 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 212 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 13:23:36.537 [restartedMain] GenericScope - BeanFactory id=bf5eb5ad-5755-3fb7-b772-9765426165b6
+[INFO ] 2023-01-31 13:23:36.819 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+[INFO ] 2023-01-31 13:23:36.962 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2342 ms
+[INFO ] 2023-01-31 13:23:37.165 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 13:23:37.165 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 13:23:37.166 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 13:23:37.217 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 13:23:37.438 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.193s)
+[INFO ] 2023-01-31 13:23:37.457 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 13:23:37.461 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 13:23:37.521 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 13:23:37.541 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 13:23:37.972 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 13:23:37.973 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 13:23:38.341 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[WARN ] 2023-01-31 13:23:38.396 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[WARN ] 2023-01-31 13:23:39.073 [restartedMain] UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 8ec311d2-abde-4a77-bdf6-5c0550e273b4
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[INFO ] 2023-01-31 13:23:39.138 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@c06876f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7b2ff52e, org.springframework.security.web.context.SecurityContextPersistenceFilter@3d7c98d5, org.springframework.security.web.header.HeaderWriterFilter@13ae3568, org.springframework.security.web.csrf.CsrfFilter@4c777394, org.springframework.security.web.authentication.logout.LogoutFilter@3895793, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@65d2f3fd, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5548f73a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@990bcad, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@55bf100c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@78cefc7c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1aa99378, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2482f2e3, org.springframework.security.web.session.SessionManagementFilter@4ae0a9ce, org.springframework.security.web.access.ExceptionTranslationFilter@79578412, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59b5cd6c]
+[INFO ] 2023-01-31 13:23:39.511 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path '/api/event-service'
+[INFO ] 2023-01-31 13:23:40.144 [restartedMain] EventServiceApplication - Started EventServiceApplication in 6.027 seconds (JVM running for 1103.192)
+[INFO ] 2023-01-31 13:23:40.157 [restartedMain] ConditionEvaluationDeltaLoggingListener - Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration matched:
+      - AllNestedConditions 2 matched 0 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter,org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) did not find any beans; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   UserDetailsServiceAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+      - @ConditionalOnBean (types: org.springframework.security.config.annotation.ObjectPostProcessor; SearchStrategy: all) found bean 'objectPostProcessor'; @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,org.springframework.security.oauth2.jwt.JwtDecoder,org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector,org.springframework.security.oauth2.client.registration.ClientRegistrationRepository,org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+[INFO ] 2023-01-31 13:23:42.333 [File Watcher] LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 7 class path changes (7 additions, 0 deletions, 0 modifications)
+[INFO ] 2023-01-31 13:23:42.387 [Thread-7] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-01-31 13:23:43.153 [restartedMain] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 1428 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-01-31 13:23:43.177 [restartedMain] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-01-31 13:23:44.862 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-01-31 13:23:44.975 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 111 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-01-31 13:23:45.159 [restartedMain] GenericScope - BeanFactory id=13bcf1de-4485-38c2-b5c1-b00e97d322a2
+[INFO ] 2023-01-31 13:23:45.357 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+[INFO ] 2023-01-31 13:23:45.438 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2243 ms
+[INFO ] 2023-01-31 13:23:45.520 [restartedMain] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-01-31 13:23:45.521 [restartedMain] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-01-31 13:23:45.521 [restartedMain] VersionPrinter - 
+[INFO ] 2023-01-31 13:23:45.568 [restartedMain] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-01-31 13:23:45.620 [restartedMain] DbValidate - Successfully validated 6 migrations (execution time 00:00.028s)
+[INFO ] 2023-01-31 13:23:45.639 [restartedMain] DbMigrate - Current version of schema `eventdb`: 1.0.6
+[INFO ] 2023-01-31 13:23:45.642 [restartedMain] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-01-31 13:23:45.724 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-01-31 13:23:45.758 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-01-31 13:23:46.118 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-01-31 13:23:46.118 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-01-31 13:23:46.696 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[WARN ] 2023-01-31 13:23:46.722 [restartedMain] OptionalLiveReloadServer - Unable to start LiveReload server
+[INFO ] 2023-01-31 13:23:47.369 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@fbf9e77, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31280346, org.springframework.security.web.context.SecurityContextPersistenceFilter@61669717, org.springframework.security.web.header.HeaderWriterFilter@76a00456, org.springframework.web.filter.CorsFilter@2b89114d, org.springframework.security.web.authentication.logout.LogoutFilter@76d9e829, eventservice.eventservice.security.JwtTokenFilter@3a25e366, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3032701, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65dab4eb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ab4f2e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a0cf754, org.springframework.security.web.session.SessionManagementFilter@422cfe0e, org.springframework.security.web.access.ExceptionTranslationFilter@23814af8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@bc6adf3]
+[INFO ] 2023-01-31 13:23:48.498 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path '/api/event-service'
+[INFO ] 2023-01-31 13:23:49.663 [restartedMain] EventServiceApplication - Started EventServiceApplication in 7.143 seconds (JVM running for 1112.712)
+[INFO ] 2023-01-31 13:23:49.668 [restartedMain] ConditionEvaluationDeltaLoggingListener - Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration:
+      Did not match:
+         - AllNestedConditions 1 matched 1 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter,org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) found beans of type 'org.springframework.security.web.SecurityFilterChain' defaultSecurityFilterChain; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   UserDetailsServiceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,org.springframework.security.oauth2.jwt.JwtDecoder,org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector,org.springframework.security.oauth2.client.registration.ClientRegistrationRepository,org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository; SearchStrategy: all) found beans of type 'org.springframework.security.authentication.AuthenticationManager' authenticationManager (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+[INFO ] 2023-01-31 13:26:29.241 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-31 13:26:29.349 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:26:29.388 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.389 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:26:29.397 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:29.434 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.434 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:26:29.435 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:29.453 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.454 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:26:29.454 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:29.472 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.473 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:26:29.473 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:26:29.474 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:26:29.489 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.490 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:26:29.490 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:29.506 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-31 13:26:29.521 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.522 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:26:29.522 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:29.523 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:29.543 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-31 13:26:29.587 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:26:29.611 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:26:29.612 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:26:29.612 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-31 13:26:29.647 [Test worker] EventServiceImpl - findEventInfo service method called
+[INFO ] 2023-01-31 13:26:29.659 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.660 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:26:29.660 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:26:29.663 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:26:29.682 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-31 13:26:29.695 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.695 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:26:29.696 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:29.697 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:29.709 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.710 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:26:29.711 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:26:29.723 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:26:29.753 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-31 13:26:29.762 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-31 13:26:29.781 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:26:29.782 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:26:29.782 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2001-11-12, dateTo: null
+[INFO ] 2023-01-31 13:26:29.795 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-31 13:26:29.796 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-31 13:26:29.805 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.805 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:26:29.805 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:29.821 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:26:29.831 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.831 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:26:29.831 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:29.846 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-31 13:26:29.847 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-31 13:26:29.848 [Test worker] EventServiceImpl - cityDoesExist service method called
+[INFO ] 2023-01-31 13:26:29.948 [Test worker] EventServiceImpl - findEventInfo service method called
+[INFO ] 2023-01-31 13:26:29.964 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-31 13:26:29.976 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:26:29.976 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:26:29.977 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-31 13:26:29.987 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.987 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:26:29.988 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:29.999 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:29.999 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:26:30.000 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:30.017 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:26:30.017 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-31 13:26:30.018 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2024-11-12
+[INFO ] 2023-01-31 13:26:30.030 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:30.031 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:26:30.031 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:30.032 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:30.040 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:30.041 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:26:30.041 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:26:30.061 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:26:30.062 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-31 13:26:30.063 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-31 13:26:30.075 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:26:30.076 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:26:30.076 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2001-11-12, dateTo: 2002-11-12
+[INFO ] 2023-01-31 13:26:30.086 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:26:30.086 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-31 13:26:30.087 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-31 13:26:30.102 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:30.102 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:26:30.102 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-31 13:26:30.112 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:30.113 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:26:30.113 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:30.114 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:26:30.125 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:30.126 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:26:30.126 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:26:30.134 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:26:30.134 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:26:30.135 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2002-11-12
+[INFO ] 2023-01-31 13:26:30.144 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:26:30.145 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:26:30.145 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:26:30.160 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:26:30.161 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:26:30.161 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-31 13:26:30.173 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-31 13:26:30.183 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:26:30.184 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-31 13:26:30.185 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-31 13:28:17.352 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-31 13:28:17.385 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-31 13:28:17.387 [Test worker] EventServiceImpl - cityDoesExist service method called
+[INFO ] 2023-01-31 13:28:52.879 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-31 13:28:52.982 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:28:53.009 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.010 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:28:53.017 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.076 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.076 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:28:53.077 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.102 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.102 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:28:53.103 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.125 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.125 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:28:53.126 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:28:53.128 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:28:53.153 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.154 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:28:53.154 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.205 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-31 13:28:53.222 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.223 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:28:53.223 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.224 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.243 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-31 13:28:53.276 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:28:53.297 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:28:53.298 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:28:53.298 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-31 13:28:53.329 [Test worker] EventServiceImpl - findEventInfo service method called
+[INFO ] 2023-01-31 13:28:53.342 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.343 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:28:53.343 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:28:53.345 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:28:53.362 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-31 13:28:53.379 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.379 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:28:53.379 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.381 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.396 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.397 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:28:53.397 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:28:53.410 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:28:53.425 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-31 13:28:53.427 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-31 13:28:53.443 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:28:53.443 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:28:53.443 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2001-11-12, dateTo: null
+[INFO ] 2023-01-31 13:28:53.453 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-31 13:28:53.454 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-31 13:28:53.464 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.464 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:28:53.465 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.483 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:28:53.492 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.493 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:28:53.493 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.506 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-31 13:28:53.507 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-31 13:28:53.508 [Test worker] EventServiceImpl - cityDoesExist service method called
+[INFO ] 2023-01-31 13:28:53.538 [Test worker] EventServiceImpl - findEventInfo service method called
+[INFO ] 2023-01-31 13:28:53.551 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-31 13:28:53.561 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:28:53.561 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:28:53.562 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-31 13:28:53.573 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.573 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:28:53.574 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.593 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.594 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:28:53.594 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.606 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:28:53.606 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-31 13:28:53.607 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2024-11-12
+[INFO ] 2023-01-31 13:28:53.625 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.626 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:28:53.628 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.630 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.640 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.641 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:28:53.641 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:28:53.651 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:28:53.651 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-31 13:28:53.651 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-31 13:28:53.670 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:28:53.671 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:28:53.672 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2001-11-12, dateTo: 2002-11-12
+[INFO ] 2023-01-31 13:28:53.687 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:28:53.688 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-31 13:28:53.688 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-31 13:28:53.704 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.704 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:28:53.704 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-31 13:28:53.718 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.719 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:28:53.719 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.722 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:28:53.733 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.734 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:28:53.734 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:28:53.742 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:28:53.743 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:28:53.743 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2002-11-12
+[INFO ] 2023-01-31 13:28:53.753 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:28:53.754 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:28:53.754 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:28:53.766 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:28:53.767 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:28:53.767 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-31 13:28:53.778 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-31 13:28:53.790 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:28:53.790 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-31 13:28:53.791 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-31 13:29:54.459 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-31 13:30:11.291 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-31 13:30:11.399 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:30:11.431 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.432 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:30:11.437 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.472 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.472 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:30:11.473 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.491 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.492 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:30:11.492 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.514 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.515 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:30:11.515 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:30:11.517 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:30:11.534 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.535 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:30:11.536 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.552 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-31 13:30:11.570 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.571 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:30:11.572 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.573 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.585 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-31 13:30:11.619 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:30:11.638 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:30:11.639 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:30:11.639 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-31 13:30:11.671 [Test worker] EventServiceImpl - findEventInfo service method called
+[INFO ] 2023-01-31 13:30:11.681 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.682 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:30:11.682 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:30:11.683 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:30:11.695 [Test worker] EventServiceImpl - editEvent service method called
+[INFO ] 2023-01-31 13:30:11.708 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.709 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:30:11.710 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.710 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.726 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.727 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:30:11.727 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:30:11.738 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:30:11.754 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-31 13:30:11.755 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-31 13:30:11.767 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:30:11.768 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:30:11.768 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: 2001-11-12, dateTo: null
+[INFO ] 2023-01-31 13:30:11.782 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-31 13:30:11.783 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-31 13:30:11.793 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.794 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:30:11.794 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.807 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:30:11.823 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.824 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:30:11.824 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.837 [Test worker] EventServiceImpl - saveEvent service method called
+[INFO ] 2023-01-31 13:30:11.838 [Test worker] EventServiceImpl - countryDoesExist service method called
+[INFO ] 2023-01-31 13:30:11.839 [Test worker] EventServiceImpl - cityDoesExist service method called
+[INFO ] 2023-01-31 13:30:11.862 [Test worker] EventServiceImpl - findEventInfo service method called
+[INFO ] 2023-01-31 13:30:11.873 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-31 13:30:11.881 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:30:11.881 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:30:11.882 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-31 13:30:11.897 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.898 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:30:11.898 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.907 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.907 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:30:11.908 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.922 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:30:11.922 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-31 13:30:11.923 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2020-11-12, dateTo: 2024-11-12
+[INFO ] 2023-01-31 13:30:11.940 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.941 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:30:11.942 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.944 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:11.956 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:11.957 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents display value parameter - attending
+[INFO ] 2023-01-31 13:30:11.957 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:30:11.968 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:30:11.969 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-31 13:30:11.970 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-31 13:30:11.979 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:30:11.979 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:30:11.980 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2001-11-12, dateTo: 2002-11-12
+[INFO ] 2023-01-31 13:30:11.992 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:30:11.992 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-31 13:30:11.993 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-31 13:30:12.010 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:12.010 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:30:12.011 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method parameter country is null
+[INFO ] 2023-01-31 13:30:12.023 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:12.024 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - all
+[INFO ] 2023-01-31 13:30:12.024 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:12.025 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: null, dateTimeTo = null
+[INFO ] 2023-01-31 13:30:12.036 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:12.036 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:30:12.036 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:30:12.045 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:30:12.046 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:30:12.046 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo contain a null value, dateFrom: null, dateTo: 2002-11-12
+[INFO ] 2023-01-31 13:30:12.061 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method called
+[INFO ] 2023-01-31 13:30:12.061 [Test worker] EventServiceImpl - findAllUserCreatedAndOrAttendingEvents service method display value parameter - mine
+[INFO ] 2023-01-31 13:30:12.061 [Test worker] EventServiceImpl - Variable values - dateTimeFrom: 2023-01-31T00:00, dateTimeTo = 2023-01-31T00:00
+[INFO ] 2023-01-31 13:30:12.076 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:30:12.076 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is not null
+[INFO ] 2023-01-31 13:30:12.077 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are not null, dateFrom: 2019-11-12, dateTo: 2020-11-12
+[INFO ] 2023-01-31 13:30:12.088 [Test worker] EventServiceImpl - deleteEvent method called
+[INFO ] 2023-01-31 13:30:12.100 [Test worker] EventServiceImpl - findAllPublicEvents service method called
+[INFO ] 2023-01-31 13:30:12.100 [Test worker] EventServiceImpl - findAllPublicEvents service method parameter city is null
+[INFO ] 2023-01-31 13:30:12.101 [Test worker] EventServiceImpl - findAllPublicEvents service method parameters dateFrom, dateTo are null
+[INFO ] 2023-01-31 13:30:41.520 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:33:05.174 [Test worker] EventServiceImpl - addEventAttendance service method called
+[INFO ] 2023-01-31 13:33:05.216 [Test worker] EventServiceImpl - The event with id 2 has not been found
+[INFO ] 2023-01-31 13:33:28.563 [Test worker] EventServiceImpl - addEventAttendance service method called

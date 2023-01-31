@@ -298,12 +298,13 @@ public class EventServiceImpl implements EventService {
 
     /**
      *
-     * @param userId - the id of the user, who is attending the event
+     * @param username - username, who is attending the event
      * @param eventId - the id of the event, which the user is attending
      */
     @Override
-    public void addEventAttendance(Long userId, Long eventId) {
+    public void addEventAttendance(String username, Long eventId) {
         log.info("addEventAttendance service method called");
+        Long userId = userService.findUserDetails(username).getId();
         Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
         Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
 
@@ -337,11 +338,12 @@ public class EventServiceImpl implements EventService {
 
     /**
      *
-     * @param userId - the id of the user, whose attendance is being removed
+     * @param username - username, whose attendance is being removed
      * @param eventId - the id of the event
      */
     @Override
-    public void removeEventAttendance(Long userId, Long eventId) {
+    public void removeEventAttendance(String username, Long eventId) {
+        Long userId = userService.findUserDetails(username).getId();
         log.info("removeEventAttendance service method called");
         Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
         Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);

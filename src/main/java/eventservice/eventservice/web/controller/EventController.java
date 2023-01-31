@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -72,6 +73,7 @@ public class EventController {
      * @param dateTo - date interval, when the event is taking place, end date
      * @return
      */
+    @PreAuthorize("(#username == authentication.principal.username) || hasAuthority('admin')")
     @GetMapping(value = "/events/user/{user_name}")
     public ResponseEntity<List<EventMinimalDto>> findAllUserCreatedAndOrAttendingEvents(
                                                             @ApiParam(value = "username of the user, which is used to filter out the user's events")
@@ -118,6 +120,7 @@ public class EventController {
             @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
             @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500)
     })
+    @PreAuthorize("(#username == authentication.principal.username)")
     @PostMapping("/events/user/{user-name}")
     public ResponseEntity<EventDto> saveEvent(@PathVariable("user-name") String userName, @Valid @RequestBody EventDto event) {
         log.info("saveEvent controller method is called with user name: {} and event DTO: {}", userName, event.toString());
@@ -137,6 +140,7 @@ public class EventController {
             @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500),
             @ApiResponse(code = 404, message = HTTPResponseMessages.HTTP_404),
     })
+    @PreAuthorize("(#username == authentication.principal.username) || hasAuthority('admin')")
     @PutMapping("/events/user/{user-name}/event/{event-id}")
     public ResponseEntity<EventDto> editEvent(@PathVariable("user-name") String username,
                                               @PathVariable("event-id") Long eventId,
@@ -147,7 +151,7 @@ public class EventController {
 
     /**
      * Deletes event
-     * @param userName
+     * @param username
      * @param eventId
      */
     @ApiOperation(value = "Deletes event")
@@ -156,17 +160,18 @@ public class EventController {
             @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
             @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500),
     })
+    @PreAuthorize("(#username == authentication.principal.username) || hasAuthority('admin')")
     @DeleteMapping("/events/user/{user-name}/event/{event-id}")
-    public ResponseEntity<Void> deleteEvent(@PathVariable("user-name") String userName,
+    public ResponseEntity<Void> deleteEvent(@PathVariable("user-name") String username,
                                             @PathVariable("event-id") Long eventId){
-        eventService.deleteEvent(userName, eventId);
-        log.info("deleteEvent is called with userName: {} and eventId: {}", userName, eventId);
+        eventService.deleteEvent(username, eventId);
+        log.info("deleteEvent is called with userName: {} and eventId: {}", username, eventId);
         return ResponseEntity.noContent().build();
     }
 
     /**
      *
-     * @param userId - the id of the user, who is attending the event
+     * @param username - username, who is attending the event
      * @param eventId - the id of the event
      * @return
      */
@@ -175,16 +180,17 @@ public class EventController {
             @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
             @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
     })
+    @PreAuthorize("(#username == authentication.principal.username) || hasAuthority('admin')")
     @PostMapping(value = "/attendance/user/{user_id}/event/{event_id}")
-    public ResponseEntity<Void> addEventAttendance(@PathVariable(name = "user_id") Long userId, @PathVariable(name = "event_id") Long eventId){
-        log.info("addEventAttendance controller method is called with userId: {} and eventId: {}", userId, eventId);
-        eventService.addEventAttendance(userId, eventId);
+    public ResponseEntity<Void> addEventAttendance(@PathVariable(name = "username") String username, @PathVariable(name = "event_id") Long eventId){
+        log.info("addEventAttendance controller method is called with username: {} and eventId: {}", username, eventId);
+        eventService.addEventAttendance(username, eventId);
         return ResponseEntity.ok().build();
     }
 
     /**
      *
-     * @param userId - the id of the user, whose attendance is being removed
+     * @param username - the id of the user, whose attendance is being removed
      * @param eventId - the id of the event
      * @return
      */
@@ -193,10 +199,10 @@ public class EventController {
             @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
             @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
     })
-    @DeleteMapping(value = "/attendance/user/{user_id}/event/{event_id}")
-    public ResponseEntity<Void> removeEventAttendance(@PathVariable(name = "user_id") Long userId, @PathVariable(name = "event_id") Long eventId){
-        log.info("removeEventAttendance controller method is called with userId: {} and eventId: {}", userId, eventId);
-        eventService.removeEventAttendance(userId, eventId);
+    @DeleteMapping(value = "/attendance/user/{username}/event/{event_id}")
+    public ResponseEntity<Void> removeEventAttendance(@PathVariable(name = "username") String username, @PathVariable(name = "event_id") Long eventId){
+        log.info("removeEventAttendance controller method is called with username: {} and eventId: {}", username, eventId);
+        eventService.removeEventAttendance(username, eventId);
         return ResponseEntity.ok().build();
     }
 }
