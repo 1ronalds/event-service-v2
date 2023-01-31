@@ -3,6 +3,7 @@ package eventservice.eventservice.business.handlers;
 
 import eventservice.eventservice.business.handlers.exceptions.CountryNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException;
+import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.DuplicateAttendanceEntryException;
 import eventservice.eventservice.business.handlers.exceptions.EmailExistsException;
