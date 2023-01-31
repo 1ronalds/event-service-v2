@@ -1,7 +1,7 @@
 package eventservice.eventservice.business.handlers;
 
-import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
 
+import eventservice.eventservice.business.handlers.exceptions.CountryNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.DateIntervalNotSpecifiedException;
 import eventservice.eventservice.business.handlers.exceptions.DuplicateAttendanceEntryException;
@@ -92,17 +92,18 @@ public class ExceptionHandlerMethods {
                 BAD_REQUEST, "Country must be specified", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
+
     @ExceptionHandler(InvalidDataException.class)
     protected ResponseEntity<ErrorModel> handleInvalidDataPost(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                BAD_REQUEST, "Invalid data format provided", request.getRequestURI());
+                "Bad request", "Invalid data format provided", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     protected ResponseEntity<ErrorModel> handleCannotDeleteDataConnected(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 400,
-                BAD_REQUEST, "Events have been created that have to be deleted to delete user", request.getRequestURI());
+                "Bad request", "Events have been created that have to be deleted to delete user", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.BAD_REQUEST);
     }
 
@@ -124,6 +125,13 @@ public class ExceptionHandlerMethods {
     protected ResponseEntity<ErrorModel> handleAttendanceNotFound(Exception ex, HttpServletRequest request) {
         ErrorModel errorModel = new ErrorModel(LocalDate.now(), 404,
                 NOT_FOUND, "There is no attendance entry for the user at this event", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(CountryNotFoundException.class)
+    protected ResponseEntity<ErrorModel> handleCountryNotFound(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 404,
+                "Not Found", "This country does not exist", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.NOT_FOUND);
     }
 
