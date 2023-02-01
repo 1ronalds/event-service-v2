@@ -9,12 +9,15 @@ import eventservice.eventservice.model.AuthenticationTokenDto;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
 @Service
+@Log4j2
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
 
@@ -28,6 +31,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public AuthenticationTokenDto authenticate(AuthenticationDto authenticationDto){
+        log.info("authenticate() service method called");
         AuthenticationTokenDto authenticationTokenDto = new AuthenticationTokenDto();
         if(checkCredentials(authenticationDto)){
             authenticationTokenDto.setAuthorization(
@@ -44,10 +48,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         return authenticationTokenDto;
     }
 
-    private Boolean checkCredentials(AuthenticationDto authenticationDto){
-        String password = userRepository.findByUsername(authenticationDto.getUsername())
+    private Boolean checkCredentials(AuthenticationDto authenticationDto) {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String passwordHash = userRepository.findByUsername(authenticationDto.getUsername())
                 .orElseThrow(InvalidUsernamePasswordException::new).getPassword();
-        return authenticationDto.getPassword().equals(password);
+        return bCryptPasswordEncoder.matches(authenticationDto.getPassword(), passwordHash);
     }
 
     private Boolean isAdmin(AuthenticationDto authenticationDto){

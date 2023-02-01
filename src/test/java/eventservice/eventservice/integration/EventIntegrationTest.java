@@ -916,10 +916,11 @@ public class EventIntegrationTest {
 
     @Test
     void removeEventAttendance_UserNotFoundException() throws Exception {
+        Mockito.when(userRepository.findByUsername("AdminUser")).thenReturn(Optional.empty());
         Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.empty());
 
-        mockMvc.perform(delete("/v1/attendance/user/1/event/7"))
+        mockMvc.perform(delete("/v1/attendance/user/AdminUser/event/7"))
                 .andDo(print())
                 .andExpect(status().isNotFound());
     }

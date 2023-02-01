@@ -21,7 +21,7 @@ CREATE TABLE user (
 user_id bigint(20) NOT NULL AUTO_INCREMENT,
 username varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL UNIQUE,
 email varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL UNIQUE,
-password varchar(20)CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+password varchar(100)CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 name varchar(20)CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 surname varchar(20)CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 role bigint(20) NOT NULL,

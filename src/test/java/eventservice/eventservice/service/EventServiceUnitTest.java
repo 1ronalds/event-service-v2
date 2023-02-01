@@ -610,6 +610,7 @@ public class EventServiceUnitTest {
 
     @Test
     void addEventAttendance_success(){
+        Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
         Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity2));
 
@@ -629,14 +630,14 @@ public class EventServiceUnitTest {
 
     @Test
     void addEventAttendance_UserNotFoundException(){
-        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
-        Mockito.when(userRepository.findById(any())).thenReturn(Optional.empty());
+        Mockito.when(userService.findUserDetails(any())).thenThrow(new UserNotFoundException());
 
         assertThrows(UserNotFoundException.class, () -> service.addEventAttendance("AdminUser", 2L));
     }
 
     @Test
     void removeEventAttendance_success(){
+        Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
         Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity2));
 
@@ -649,6 +650,7 @@ public class EventServiceUnitTest {
 
     @Test
     void removeEventAttendance_EventNotFoundException(){
+        Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
         Mockito.when(repository.findById(any())).thenReturn(Optional.empty());
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity2));
 
@@ -657,9 +659,18 @@ public class EventServiceUnitTest {
 
     @Test
     void removeEventAttendance_UserNotFoundException(){
-        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
-        Mockito.when(userRepository.findById(any())).thenReturn(Optional.empty());
+        Mockito.when(userService.findUserDetails(any())).thenThrow(new UserNotFoundException());
 
         assertThrows(UserNotFoundException.class, () -> service.removeEventAttendance("AdminUser", 2L));
     }
 }
+
+
+
+
+
+
+
+
+
+

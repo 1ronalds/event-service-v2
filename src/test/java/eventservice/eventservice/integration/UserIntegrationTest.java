@@ -2,8 +2,11 @@ package eventservice.eventservice.integration;
 
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import eventservice.eventservice.model.AuthenticationTokenDto;
 import eventservice.eventservice.model.RoleDto;
 import eventservice.eventservice.model.UserDto;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import javax.transaction.Transactional;
+import java.util.Date;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -28,6 +33,8 @@ public class UserIntegrationTest {
     UserDto userDto;
     String username;
 
+    String jwt;
+
     @BeforeEach
     void init() throws Exception {
         mockMvc.perform(delete("/v1/users/User111"));
@@ -35,13 +42,23 @@ public class UserIntegrationTest {
         RoleDto roleDto = new RoleDto(2L, "user");
         userDto = new UserDto(null, "User111", "user@user.com", "password123", "Adam", "Leo", roleDto);
         username = "User111";
+
+        //Generate JWT token for connection
+        jwt = "Bearer " + Jwts.builder()
+                        .setSubject(userDto.getUsername())
+                        .claim("role","user")
+                        .setExpiration(new Date(System.currentTimeMillis() + 36000))
+                        .signWith(SignatureAlgorithm.HS256, "${jwt.secret-key}")
+                        .compact();
     }
+
+
 
     @Test
     void findUserDetails() throws Exception {
         JsonMapper jm = JsonMapper.builder().configure(MapperFeature.USE_ANNOTATIONS, false).build();
         String userJson = jm.writeValueAsString(userDto);
-        mockMvc.perform(post("/v1/users").contentType(MediaType.APPLICATION_JSON).content(userJson));
+        mockMvc.perform(post("/v1/users").header("Authorization", jwt).contentType(MediaType.APPLICATION_JSON).content(userJson));
 
         mockMvc.perform(get("/v1/users/" + userDto.getUsername())
                         .accept(MediaType.APPLICATION_JSON))

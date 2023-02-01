@@ -73,7 +73,7 @@ public class EventController {
      * @param dateTo - date interval, when the event is taking place, end date
      * @return
      */
-    @PreAuthorize("(#username == authentication.principal.username) || hasAuthority('admin')")
+    @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
     @GetMapping(value = "/events/user/{user_name}")
     public ResponseEntity<List<EventMinimalDto>> findAllUserCreatedAndOrAttendingEvents(
                                                             @ApiParam(value = "username of the user, which is used to filter out the user's events")
@@ -120,7 +120,7 @@ public class EventController {
             @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
             @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500)
     })
-    @PreAuthorize("(#username == authentication.principal.username)")
+    @PreAuthorize("(#username == authentication.principal)")
     @PostMapping("/events/user/{user-name}")
     public ResponseEntity<EventDto> saveEvent(@PathVariable("user-name") String userName, @Valid @RequestBody EventDto event) {
         log.info("saveEvent controller method is called with user name: {} and event DTO: {}", userName, event.toString());
@@ -140,7 +140,7 @@ public class EventController {
             @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500),
             @ApiResponse(code = 404, message = HTTPResponseMessages.HTTP_404),
     })
-    @PreAuthorize("(#username == authentication.principal.username) || hasAuthority('admin')")
+    @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
     @PutMapping("/events/user/{user-name}/event/{event-id}")
     public ResponseEntity<EventDto> editEvent(@PathVariable("user-name") String username,
                                               @PathVariable("event-id") Long eventId,
@@ -160,7 +160,7 @@ public class EventController {
             @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
             @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500),
     })
-    @PreAuthorize("(#username == authentication.principal.username) || hasAuthority('admin')")
+    @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
     @DeleteMapping("/events/user/{user-name}/event/{event-id}")
     public ResponseEntity<Void> deleteEvent(@PathVariable("user-name") String username,
                                             @PathVariable("event-id") Long eventId){
@@ -180,7 +180,7 @@ public class EventController {
             @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
             @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
     })
-    @PreAuthorize("(#username == authentication.principal.username) || hasAuthority('admin')")
+    @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
     @PostMapping(value = "/attendance/user/{user_id}/event/{event_id}")
     public ResponseEntity<Void> addEventAttendance(@PathVariable(name = "username") String username, @PathVariable(name = "event_id") Long eventId){
         log.info("addEventAttendance controller method is called with username: {} and eventId: {}", username, eventId);
@@ -199,6 +199,7 @@ public class EventController {
             @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
             @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
     })
+    @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
     @DeleteMapping(value = "/attendance/user/{username}/event/{event_id}")
     public ResponseEntity<Void> removeEventAttendance(@PathVariable(name = "username") String username, @PathVariable(name = "event_id") Long eventId){
         log.info("removeEventAttendance controller method is called with username: {} and eventId: {}", username, eventId);

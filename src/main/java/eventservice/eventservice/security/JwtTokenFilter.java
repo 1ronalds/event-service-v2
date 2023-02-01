@@ -2,6 +2,7 @@ package eventservice.eventservice.security;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.servlet.FilterChain;
@@ -40,15 +41,24 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         String token = header.replace("Bearer ", "");
         try {
             Jws<Claims> claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
+
+            if(claims.getBody().getExpiration().before(new Date())){
+                SecurityContextHolder.clearContext();
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+                return;
+            }
+
             String username = claims.getBody().getSubject();
             String role = (String) claims.getBody().get("role");
+
             UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(username, null,
                     List.of(new SimpleGrantedAuthority(role)));
             SecurityContextHolder.getContext().setAuthentication(auth);
         } catch (JwtException e) {
-            throw new AuthorizationException();
+            SecurityContextHolder.clearContext();
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+            return;
         }
-
         filterChain.doFilter(request, response);
     }
 

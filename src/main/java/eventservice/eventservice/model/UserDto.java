@@ -29,7 +29,7 @@ public class UserDto {
     private String email;
 
     @NotNull
-    @Size(min = 8, max = 20, message="Password has to be 8-20 characters long")
+    @Size(min = 8, message="Password has to be 8-20 characters long")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ApiModelProperty(value = "password of account", example = "password1")
     private String password;

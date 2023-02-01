@@ -11,6 +11,7 @@ import eventservice.eventservice.model.RoleDto;
 import eventservice.eventservice.model.UserDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
@@ -51,6 +52,10 @@ public class UserServiceImpl implements UserService {
             throw new EmailExistsException();
         } else {
             user.setRole(new RoleDto(2L, "user"));
+
+            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
             return mapper.entityToDto(repository.save(mapper.dtoToEntity(user)));
         }
     }
@@ -74,6 +79,9 @@ public class UserServiceImpl implements UserService {
         
         if(user.getPassword() == null){
             user.setPassword(findUserDetails(username).getPassword());
+        } else {
+            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         }
         
 
