@@ -7,11 +7,14 @@ import eventservice.eventservice.business.repository.model.EventTypeEntity;
 import eventservice.eventservice.business.repository.model.RoleEntity;
 import eventservice.eventservice.business.repository.model.UserEntity;
 import eventservice.eventservice.model.EventMinimalDto;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -21,6 +24,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -49,11 +53,22 @@ public class AdminIntegrationTest {
     List<EventEntity> eventEntityList = new LinkedList<>();
     EventMinimalDto eventMinimalDto;
     UserEntity userEntity;
+    String adminJwt;
+
+    @Value("${jwt.secret-key}")
+    String secret;
+
 
     @BeforeEach
     void init(){
-        usernames.add("admin1");
+        adminJwt = "Bearer " + Jwts.builder()
+                .setSubject("Administrator")
+                .claim("role","admin")
+                .setExpiration(new Date(System.currentTimeMillis() + 3600000))
+                .signWith(SignatureAlgorithm.HS256, secret)
+                .compact();
 
+        usernames.add("admin1");
         RoleEntity roleEntity = new RoleEntity(1L, "admin");
         userEntity = new UserEntity(1L, "admin1", "admin@admin.com", "password123", "Adam", "Leo", roleEntity);
         EventTypeEntity publicTypeEntity = new EventTypeEntity(2L, "private");
@@ -66,6 +81,7 @@ public class AdminIntegrationTest {
     void findAllUsernames() throws Exception {
         Mockito.when(userRepository.findUsernames()).thenReturn(usernames);
         mockMvc.perform(get("/v1/admin/users")
+                        .header("Authorization", adminJwt)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -79,6 +95,7 @@ public class AdminIntegrationTest {
     void findAllEvents() throws Exception {
         Mockito.when(eventRepository.findAllByCountry(any())).thenReturn(eventEntityList);
         mockMvc.perform(get("/v1/admin/events?country=Latvia")
+                        .header("Authorization", adminJwt)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -89,6 +106,7 @@ public class AdminIntegrationTest {
     void changeRole() throws Exception {
         Mockito.when(userRepository.findByUsername(any())).thenReturn(Optional.ofNullable(userEntity));
         mockMvc.perform(put("/v1/admin/change-role/admin1?role=user")
+                        .header("Authorization", adminJwt)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isNoContent());

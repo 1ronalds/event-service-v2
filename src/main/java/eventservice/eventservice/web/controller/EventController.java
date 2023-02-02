@@ -111,7 +111,7 @@ public class EventController {
 
     /**
      * Saves new event and returns its full information to user
-     * @param userName
+     * @param username
      * @param event
      */
     @ApiOperation(value = "Saves new event and returns its full information to user")
@@ -121,10 +121,10 @@ public class EventController {
             @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500)
     })
     @PreAuthorize("(#username == authentication.principal)")
-    @PostMapping("/events/user/{user-name}")
-    public ResponseEntity<EventDto> saveEvent(@PathVariable("user-name") String userName, @Valid @RequestBody EventDto event) {
-        log.info("saveEvent controller method is called with user name: {} and event DTO: {}", userName, event.toString());
-        return ResponseEntity.ok(eventService.saveEvent(userName, event));
+    @PostMapping("/events/user/{username}")
+    public ResponseEntity<EventDto> saveEvent(@PathVariable("username") String username, @Valid @RequestBody EventDto event) {
+        log.info("saveEvent controller method is called with user name: {} and event DTO: {}", username, event.toString());
+        return ResponseEntity.ok(eventService.saveEvent(username, event));
     }
 
     /**
@@ -133,7 +133,7 @@ public class EventController {
      * @param eventId
      * @param event
      */
-    @ApiOperation(value = "Edits user information")
+    @ApiOperation(value = "Edits event information")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = HTTPResponseMessages.HTTP_200),
             @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
@@ -181,7 +181,7 @@ public class EventController {
             @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400),
     })
     @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
-    @PostMapping(value = "/attendance/user/{user_id}/event/{event_id}")
+    @PostMapping(value = "/attendance/user/{username}/event/{event_id}")
     public ResponseEntity<Void> addEventAttendance(@PathVariable(name = "username") String username, @PathVariable(name = "event_id") Long eventId){
         log.info("addEventAttendance controller method is called with username: {} and eventId: {}", username, eventId);
         eventService.addEventAttendance(username, eventId);
