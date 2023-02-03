@@ -35,7 +35,6 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public ArrayList<String> findAllUsernames(){
-        log.info("Service method findAllUsernames() called");
         return userRepository.findUsernames();
     }
 
@@ -50,8 +49,6 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public List<EventMinimalDto> findAllEvents(String country, String city, LocalDate dateFrom, LocalDate dateTo) {
         LocalDateTime dateTimeFrom, dateTimeTo;
-
-        log.info("Service method findAllEvents() called");
 
         if (city == null) {
             log.info("findAllPublicEvents service method parameter city is null");
@@ -111,8 +108,6 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public void changeRole(String username, String role){
-        log.info("Service method changeRole() called");
-
         UserEntity userEntity = userRepository.findByUsername(username).orElseThrow(UserNotFoundException::new);
         userEntity.setRoleEntity(role.equals("admin") ? ADMIN_ROLE : USER_ROLE);
         userRepository.save(userEntity);

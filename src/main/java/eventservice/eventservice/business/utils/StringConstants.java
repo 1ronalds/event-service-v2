@@ -6,4 +6,5 @@ public class StringConstants {
     public static final String FORBIDDEN = "Forbidden";
     public static final String PUBLIC = "public";
     public static final String PRIVATE = "private";
+    public static final String ADMIN = "admin";
 }

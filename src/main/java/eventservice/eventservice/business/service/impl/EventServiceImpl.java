@@ -70,7 +70,6 @@ public class EventServiceImpl implements EventService {
     public List<EventMinimalDto> findAllPublicEvents(String country, String city, LocalDate dateFrom, LocalDate dateTo) {
         LocalDateTime dateTimeFrom = dateFrom != null ? dateFrom.atStartOfDay() : null;
         LocalDateTime dateTimeTo = dateTo != null ? dateTo.atStartOfDay() : null;
-        log.info("findAllPublicEvents service method called");
         if (city == null) {
             log.info("findAllPublicEvents service method parameter city is null");
             if (dateFrom != null && dateTo != null) {
@@ -119,7 +118,6 @@ public class EventServiceImpl implements EventService {
     @Override
     public List<EventMinimalDto> findAllUserCreatedAndOrAttendingEvents(String username, String displayValue, String country,
                                                                         String city, LocalDate dateFrom, LocalDate dateTo) {
-        log.info("findAllUserCreatedAndOrAttendingEvents service method called");
         String display = displayValue.toUpperCase();
 
         switch (DisplayType.valueOf(display)) {
@@ -158,7 +156,6 @@ public class EventServiceImpl implements EventService {
         LocalDateTime dateTimeFrom = dateFrom != null ? dateFrom.atStartOfDay() : null;
         LocalDateTime dateTimeTo = dateTo != null ? dateTo.atStartOfDay() : null;
         List<EventEntity> events;
-        log.info("Variable values - dateTimeFrom: {}, dateTimeTo = {}", dateTimeFrom, dateTimeTo);
         switch(display) {
             case MINE:
                 if (dateTimeFrom != null && dateTimeTo != null){
@@ -188,7 +185,6 @@ public class EventServiceImpl implements EventService {
      */
     @Override
     public EventDto findEventInfo(Long eventId) {
-        log.info("findEventInfo service method called");
         return mapper.entityToDto(eventRepository.findById(eventId).orElseThrow(EventNotFoundException::new));
     }
 
@@ -200,7 +196,6 @@ public class EventServiceImpl implements EventService {
      */
     @Override
     public EventDto saveEvent(String username, EventDto event) {
-        log.info("saveEvent service method called");
         UserDto userDto = userService.findUserDetails(username);
         event.setOrganiser(new UserMinimalDto(userDto.getId(), userDto.getUsername()));
         event.setAttendeeCount(0);
@@ -224,7 +219,6 @@ public class EventServiceImpl implements EventService {
      * @return boolean
      */
     private Boolean countryDoesExist(String country) {
-        log.info("countryDoesExist service method called");
         return countryCityServiceConnection.getCountries().stream().anyMatch(c -> c.getCountry().equals(country));
     }
 
@@ -235,7 +229,6 @@ public class EventServiceImpl implements EventService {
      * @return boolean
      */
     private Boolean cityDoesExist(String country, String city) {
-        log.info("cityDoesExist service method called");
         Long countryId = countryCityServiceConnection.getCountries().stream()
                 .filter(c -> c.getCountry().equals(country)).findAny().orElseThrow().getCountryId();
 
@@ -251,7 +244,6 @@ public class EventServiceImpl implements EventService {
      */
     @Override
     public EventDto editEvent(String username, Long eventId, EventDto event) {
-        log.info("editEvent service method called");
         Optional<EventEntity> history = eventRepository.findById(eventId);
         if (history.isEmpty()) {
             throw new EventNotFoundException();
@@ -283,7 +275,6 @@ public class EventServiceImpl implements EventService {
      */
     @Override
     public void deleteEvent(String username, Long eventId) {
-        log.info("deleteEvent method called");
         Optional<EventEntity> event = eventRepository.findById(eventId);
         if (event.isEmpty()) {
             throw new EventNotFoundException();
@@ -298,12 +289,12 @@ public class EventServiceImpl implements EventService {
 
     /**
      *
-     * @param userId - the id of the user, who is attending the event
+     * @param username - username, who is attending the event
      * @param eventId - the id of the event, which the user is attending
      */
     @Override
-    public void addEventAttendance(Long userId, Long eventId) {
-        log.info("addEventAttendance service method called");
+    public void addEventAttendance(String username, Long eventId) {
+        Long userId = userService.findUserDetails(username).getId();
         Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
         Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
 
@@ -337,12 +328,12 @@ public class EventServiceImpl implements EventService {
 
     /**
      *
-     * @param userId - the id of the user, whose attendance is being removed
+     * @param username - username, whose attendance is being removed
      * @param eventId - the id of the event
      */
     @Override
-    public void removeEventAttendance(Long userId, Long eventId) {
-        log.info("removeEventAttendance service method called");
+    public void removeEventAttendance(String username, Long eventId) {
+        Long userId = userService.findUserDetails(username).getId();
         Optional<EventEntity> optionalEventEntity = eventRepository.findById(eventId);
         Optional<UserEntity> optionalUserEntity = userRepository.findById(userId);
 

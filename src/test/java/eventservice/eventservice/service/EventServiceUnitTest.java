@@ -538,7 +538,7 @@ public class EventServiceUnitTest {
         Mockito.when(countryCityServiceConnection.getCities(any())).thenReturn(cityList);
         Mockito.when(mapper.dtoToEntity(any(), any())).thenReturn(eventEntity1);
         Mockito.when(mapper.entityToDto(any())).thenReturn(eventDto);
-        assertEquals(eventDto, service.saveEvent("AdminUser", eventDto));
+        assertEquals(eventDto, service.saveEvent("User", eventDto));
     }
 
     @Test
@@ -546,7 +546,7 @@ public class EventServiceUnitTest {
         Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
         Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(Collections.emptyList());
         //passes empty list which is the same as filtering country list and finding no matches
-        assertThrows(InvalidDataException.class, () -> service.saveEvent("AdminUser", eventDto));
+        assertThrows(InvalidDataException.class, () -> service.saveEvent("User", eventDto));
     }
 
     @Test
@@ -554,7 +554,7 @@ public class EventServiceUnitTest {
         Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
         Mockito.when(countryCityServiceConnection.getCities(any())).thenReturn(Collections.emptyList());
         //passes empty list which is the same as filtering city list and finding no matches
-        assertThrows(InvalidDataException.class, () -> service.saveEvent("AdminUser", eventDto));
+        assertThrows(InvalidDataException.class, () -> service.saveEvent("User", eventDto));
     }
 
     @Test
@@ -610,10 +610,11 @@ public class EventServiceUnitTest {
 
     @Test
     void addEventAttendance_success(){
+        Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
         Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity2));
 
-        service.addEventAttendance(1L, 2L);
+        service.addEventAttendance("AdminUser", 2L);
 
         assertTrue(eventEntity.getAttendees().contains(userEntity2));
         assertEquals(2, eventEntity.getAttendeeCount());
@@ -621,27 +622,27 @@ public class EventServiceUnitTest {
 
     @Test
     void addEventAttendance_EventNotFoundException(){
+        Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
         Mockito.when(repository.findById(any())).thenReturn(Optional.empty());
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity2));
-
-        assertThrows(EventNotFoundException.class, () -> service.addEventAttendance(1L, 2L));
+        assertThrows(EventNotFoundException.class, () -> service.addEventAttendance("User", 2L));
     }
 
     @Test
     void addEventAttendance_UserNotFoundException(){
-        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
-        Mockito.when(userRepository.findById(any())).thenReturn(Optional.empty());
+        Mockito.when(userService.findUserDetails(any())).thenThrow(new UserNotFoundException());
 
-        assertThrows(UserNotFoundException.class, () -> service.addEventAttendance(1L, 2L));
+        assertThrows(UserNotFoundException.class, () -> service.addEventAttendance("AdminUser", 2L));
     }
 
     @Test
     void removeEventAttendance_success(){
+        Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
         Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity2));
 
-        service.addEventAttendance(1L, 2L);
-        service.removeEventAttendance(1L, 2L);
+        service.addEventAttendance("AdminUser", 2L);
+        service.removeEventAttendance("AdminUser", 2L);
 
         assertFalse(eventEntity.getAttendees().contains(userEntity2));
         assertEquals(1, eventEntity.getAttendeeCount());
@@ -649,17 +650,27 @@ public class EventServiceUnitTest {
 
     @Test
     void removeEventAttendance_EventNotFoundException(){
+        Mockito.when(userService.findUserDetails(any())).thenReturn(userDto);
         Mockito.when(repository.findById(any())).thenReturn(Optional.empty());
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity2));
 
-        assertThrows(EventNotFoundException.class, () -> service.removeEventAttendance(1L, 2L));
+        assertThrows(EventNotFoundException.class, () -> service.removeEventAttendance("AdminUser", 2L));
     }
 
     @Test
     void removeEventAttendance_UserNotFoundException(){
-        Mockito.when(repository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
-        Mockito.when(userRepository.findById(any())).thenReturn(Optional.empty());
+        Mockito.when(userService.findUserDetails(any())).thenThrow(new UserNotFoundException());
 
-        assertThrows(UserNotFoundException.class, () -> service.removeEventAttendance(1L, 2L));
+        assertThrows(UserNotFoundException.class, () -> service.removeEventAttendance("AdminUser", 2L));
     }
 }
+
+
+
+
+
+
+
+
+
+

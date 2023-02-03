@@ -11,6 +11,7 @@ import eventservice.eventservice.model.RoleDto;
 import eventservice.eventservice.model.UserDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
@@ -29,8 +30,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserDto findUserDetails(String username){
-        log.info("findUserDetails service method called");
-
         Optional<UserEntity> userDetailsEntity = repository.findByUsername(username);
         return userDetailsEntity.map(mapper::entityToDto).orElseThrow(UserNotFoundException::new);
     }
@@ -42,8 +41,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserDto saveUser(UserDto user){
-        log.info("saveUser service method called");
-
         //Invalid input exceptions are thrown in ExceptionHandlerMethods
         if(repository.findByUsername(user.getUsername()).isPresent()){
             throw new UsernameExistsException();
@@ -51,6 +48,10 @@ public class UserServiceImpl implements UserService {
             throw new EmailExistsException();
         } else {
             user.setRole(new RoleDto(2L, "user"));
+
+            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
             return mapper.entityToDto(repository.save(mapper.dtoToEntity(user)));
         }
     }
@@ -63,8 +64,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserDto editUser(UserDto user, String username){
-        log.info("editUser service method called");
-
         //UserNotFound exception is thrown by findUserDetails()
         //Invalid input exceptions are thrown in ExceptionHandlerMethods
         RoleDto role = findUserDetails(username).getRole();
@@ -74,6 +73,9 @@ public class UserServiceImpl implements UserService {
         
         if(user.getPassword() == null){
             user.setPassword(findUserDetails(username).getPassword());
+        } else {
+            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         }
         
 
@@ -86,8 +88,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void deleteUser(String username){
-        log.info("deleteUser service method called");
-
         //UserNotFound exception is thrown by findUserDetails()
         Long id = findUserDetails(username).getId();
         repository.deleteById(id);
