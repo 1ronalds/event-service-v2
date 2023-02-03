@@ -41,7 +41,6 @@ public class AdminController {
     })
     @GetMapping("/users")
     public ResponseEntity<ArrayList<String>> findAllUsernames(){
-        log.info("Controller method findAllUsernames() called");
         return ResponseEntity.ok(adminService.findAllUsernames());
     }
 
@@ -67,8 +66,6 @@ public class AdminController {
                                                                      @RequestParam(name = "date_from", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dateFrom,
                                                                      @ApiParam(value = "The date to which events will take place")
                                                                      @RequestParam(name = "date_to", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate dateTo){
-        log.info("findAllPublicEvents controller method called with parameters " +
-                "country: {}, city: {}, date_from: {}, date_to: {} ", country, city, dateFrom, dateTo);
         return ResponseEntity.ok(adminService.findAllEvents(country, city, dateFrom, dateTo));
     }
 
@@ -86,7 +83,6 @@ public class AdminController {
     @PutMapping("/change-role/{username}")
     public ResponseEntity<Void> changeRole(@ApiParam(value="Username whose role has to be changed") @PathVariable String username,
                                            @ApiParam(value="New role") @RequestParam(name = "role", required = true) String role){
-        log.info("changeRole() controller method called");
         adminService.changeRole(username, role);
         return ResponseEntity.noContent().build();
     }

@@ -21952,3 +21952,134 @@ Identify and stop the process that's listening on port 10000 or configure this a
 [INFO ] 2023-02-02 16:59:15.618 [Test worker] TestDispatcherServlet - Completed initialization in 3 ms
 [INFO ] 2023-02-02 16:59:17.229 [Test worker] AuthorizationIntegrationTest - Started AuthorizationIntegrationTest in 20.511 seconds (JVM running for 25.1)
 [INFO ] 2023-02-02 16:59:20.307 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2023-02-03 09:52:16.246 [Test worker] SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [eventservice.eventservice.integration.AuthorizationIntegrationTest], using SpringBootContextLoader
+[INFO ] 2023-02-03 09:52:16.276 [Test worker] AbstractContextLoader - Could not detect default resource locations for test class [eventservice.eventservice.integration.AuthorizationIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+[INFO ] 2023-02-03 09:52:16.279 [Test worker] AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [eventservice.eventservice.integration.AuthorizationIntegrationTest]: AuthorizationIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[INFO ] 2023-02-03 09:52:16.579 [Test worker] SpringBootTestContextBootstrapper - Found @SpringBootConfiguration eventservice.eventservice.EventServiceApplication for test class eventservice.eventservice.integration.AuthorizationIntegrationTest
+[INFO ] 2023-02-03 09:52:16.827 [Test worker] SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[INFO ] 2023-02-03 09:52:16.861 [Test worker] SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3e7dfd44, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@723ed581, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6b760460, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@796065aa, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@28a6301f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2c306a57, org.springframework.test.context.transaction.TransactionalTestExecutionListener@773e2eb5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@d8948cd, org.springframework.test.context.event.EventPublishingTestExecutionListener@1436a7ab, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3b7b05a8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3d36dff4, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7abe27bf, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5b94ccbc, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@38a1c423, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@336365bc]
+[INFO ] 2023-02-03 09:52:17.630 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-02-03 09:52:17.790 [Test worker] AuthorizationIntegrationTest - Starting AuthorizationIntegrationTest using Java 17.0.4.1 on LVAGPLTP4099 with PID 7640 (started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-02-03 09:52:17.802 [Test worker] AuthorizationIntegrationTest - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-02-03 09:52:21.584 [Test worker] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-02-03 09:52:21.868 [Test worker] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 254 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-02-03 09:52:22.869 [Test worker] GenericScope - BeanFactory id=584e1711-d592-3f5a-bae3-cc81be221245
+[INFO ] 2023-02-03 09:52:24.811 [Test worker] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-02-03 09:52:24.811 [Test worker] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-02-03 09:52:24.812 [Test worker] VersionPrinter - 
+[INFO ] 2023-02-03 09:52:25.984 [Test worker] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-02-03 09:52:26.592 [Test worker] DbValidate - Successfully validated 7 migrations (execution time 00:00.425s)
+[INFO ] 2023-02-03 09:52:26.621 [Test worker] DbMigrate - Current version of schema `eventdb`: 1.0.7
+[INFO ] 2023-02-03 09:52:26.624 [Test worker] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-02-03 09:52:28.389 [Test worker] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-02-03 09:52:28.790 [Test worker] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-02-03 09:53:31.664 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-02-03 09:53:31.794 [main] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 20908 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-02-03 09:53:31.803 [main] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-02-03 09:53:34.413 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-02-03 09:53:34.632 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 198 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-02-03 09:53:35.339 [main] GenericScope - BeanFactory id=5adebbdb-8af9-3348-9cc0-74914bb35953
+[INFO ] 2023-02-03 09:53:37.353 [main] TomcatWebServer - Tomcat initialized with port(s): 10000 (http)
+[INFO ] 2023-02-03 09:53:37.831 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5923 ms
+[INFO ] 2023-02-03 09:53:38.296 [main] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-02-03 09:53:38.296 [main] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-02-03 09:53:38.296 [main] VersionPrinter - 
+[INFO ] 2023-02-03 09:53:39.151 [main] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-02-03 09:53:39.266 [main] DbValidate - Successfully validated 7 migrations (execution time 00:00.065s)
+[INFO ] 2023-02-03 09:53:39.290 [main] DbMigrate - Current version of schema `eventdb`: 1.0.7
+[INFO ] 2023-02-03 09:53:39.292 [main] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-02-03 09:53:39.523 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-02-03 09:53:39.628 [main] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-02-03 09:53:40.087 [main] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-02-03 09:53:40.358 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-02-03 09:53:42.160 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-02-03 09:53:42.173 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-02-03 09:53:43.617 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-02-03 09:53:45.087 [main] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@786e2c5e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75452b01, org.springframework.security.web.context.SecurityContextPersistenceFilter@2ffc9be, org.springframework.security.web.header.HeaderWriterFilter@33e6176b, org.springframework.web.filter.CorsFilter@23b260ed, org.springframework.security.web.authentication.logout.LogoutFilter@77c8b276, eventservice.eventservice.security.JwtTokenFilter@4536a715, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@30ae6721, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@717b4de2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d5b160, org.springframework.security.web.session.SessionManagementFilter@5502f74c, org.springframework.security.web.access.ExceptionTranslationFilter@7641d70, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1b6982e4]
+[INFO ] 2023-02-03 09:53:46.294 [main] TomcatWebServer - Tomcat started on port(s): 10000 (http) with context path '/api/event-service'
+[INFO ] 2023-02-03 09:53:47.340 [main] EventServiceApplication - Started EventServiceApplication in 16.595 seconds (JVM running for 18.135)
+[INFO ] 2023-02-03 09:53:57.371 [http-nio-10000-exec-2] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-02-03 09:53:57.373 [http-nio-10000-exec-2] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2023-02-03 09:53:57.558 [http-nio-10000-exec-2] LoggingAspect - Calling class org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$MethodSignatureImpl.authenticateUser with parameters [AuthenticationDto(username=Administrator, password=@#$sadd:):))]
+[INFO ] 2023-02-03 09:54:04.206 [http-nio-10000-exec-3] LoggingAspect - Calling class org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint$MethodSignatureImpl.authenticateUser with parameters [AuthenticationDto(username=Administrator, password=@#$sad:):))]
+[INFO ] 2023-02-03 09:56:41.743 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-02-03 09:56:41.891 [main] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 16508 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-02-03 09:56:41.901 [main] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-02-03 09:56:45.218 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-02-03 09:56:45.486 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 245 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-02-03 09:56:46.307 [main] GenericScope - BeanFactory id=5adebbdb-8af9-3348-9cc0-74914bb35953
+[INFO ] 2023-02-03 09:56:48.180 [main] TomcatWebServer - Tomcat initialized with port(s): 10000 (http)
+[INFO ] 2023-02-03 09:56:48.784 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6726 ms
+[INFO ] 2023-02-03 09:56:49.442 [main] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-02-03 09:56:49.444 [main] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-02-03 09:56:49.445 [main] VersionPrinter - 
+[INFO ] 2023-02-03 09:56:50.427 [main] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-02-03 09:56:50.606 [main] DbValidate - Successfully validated 7 migrations (execution time 00:00.106s)
+[INFO ] 2023-02-03 09:56:50.641 [main] DbMigrate - Current version of schema `eventdb`: 1.0.7
+[INFO ] 2023-02-03 09:56:50.644 [main] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-02-03 09:56:51.050 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-02-03 09:56:51.260 [main] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-02-03 09:56:51.839 [main] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-02-03 09:56:52.287 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-02-03 09:56:54.240 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-02-03 09:56:54.261 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-02-03 09:56:56.037 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-02-03 09:56:58.548 [main] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@697797e4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38cbbd0b, org.springframework.security.web.context.SecurityContextPersistenceFilter@4ee9daf5, org.springframework.security.web.header.HeaderWriterFilter@717b4de2, org.springframework.web.filter.CorsFilter@56a34c0e, org.springframework.security.web.authentication.logout.LogoutFilter@1147a8de, eventservice.eventservice.security.JwtTokenFilter@4522d793, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29ff84fa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@156b31d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@16750a5e, org.springframework.security.web.session.SessionManagementFilter@4b90f49d, org.springframework.security.web.access.ExceptionTranslationFilter@2ffc9be, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@23b260ed]
+[INFO ] 2023-02-03 09:57:00.263 [main] TomcatWebServer - Tomcat started on port(s): 10000 (http) with context path '/api/event-service'
+[INFO ] 2023-02-03 09:57:01.422 [main] EventServiceApplication - Started EventServiceApplication in 21.051 seconds (JVM running for 23.361)
+[INFO ] 2023-02-03 09:59:17.342 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-02-03 09:59:17.463 [main] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 18360 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-02-03 09:59:17.473 [main] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-02-03 09:59:20.443 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-02-03 09:59:20.640 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 178 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-02-03 09:59:21.325 [main] GenericScope - BeanFactory id=5adebbdb-8af9-3348-9cc0-74914bb35953
+[INFO ] 2023-02-03 09:59:23.097 [main] TomcatWebServer - Tomcat initialized with port(s): 10000 (http)
+[INFO ] 2023-02-03 09:59:23.611 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6006 ms
+[INFO ] 2023-02-03 09:59:24.123 [main] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-02-03 09:59:24.124 [main] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-02-03 09:59:24.124 [main] VersionPrinter - 
+[INFO ] 2023-02-03 09:59:24.947 [main] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-02-03 09:59:25.077 [main] DbValidate - Successfully validated 7 migrations (execution time 00:00.080s)
+[INFO ] 2023-02-03 09:59:25.107 [main] DbMigrate - Current version of schema `eventdb`: 1.0.7
+[INFO ] 2023-02-03 09:59:25.109 [main] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-02-03 09:59:25.370 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-02-03 09:59:25.535 [main] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-02-03 09:59:26.014 [main] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-02-03 09:59:26.381 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-02-03 09:59:27.797 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-02-03 09:59:27.814 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-02-03 09:59:29.317 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-02-03 09:59:31.088 [main] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@786e2c5e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75452b01, org.springframework.security.web.context.SecurityContextPersistenceFilter@2ffc9be, org.springframework.security.web.header.HeaderWriterFilter@33e6176b, org.springframework.web.filter.CorsFilter@23b260ed, org.springframework.security.web.authentication.logout.LogoutFilter@77c8b276, eventservice.eventservice.security.JwtTokenFilter@64dfb31d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@30ae6721, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@717b4de2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d5b160, org.springframework.security.web.session.SessionManagementFilter@5502f74c, org.springframework.security.web.access.ExceptionTranslationFilter@7641d70, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1b6982e4]
+[INFO ] 2023-02-03 09:59:32.358 [main] TomcatWebServer - Tomcat started on port(s): 10000 (http) with context path '/api/event-service'
+[INFO ] 2023-02-03 09:59:33.356 [main] EventServiceApplication - Started EventServiceApplication in 16.974 seconds (JVM running for 18.997)
+[INFO ] 2023-02-03 09:59:40.483 [http-nio-10000-exec-4] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-02-03 09:59:40.486 [http-nio-10000-exec-4] DispatcherServlet - Completed initialization in 2 ms
+[INFO ] 2023-02-03 09:59:40.650 [http-nio-10000-exec-4] LoggingAspect - Calling eventservice.eventservice.web.controller.AuthenticationController.authenticateUser with parameters [AuthenticationDto(username=Administrator, password=@#$sad:):))]
+[INFO ] 2023-02-03 10:04:04.899 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-02-03 10:04:05.013 [main] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 3888 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-02-03 10:04:05.023 [main] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-02-03 10:04:07.949 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-02-03 10:04:08.184 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 214 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-02-03 10:04:08.779 [main] GenericScope - BeanFactory id=2814f007-25ad-3641-94e8-af8c5c757b34
+[INFO ] 2023-02-03 10:04:10.457 [main] TomcatWebServer - Tomcat initialized with port(s): 10000 (http)
+[INFO ] 2023-02-03 10:04:10.963 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5814 ms
+[INFO ] 2023-02-03 10:04:11.468 [main] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-02-03 10:04:11.468 [main] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-02-03 10:04:11.468 [main] VersionPrinter - 
+[INFO ] 2023-02-03 10:04:12.368 [main] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-02-03 10:04:12.568 [main] DbValidate - Successfully validated 7 migrations (execution time 00:00.145s)
+[INFO ] 2023-02-03 10:04:12.599 [main] DbMigrate - Current version of schema `eventdb`: 1.0.7
+[INFO ] 2023-02-03 10:04:12.601 [main] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-02-03 10:04:12.856 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-02-03 10:04:13.023 [main] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-02-03 10:04:13.504 [main] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-02-03 10:04:13.852 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-02-03 10:04:15.363 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-02-03 10:04:15.381 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-02-03 10:04:16.980 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-02-03 10:04:18.862 [main] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5910c67e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1967c032, org.springframework.security.web.context.SecurityContextPersistenceFilter@30ae6721, org.springframework.security.web.header.HeaderWriterFilter@7cc5bdbd, org.springframework.web.filter.CorsFilter@7a6ade2c, org.springframework.security.web.authentication.logout.LogoutFilter@670199c5, eventservice.eventservice.security.JwtTokenFilter@35dcd032, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d35d84a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@626edbe0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d7d920b, org.springframework.security.web.session.SessionManagementFilter@7b57587e, org.springframework.security.web.access.ExceptionTranslationFilter@6b02909d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5f1d270a]
+[INFO ] 2023-02-03 10:04:20.301 [main] TomcatWebServer - Tomcat started on port(s): 10000 (http) with context path '/api/event-service'
+[INFO ] 2023-02-03 10:04:21.422 [main] EventServiceApplication - Started EventServiceApplication in 17.594 seconds (JVM running for 19.548)
+[INFO ] 2023-02-03 10:04:35.243 [http-nio-10000-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-02-03 10:04:35.245 [http-nio-10000-exec-1] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2023-02-03 10:04:35.473 [http-nio-10000-exec-1] Logging - Calling eventservice.eventservice.web.controller.AuthenticationController.authenticateUser() with parameters: [AuthenticationDto(username=Administrator, password=@#$sad:):))]

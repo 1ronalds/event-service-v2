@@ -43,7 +43,6 @@ public class UserController {
     @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
     @GetMapping("/users/{username}")
     public ResponseEntity<UserDto> findUserDetails(@ApiParam(value = "username") @PathVariable String username){
-        log.info("findUserDetails controller method called with parameter username: {}", username);
         return ResponseEntity.ok(service.findUserDetails(username));
     }
 
@@ -59,7 +58,6 @@ public class UserController {
     })
     @PostMapping("/users")
     public ResponseEntity<UserDto> saveUser(@Valid @ApiParam(value = "UserDto") @RequestBody UserDto user){
-        log.info("saveUser controller method called with request body: {}", user);
         return ResponseEntity.ok(service.saveUser(user));
     }
 
@@ -79,7 +77,6 @@ public class UserController {
     @PutMapping("/users/{username}")
     public ResponseEntity<UserDto> editUser(@ApiParam(value = "username") @PathVariable String username,
                                             @Valid @ApiParam(value="userDto") @RequestBody UserDto user){
-        log.info("editUser controller method called with parameter username: {} and request body: {}", username, user);
         return ResponseEntity.ok(service.editUser(user, username));
     }
 
@@ -96,7 +93,6 @@ public class UserController {
     @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
     @DeleteMapping("/users/{username}")
     public ResponseEntity<Void> deleteUser(@ApiParam(value="username") @PathVariable String username){
-        log.info("deleteUser controller method called with parameter username: {}", username);
         service.deleteUser(username);
         return ResponseEntity.noContent().build();
     }

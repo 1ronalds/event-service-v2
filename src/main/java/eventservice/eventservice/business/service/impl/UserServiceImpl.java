@@ -30,8 +30,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserDto findUserDetails(String username){
-        log.info("findUserDetails service method called");
-
         Optional<UserEntity> userDetailsEntity = repository.findByUsername(username);
         return userDetailsEntity.map(mapper::entityToDto).orElseThrow(UserNotFoundException::new);
     }
@@ -43,8 +41,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserDto saveUser(UserDto user){
-        log.info("saveUser service method called");
-
         //Invalid input exceptions are thrown in ExceptionHandlerMethods
         if(repository.findByUsername(user.getUsername()).isPresent()){
             throw new UsernameExistsException();
@@ -68,8 +64,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserDto editUser(UserDto user, String username){
-        log.info("editUser service method called");
-
         //UserNotFound exception is thrown by findUserDetails()
         //Invalid input exceptions are thrown in ExceptionHandlerMethods
         RoleDto role = findUserDetails(username).getRole();
@@ -94,8 +88,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void deleteUser(String username){
-        log.info("deleteUser service method called");
-
         //UserNotFound exception is thrown by findUserDetails()
         Long id = findUserDetails(username).getId();
         repository.deleteById(id);

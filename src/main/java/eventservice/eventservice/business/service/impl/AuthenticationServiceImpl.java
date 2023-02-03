@@ -31,8 +31,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public AuthenticationTokenDto authenticate(AuthenticationDto authenticationDto){
-        System.out.println(secret);
-        log.info("authenticate() service method called");
         AuthenticationTokenDto authenticationTokenDto = new AuthenticationTokenDto();
         if(checkCredentials(authenticationDto)){
             authenticationTokenDto.setAuthorization(

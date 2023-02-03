@@ -58,8 +58,6 @@ public class EventController {
                                                                   @RequestParam(name = "date_from", required = false) @DateTimeFormat(pattern = DAY_MONTH_YEAR_DASH) LocalDate dateFrom,
                                                                      @ApiParam(value = "The date to which events will take place")
                                                                   @RequestParam(name = "date_to", required = false) @DateTimeFormat(pattern = DAY_MONTH_YEAR_DASH) LocalDate dateTo){
-        log.info("findAllPublicEvents controller method called with parameters " +
-                "country: {}, city: {}, date_from: {}, date_to: {} ", country, city, dateFrom, dateTo);
         return ResponseEntity.ok(eventService.findAllPublicEvents(country, city, dateFrom, dateTo));
     }
 
@@ -88,9 +86,7 @@ public class EventController {
                                                                 @RequestParam(name = "date_from", required = false) @DateTimeFormat(pattern = DAY_MONTH_YEAR_DASH) LocalDate dateFrom,
                                                             @ApiParam(value = "The date to which events will take place")
                                                                 @RequestParam(name = "date_to", required = false) @DateTimeFormat(pattern = DAY_MONTH_YEAR_DASH) LocalDate dateTo) {
-        log.info("findAllUserCreatedAndOrAttendingEvents controller method called with parameters " +
-                        "username: {}, display: {}, country: {}, city: {}, date_from: {}, date_to: {} ", username, displayValue, country, city,
-                dateFrom, dateTo);
+
         return ResponseEntity.ok(eventService.findAllUserCreatedAndOrAttendingEvents(username, displayValue, country, city, dateFrom, dateTo));
     }
     /**
@@ -105,7 +101,6 @@ public class EventController {
     })
     @GetMapping("/events/event/{event-id}")
     public ResponseEntity<EventDto> findEventInfo(@PathVariable("event-id") Long eventId) {
-        log.info("findEventInfo controller method is called with eventId: {}", eventId);
         return ResponseEntity.ok(eventService.findEventInfo(eventId));
     }
 
@@ -123,7 +118,6 @@ public class EventController {
     @PreAuthorize("(#username == authentication.principal)")
     @PostMapping("/events/user/{username}")
     public ResponseEntity<EventDto> saveEvent(@PathVariable("username") String username, @Valid @RequestBody EventDto event) {
-        log.info("saveEvent controller method is called with user name: {} and event DTO: {}", username, event.toString());
         return ResponseEntity.ok(eventService.saveEvent(username, event));
     }
 
@@ -145,7 +139,6 @@ public class EventController {
     public ResponseEntity<EventDto> editEvent(@PathVariable("user-name") String username,
                                               @PathVariable("event-id") Long eventId,
                                               @Valid @RequestBody EventDto event) {
-        log.info("editEvent controller method called with username: {}, eventId: {}, eventDTO: {}", username, eventId, event.toString());
         return ResponseEntity.ok(eventService.editEvent(username, eventId, event));
     }
 
@@ -165,7 +158,6 @@ public class EventController {
     public ResponseEntity<Void> deleteEvent(@PathVariable("user-name") String username,
                                             @PathVariable("event-id") Long eventId){
         eventService.deleteEvent(username, eventId);
-        log.info("deleteEvent is called with userName: {} and eventId: {}", username, eventId);
         return ResponseEntity.noContent().build();
     }
 
@@ -183,7 +175,6 @@ public class EventController {
     @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
     @PostMapping(value = "/attendance/user/{username}/event/{event_id}")
     public ResponseEntity<Void> addEventAttendance(@PathVariable(name = "username") String username, @PathVariable(name = "event_id") Long eventId){
-        log.info("addEventAttendance controller method is called with username: {} and eventId: {}", username, eventId);
         eventService.addEventAttendance(username, eventId);
         return ResponseEntity.ok().build();
     }
@@ -202,7 +193,6 @@ public class EventController {
     @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
     @DeleteMapping(value = "/attendance/user/{username}/event/{event_id}")
     public ResponseEntity<Void> removeEventAttendance(@PathVariable(name = "username") String username, @PathVariable(name = "event_id") Long eventId){
-        log.info("removeEventAttendance controller method is called with username: {} and eventId: {}", username, eventId);
         eventService.removeEventAttendance(username, eventId);
         return ResponseEntity.ok().build();
     }

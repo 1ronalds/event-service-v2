@@ -32,7 +32,6 @@ public class AuthenticationController {
     })
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationTokenDto> authenticateUser(@RequestBody AuthenticationDto authenticationDto){
-        log.info("authenticateUser() controller method called");
         return ResponseEntity.ok(authenticationService.authenticate(authenticationDto));
     }
 }
