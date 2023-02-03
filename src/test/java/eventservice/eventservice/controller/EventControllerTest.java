@@ -379,39 +379,39 @@ public class EventControllerTest {
 
     @Test
     void addEventAttendance_success(){
-        ResponseEntity<Void> response = controller.addEventAttendance(1L, 2L);
+        ResponseEntity<Void> response = controller.addEventAttendance("Administrator", 2L);
         assertEquals(ResponseEntity.ok().build(), response);
-        Mockito.verify(service, times(1)).addEventAttendance(1L, 2L);
+        Mockito.verify(service, times(1)).addEventAttendance("Administrator", 2L);
     }
 
     @Test
     void addEventAttendance_EventNotFoundException(){
         Mockito.doThrow(EventNotFoundException.class).when(service).addEventAttendance(any(), any());
-        assertThrows(EventNotFoundException.class, () -> controller.addEventAttendance(1L, 2L));
+        assertThrows(EventNotFoundException.class, () -> controller.addEventAttendance("Administrator", 2L));
     }
 
     @Test
     void addEventAttendance_UserNotFoundException(){
         Mockito.doThrow(UserNotFoundException.class).when(service).addEventAttendance(any(), any());
-        assertThrows(UserNotFoundException.class, () -> controller.addEventAttendance(1L, 2L));
+        assertThrows(UserNotFoundException.class, () -> controller.addEventAttendance("Administrator", 2L));
     }
 
     @Test
     void removeEventAttendance_success(){
-        ResponseEntity<Void> response = controller.removeEventAttendance(1L, 2L);
+        ResponseEntity<Void> response = controller.removeEventAttendance("Administrator", 2L);
         assertEquals(ResponseEntity.ok().build(), response);
-        Mockito.verify(service, times(1)).removeEventAttendance(1L, 2L);
+        Mockito.verify(service, times(1)).removeEventAttendance("Administrator", 2L);
     }
 
     @Test
     void removeEventAttendance_EventNotFoundException(){
         Mockito.doThrow(EventNotFoundException.class).when(service).removeEventAttendance(any(), any());
-        assertThrows(EventNotFoundException.class, () -> controller.removeEventAttendance(1L, 2L));
+        assertThrows(EventNotFoundException.class, () -> controller.removeEventAttendance("Administrator", 2L));
     }
 
     @Test
     void removeEventAttendance_UserNotFoundException(){
         Mockito.doThrow(UserNotFoundException.class).when(service).removeEventAttendance(any(), any());
-        assertThrows(UserNotFoundException.class, () -> controller.removeEventAttendance(1L, 2L));
+        assertThrows(UserNotFoundException.class, () -> controller.removeEventAttendance("Administrator", 2L));
     }
 }

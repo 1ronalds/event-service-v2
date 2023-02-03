@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,6 +40,7 @@ public class UserController {
             @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500),
             @ApiResponse(code = 404, message = HTTPResponseMessages.HTTP_404)
     })
+    @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
     @GetMapping("/users/{username}")
     public ResponseEntity<UserDto> findUserDetails(@ApiParam(value = "username") @PathVariable String username){
         log.info("findUserDetails controller method called with parameter username: {}", username);
@@ -73,6 +75,7 @@ public class UserController {
             @ApiResponse(code = 404, message = HTTPResponseMessages.HTTP_404),
             @ApiResponse(code = 400, message = HTTPResponseMessages.HTTP_400)
     })
+    @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
     @PutMapping("/users/{username}")
     public ResponseEntity<UserDto> editUser(@ApiParam(value = "username") @PathVariable String username,
                                             @Valid @ApiParam(value="userDto") @RequestBody UserDto user){
@@ -90,6 +93,7 @@ public class UserController {
             @ApiResponse(code = 500, message = HTTPResponseMessages.HTTP_500),
             @ApiResponse(code = 404, message = HTTPResponseMessages.HTTP_404)
     })
+    @PreAuthorize("(#username == authentication.principal) || hasAuthority('admin')")
     @DeleteMapping("/users/{username}")
     public ResponseEntity<Void> deleteUser(@ApiParam(value="username") @PathVariable String username){
         log.info("deleteUser controller method called with parameter username: {}", username);

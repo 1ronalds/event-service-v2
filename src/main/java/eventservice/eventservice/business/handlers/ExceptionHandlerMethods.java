@@ -1,6 +1,7 @@
 package eventservice.eventservice.business.handlers;
 
 
+import eventservice.eventservice.business.handlers.exceptions.AuthorizationException;
 import eventservice.eventservice.business.handlers.exceptions.CountryNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.AttendanceNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.CountryNotSpecifiedException;
@@ -11,6 +12,7 @@ import eventservice.eventservice.business.handlers.exceptions.EventMaxAttendance
 import eventservice.eventservice.business.handlers.exceptions.EventNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDataException;
 import eventservice.eventservice.business.handlers.exceptions.InvalidDisplayValueException;
+import eventservice.eventservice.business.handlers.exceptions.InvalidUsernamePasswordException;
 import eventservice.eventservice.business.handlers.exceptions.UserNotFoundException;
 import eventservice.eventservice.business.handlers.exceptions.UsernameExistsException;
 import org.apache.tomcat.util.buf.StringUtils;
@@ -142,4 +144,20 @@ public class ExceptionHandlerMethods {
                 FORBIDDEN, "The limit of attendees has been reached for this event", request.getRequestURI());
         return new ResponseEntity<>(errorModel, HttpStatus.FORBIDDEN);
     }
+
+    @ExceptionHandler(InvalidUsernamePasswordException.class)
+    protected ResponseEntity<ErrorModel> handleInvalidUsernamePassword(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 403,
+                FORBIDDEN, "Username or password is incorrect", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.FORBIDDEN);
+    }
+
+    @ExceptionHandler(AuthorizationException.class)
+    protected ResponseEntity<ErrorModel> handleInvalidToken(Exception ex, HttpServletRequest request) {
+        ErrorModel errorModel = new ErrorModel(LocalDate.now(), 403,
+                FORBIDDEN, "JWT token invalid or expired", request.getRequestURI());
+        return new ResponseEntity<>(errorModel, HttpStatus.FORBIDDEN);
+    }
+
+
 }

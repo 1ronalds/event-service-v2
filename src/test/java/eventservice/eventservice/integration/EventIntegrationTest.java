@@ -13,10 +13,13 @@ import eventservice.eventservice.business.repository.model.EventTypeEntity;
 import eventservice.eventservice.business.repository.model.RoleEntity;
 import eventservice.eventservice.business.repository.model.UserEntity;
 import eventservice.eventservice.model.EventMinimalDto;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -30,6 +33,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -85,6 +89,10 @@ public class EventIntegrationTest {
     private LocalDateTime dateTime2;
     private LocalDateTime dateTime3;
 
+    @Value("${jwt.secret-key}")
+    String secret;
+
+
     @BeforeEach
     void init(){
         eventTypeEntity = new EventTypeEntity(1L, "public");
@@ -138,6 +146,15 @@ public class EventIntegrationTest {
         publicTypeEntity = new EventTypeEntity(1L, "public");
 
         privateTypeEntity = new EventTypeEntity(2L, "private");
+    }
+
+    private String getJwtForUsername(String username){
+        return "Bearer " + Jwts.builder()
+                .setSubject(username)
+                .claim("role","user")
+                .setExpiration(new Date(System.currentTimeMillis() + 3600000))
+                .signWith(SignatureAlgorithm.HS256, secret)
+                .compact();
     }
 
     @Test
@@ -310,6 +327,7 @@ public class EventIntegrationTest {
     @Test
     void findAllUserCreatedAndOrAttendingEvents_displayValueNotSpecified_Exception() throws Exception {
         mockMvc.perform(get("/v1/events/user/Damian123")
+                .header("Authorization", getJwtForUsername("Damian123"))
                 .param("country", "Lativa")
                 .param("city", "Riga")
                 .contentType(MediaType.APPLICATION_JSON))
@@ -320,6 +338,7 @@ public class EventIntegrationTest {
     @Test
     void findAllUserCreatedAndOrAttendingEvents_dateIntervalNotSpecified_Exception() throws Exception {
         mockMvc.perform(get("/v1/events/user/Damian123")
+                .header("Authorization", getJwtForUsername("Damian123"))
                 .param("display", "mine")
                 .param("country", "Latvia")
                 .param("city", "Riga")
@@ -334,6 +353,7 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("Damian123", "Latvia", null))
                 .thenReturn(List.of(eventEntity4, eventEntity5));
         mockMvc.perform(get("/v1/events/user/Damian123")
+                .header("Authorization", getJwtForUsername("Damian123"))
                 .param("display", "mine")
                 .param("country", "Latvia")
                 .contentType(MediaType.APPLICATION_JSON))
@@ -349,6 +369,7 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("Damian123", "Spain", null))
                         .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/Damian123")
+                        .header("Authorization", getJwtForUsername("Damian123"))
                         .param("display", "mine")
                         .param("country", "Spain")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -362,6 +383,7 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("Damian123", "Latvia", "Riga"))
                         .thenReturn(List.of(eventEntity5));
         mockMvc.perform(get("/v1/events/user/Damian123")
+                        .header("Authorization", getJwtForUsername("Damian123"))
                         .param("display", "mine")
                         .param("country", "Latvia")
                         .param("city", "Riga")
@@ -377,6 +399,7 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("Damian123", "Latvia", "Riga"))
                 .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/Damian123")
+                        .header("Authorization", getJwtForUsername("Damian123"))
                         .param("display", "mine")
                         .param("country", "Spain")
                         .param("city", "Madrid")
@@ -393,6 +416,7 @@ public class EventIntegrationTest {
                 LocalDateTime.of(2022, 11, 11, 0, 0)))
                 .thenReturn(List.of(eventEntity4));
         mockMvc.perform(get("/v1/events/user/Damian123")
+                        .header("Authorization", getJwtForUsername("Damian123"))
                         .param("display", "mine")
                         .param("country", "Latvia")
                         .param("city", "Venstspils")
@@ -412,6 +436,7 @@ public class EventIntegrationTest {
                         LocalDateTime.of(2023, 11, 11, 0, 0)))
                 .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/Damian123")
+                        .header("Authorization", getJwtForUsername("Damian123"))
                         .param("display", "mine")
                         .param("country", "Latvia")
                         .param("city", "Venstspils")
@@ -430,6 +455,7 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("CasualMovieEnjoyer", "Latvia", null))
                 .thenReturn(List.of(eventEntity2));
         mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .header("Authorization", getJwtForUsername("CasualMovieEnjoyer"))
                         .param("display", "all")
                         .param("country", "Latvia")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -446,6 +472,7 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("CasualMovieEnjoyer", "Spain", null))
                 .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .header("Authorization", getJwtForUsername("CasualMovieEnjoyer"))
                         .param("display", "all")
                         .param("country", "Spain")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -461,6 +488,7 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("CasualMovieEnjoyer", "Latvia", "Venstspils"))
                 .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .header("Authorization", getJwtForUsername("CasualMovieEnjoyer"))
                         .param("display", "all")
                         .param("country", "Latvia")
                         .param("city", "Venstspils")
@@ -478,6 +506,7 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findAllByOrganiserUsernameAndCountryAndCity("CasualMovieEnjoyer", "Spain", "Madrid"))
                 .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .header("Authorization", getJwtForUsername("CasualMovieEnjoyer"))
                         .param("display", "all")
                         .param("country", "Spain")
                         .param("city", "Madrid")
@@ -498,6 +527,7 @@ public class EventIntegrationTest {
                         LocalDateTime.of(2023, 12, 12, 0, 0)))
                 .thenReturn(List.of(eventEntity2));
         mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .header("Authorization", getJwtForUsername("CasualMovieEnjoyer"))
                         .param("display", "all")
                         .param("country", "Latvia")
                         .param("city", "Venstspils")
@@ -521,6 +551,7 @@ public class EventIntegrationTest {
                         LocalDateTime.of(2023, 12, 12, 0, 0)))
                 .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .header("Authorization", getJwtForUsername("CasualMovieEnjoyer"))
                         .param("display", "all")
                         .param("country", "Latvia")
                         .param("city", "Venstspils")
@@ -535,6 +566,7 @@ public class EventIntegrationTest {
     @Test
     void findAllUserCreatedAndOrAttendingEvents_displayValueAll_countryNotSpecified_Exception() throws Exception {
         mockMvc.perform(get("/v1/events/user/CasualMovieEnjoyer")
+                        .header("Authorization", getJwtForUsername("CasualMovieEnjoyer"))
                         .param("display", "all")
                         .param("city", "Venstspils")
                         .param("date_from", "05-12-2022")
@@ -549,6 +581,7 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findAllAttendingByCountryAndCity("BestClientEver", "Latvia", null))
                         .thenReturn(List.of(eventEntity1));
         mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .header("Authorization", getJwtForUsername("BestClientEver"))
                         .param("display", "attending")
                         .param("country", "Latvia")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -563,6 +596,7 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findAllAttendingByCountryAndCity("BestClientEver", "Latvia", null))
                 .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .header("Authorization", getJwtForUsername("BestClientEver"))
                         .param("display", "attending")
                         .param("country", "Spain")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -576,6 +610,7 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findAllAttendingByCountryAndCity("BestClientEver", "Latvia", "Riga"))
                 .thenReturn(List.of(eventEntity1));
         mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .header("Authorization", getJwtForUsername("BestClientEver"))
                         .param("display", "attending")
                         .param("country", "Latvia")
                         .param("city", "Riga")
@@ -591,6 +626,7 @@ public class EventIntegrationTest {
         Mockito.when(eventRepository.findAllAttendingByCountryAndCity("BestClientEver", "Latvia", "Riga"))
                 .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .header("Authorization", getJwtForUsername("BestClientEver"))
                         .param("display", "attending")
                         .param("country", "Latvia")
                         .param("city", "Venstspils")
@@ -607,6 +643,7 @@ public class EventIntegrationTest {
                         LocalDateTime.of(2022, 12, 9, 0, 0)))
                 .thenReturn(List.of(eventEntity1));
         mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .header("Authorization", getJwtForUsername("BestClientEver"))
                         .param("display", "attending")
                         .param("country", "Latvia")
                         .param("city", "Riga")
@@ -626,6 +663,7 @@ public class EventIntegrationTest {
                         LocalDateTime.of(2022, 12, 10, 0, 0)))
                 .thenReturn(Collections.emptyList());
         mockMvc.perform(get("/v1/events/user/BestClientEver")
+                        .header("Authorization", getJwtForUsername("BestClientEver"))
                         .param("display", "attending")
                         .param("country", "Latvia")
                         .param("city", "Riga")
@@ -671,8 +709,8 @@ public class EventIntegrationTest {
         Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(List.of(new CountryDto(1L, "Latvia")));
         Mockito.when(countryCityServiceConnection.getCities(any())).thenReturn(List.of(new CityDto("Liepāja")));
 
-
         mockMvc.perform(post("/v1/events/user/AdminUser")
+                        .header("Authorization", getJwtForUsername("AdminUser"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(eventJson))
                 .andDo(print())
@@ -694,6 +732,7 @@ public class EventIntegrationTest {
 
 
         mockMvc.perform(post("/v1/events/user/AdminUser")
+                        .header("Authorization", getJwtForUsername("AdminUser"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(eventJson))
                 .andDo(print())
@@ -716,6 +755,7 @@ public class EventIntegrationTest {
 
 
         mockMvc.perform(post("/v1/events/user/AdminUser")
+                        .header("Authorization", getJwtForUsername("AdminUser"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(eventJson))
                 .andDo(print())
@@ -735,6 +775,7 @@ public class EventIntegrationTest {
         String eventJson = mapper.writeValueAsString(invalidEntity);
 
         mockMvc.perform(post("/v1/events/user/AdminUser")
+                        .header("Authorization", getJwtForUsername("AdminUser"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(eventJson))
                 .andDo(print())
@@ -758,6 +799,7 @@ public class EventIntegrationTest {
 
 
         mockMvc.perform(put("/v1/events/user/AdminUser/event/7")
+                        .header("Authorization", getJwtForUsername("AdminUser"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(eventJson))
                 .andDo(print())
@@ -781,6 +823,7 @@ public class EventIntegrationTest {
         Mockito.when(countryCityServiceConnection.getCountries()).thenReturn(Collections.emptyList());
 
         mockMvc.perform(put("/v1/events/user/AdminUser/event/7")
+                        .header("Authorization", getJwtForUsername("AdminUser"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(eventJson))
                 .andDo(print())
@@ -805,6 +848,7 @@ public class EventIntegrationTest {
         Mockito.when(countryCityServiceConnection.getCities(any())).thenReturn(Collections.emptyList());
 
         mockMvc.perform(put("/v1/events/user/AdminUser/event/7")
+                        .header("Authorization", getJwtForUsername("AdminUser"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(eventJson))
                 .andDo(print())
@@ -824,6 +868,7 @@ public class EventIntegrationTest {
         String eventJson = mapper.writeValueAsString(invalidEntity);
 
         mockMvc.perform(put("/v1/events/user/AdminUser/event/7")
+                        .header("Authorization", getJwtForUsername("AdminUser"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(eventJson))
                 .andDo(print())
@@ -834,7 +879,7 @@ public class EventIntegrationTest {
     void deleteEvent() throws Exception {
         Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
 
-        mockMvc.perform(delete("/v1/events/user/AdminUser/event/7"))
+        mockMvc.perform(delete("/v1/events/user/AdminUser/event/7").header("Authorization", getJwtForUsername("AdminUser")))
                 .andDo(print())
                 .andExpect(status().isNoContent());
     }
@@ -843,7 +888,7 @@ public class EventIntegrationTest {
     void deleteEventNotFound() throws Exception {
         Mockito.when(eventRepository.findById(any())).thenReturn(Optional.empty());
 
-        mockMvc.perform(delete("/v1/events/user/AdminUser/event/7"))
+        mockMvc.perform(delete("/v1/events/user/AdminUser/event/7").header("Authorization", getJwtForUsername("AdminUser")))
                 .andDo(print())
                 .andExpect(status().isNotFound());
     }
@@ -852,17 +897,19 @@ public class EventIntegrationTest {
     void deleteEventInvalidUsername() throws Exception {
         Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
 
-        mockMvc.perform(delete("/v1/events/user/randomUser/event/7"))
+        mockMvc.perform(delete("/v1/events/user/randomUser/event/7").header("Authorization", getJwtForUsername("randomUser")))
                 .andDo(print())
                 .andExpect(status().isBadRequest());
     }
 
     @Test
     void addEventAttendance_success() throws Exception {
+        Mockito.when(userRepository.findByUsername(any())).thenReturn(Optional.ofNullable(userEntity));
         Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity));
 
-        mockMvc.perform(post("/v1/attendance/user/1/event/7"))
+        mockMvc.perform(post("/v1/attendance/user/AdminUser/event/7")
+                        .header("Authorization", getJwtForUsername("AdminUser")))
                 .andDo(print())
                 .andExpect(status().isOk());
 
@@ -871,33 +918,27 @@ public class EventIntegrationTest {
 
     @Test
     void addEventAttendance_EventNotFoundException() throws Exception {
+        Mockito.when(userRepository.findByUsername(any())).thenReturn(Optional.ofNullable(userEntity));
         Mockito.when(eventRepository.findById(any())).thenReturn(Optional.empty());
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity));
 
-        mockMvc.perform(post("/v1/attendance/user/1/event/7"))
-                .andDo(print())
-                .andExpect(status().isNotFound());
-    }
-
-    @Test
-    void addEventAttendance_UserNotFoundException() throws Exception {
-        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
-        Mockito.when(userRepository.findById(any())).thenReturn(Optional.empty());
-
-        mockMvc.perform(post("/v1/attendance/user/1/event/7"))
+        mockMvc.perform(post("/v1/attendance/user/AdminUser/event/7")
+                .header("Authorization", getJwtForUsername("AdminUser")))
                 .andDo(print())
                 .andExpect(status().isNotFound());
     }
 
     @Test
     void removeEventAttendance_success() throws Exception {
+        Mockito.when(userRepository.findByUsername(any())).thenReturn(Optional.ofNullable(userEntity));
         Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity));
 
         eventEntity.getAttendees().add(userEntity);
         eventEntity.setAttendeeCount(eventEntity.getAttendeeCount() + 1);
 
-        mockMvc.perform(delete("/v1/attendance/user/1/event/7"))
+        mockMvc.perform(delete("/v1/attendance/user/AdminUser/event/7")
+                        .header("Authorization", getJwtForUsername("AdminUser")))
                 .andDo(print())
                 .andExpect(status().isOk());
 
@@ -906,20 +947,12 @@ public class EventIntegrationTest {
 
     @Test
     void removeEventAttendance_EventNotFoundException() throws Exception {
+        Mockito.when(userRepository.findByUsername(any())).thenReturn(Optional.ofNullable(userEntity));
         Mockito.when(eventRepository.findById(any())).thenReturn(Optional.empty());
         Mockito.when(userRepository.findById(any())).thenReturn(Optional.ofNullable(userEntity));
 
-        mockMvc.perform(delete("/v1/attendance/user/1/event/7"))
-                .andDo(print())
-                .andExpect(status().isNotFound());
-    }
-
-    @Test
-    void removeEventAttendance_UserNotFoundException() throws Exception {
-        Mockito.when(eventRepository.findById(any())).thenReturn(Optional.ofNullable(eventEntity));
-        Mockito.when(userRepository.findById(any())).thenReturn(Optional.empty());
-
-        mockMvc.perform(delete("/v1/attendance/user/1/event/7"))
+        mockMvc.perform(delete("/v1/attendance/user/AdminUser/event/7")
+                .header("Authorization", getJwtForUsername("AdminUser")))
                 .andDo(print())
                 .andExpect(status().isNotFound());
     }

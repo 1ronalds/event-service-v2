@@ -8,4 +8,6 @@ public class HTTPResponseMessages {
     public static final String HTTP_404 = "Not found";
     public static final String HTTP_204 = "No content";
 
+    public static final String HTTP_403 = "Unauthorized";
+
 }
