@@ -16,13 +16,13 @@ public class Logging {
     @Before("execution(* eventservice.eventservice.web.controller.*.*(..))")
     public void logBeforeController(JoinPoint joinPoint){
         log.info("Calling {}.{}() with arguments: {}", joinPoint.getSignature().getDeclaringTypeName(),
-                joinPoint.getSignature().getName(), Arrays.deepToString(joinPoint.getArgs()));
+                joinPoint.getSignature().getName(), Arrays.toString(joinPoint.getArgs()));
     }
 
     @Before("execution(* eventservice.eventservice.business.service.impl.*.*(..))")
     public void logBeforeService(JoinPoint joinPoint){
         log.info("Calling {}.{}() with arguments: {}", joinPoint.getSignature().getDeclaringTypeName(),
-                joinPoint.getSignature().getName(), Arrays.deepToString(joinPoint.getArgs()));
+                joinPoint.getSignature().getName(), Arrays.toString(joinPoint.getArgs()));
     }
 
 }

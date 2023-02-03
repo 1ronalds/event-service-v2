@@ -22083,3 +22083,32 @@ Identify and stop the process that's listening on port 10000 or configure this a
 [INFO ] 2023-02-03 10:04:35.243 [http-nio-10000-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 [INFO ] 2023-02-03 10:04:35.245 [http-nio-10000-exec-1] DispatcherServlet - Completed initialization in 1 ms
 [INFO ] 2023-02-03 10:04:35.473 [http-nio-10000-exec-1] Logging - Calling eventservice.eventservice.web.controller.AuthenticationController.authenticateUser() with parameters: [AuthenticationDto(username=Administrator, password=@#$sad:):))]
+[INFO ] 2023-02-03 10:09:35.815 [background-preinit] Version - HV000001: Hibernate Validator 6.2.5.Final
+[INFO ] 2023-02-03 10:09:35.943 [main] EventServiceApplication - Starting EventServiceApplication using Java 17.0.4.1 on LVAGPLTP4099 with PID 3528 (C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2\build\classes\java\main started by ronalds.norvezs in C:\Users\ronalds.norvezs\Documents\event-service-v2\event-service-v2)
+[INFO ] 2023-02-03 10:09:35.952 [main] EventServiceApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2023-02-03 10:09:38.509 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2023-02-03 10:09:38.698 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 169 ms. Found 3 JPA repository interfaces.
+[INFO ] 2023-02-03 10:09:39.276 [main] GenericScope - BeanFactory id=2814f007-25ad-3641-94e8-af8c5c757b34
+[INFO ] 2023-02-03 10:09:40.834 [main] TomcatWebServer - Tomcat initialized with port(s): 10000 (http)
+[INFO ] 2023-02-03 10:09:41.316 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5264 ms
+[INFO ] 2023-02-03 10:09:41.811 [main] VersionPrinter - Flyway Community Edition 8.5.13 by Redgate
+[INFO ] 2023-02-03 10:09:41.811 [main] VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+[INFO ] 2023-02-03 10:09:41.812 [main] VersionPrinter - 
+[INFO ] 2023-02-03 10:09:42.630 [main] BaseDatabaseType - Database: jdbc:mysql://localhost:3306/eventdb (MySQL 8.0)
+[INFO ] 2023-02-03 10:09:42.765 [main] DbValidate - Successfully validated 7 migrations (execution time 00:00.078s)
+[INFO ] 2023-02-03 10:09:42.794 [main] DbMigrate - Current version of schema `eventdb`: 1.0.7
+[INFO ] 2023-02-03 10:09:42.796 [main] DbMigrate - Schema `eventdb` is up to date. No migration necessary.
+[INFO ] 2023-02-03 10:09:43.124 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2023-02-03 10:09:43.296 [main] Version - HHH000412: Hibernate ORM core version 5.6.14.Final
+[INFO ] 2023-02-03 10:09:43.818 [main] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2023-02-03 10:09:44.191 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2023-02-03 10:09:45.725 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2023-02-03 10:09:45.739 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2023-02-03 10:09:47.420 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2023-02-03 10:09:49.031 [main] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7294c9fe, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65e639f2, org.springframework.security.web.context.SecurityContextPersistenceFilter@2474331d, org.springframework.security.web.header.HeaderWriterFilter@7ba70b3b, org.springframework.web.filter.CorsFilter@54a1a6a8, org.springframework.security.web.authentication.logout.LogoutFilter@33224703, eventservice.eventservice.security.JwtTokenFilter@4522d793, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@24eb71f6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12b34bd5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7cba8293, org.springframework.security.web.session.SessionManagementFilter@5576eef4, org.springframework.security.web.access.ExceptionTranslationFilter@498102a4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@48149568]
+[INFO ] 2023-02-03 10:09:50.533 [main] TomcatWebServer - Tomcat started on port(s): 10000 (http) with context path '/api/event-service'
+[INFO ] 2023-02-03 10:09:51.563 [main] EventServiceApplication - Started EventServiceApplication in 16.565 seconds (JVM running for 18.233)
+[INFO ] 2023-02-03 10:09:58.459 [http-nio-10000-exec-2] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-02-03 10:09:58.463 [http-nio-10000-exec-2] DispatcherServlet - Completed initialization in 3 ms
+[INFO ] 2023-02-03 10:09:58.665 [http-nio-10000-exec-2] Logging - Calling eventservice.eventservice.web.controller.AuthenticationController.authenticateUser() with arguments: [AuthenticationDto(username=Administrator, password=@#$sad:):))]
+[INFO ] 2023-02-03 10:09:58.673 [http-nio-10000-exec-2] Logging - Calling eventservice.eventservice.business.service.impl.AuthenticationServiceImpl.authenticate() with arguments: [AuthenticationDto(username=Administrator, password=@#$sad:):))]
